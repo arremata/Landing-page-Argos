@@ -40,4 +40,4 @@ O edital deve informar a situação de ocupação. As possibilidades são:
 - Custas processuais: R$ 500 a R$ 2.000
 - Prazo médio: 3 a 12 meses
 
-Inclua esses valores na conta antes de dar o lance. O [Argos](https://leilao-br.vercel.app/) já considera o status de ocupação na análise de viabilidade de cada leilão.
+Inclua esses valores na conta antes de dar o lance. O [Argos](/) já considera o status de ocupação na análise de viabilidade de cada leilão.

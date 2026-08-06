@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://leilao-br.vercel.app/sitemap.xml
+Sitemap: https://argos-landing.vercel.app/sitemap.xml

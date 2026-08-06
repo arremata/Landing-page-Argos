@@ -2,7 +2,10 @@
 
 Landing page e blog do Argos, plataforma de inteligência para leilões de imóveis.
 
-Site em produção: https://leilao-br.vercel.app/
+Site em produção: https://argos-landing.vercel.app/
+
+> `leilao-br.vercel.app` não é mais este site — esse endereço serve o app React
+> (dashboard) do repositório `arremata/leilao-br`.
 
 ## Stack
 
@@ -69,7 +72,9 @@ Artigos são curtos por definição editorial — cerca de 1.500 caracteres, tom
 
 A Vercel serve os arquivos estáticos direto da raiz e reconhece `api/waitlist.js` como função serverless. O `dev-server.js` existe apenas para desenvolvimento local — não é usado em produção.
 
-Rode `npm run blog` antes de cada deploy que inclua alteração em artigos.
+O `vercel.json` é obrigatório: sem ele a Vercel detecta o `build` do `package.json`, roda o script e depois procura uma pasta `public/` que não existe — o deploy falha. O arquivo aponta `outputDirectory` para a raiz e roda `npm run blog` no build, então os HTMLs do blog são regerados a cada deploy.
+
+O domínio usado nos canonicals, no sitemap e nos links do blog vem de `SITE_URL`; se não estiver definida, o build usa `VERCEL_PROJECT_PRODUCTION_URL`, que a própria Vercel injeta. Trocar de domínio não exige mexer no código — basta apontar o domínio novo no projeto.
 
 ## Notas de produto
 

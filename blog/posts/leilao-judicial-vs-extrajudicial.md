@@ -40,4 +40,4 @@ Conduzido por bancos e instituições financeiras (Caixa, Itaú, Santander). O d
 | Velocidade | Lenta | Rápida |
 | Financiamento | Raro | Possível |
 
-O [Argos](https://leilao-br.vercel.app/) identifica automaticamente o tipo de leilão e ajusta a análise de risco para cada caso.
+O [Argos](/) identifica automaticamente o tipo de leilão e ajusta a análise de risco para cada caso.

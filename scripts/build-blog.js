@@ -6,7 +6,14 @@ const { marked } = require('marked');
 const POSTS_DIR = path.join(__dirname, '..', 'blog', 'posts');
 const BLOG_OUT = path.join(__dirname, '..', 'blog');
 const ROOT = path.join(__dirname, '..');
-const SITE_URL = 'https://leilao-br.vercel.app';
+// Canonicals, sitemap e todos os links do blog para a LP saem daqui. Precisa
+// ser configuravel porque o dominio ainda vai mudar: VERCEL_PROJECT_PRODUCTION_URL
+// e injetado pela Vercel no build, entao trocar de dominio nao exige mexer no codigo.
+const SITE_URL = (
+  process.env.SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`) ||
+  'https://argos-landing.vercel.app'
+).replace(/\/+$/, '');
 
 marked.setOptions({
   gfm: true,
@@ -121,7 +128,7 @@ ${faqHtml}
 
 <header class="nav" id="nav">
   <div class="container nav-inner">
-    <a href="https://leilao-br.vercel.app/" class="logo">
+    <a href="${SITE_URL}/" class="logo">
       <span class="logo-mark" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
       </span>
@@ -129,10 +136,10 @@ ${faqHtml}
     </a>
     <nav class="nav-links" aria-label="Navegação">
       <a href="/blog/">Blog</a>
-      <a href="https://leilao-br.vercel.app/#como-funciona">Como funciona</a>
-      <a href="https://leilao-br.vercel.app/#faq">Dúvidas</a>
+      <a href="${SITE_URL}/#como-funciona">Como funciona</a>
+      <a href="${SITE_URL}/#faq">Dúvidas</a>
     </nav>
-    <a href="https://leilao-br.vercel.app/" class="btn-primary btn-sm nav-cta" target="_blank" rel="noopener">Conhecer o Argos</a>
+    <a href="${SITE_URL}/" class="btn-primary btn-sm nav-cta" target="_blank" rel="noopener">Conhecer o Argos</a>
   </div>
 </header>
 
@@ -141,7 +148,7 @@ ${faqHtml}
     <div class="container blog-container">
 
       <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="https://leilao-br.vercel.app/">Home</a>
+        <a href="${SITE_URL}/">Home</a>
         <span aria-hidden="true">/</span>
         <a href="/blog/">Blog</a>
         <span aria-hidden="true">/</span>
@@ -167,7 +174,7 @@ ${faqHtml}
       <div class="blog-cta-box">
         <h3>Quer analisar leilões com mais segurança?</h3>
         <p>O Argos cruza edital, mercado, custos e riscos jurídicos em minutos. Veja como funciona.</p>
-        <a href="https://leilao-br.vercel.app/" class="btn-primary" target="_blank" rel="noopener">Conhecer o Argos →</a>
+        <a href="${SITE_URL}/" class="btn-primary" target="_blank" rel="noopener">Conhecer o Argos →</a>
       </div>
 
     </div>
@@ -238,7 +245,7 @@ function listingTemplate(posts) {
 
 <header class="nav" id="nav">
   <div class="container nav-inner">
-    <a href="https://leilao-br.vercel.app/" class="logo">
+    <a href="${SITE_URL}/" class="logo">
       <span class="logo-mark" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
       </span>
@@ -246,10 +253,10 @@ function listingTemplate(posts) {
     </a>
     <nav class="nav-links" aria-label="Navegação">
       <a href="/blog/">Blog</a>
-      <a href="https://leilao-br.vercel.app/#como-funciona">Como funciona</a>
-      <a href="https://leilao-br.vercel.app/#faq">Dúvidas</a>
+      <a href="${SITE_URL}/#como-funciona">Como funciona</a>
+      <a href="${SITE_URL}/#faq">Dúvidas</a>
     </nav>
-    <a href="https://leilao-br.vercel.app/" class="btn-primary btn-sm nav-cta" target="_blank" rel="noopener">Conhecer o Argos</a>
+    <a href="${SITE_URL}/" class="btn-primary btn-sm nav-cta" target="_blank" rel="noopener">Conhecer o Argos</a>
   </div>
 </header>
 

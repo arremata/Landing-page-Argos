@@ -35,4 +35,4 @@ O desconto do leilão parece irresistível — mas números bonitos no anúncio 
 - **Custo total: R$ 252.000**
 - **Margem: 37%** — neste caso, vale investigar a fundo
 
-O [Argos](https://leilao-br.vercel.app/) faz esse cálculo para cada leilão automaticamente, cruzando dados de mercado, edital e custos em uma análise completa.
+O [Argos](/) faz esse cálculo para cada leilão automaticamente, cruzando dados de mercado, edital e custos em uma análise completa.

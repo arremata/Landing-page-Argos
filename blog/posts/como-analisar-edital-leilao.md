@@ -31,4 +31,4 @@ O edital é o documento que define tudo em um leilão: o que você compra, por q
 
 Some esses custos: lance + comissão do leiloeiro (5-10%) + ITBI (2-3%) + cartório + eventual reforma + dívidas herdadas. Só o total real mostra se o negócio vale a pena.
 
-O [Argos](https://leilao-br.vercel.app/) faz esse cruzamento automaticamente — edital, mercado, custos e risco jurídico — para que você decida com segurança.
+O [Argos](/) faz esse cruzamento automaticamente — edital, mercado, custos e risco jurídico — para que você decida com segurança.

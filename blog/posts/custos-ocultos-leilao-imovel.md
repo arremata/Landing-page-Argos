@@ -33,4 +33,4 @@ O desconto no leilão atrai — mas o preço final raramente é só o valor do l
 
 Some tudo: lance + comissão + ITBI + cartório + dívidas + reforma. Compare esse total com o preço de mercado do imóvel. Se a margem for menor que 15%, o risco pode não compensar.
 
-O [Argos](https://leilao-br.vercel.app/) calcula o custo total automaticamente para cada leilão, incluindo estimativas de reforma e dívidas pendentes.
+O [Argos](/) calcula o custo total automaticamente para cada leilão, incluindo estimativas de reforma e dívidas pendentes.
