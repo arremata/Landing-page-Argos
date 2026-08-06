@@ -1,0 +1,7 @@
+node_modules/
+data/signups.json
+.DS_Store
+.vercel
+*.log
+.env
+.env.local

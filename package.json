@@ -1,0 +1,14 @@
+{
+  "name": "argos-landing",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node dev-server.js",
+    "blog": "node scripts/build-blog.js",
+    "build": "node scripts/build-blog.js"
+  },
+  "dependencies": {
+    "marked": "^15.0.0",
+    "gray-matter": "^4.0.3"
+  }
+}

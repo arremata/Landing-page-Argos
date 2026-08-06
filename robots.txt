@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leilao-br.vercel.app/sitemap.xml
