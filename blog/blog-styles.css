@@ -320,3 +320,82 @@
   .blog-cta-box { padding: var(--sp-8) var(--sp-5); }
   .breadcrumb { font-size: 12px; }
 }
+
+/* ===== DATA DE ATUALIZACAO ===== */
+/* Recencia visivel e requisito editorial, nao enfeite: e o sinal que o leitor
+   usa para confiar num texto juridico e que alimenta o dateModified do schema. */
+
+.blog-updated {
+  margin-top: var(--sp-4);
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+.blog-updated time { font-weight: 600; color: var(--text-2); }
+
+/* ===== FAQ VISIVEL ===== */
+/* Só existe schema FAQPage quando este bloco esta na pagina. */
+
+.blog-faq {
+  margin-top: var(--sp-12);
+  padding-top: var(--sp-8);
+  border-top: 1px solid var(--border);
+}
+
+.blog-faq h2 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--sp-5);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border-light);
+  padding: var(--sp-4) 0;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.5;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-4);
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::after {
+  content: '+';
+  flex-shrink: 0;
+  color: var(--text-3);
+  font-weight: 400;
+}
+
+.faq-item[open] summary::after { content: '−'; }
+
+.faq-answer {
+  margin-top: var(--sp-3);
+  color: var(--text-2);
+  line-height: 1.7;
+}
+
+/* ===== DISCLAIMER ===== */
+
+.blog-disclaimer {
+  margin-top: var(--sp-10);
+  padding: var(--sp-5);
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+}
+
+.blog-disclaimer p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text-3);
+}
