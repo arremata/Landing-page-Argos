@@ -151,9 +151,8 @@ function postTemplate(post, content, toc) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${post.title} | Argos Blog</title>
+<title>${post.title}</title>
 <meta name="description" content="${post.description}">
-<meta name="keywords" content="${(post.tags || []).join(', ')}">
 <link rel="canonical" href="${SITE_URL}/blog/${post.slug}/">
 <meta property="og:title" content="${post.title}">
 <meta property="og:description" content="${post.description}">
