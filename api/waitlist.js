@@ -9,7 +9,10 @@ const DATA_FILE = path.join(__dirname, '..', 'data', 'signups.json');
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^\(\d{2}\)\s?\d{4,5}-?\d{4}$/;
 
-async function saveSignup({ fullName, phone, email }) {
+// De qual porta a pessoa veio: LP de investidor (/) ou de quem quer morar (/morar/)
+const SOURCES = ['investir', 'morar'];
+
+async function saveSignup({ fullName, phone, email, source }) {
   let entries = [];
   try {
     const raw = await fs.readFile(DATA_FILE, 'utf-8');
@@ -19,7 +22,7 @@ async function saveSignup({ fullName, phone, email }) {
   }
 
   if (!entries.some((e) => e.email.toLowerCase() === email.toLowerCase())) {
-    entries.push({ fullName, phone, email, ts: new Date().toISOString() });
+    entries.push({ fullName, phone, email, source, ts: new Date().toISOString() });
     await fs.writeFile(DATA_FILE, JSON.stringify(entries, null, 2));
   }
 }
@@ -30,7 +33,7 @@ module.exports = async (req, res) => {
     return;
   }
 
-  const { fullName, phone, email, company } = req.body || {};
+  const { fullName, phone, email, company, source } = req.body || {};
 
   if (company) {
     res.status(200).json({ ok: true });
@@ -57,6 +60,7 @@ module.exports = async (req, res) => {
       fullName: fullName.trim(),
       phone: phone.trim(),
       email: email.trim().toLowerCase(),
+      source: SOURCES.includes(source) ? source : 'investir',
     });
     res.status(200).json({ ok: true });
   } catch (err) {

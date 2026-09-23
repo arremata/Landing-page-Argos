@@ -98,6 +98,7 @@ phoneInput.addEventListener('input', () => {
 const form = document.getElementById('waitlistForm');
 const submitBtn = document.getElementById('submitBtn');
 const formError = document.getElementById('formError');
+const submitLabel = submitBtn.querySelector('.btn-label').textContent;
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^\(\d{2}\)\s?\d{4,5}-?\d{4}$/;
@@ -147,7 +148,7 @@ form.addEventListener('submit', async (e) => {
     const res = await fetch('/api/waitlist', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ fullName, phone, email }),
+      body: JSON.stringify({ fullName, phone, email, source: form.dataset.source || 'investir' }),
     });
 
     if (!res.ok) throw new Error('request_failed');
@@ -157,7 +158,7 @@ form.addEventListener('submit', async (e) => {
   } catch (err) {
     setError('Não foi possível concluir. Tente novamente em alguns instantes.');
     submitBtn.disabled = false;
-    submitBtn.querySelector('.btn-label').textContent = 'Quero ser avisado no lançamento';
+    submitBtn.querySelector('.btn-label').textContent = submitLabel;
   }
 });
 

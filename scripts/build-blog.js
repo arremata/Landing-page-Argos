@@ -353,6 +353,12 @@ function generateSitemap(posts) {
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>${SITE_URL}/morar/</loc>
+    <lastmod>${now}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>${SITE_URL}/blog/</loc>
     <lastmod>${now}</lastmod>
     <changefreq>weekly</changefreq>
