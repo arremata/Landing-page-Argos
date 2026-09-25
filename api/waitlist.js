@@ -1,34 +1,40 @@
 // Grava os cadastros na tabela public.waitlist do Supabase (schema em
-// supabase/waitlist.sql) via REST, com a secret key que só existe na Vercel.
-// Sem SUPABASE_URL/SUPABASE_SECRET_KEY (dev local) cai em data/signups.json;
+// supabase/waitlist.sql) pela conexão Postgres que já existe na Vercel.
+// Sem DATABASE_URL (dev local) cai em data/signups.json;
 // na Vercel o filesystem é efêmero, então lá o Supabase é obrigatório.
 
 const fs = require('fs/promises');
 const path = require('path');
+const { Pool } = require('pg');
 
 const DATA_FILE = path.join(__dirname, '..', 'data', 'signups.json');
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^\(\d{2}\)\s?\d{4,5}-?\d{4}$/;
+let pool;
 
 // De qual porta a pessoa veio: LP de quem quer morar (/) ou de investidor (/investidor/)
 const SOURCES = ['investir', 'morar'];
 
-async function saveToSupabase({ fullName, phone, email, source }) {
-  const base = process.env.SUPABASE_URL.replace(/\/+$/, '');
-  const res = await fetch(`${base}/rest/v1/waitlist?on_conflict=email`, {
-    method: 'POST',
-    headers: {
-      apikey: process.env.SUPABASE_SECRET_KEY,
-      'Content-Type': 'application/json',
-      // E-mail repetido não é erro: mantém o primeiro cadastro e responde ok.
-      Prefer: 'resolution=ignore-duplicates,return=minimal',
-    },
-    body: JSON.stringify({ full_name: fullName, phone, email, source }),
-  });
-
-  if (!res.ok) {
-    throw new Error(`supabase ${res.status}: ${await res.text()}`);
+function getPool() {
+  if (!pool) {
+    pool = new Pool({
+      connectionString: process.env.DATABASE_URL,
+      max: 1,
+      idleTimeoutMillis: 5000,
+      connectionTimeoutMillis: 5000,
+      allowExitOnIdle: true,
+    });
   }
+  return pool;
+}
+
+async function saveToDatabase({ fullName, phone, email, source }) {
+  await getPool().query(
+    `insert into public.waitlist (full_name, phone, email, source)
+     values ($1, $2, $3, $4)
+     on conflict (email) do nothing`,
+    [fullName, phone, email, source]
+  );
 }
 
 async function saveToFile({ fullName, phone, email, source }) {
@@ -48,11 +54,11 @@ async function saveToFile({ fullName, phone, email, source }) {
 }
 
 async function saveSignup(signup) {
-  if (process.env.SUPABASE_URL && process.env.SUPABASE_SECRET_KEY) {
-    return saveToSupabase(signup);
+  if (process.env.DATABASE_URL) {
+    return saveToDatabase(signup);
   }
   if (process.env.VERCEL) {
-    throw new Error('SUPABASE_URL/SUPABASE_SECRET_KEY não configuradas na Vercel');
+    throw new Error('DATABASE_URL não configurada na Vercel');
   }
   return saveToFile(signup);
 }

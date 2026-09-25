@@ -1,9 +1,9 @@
 -- Lista de espera da landing page. Rodar uma vez no SQL Editor do Supabase
 -- (o mesmo projeto usado pela plataforma, repositório arremata/leilao-br).
 --
--- Quem escreve é só a função /api/waitlist da Vercel, com a secret key
--- (service_role), que ignora RLS. O RLS fica ligado e sem nenhuma policy
--- para a chave pública (anon) não conseguir ler nem gravar cadastros.
+-- Quem escreve é só a função /api/waitlist da Vercel, pela conexão
+-- Postgres em DATABASE_URL. O RLS fica ligado e sem nenhuma policy para a
+-- chave pública (anon) não conseguir ler nem gravar cadastros.
 
 create table if not exists public.waitlist (
   id          bigint generated always as identity primary key,
