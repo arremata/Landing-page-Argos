@@ -82,6 +82,7 @@ const brlCents = (v) => 'R$ ' + v.toLocaleString('pt-BR', { minimumFractionDigit
 
 const budgetRange = document.getElementById('budgetRange');
 const renoRange = document.getElementById('renoRange');
+const desocToggle = document.getElementById('desocToggle');
 const billRows = document.getElementById('billRows');
 const budgetAnswer = document.getElementById('budgetAnswer');
 const compareFact = document.getElementById('compareFact');
@@ -90,12 +91,20 @@ function reforma() {
   return Math.round((Number(renoRange.value) / 100) * EXAMPLE.reformaMax / 100) * 100;
 }
 
+// Explicações "?" abertas continuam abertas quando a conta é refeita.
+const openHints = new Set();
+
+function desocupacao() {
+  return desocToggle && !desocToggle.checked ? 0 : EXAMPLE.desocupacao;
+}
+
 function rowHtml(r, total) {
   const pct = total > 0 ? (r.value / total) * 100 : 0;
+  const open = openHints.has(r.label);
   return `
     <div class="bill-row" role="row">
-      <button type="button" class="bill-q" aria-expanded="false" aria-label="Explicação de ${r.label}">?</button>
-      <span><span class="bill-label">${r.label}</span><span class="bill-hint" hidden>${r.hint}</span></span>
+      <button type="button" class="bill-q" aria-expanded="${open}" aria-label="Explicação de ${r.label}" data-key="${r.label}">?</button>
+      <span><span class="bill-label">${r.label}</span><span class="bill-hint"${open ? '' : ' hidden'}>${r.hint}</span></span>
       <span class="bill-weight"><span class="bill-bar"><span style="width:${Math.min(pct * 2.5, 100)}%"></span></span><span class="bill-pct">${pct.toFixed(1)}%</span></span>
       <span class="bill-money">${brlCents(r.value)}</span>
     </div>`;
@@ -109,7 +118,8 @@ function setFill(input) {
 function render() {
   const budget = Number(budgetRange.value);
   const ref = reforma();
-  const fixos = EXAMPLE.desocupacao + ref;
+  const desoc = desocupacao();
+  const fixos = desoc + ref;
 
   const maxOferta = Math.floor((budget - fixos) / (1 + pctSobreOferta) / 100) * 100;
   const cabe = maxOferta >= EXAMPLE.valorInicial;
@@ -120,7 +130,7 @@ function render() {
     { label: 'Comissão do leiloeiro (5%)', value: oferta * EXAMPLE.comissao, hint: 'Pago por você, além do lance. Não está incluído no preço.' },
     { label: 'ITBI (3%)', value: oferta * EXAMPLE.itbi, hint: 'O imposto da prefeitura para passar o imóvel para o seu nome.' },
     { label: 'Registro em cartório (0,8%)', value: oferta * EXAMPLE.registro, hint: 'Para o imóvel ficar oficialmente no seu nome.' },
-    { label: 'Desocupação', value: EXAMPLE.desocupacao, hint: 'Reserva para tirar quem está morando. Estimativa nossa.' },
+    { label: 'Desocupação (estimativa)', value: desoc, hint: 'Reserva para o caso de alguém estar morando. Estimativa nossa, não é obrigatória: você decide se inclui.' },
     { label: 'Reforma', value: ref, hint: 'O que você pretende gastar para se mudar. Você escolhe no controle acima.' },
   ].filter((r) => r.value > 0);
 
@@ -129,11 +139,13 @@ function render() {
 
   document.querySelector('[data-out="budget"]').textContent = brl(budget);
   document.querySelector('[data-out="reforma"]').textContent = brl(ref);
+  const desocOut = document.querySelector('[data-out="desocupacao"]');
+  if (desocOut) desocOut.closest('.field-card').classList.toggle('is-off', desoc === 0);
   document.querySelector('[data-out="total"]').textContent = brlCents(total);
 
   if (cabe) {
     budgetAnswer.classList.remove('is-short');
-    budgetAnswer.innerHTML = `Com <strong>${brl(budget)}</strong>, você consegue oferecer até <strong>${brl(oferta)}</strong> — já contando todos os custos até a chave.`;
+    budgetAnswer.innerHTML = `Com <strong>${brl(budget)}</strong> para a sua casa, dá para oferecer até <strong>${brl(oferta)}</strong> neste imóvel — com todos os custos até a chave.`;
   } else {
     budgetAnswer.classList.add('is-short');
     budgetAnswer.innerHTML = `Com <strong>${brl(budget)}</strong> ainda não fecha. Neste imóvel, o valor inicial é ${brl(EXAMPLE.valorInicial)} e o total mínimo até a chave é <strong>${brl(total)}</strong>.`;
@@ -153,6 +165,7 @@ function render() {
 if (budgetRange) {
   budgetRange.addEventListener('input', render);
   renoRange.addEventListener('input', render);
+  if (desocToggle) desocToggle.addEventListener('change', render);
 
   // "?" de cada linha abre a explicação, como no app
   billRows.addEventListener('click', (e) => {
@@ -161,6 +174,7 @@ if (budgetRange) {
     const hint = btn.parentElement.querySelector('.bill-hint');
     hint.hidden = !hint.hidden;
     btn.setAttribute('aria-expanded', String(!hint.hidden));
+    if (hint.hidden) openHints.delete(btn.dataset.key); else openHints.add(btn.dataset.key);
   });
 
   render();
@@ -216,3 +230,158 @@ checks.forEach((btn) => {
 });
 
 renderProgress();
+
+// ===== Aluguel x imobiliária x leilão =====
+// Exemplo ilustrativo, com as premissas escritas em "Como a conta foi feita".
+// Mesmas condições de financiamento nas duas compras: só muda o preço de partida.
+(() => {
+  const root = document.getElementById('cmp');
+  if (!root) return;
+
+  const JUROS_ANO = 0.10;
+  const MESES = 360;
+  const ENTRADA = 0.20;
+  const ALUGUEL = 1500;
+
+  const i = Math.pow(1 + JUROS_ANO, 1 / 12) - 1;
+  const parcela = (valor) => valor * i / (1 - Math.pow(1 + i, -MESES));
+
+  const imobPreco = 290000;
+  const leilaoLance = 180000;
+
+  // Saldo que ainda falta pagar do financiamento depois de n meses (tabela Price).
+  const saldo = (valor, n) => {
+    const f = Math.pow(1 + i, n);
+    return Math.max(0, valor * f - parcela(valor) * (f - 1) / i);
+  };
+
+  const paths = {
+    aluguel: { start: 0, month: ALUGUEL },
+    imobiliaria: {
+      financiado: imobPreco * (1 - ENTRADA),
+      // entrada + ITBI (3%) + registro (0,8%)
+      start: imobPreco * ENTRADA + imobPreco * (0.03 + 0.008),
+      month: parcela(imobPreco * (1 - ENTRADA)),
+    },
+    leilao: {
+      financiado: leilaoLance * (1 - ENTRADA),
+      // entrada + comissão (5%) + ITBI (3%) + registro (0,8%) + reserva de desocupação
+      start: leilaoLance * ENTRADA + leilaoLance * (0.05 + 0.03 + 0.008) + 5000,
+      month: parcela(leilaoLance * (1 - ENTRADA)),
+    },
+  };
+
+  const opts = Array.from(root.querySelectorAll('.cmp-opt'));
+  const seg = root.querySelector('.cmp-seg');
+  const take = document.getElementById('cmpTake');
+
+  function render(years) {
+    const paid = {};
+    Object.entries(paths).forEach(([k, p]) => { paid[k] = p.start + p.month * 12 * years; });
+    const max = Math.max(...Object.values(paid));
+
+    Object.entries(paths).forEach(([k, p]) => {
+      const row = root.querySelector(`[data-path="${k}"]`);
+      row.querySelector('[data-c="start"]').textContent = brl(p.start);
+      row.querySelector('[data-c="month"]').textContent = brl(p.month);
+      row.querySelector('[data-c="paid"]').textContent = brl(paid[k]);
+      row.querySelector('.cmp-fill').style.setProperty('--w', (paid[k] / max).toFixed(4));
+      const end = row.querySelector('[data-c="end"]');
+      if (end && p.financiado) {
+        const falta = saldo(p.financiado, years * 12);
+        const base = k === 'leilao'
+          ? 'No fim: o mesmo imóvel, avaliado em R$ 290.000, está no seu nome.'
+          : 'No fim: o imóvel está no seu nome.';
+        end.innerHTML = falta > 0
+          ? `${base} <span class="cmp-owe">Falta pagar ${brl(falta)} do financiamento.</span>`
+          : `${base} <span class="cmp-owe">Financiamento quitado.</span>`;
+      }
+    });
+
+    const menos = paid.imobiliaria - paid.leilao;
+    const abaixoAluguel = ALUGUEL - paths.leilao.month;
+    let txt = `Em <strong>${years} anos</strong>, comprando em leilão você paga <strong>${brl(menos)} a menos</strong> do que pela imobiliária — pelo mesmo imóvel.`;
+    if (abaixoAluguel > 0) txt += ` E a parcela fica <strong>${brl(abaixoAluguel)} abaixo</strong> do aluguel.`;
+    take.innerHTML = txt;
+  }
+
+  function select(btn) {
+    opts.forEach((o, idx) => {
+      const on = o === btn;
+      o.classList.toggle('is-on', on);
+      o.setAttribute('aria-checked', String(on));
+      o.tabIndex = on ? 0 : -1;
+      if (on) seg.style.setProperty('--i', idx);
+    });
+    render(Number(btn.dataset.years));
+  }
+
+  opts.forEach((o, idx) => {
+    o.addEventListener('click', () => select(o));
+    o.addEventListener('keydown', (e) => {
+      const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+      if (!step) return;
+      e.preventDefault();
+      const next = opts[(idx + step + opts.length) % opts.length];
+      select(next);
+      next.focus();
+    });
+  });
+
+  // As barras crescem quando a seção aparece (explica a diferença), não antes.
+  const initial = opts.find((o) => o.classList.contains('is-on')) || opts[1];
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced || !('IntersectionObserver' in window)) { select(initial); return; }
+  opts.forEach((o) => { o.tabIndex = o === initial ? 0 : -1; });
+  seg.style.setProperty('--i', opts.indexOf(initial));
+  const io = new IntersectionObserver((entries) => {
+    if (!entries[0].isIntersecting) return;
+    io.disconnect();
+    select(initial);
+  }, { threshold: 0.35 });
+  io.observe(root);
+})();
+
+// ===== Modal em modo "contato" =====
+// Os botões com data-modal="contato" abrem o mesmo formulário, com texto de contato.
+(() => {
+  const form = document.getElementById('waitlistForm');
+  if (!form) return;
+  const title = document.getElementById('modalTitle');
+  const desc = document.querySelector('.modal-desc');
+  const label = form.querySelector('.btn-label');
+  const note = document.querySelector('.modal-note');
+  const okTitle = document.querySelector('#modalSuccess h3');
+  const okText = document.querySelector('#modalSuccess p');
+
+  const TEXTS = {
+    padrao: {
+      title: title.textContent, desc: desc.innerHTML, label: label.textContent,
+      note: note ? note.lastChild.textContent : '', okTitle: okTitle.textContent, okText: okText.textContent,
+      source: form.dataset.source,
+    },
+    contato: {
+      title: 'Fale com a gente',
+      desc: 'Deixe seu contato. <strong>Uma pessoa da nossa equipe</strong> te chama no WhatsApp para tirar suas dúvidas.',
+      label: 'Quero conversar',
+      note: ' Sem spam. A gente só fala sobre a sua dúvida.',
+      okTitle: 'Recebemos seu contato!',
+      okText: 'Uma pessoa da nossa equipe vai te chamar em breve.',
+      source: 'contato',
+    },
+  };
+
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-open-modal]');
+    if (!btn) return;
+    const t = TEXTS[btn.dataset.modal] || TEXTS.padrao;
+    title.textContent = t.title;
+    desc.innerHTML = t.desc;
+    label.textContent = t.label;
+    label.closest('button').dataset.label = t.label;
+    if (note) note.lastChild.textContent = t.note;
+    okTitle.textContent = t.okTitle;
+    okText.textContent = t.okText;
+    form.dataset.source = t.source;
+  }, true);
+})();

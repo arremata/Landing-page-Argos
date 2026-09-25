@@ -158,7 +158,7 @@ form.addEventListener('submit', async (e) => {
   } catch (err) {
     setError('Não foi possível concluir. Tente novamente em alguns instantes.');
     submitBtn.disabled = false;
-    submitBtn.querySelector('.btn-label').textContent = submitLabel;
+    submitBtn.querySelector('.btn-label').textContent = submitBtn.dataset.label || submitLabel;
   }
 });
 

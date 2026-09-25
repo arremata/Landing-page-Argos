@@ -10,7 +10,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^\(\d{2}\)\s?\d{4,5}-?\d{4}$/;
 
 // De qual porta a pessoa veio: LP de investidor (/) ou de quem quer morar (/morar/)
-const SOURCES = ['investir', 'morar'];
+const SOURCES = ['investir', 'morar', 'contato'];
 
 async function saveSignup({ fullName, phone, email, source }) {
   let entries = [];
