@@ -31,7 +31,6 @@
 
     <nav class="nav-links" aria-label="Navegação principal">
       <a href="#leilao">Como funciona</a>
-      <a href="#exemplo">O Argos por dentro</a>
       <a href="#ajuda">Atendimento</a>
       <a href="#faq">Dúvidas</a>
     </nav>
@@ -46,7 +45,6 @@
 
   <div class="mobile-menu" id="mobileMenu">
     <a href="#leilao">Como funciona</a>
-    <a href="#exemplo">O Argos por dentro</a>
     <a href="#ajuda">Atendimento</a>
     <a href="#faq">Dúvidas</a>
     <a href="/investidor/" class="mobile-door">Quero investir →</a>
@@ -136,9 +134,6 @@
             <span class="badge badge-pay">Aceita FGTS</span>
             <span class="badge badge-when">Leilão do banco · faltam 9 dias</span>
           </div>
-          <a href="#exemplo" class="home-link">Ver este imóvel por dentro
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
         </div>
       </article>
       <p class="card-note">Exemplo ilustrativo</p>
@@ -215,7 +210,6 @@
                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
                     R$ 110 mil de desconto sobre a avaliação
                   </p>
-                  <p class="lm-src">Os dois valores vêm do edital da Caixa.</p>
                 </div>
               </div>
             </div>
@@ -394,172 +388,6 @@
     </div>
   </section>
 
-  <!-- EXEMPLO — igual à página do imóvel no app -->
-  <section class="section section-soft" id="exemplo" data-reveal>
-    <div class="container">
-      <div class="section-center">
-        <span class="overline">O Argos por dentro</span>
-        <h2 class="section-title">Veja como cada imóvel é apresentado.</h2>
-        <p class="section-sub">Ajuste os valores e acompanhe o custo completo até a entrega das chaves.</p>
-      </div>
-
-      <div class="app-frame">
-        <div class="app-bar" aria-hidden="true">
-          <span class="app-dots"><span></span><span></span><span></span></span>
-          <span class="app-url">argos · imóvel</span>
-        </div>
-
-        <div class="app">
-          <!-- Cabeçalho do imóvel -->
-          <div class="app-head">
-            <div class="app-tags">
-              <span class="tag accent">2ª rodada</span>
-              <span class="tag">Apartamento</span>
-              <span class="tag warn dot">Ocupado</span>
-            </div>
-            <h3 class="app-title">Apartamento 52 m², Portão</h3>
-            <p class="app-addr">Curitiba, PR · 52 m² · 2 quartos</p>
-
-            <div class="app-prices">
-              <div>
-                <span class="uppy">Valor inicial · 2ª rodada</span>
-                <span class="app-num">R$ 180.000,00</span>
-              </div>
-              <div>
-                <span class="uppy">Valor de avaliação</span>
-                <span class="app-num">R$ 290.000,00</span>
-              </div>
-              <div>
-                <span class="uppy">Encerra em</span>
-                <span class="app-num app-num-sm">9 dias</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Abas do app -->
-          <div class="app-tabs" role="tablist" aria-label="Informações do imóvel">
-            <button class="app-tab is-active" role="tab" id="tab-custo" aria-selected="true" aria-controls="panel-custo"><span class="ix">01</span>Quanto você vai pagar</button>
-            <button class="app-tab" role="tab" id="tab-regiao" aria-selected="false" aria-controls="panel-regiao" tabindex="-1"><span class="ix">02</span>Preço na região</button>
-            <button class="app-tab" role="tab" id="tab-regras" aria-selected="false" aria-controls="panel-regras" tabindex="-1"><span class="ix">03</span>Regras deste leilão</button>
-            <button class="app-tab" role="tab" id="tab-pend" aria-selected="false" aria-controls="panel-pend" tabindex="-1"><span class="ix">04</span>Pendências do imóvel <span class="tag accent tag-xs">em breve</span></button>
-          </div>
-
-          <!-- 01 · Quanto você vai pagar -->
-          <div class="app-panel" role="tabpanel" id="panel-custo" aria-labelledby="tab-custo">
-            <div class="app-card app-sim">
-              <h4 class="app-h2">Quanto você vai pagar até receber a chave</h4>
-              <p class="app-muted">Comece pelo quanto você quer gastar com a sua casa. A gente separa o que vai para o lance e o que vai para os custos.</p>
-
-              <div class="budget">
-                <div class="budget-head">
-                  <label class="uppy" for="budgetRange">Quanto você quer gastar na sua casa nova</label>
-                  <span class="budget-hint">
-                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7 4 12l4 5M16 7l4 5-4 5"/></svg>
-                    arraste para simular
-                  </span>
-                </div>
-                <span class="budget-val" data-out="budget">R$ 210.000</span>
-                <input type="range" id="budgetRange" class="app-slider app-slider-lg" min="190000" max="320000" step="1000" value="210000" aria-label="Quanto você quer gastar na sua casa nova" aria-valuetext="R$ 210.000">
-                <div class="field-row field-ends"><span>R$ 190 mil</span><span>R$ 320 mil</span></div>
-                <p class="budget-answer" id="budgetAnswer" aria-live="polite">Com <strong>R$ 210.000</strong> para a sua casa, dá para oferecer até <strong>R$ 180.100</strong> neste imóvel — com todos os custos até a chave.</p>
-              </div>
-
-              <div class="scenario">
-                <span class="uppy">Valores que dependem de você</span>
-                <p class="app-muted">Mude o que quiser. A conta abaixo acompanha.</p>
-                <div class="scenario-pair">
-                  <div class="field-card field-card-opt">
-                    <div class="field-row">
-                      <span class="uppy">Desocupação</span>
-                      <span class="field-val" data-out="desocupacao">R$ 5.000</span>
-                    </div>
-                    <label class="opt-switch">
-                      <input type="checkbox" id="desocToggle" checked>
-                      <span class="opt-track" aria-hidden="true"><span class="opt-thumb"></span></span>
-                      <span class="opt-text">Incluir na conta</span>
-                    </label>
-                    <span class="field-note">Estimativa nossa, não é obrigatória. Se o imóvel estiver vazio ou a saída for combinada, pode custar menos ou nada.</span>
-                  </div>
-                  <div class="field-card">
-                    <div class="field-row">
-                      <span class="uppy">Precisa de reforma para você se mudar?</span>
-                      <span class="field-val" data-out="reforma">R$ 9.000</span>
-                    </div>
-                    <input type="range" id="renoRange" class="app-slider" min="0" max="100" value="15" aria-label="Precisa de reforma para você se mudar?" aria-valuetext="R$ 9.000">
-                    <div class="field-row field-ends">
-                      <span>dá para morar já</span>
-                      <span>precisa refazer tudo</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="bill" role="table" aria-label="O que você paga">
-                <div class="bill-row bill-head" role="row">
-                  <span></span><span role="columnheader">O que você paga</span><span role="columnheader">Valor</span>
-                </div>
-                <div id="billRows"></div>
-                <div class="bill-row bill-total" role="row">
-                  <span class="mono">∑</span><span>Total até a chave</span><span class="bill-total-val" data-out="total">R$ 209.949</span>
-                </div>
-              </div>
-              <p class="compare-fact" id="compareFact">O total fica R$ 80.051 abaixo do valor de avaliação (R$ 290.000).</p>
-            </div>
-          </div>
-
-          <!-- 02 · Preço na região -->
-          <div class="app-panel" role="tabpanel" id="panel-regiao" aria-labelledby="tab-regiao" hidden>
-            <div class="app-card">
-              <h4 class="app-h2">Quanto vale na região</h4>
-              <div class="app-prices app-prices-2">
-                <div>
-                  <span class="uppy">Avaliação oficial</span>
-                  <span class="app-num">R$ 290.000</span>
-                </div>
-                <div>
-                  <span class="uppy">Estimativa nossa</span>
-                  <span class="app-num">R$ 275.000</span>
-                </div>
-              </div>
-              <p class="app-line"><span class="tag good dot">Confiança média</span> Baseado em 14 imóveis parecidos vendidos na região nos últimos 12 meses.</p>
-            </div>
-          </div>
-
-          <!-- 03 · Regras deste leilão -->
-          <div class="app-panel" role="tabpanel" id="panel-regras" aria-labelledby="tab-regras" hidden>
-            <div class="app-card">
-              <h4 class="app-h2">O que as regras deste leilão dizem</h4>
-              <ul class="rules">
-                <li>
-                  <span class="tag warn dot">Ocupado</span>
-                  <p>O antigo dono ainda mora lá. Para entrar, você vai precisar de uma ordem judicial.</p>
-                </li>
-                <li>
-                  <span class="tag">Dívidas</span>
-                  <p>Leilão do banco: IPTU e condomínio atrasados ficam com quem compra. <span class="src">Regras, pág. 7</span></p>
-                </li>
-                <li>
-                  <span class="tag accent">Pagamento</span>
-                  <p>Aceita financiamento e FGTS. Entrada de 5% sai do seu bolso.</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- 04 · Pendências do imóvel (em breve, como no app) -->
-          <div class="app-panel" role="tabpanel" id="panel-pend" aria-labelledby="tab-pend" hidden>
-            <div class="app-card app-soon">
-              <span class="tag accent">em breve</span>
-              <h4 class="app-h2">Pendências do imóvel</h4>
-              <p class="app-muted">O que está registrado na certidão do imóvel no cartório, lido e explicado em português claro.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p class="card-note">Exemplo ilustrativo</p>
-    </div>
-  </section>
-
   <!-- ACOMPANHAMENTO -->
   <section class="section" id="ajuda" data-reveal>
     <div class="container">
@@ -669,7 +497,7 @@
             <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </summary>
           <div class="faq-answer">
-            <p>Não. É uma estimativa para que esse custo não seja uma surpresa quando há moradores. Se o imóvel estiver desocupado ou a saída for negociada, o valor pode ser menor ou nem existir. No simulador, você decide se o inclui na conta.</p>
+            <p>Não. É uma estimativa para que esse custo não seja uma surpresa quando há moradores. Se o imóvel estiver desocupado ou a saída for negociada, o valor pode ser menor ou nem existir.</p>
           </div>
         </details>
 
@@ -709,8 +537,10 @@
             <path d="M1080 300V140h90v160M1100 160h20v20h-20zM1140 160h20v20h-20zM1100 210h20v20h-20zM1140 210h20v20h-20z"/>
           </g>
         </svg>
-        <h2 class="cta-banner-title">Quer ser avisado quando o Argos for lançado?</h2>
-        <p class="cta-banner-sub">Cadastre-se para receber o aviso de lançamento.</p>
+        <div class="cta-banner-text">
+          <h2 class="cta-banner-title">Quer ser avisado quando o Argos for lançado?</h2>
+          <p class="cta-banner-sub">Cadastre-se para receber o aviso de lançamento.</p>
+        </div>
         <button class="btn-primary btn-lg cta-banner-btn" data-open-modal>Quero me inscrever</button>
       </div>
     </div>
