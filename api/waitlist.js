@@ -1,6 +1,7 @@
-// MVP local-first: grava os cadastros em data/signups.json no disco.
-// Em produção na Vercel o filesystem é efêmero — troque por Supabase,
-// Airtable ou Resend antes de divulgar a lista publicamente.
+// Grava os cadastros na tabela public.waitlist do Supabase (schema em
+// supabase/waitlist.sql) via REST, com a secret key que só existe na Vercel.
+// Sem SUPABASE_URL/SUPABASE_SECRET_KEY (dev local) cai em data/signups.json;
+// na Vercel o filesystem é efêmero, então lá o Supabase é obrigatório.
 
 const fs = require('fs/promises');
 const path = require('path');
@@ -9,10 +10,28 @@ const DATA_FILE = path.join(__dirname, '..', 'data', 'signups.json');
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^\(\d{2}\)\s?\d{4,5}-?\d{4}$/;
 
-// De qual porta a pessoa veio: LP de investidor (/) ou de quem quer morar (/morar/)
+// De qual porta a pessoa veio: LP de quem quer morar (/) ou de investidor (/investidor/)
 const SOURCES = ['investir', 'morar'];
 
-async function saveSignup({ fullName, phone, email, source }) {
+async function saveToSupabase({ fullName, phone, email, source }) {
+  const base = process.env.SUPABASE_URL.replace(/\/+$/, '');
+  const res = await fetch(`${base}/rest/v1/waitlist?on_conflict=email`, {
+    method: 'POST',
+    headers: {
+      apikey: process.env.SUPABASE_SECRET_KEY,
+      'Content-Type': 'application/json',
+      // E-mail repetido não é erro: mantém o primeiro cadastro e responde ok.
+      Prefer: 'resolution=ignore-duplicates,return=minimal',
+    },
+    body: JSON.stringify({ full_name: fullName, phone, email, source }),
+  });
+
+  if (!res.ok) {
+    throw new Error(`supabase ${res.status}: ${await res.text()}`);
+  }
+}
+
+async function saveToFile({ fullName, phone, email, source }) {
   let entries = [];
   try {
     const raw = await fs.readFile(DATA_FILE, 'utf-8');
@@ -23,8 +42,19 @@ async function saveSignup({ fullName, phone, email, source }) {
 
   if (!entries.some((e) => e.email.toLowerCase() === email.toLowerCase())) {
     entries.push({ fullName, phone, email, source, ts: new Date().toISOString() });
+    await fs.mkdir(path.dirname(DATA_FILE), { recursive: true });
     await fs.writeFile(DATA_FILE, JSON.stringify(entries, null, 2));
   }
+}
+
+async function saveSignup(signup) {
+  if (process.env.SUPABASE_URL && process.env.SUPABASE_SECRET_KEY) {
+    return saveToSupabase(signup);
+  }
+  if (process.env.VERCEL) {
+    throw new Error('SUPABASE_URL/SUPABASE_SECRET_KEY não configuradas na Vercel');
+  }
+  return saveToFile(signup);
 }
 
 module.exports = async (req, res) => {
@@ -64,6 +94,7 @@ module.exports = async (req, res) => {
     });
     res.status(200).json({ ok: true });
   } catch (err) {
+    console.error('[waitlist]', err);
     res.status(500).json({ ok: false, error: 'server_error' });
   }
 };

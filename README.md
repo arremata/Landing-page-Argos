@@ -95,4 +95,4 @@ O domínio usado nos canonicals, no sitemap e nos links do blog vem de `SITE_URL
 
 - A plataforma agrega leilões de todo o Brasil; quando um leiloeiro não está no catálogo, o usuário cola o link do leilão e a IA analisa na hora.
 - Não existe "score de viabilidade". A análise entrega valor de mercado, custos reais e lance máximo — a decisão de viabilidade é do usuário.
-- O formulário da lista de espera grava em `data/signups.json` (local) e tem honeypot anti-spam.
+- O formulário da lista de espera grava na tabela `public.waitlist` do Supabase da plataforma (schema em `supabase/waitlist.sql`, com e-mail único e a origem `morar`/`investir`). A função usa `SUPABASE_URL` e `SUPABASE_SECRET_KEY`, definidas só na Vercel; sem elas, em dev local, grava em `data/signups.json`. Tem honeypot anti-spam.
