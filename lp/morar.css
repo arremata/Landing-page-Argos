@@ -110,29 +110,6 @@ body { font-size: 16px; }
   background: #000;
 }
 
-/* ===== 4 perguntas ===== */
-
-.q-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-5); }
-
-.q-card { padding: var(--sp-6); background: var(--white); border: 1px solid var(--border); border-radius: var(--r-lg); }
-
-.q-num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px; height: 34px;
-  border-radius: 50%;
-  background: var(--violet);
-  color: white;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 15px;
-  margin-bottom: var(--sp-4);
-}
-
-.q-card h3 { font-size: 18px; margin-bottom: var(--sp-2); }
-.q-card p { font-size: 15px; color: var(--text-2); line-height: 1.55; }
-
 /* =========================================================
    Demo — cópia da página do imóvel do app
    ========================================================= */
@@ -508,90 +485,6 @@ body { font-size: 16px; }
 .app-soon .app-h2 { margin-top: 12px; }
 .app-soon .app-muted { margin: 8px auto 0; }
 
-/* ===== Passo a passo ===== */
-
-.guide {
-  max-width: 620px;
-  margin: 0 auto;
-  padding: var(--sp-6);
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-}
-
-.guide-top { display: flex; justify-content: space-between; align-items: baseline; gap: var(--sp-3); flex-wrap: wrap; margin-bottom: var(--sp-2); }
-.guide-count { font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--violet); }
-.progress-text { font-size: 13px; font-weight: 600; color: var(--text-2); }
-
-.progress { height: 8px; background: var(--border-light); border-radius: 999px; overflow: hidden; margin-bottom: var(--sp-5); }
-/* Anima só transform (scaleX), nunca width. O JS escreve o transform. */
-.progress-fill {
-  display: block;
-  height: 100%;
-  width: 100%;
-  background: var(--green);
-  border-radius: 999px;
-  transform-origin: left center;
-  transform: scaleX(0.17);
-  transition: transform 250ms var(--ease-out);
-}
-
-.checklist { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-
-.check {
-  display: grid;
-  grid-template-columns: 26px 1fr;
-  grid-template-areas: "box text" "box meta";
-  column-gap: var(--sp-3);
-  width: 100%;
-  text-align: left;
-  padding: 12px;
-  border-radius: var(--r);
-  border: 1px solid var(--border-light);
-  background: var(--bg);
-  -webkit-tap-highlight-color: transparent;
-  transition: background-color var(--dur-color) ease, border-color var(--dur-color) ease,
-              transform var(--dur-press) var(--ease-out);
-}
-
-/* Elemento largo: aperto mais sutil que o dos botões */
-.check:active { transform: scale(0.98); }
-
-@media (hover: hover) and (pointer: fine) {
-  .check:hover { border-color: var(--violet-border); background: var(--white); }
-}
-
-.check .box {
-  grid-area: box;
-  width: 22px; height: 22px;
-  margin-top: 1px;
-  border-radius: 50%;
-  border: 2px solid var(--line-strong);
-  background: var(--white);
-  display: flex; align-items: center; justify-content: center;
-  transition: background-color var(--dur-color) ease, border-color var(--dur-color) ease;
-}
-
-.check.is-done .box { background: var(--green); border-color: var(--green); }
-/* O check entra (não "teleporta"): opacidade + escala a partir de 0.9 */
-.check.is-done .box::after {
-  content: '';
-  width: 6px; height: 11px;
-  border: solid white;
-  border-width: 0 2.5px 2.5px 0;
-  transform: rotate(45deg) translate(-1px, -1px);
-  animation: check-in var(--dur-color) var(--ease-out);
-}
-@keyframes check-in {
-  from { opacity: 0; transform: rotate(45deg) translate(-1px, -1px) scale(0.9); }
-}
-
-.check-text { grid-area: text; font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.4; }
-.check.is-done .check-text { color: var(--text-3); text-decoration: line-through; }
-.check-meta { grid-area: meta; font-size: 13px; color: var(--text-3); margin-top: 2px; }
-.check-meta-now { color: var(--violet); font-weight: 600; }
-.check.is-done .check-meta-now { color: var(--text-3); font-weight: 400; }
-
 /* ===== Acompanhamento ===== */
 
 .help {
@@ -642,24 +535,13 @@ body { font-size: 16px; }
 .faq-question { font-size: 17px; }
 .faq-answer p { font-size: 16px; color: var(--text-2); }
 
-.cta-strong { background: var(--violet); border-color: var(--violet); }
 /* Texto claro sobre o roxo: #EDE7FF dá 4,7:1 (AA) */
-.cta-strong .overline { color: #EDE7FF; }
-.cta-strong .section-title { color: white; }
-.cta-strong .section-sub { color: #EDE7FF; }
-.cta-strong .cta-support { color: #EDE7FF; margin-top: var(--sp-3); }
-.cta-strong .btn-primary { background: white; color: var(--violet); box-shadow: 0 4px 16px rgba(0,0,0,.12); }
-@media (hover: hover) and (pointer: fine) {
-  .cta-strong .btn-primary:hover { background: #F5F1FF; }
-}
-.cta-strong .btn-primary:focus-visible { outline-color: white; }
 
 .footer-legal { max-width: 520px; font-size: 12px; color: var(--text-3); line-height: 1.5; margin-top: var(--sp-2); }
 
 /* ===== Responsivo ===== */
 
 @media (max-width: 880px) {
-  .q-grid { grid-template-columns: repeat(2, 1fr); }
   .home-card { grid-template-columns: 1fr; }
   .home-photo { min-height: 190px; }
   .help { grid-template-columns: 1fr; padding: var(--sp-8) var(--sp-6); gap: var(--sp-8); }
@@ -670,7 +552,6 @@ body { font-size: 16px; }
   .hero { padding-top: var(--sp-12); }
   .section { padding: var(--sp-16) 0; }
   .section-center { margin-bottom: var(--sp-10); }
-  .q-grid { grid-template-columns: 1fr; gap: var(--sp-3); }
   .home-body { padding: var(--sp-5); }
   .hero-cta-row { flex-direction: column; width: 100%; }
   .hero-cta-row .btn-lg, .hero-cta-row .btn-outline { width: 100%; justify-content: center; }
@@ -823,128 +704,6 @@ body { font-size: 16px; }
 .opt-switch input:checked + .opt-track .opt-thumb { transform: translateX(14px); }
 .opt-switch input:focus-visible + .opt-track { box-shadow: 0 0 0 3px var(--a-accent-soft); }
 
-/* ===== Aluguel x imobiliária x leilão ===== */
-
-.cmp {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: var(--sp-8);
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--r-xl);
-  box-shadow: var(--shadow-card);
-}
-
-.cmp-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--sp-4);
-  flex-wrap: wrap;
-  margin-bottom: var(--sp-6);
-}
-.cmp-q { font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--text); }
-
-.cmp-seg {
-  position: relative;
-  display: inline-grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 4px;
-  background: var(--bg-soft);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-}
-.cmp-opt {
-  position: relative;
-  z-index: 1;
-  padding: 8px 18px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-3);
-  -webkit-tap-highlight-color: transparent;
-  transition: color var(--dur-ui) ease;
-}
-.cmp-opt.is-on { color: var(--violet); }
-.cmp-opt:focus-visible { outline: 2px solid var(--violet); outline-offset: 2px; }
-/* Pílula que desliza até a opção escolhida: mostra a troca de estado. */
-.cmp-seg-ind {
-  position: absolute;
-  top: 4px; bottom: 4px; left: 4px;
-  width: calc((100% - 8px) / 3);
-  border-radius: 999px;
-  background: var(--white);
-  box-shadow: var(--shadow-sm);
-  transform: translateX(calc(var(--i, 1) * 100%));
-  transition: transform 240ms var(--ease-out);
-}
-
-.cmp-rows { display: flex; flex-direction: column; gap: var(--sp-5); }
-
-.cmp-row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px;
-  padding: var(--sp-5);
-  border: 1px solid var(--border-light);
-  border-radius: var(--r-lg);
-  background: var(--bg);
-}
-.cmp-row-hl { background: var(--white); border: 2px solid var(--violet); box-shadow: var(--shadow-md); }
-
-.cmp-head { display: flex; justify-content: space-between; align-items: baseline; gap: 6px var(--sp-4); flex-wrap: wrap; }
-.cmp-name { font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--text); display: inline-flex; align-items: center; gap: 8px; }
-.cmp-row-hl .cmp-name { color: var(--violet); }
-.cmp-flag {
-  padding: 2px 9px;
-  border-radius: 999px;
-  background: var(--green-bg);
-  color: var(--green-text);
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 700;
-}
-.cmp-meta { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13px; color: var(--text-3); }
-.cmp-meta strong { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
-
-.cmp-bar { height: 10px; border-radius: 999px; background: var(--border-light); overflow: hidden; margin-top: 4px; }
-.cmp-fill {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: var(--line-strong);
-  opacity: 0.7;
-  transform-origin: left center;
-  transform: scaleX(var(--w, 0));
-  /* Explicação: a barra cresce/encolhe com o prazo escolhido */
-  transition: transform var(--dur-reveal) var(--ease-out);
-}
-.cmp-row[data-path="imobiliaria"] .cmp-fill { background: var(--violet-muted); opacity: 1; }
-.cmp-row-hl .cmp-fill { background: var(--violet); opacity: 1; }
-
-.cmp-paid { font-size: 15px; color: var(--text-2); }
-.cmp-paid strong { color: var(--text); font-variant-numeric: tabular-nums; }
-.cmp-end { font-size: 14px; font-weight: 600; color: var(--green-text); }
-.cmp-end-no { color: var(--text-3); font-weight: 500; }
-.cmp-owe { display: block; margin-top: 2px; font-weight: 500; color: var(--text-3); }
-
-.cmp-take {
-  margin-top: var(--sp-6);
-  padding: 14px 18px;
-  border-radius: var(--r);
-  background: var(--violet-bg);
-  color: var(--text);
-  font-size: 15px;
-  line-height: 1.5;
-}
-.cmp-take strong { color: var(--violet); white-space: nowrap; }
-.cmp-take:empty { display: none; }
-
-.cmp-how { max-width: 900px; margin: var(--sp-4) auto 0; font-size: 13px; color: var(--text-3); }
-.cmp-how summary { cursor: pointer; font-weight: 600; color: var(--text-2); width: fit-content; border-radius: 4px; }
-.cmp-how summary:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; }
-.cmp-how p { margin-top: 8px; line-height: 1.55; }
-
 /* ===== Contato no fim do FAQ ===== */
 
 .faq-answer a { color: var(--violet); font-weight: 600; }
@@ -968,10 +727,6 @@ body { font-size: 16px; }
 
 @media (max-width: 640px) {
   .myths { flex-direction: column; align-items: flex-start; gap: 8px; }
-  .cmp { padding: var(--sp-5); }
-  .cmp-top { flex-direction: column; align-items: stretch; }
-  .cmp-seg { width: 100%; }
-  .cmp-opt { padding: 8px 10px; }
   .faq-contact { flex-direction: column; align-items: flex-start; }
   .faq-contact-btn { width: 100%; justify-content: center; }
 }
@@ -984,9 +739,115 @@ body { font-size: 16px; }
   @keyframes pb-grow { from { opacity: 0; } }
   .pb-fill { animation-duration: 200ms; animation-delay: 0s; }
   .home-save { animation-duration: 200ms; animation-delay: 0s; }
-  .cmp-fill, .cmp-seg-ind { transition: none; }
-  .check:active { transform: none; }
   @keyframes check-in { from { opacity: 0; } }
   .app-slider:active::-webkit-slider-thumb { transform: none; }
   .app-slider:active::-moz-range-thumb { transform: none; }
+}
+
+
+/* =========================================================
+   Sistema de tamanhos e ritmo das seções (home)
+   S 640 · M 800 · L 960 · XL 1120 — cada bloco usa um deles.
+   ========================================================= */
+
+.container { max-width: calc(var(--w-xl) + 48px); }
+
+.section { padding: var(--sec-y) 0; }
+.section-center { margin-bottom: var(--sp-12); }
+.section-center .section-title { max-width: var(--w-s); }
+.section-center .section-sub { max-width: var(--w-s); }
+
+/* M */
+.hero-morar .hero-content,
+.home-card { max-width: var(--w-m); margin-left: auto; margin-right: auto; }
+.hero-morar .hero-title { max-width: var(--w-m); }
+.hero-morar .hero-sub { max-width: var(--w-s); }
+.faq-list, .faq-contact { max-width: var(--w-m); }
+
+/* L */
+.lm, .video-wrap, .app-frame, .help { max-width: var(--w-l); margin-left: auto; margin-right: auto; }
+
+/* XL */
+.cta-banner { max-width: var(--w-xl); margin: 0 auto; }
+
+/* Fundos intercalados: hero branco → leilão cinza → vídeo branco →
+   demo cinza → atendimento branco → dúvidas cinza → chamada final branco. */
+#inicio, #demo, #ajuda, #cadastro { background: var(--white); }
+#leilao, #exemplo, #faq { background: var(--bg-soft); }
+
+.lm-section { padding-top: var(--sec-y); }
+.card-note {
+  margin-top: var(--sp-3);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+/* ===== Chamada final ===== */
+
+.section-cta { padding: var(--sec-y-sm) 0 var(--sec-y); }
+
+.cta-banner {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 72px var(--sp-8) 88px;
+  border-radius: 28px;
+  color: #fff;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(167,139,250,0.35) 0%, rgba(124,58,237,0) 60%),
+    linear-gradient(160deg, #2A1760 0%, #1B1040 55%, #140B30 100%);
+  box-shadow: 0 30px 60px -20px rgba(27,16,64,0.45);
+}
+
+.cta-banner-art {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 58%;
+  color: rgba(196,181,253,0.22);
+  pointer-events: none;
+}
+
+.cta-banner-title {
+  position: relative;
+  max-width: 720px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4.2vw, 46px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.cta-banner-sub {
+  position: relative;
+  margin-top: var(--sp-4);
+  font-size: 18px;
+  color: #E4DCFF;
+}
+
+.cta-banner-btn {
+  position: relative;
+  margin-top: var(--sp-8);
+  background: #fff;
+  color: var(--violet);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+@media (hover: hover) and (pointer: fine) {
+  .cta-banner-btn:hover { background: #F3EFFE; color: var(--violet-hover); }
+}
+.cta-banner-btn:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+@media (max-width: 640px) {
+  :root { --sec-y: 64px; --sec-y-sm: 48px; }
+  .section-center { margin-bottom: var(--sp-10); }
+  .cta-banner { padding: 48px 20px 64px; border-radius: 20px; }
+  .cta-banner-sub { font-size: 16px; }
+  .cta-banner-btn { width: 100%; }
+  .cta-banner-art { height: 40%; }
 }

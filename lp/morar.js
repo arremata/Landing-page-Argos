@@ -256,140 +256,6 @@ if (budgetRange) {
   nudgeObserver.observe(budgetRange);
 }
 
-// ===== Passo a passo: marcar o que já fez =====
-const checks = Array.from(document.querySelectorAll('.check'));
-const progressFill = document.getElementById('progressFill');
-const progressText = document.getElementById('progressText');
-
-function renderProgress() {
-  const done = checks.filter((c) => c.classList.contains('is-done')).length;
-  const pct = Math.round((done / checks.length) * 100);
-  // transform (não width): só compõe, não refaz o layout
-  progressFill.style.transform = `scaleX(${done / checks.length})`;
-  progressText.textContent = `${done} de ${checks.length} etapas · ${pct}%`;
-}
-
-checks.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const done = btn.classList.toggle('is-done');
-    btn.setAttribute('aria-pressed', String(done));
-    renderProgress();
-  });
-});
-
-renderProgress();
-
-// ===== Aluguel x imobiliária x leilão =====
-// Exemplo ilustrativo, com as premissas escritas em "Como a conta foi feita".
-// Mesmas condições de financiamento nas duas compras: só muda o preço de partida.
-(() => {
-  const root = document.getElementById('cmp');
-  if (!root) return;
-
-  const JUROS_ANO = 0.10;
-  const MESES = 360;
-  const ENTRADA = 0.20;
-  const ALUGUEL = 1500;
-
-  const i = Math.pow(1 + JUROS_ANO, 1 / 12) - 1;
-  const parcela = (valor) => valor * i / (1 - Math.pow(1 + i, -MESES));
-
-  const imobPreco = 290000;
-  const leilaoLance = 180000;
-
-  // Saldo que ainda falta pagar do financiamento depois de n meses (tabela Price).
-  const saldo = (valor, n) => {
-    const f = Math.pow(1 + i, n);
-    return Math.max(0, valor * f - parcela(valor) * (f - 1) / i);
-  };
-
-  const paths = {
-    aluguel: { start: 0, month: ALUGUEL },
-    imobiliaria: {
-      financiado: imobPreco * (1 - ENTRADA),
-      // entrada + ITBI (3%) + registro (0,8%)
-      start: imobPreco * ENTRADA + imobPreco * (0.03 + 0.008),
-      month: parcela(imobPreco * (1 - ENTRADA)),
-    },
-    leilao: {
-      financiado: leilaoLance * (1 - ENTRADA),
-      // entrada + comissão (5%) + ITBI (3%) + registro (0,8%) + reserva de desocupação
-      start: leilaoLance * ENTRADA + leilaoLance * (0.05 + 0.03 + 0.008) + 5000,
-      month: parcela(leilaoLance * (1 - ENTRADA)),
-    },
-  };
-
-  const opts = Array.from(root.querySelectorAll('.cmp-opt'));
-  const seg = root.querySelector('.cmp-seg');
-  const take = document.getElementById('cmpTake');
-
-  function render(years) {
-    const paid = {};
-    Object.entries(paths).forEach(([k, p]) => { paid[k] = p.start + p.month * 12 * years; });
-    const max = Math.max(...Object.values(paid));
-
-    Object.entries(paths).forEach(([k, p]) => {
-      const row = root.querySelector(`[data-path="${k}"]`);
-      row.querySelector('[data-c="start"]').textContent = brl(p.start);
-      row.querySelector('[data-c="month"]').textContent = brl(p.month);
-      row.querySelector('[data-c="paid"]').textContent = brl(paid[k]);
-      row.querySelector('.cmp-fill').style.setProperty('--w', (paid[k] / max).toFixed(4));
-      const end = row.querySelector('[data-c="end"]');
-      if (end && p.financiado) {
-        const falta = saldo(p.financiado, years * 12);
-        const base = k === 'leilao'
-          ? 'No fim: o mesmo imóvel, avaliado em R$ 290.000, está no seu nome.'
-          : 'No fim: o imóvel está no seu nome.';
-        end.innerHTML = falta > 0
-          ? `${base} <span class="cmp-owe">Falta pagar ${brl(falta)} do financiamento.</span>`
-          : `${base} <span class="cmp-owe">Financiamento quitado.</span>`;
-      }
-    });
-
-    const menos = paid.imobiliaria - paid.leilao;
-    const abaixoAluguel = ALUGUEL - paths.leilao.month;
-    let txt = `Em <strong>${years} anos</strong>, comprando em leilão você paga <strong>${brl(menos)} a menos</strong> do que pela imobiliária — pelo mesmo imóvel.`;
-    if (abaixoAluguel > 0) txt += ` E a parcela fica <strong>${brl(abaixoAluguel)} abaixo</strong> do aluguel.`;
-    take.innerHTML = txt;
-  }
-
-  function select(btn) {
-    opts.forEach((o, idx) => {
-      const on = o === btn;
-      o.classList.toggle('is-on', on);
-      o.setAttribute('aria-checked', String(on));
-      o.tabIndex = on ? 0 : -1;
-      if (on) seg.style.setProperty('--i', idx);
-    });
-    render(Number(btn.dataset.years));
-  }
-
-  opts.forEach((o, idx) => {
-    o.addEventListener('click', () => select(o));
-    o.addEventListener('keydown', (e) => {
-      const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
-      if (!step) return;
-      e.preventDefault();
-      const next = opts[(idx + step + opts.length) % opts.length];
-      select(next);
-      next.focus();
-    });
-  });
-
-  // As barras crescem quando a seção aparece (explica a diferença), não antes.
-  const initial = opts.find((o) => o.classList.contains('is-on')) || opts[1];
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduced || !('IntersectionObserver' in window)) { select(initial); return; }
-  opts.forEach((o) => { o.tabIndex = o === initial ? 0 : -1; });
-  seg.style.setProperty('--i', opts.indexOf(initial));
-  const io = new IntersectionObserver((entries) => {
-    if (!entries[0].isIntersecting) return;
-    io.disconnect();
-    select(initial);
-  }, { threshold: 0.35 });
-  io.observe(root);
-})();
-
 // ===== Modal em modo "contato" =====
 // Os botões com data-modal="contato" abrem o mesmo formulário, com texto de contato.
 (() => {
@@ -398,23 +264,20 @@ renderProgress();
   const title = document.getElementById('modalTitle');
   const desc = document.querySelector('.modal-desc');
   const label = form.querySelector('.btn-label');
-  const note = document.querySelector('.modal-note');
   const okTitle = document.querySelector('#modalSuccess h3');
   const okText = document.querySelector('#modalSuccess p');
 
   const TEXTS = {
     padrao: {
-      title: title.textContent, desc: desc.innerHTML, label: label.textContent,
-      note: note ? note.lastChild.textContent : '', okTitle: okTitle.textContent, okText: okText.textContent,
-      source: form.dataset.source,
+      title: title.textContent, desc: desc.textContent, label: label.textContent,
+      okTitle: okTitle.textContent, okText: okText.textContent, source: form.dataset.source,
     },
     contato: {
-      title: 'Fale com a gente',
-      desc: 'Deixe seu contato. <strong>Uma pessoa da nossa equipe</strong> te chama no WhatsApp para tirar suas dúvidas.',
-      label: 'Quero conversar',
-      note: ' Sem spam. A gente só fala sobre a sua dúvida.',
-      okTitle: 'Recebemos seu contato!',
-      okText: 'Uma pessoa da nossa equipe vai te chamar em breve.',
+      title: 'Fale com a nossa equipe',
+      desc: 'Informe seus dados e entraremos em contato pelo WhatsApp.',
+      label: 'Enviar',
+      okTitle: 'Contato recebido',
+      okText: 'Nossa equipe falará com você em breve.',
       source: 'contato',
     },
   };
@@ -424,10 +287,9 @@ renderProgress();
     if (!btn) return;
     const t = TEXTS[btn.dataset.modal] || TEXTS.padrao;
     title.textContent = t.title;
-    desc.innerHTML = t.desc;
+    desc.textContent = t.desc;
     label.textContent = t.label;
     label.closest('button').dataset.label = t.label;
-    if (note) note.lastChild.textContent = t.note;
     okTitle.textContent = t.okTitle;
     okText.textContent = t.okText;
     form.dataset.source = t.source;

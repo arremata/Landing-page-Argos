@@ -51,6 +51,16 @@
   --r-lg: 16px;
   --r-xl: 20px;
 
+  /* Larguras padrão de conteúdo: toda seção usa uma destas quatro. */
+  --w-s: 640px;   /* texto corrido, FAQ */
+  --w-m: 800px;   /* hero, cards de destaque */
+  --w-l: 960px;   /* componentes largos: carrossel, demo, vídeo, atendimento */
+  --w-xl: 1120px; /* faixa de chamada final */
+
+  /* Espaço vertical padrão das seções */
+  --sec-y: 96px;
+  --sec-y-sm: 64px;
+
   /* Movimento. Uma curva para entrar/responder, uma para o que se move na
      tela e uma de gaveta. Durações: UI abaixo de 300ms; só explicação e
      entrada de seção passam disso. */
