@@ -12,7 +12,7 @@ const ROOT = path.join(__dirname, '..');
 const SITE_URL = (
   process.env.SITE_URL ||
   (process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`) ||
-  'https://argos-landing.vercel.app'
+  'https://www.argosleiloes.com.br'
 ).replace(/\/+$/, '');
 
 marked.setOptions({
@@ -181,7 +181,7 @@ ${faq.schema}
     </a>
     <nav class="nav-links" aria-label="Navegação">
       <a href="/blog/">Blog</a>
-      <a href="${SITE_URL}/#como-funciona">Como funciona</a>
+      <a href="${SITE_URL}/#passo-a-passo">Como funciona</a>
       <a href="${SITE_URL}/#faq">Dúvidas</a>
     </nav>
     <a href="${SITE_URL}/" class="btn-primary btn-sm nav-cta" target="_blank" rel="noopener">Conhecer o Argos</a>
@@ -301,7 +301,7 @@ function listingTemplate(posts) {
     </a>
     <nav class="nav-links" aria-label="Navegação">
       <a href="/blog/">Blog</a>
-      <a href="${SITE_URL}/#como-funciona">Como funciona</a>
+      <a href="${SITE_URL}/#passo-a-passo">Como funciona</a>
       <a href="${SITE_URL}/#faq">Dúvidas</a>
     </nav>
     <a href="${SITE_URL}/" class="btn-primary btn-sm nav-cta" target="_blank" rel="noopener">Conhecer o Argos</a>
@@ -353,7 +353,7 @@ function generateSitemap(posts) {
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>${SITE_URL}/morar/</loc>
+    <loc>${SITE_URL}/investidor/</loc>
     <lastmod>${now}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>

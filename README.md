@@ -2,10 +2,12 @@
 
 Landing page e blog do Argos, plataforma de inteligência para leilões de imóveis.
 
-Site em produção: https://argos-landing.vercel.app/
+Site em produção: https://www.argosleiloes.com.br/ (projeto `landing-page-argos`
+no time `argos33` da Vercel; cada push na `main` publica sozinho). O domínio sem
+`www` redireciona para ele, e `SITE_URL` na Vercel fixa o `www` nos canonicals e no sitemap.
 
-> `leilao-br.vercel.app` não é mais este site — esse endereço serve o app React
-> (dashboard) do repositório `arremata/leilao-br`.
+> A plataforma (app React) fica em https://app.argosleiloes.com.br/ — projeto
+> `leilao-br` do mesmo time, repositório `arremata/leilao-br`.
 
 ## Stack
 
@@ -14,10 +16,14 @@ HTML, CSS e JavaScript puros — sem framework. O blog é gerado estaticamente a
 ## Estrutura
 
 ```
-├── index.html              # Landing page (single scroll)
+├── index.html              # LP principal "Quero morar" (/)
+├── investidor/
+│   └── index.html          # LP "Quero investir" (/investidor/)
 ├── lp/
-│   ├── styles.css          # Design system (usado pela LP e pelo blog)
-│   └── script.js           # Interações da LP
+│   ├── styles.css          # Design system (usado pelas LPs e pelo blog)
+│   ├── script.js           # Interações comuns às LPs (nav, modal, formulário)
+│   ├── morar.css           # Estilos só da LP "Quero morar"
+│   └── morar.js            # Interações só da LP "Quero morar"
 ├── blog/
 │   ├── index.html          # Listagem de artigos (GERADO — não editar)
 │   ├── blog-styles.css     # Estilos do blog
@@ -39,7 +45,14 @@ npm install
 npm run dev
 ```
 
-Acesse http://localhost:3000 (LP) e http://localhost:3000/blog/ (blog).
+Acesse http://localhost:3000 (LP de morar), http://localhost:3000/investidor/ (LP de investidor) e http://localhost:3000/blog/ (blog).
+
+### Workspaces do Superset
+
+`.superset/config.json` prepara cada workspace sozinho: copia `.env`/`.vercel`
+do checkout principal, roda `npm ci` e reserva uma porta própria (3020, 3040, ...)
+para o dev server não colidir com outros workspaces. O botão **Run** sobe o
+servidor nessa porta; apagar o workspace para o servidor e libera a porta.
 
 ## Publicando um novo artigo
 
@@ -74,7 +87,9 @@ A Vercel serve os arquivos estáticos direto da raiz e reconhece `api/waitlist.j
 
 O `vercel.json` é obrigatório: sem ele a Vercel detecta o `build` do `package.json`, roda o script e depois procura uma pasta `public/` que não existe — o deploy falha. O arquivo aponta `outputDirectory` para a raiz e roda `npm run blog` no build, então os HTMLs do blog são regerados a cada deploy.
 
-O domínio usado nos canonicals, no sitemap e nos links do blog vem de `SITE_URL`; se não estiver definida, o build usa `VERCEL_PROJECT_PRODUCTION_URL`, que a própria Vercel injeta. Trocar de domínio não exige mexer no código — basta apontar o domínio novo no projeto.
+Como a raiz inteira vira site público, o `.vercelignore` tira do deploy o que é interno: os `.md` da raiz (relatórios, pendências), o `dev-server.js`, `data/`, `.superset/` e arquivos `.env*`.
+
+O domínio usado nos canonicals, no sitemap e nos links do blog vem de `SITE_URL`; se não estiver definida, o build usa `VERCEL_PROJECT_PRODUCTION_URL`, que a própria Vercel injeta. Hoje `SITE_URL` está definida em produção como `https://www.argosleiloes.com.br`; trocar de domínio não exige mexer no código, só atualizar essa variável e fazer um novo deploy.
 
 ## Notas de produto
 
