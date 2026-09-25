@@ -1,0 +1,8 @@
+# outputDirectory é a raiz do repo, então tudo que sobe para a Vercel vira
+# arquivo público. Fica de fora o que é interno ou só serve para dev local.
+# (blog/posts/*.md precisa subir: o build gera o blog a partir deles.)
+/*.md
+/dev-server.js
+/data
+/.superset
+.env*

@@ -34,7 +34,7 @@ function serveStatic(req, res) {
     return;
   }
 
-  if (!path.extname(filePath) && !fs.existsSync(filePath)) {
+  if (!path.extname(filePath)) {
     const withHtml = filePath + '.html';
     const asDir = path.join(filePath, 'index.html');
     if (fs.existsSync(asDir)) filePath = asDir;
@@ -62,7 +62,17 @@ function withVercelStyleRes(res) {
   return res;
 }
 
+// Espelha os "redirects" do vercel.json: a LP de morar virou a raiz.
+const REDIRECTS = { '/morar': '/', '/morar/': '/' };
+
 const server = http.createServer((req, res) => {
+  const redirectTo = REDIRECTS[req.url.split('?')[0]];
+  if (redirectTo) {
+    res.writeHead(308, { Location: redirectTo });
+    res.end();
+    return;
+  }
+
   if (req.url === '/api/waitlist' && req.method === 'POST') {
     let body = '';
     req.on('data', (chunk) => { body += chunk; });

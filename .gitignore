@@ -5,3 +5,4 @@ data/signups.json
 *.log
 .env
 .env.local
+.env*

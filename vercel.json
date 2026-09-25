@@ -1,5 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run blog",
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "redirects": [
+    { "source": "/morar", "destination": "/", "permanent": true },
+    { "source": "/morar/", "destination": "/", "permanent": true }
+  ]
 }

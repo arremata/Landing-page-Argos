@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Argos — Todos os leilões de imóveis do Brasil em um só lugar</title>
+<meta name="description" content="Todos os leilões de imóveis do Brasil em um só lugar. Cole o link ou navegue pelo catálogo — análise completa de edital, mercado, custos e risco jurídico com IA.">
+<meta property="og:title" content="Argos — Inteligência em leilões imobiliários">
+<meta property="og:description" content="Todos os leilões de imóveis do Brasil em um só lugar. Análise completa com IA em minutos.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%237C3AED'/%3E%3Cpath d='M4 12s3-5.5 8-5.5 8 5.5 8 5.5-3 5.5-8 5.5-8-5.5-8-5.5Z' fill='none' stroke='white' stroke-width='1.5'/%3E%3Ccircle cx='12' cy='12' r='2.3' fill='white'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/lp/styles.css">
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#inicio" class="logo">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+      </span>
+      <span class="logo-word">Argos</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Navegação principal">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#diferencial">Diferencial</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+
+    <button class="btn-primary btn-sm nav-cta" data-open-modal>Entrar na lista</button>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg class="icon-menu" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#como-funciona">Como funciona</a>
+    <a href="#diferencial">Diferencial</a>
+    <a href="#faq">Dúvidas</a>
+    <button class="btn-primary btn-sm" data-open-modal>Entrar na lista</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="container hero-content">
+      <span class="overline">Lançamento em breve</span>
+
+      <h1 class="hero-title">Todos os leilões de imóveis do Brasil — em um só lugar.</h1>
+
+      <p class="hero-sub">Navegue pelo catálogo completo ou cole o link de qualquer leiloeiro. Análise de edital, mercado, custos e risco jurídico com IA — em minutos.</p>
+
+      <div class="hero-cta-row">
+        <button class="btn-primary btn-lg" data-open-modal>Entrar na lista de espera</button>
+        <a href="#como-funciona" class="btn-outline">Ver como funciona</a>
+      </div>
+      <p class="hero-support">Gratuito. Sem cartão. Você será o primeiro a saber.</p>
+    </div>
+
+    <!-- Live analysis card -->
+    <div class="container">
+      <div class="live-card" id="liveCard">
+        <div class="live-card-bar">
+          <div class="live-card-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span class="live-card-title">argos — análise de leilão</span>
+          <span class="live-card-status" id="analysisStatus">
+            <span class="live-dot"></span>
+            Analisando...
+          </span>
+        </div>
+        <div class="live-card-body">
+          <div class="live-left">
+            <span class="live-tag">Leilão Judicial · 2ª Praça · via link</span>
+            <h3 class="live-property-name">Apartamento 3 quartos — Batel</h3>
+            <p class="live-property-meta">Curitiba/PR · 78m² · Matrícula #42.891</p>
+            <div class="live-prices">
+              <div>
+                <span class="live-price-label">Lance mínimo</span>
+                <span class="live-price">R$ 245.000</span>
+              </div>
+              <div>
+                <span class="live-price-label">Avaliação</span>
+                <span class="live-price-muted">R$ 410.000</span>
+              </div>
+            </div>
+          </div>
+          <div class="live-right">
+            <div class="live-steps">
+              <div class="live-step" data-step="1">
+                <span class="live-step-check"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="live-step-text">Edital e documentação</span>
+                <span class="live-step-time">0.8s</span>
+              </div>
+              <div class="live-step" data-step="2">
+                <span class="live-step-check"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="live-step-text">Preço de mercado da região</span>
+                <span class="live-step-time">1.2s</span>
+              </div>
+              <div class="live-step" data-step="3">
+                <span class="live-step-check"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="live-step-text">Ônus e riscos na matrícula</span>
+                <span class="live-step-time">1.5s</span>
+              </div>
+              <div class="live-step" data-step="4">
+                <span class="live-step-check"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="live-step-text">ROI e lance máximo</span>
+                <span class="live-step-time">0.6s</span>
+              </div>
+              <div class="live-step" data-step="5">
+                <span class="live-step-check"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="live-step-text">Relatório final</span>
+                <span class="live-step-time">0.3s</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="live-result" id="analysisResult">
+          <div class="live-metrics">
+            <div class="live-metric">
+              <span class="live-metric-val live-positive">40.2%</span>
+              <span class="live-metric-lbl">Desconto real</span>
+            </div>
+            <div class="live-metric">
+              <span class="live-metric-val live-positive">R$ 410.000</span>
+              <span class="live-metric-lbl">Valor de mercado</span>
+            </div>
+            <div class="live-metric">
+              <span class="live-metric-val">R$ 32.000</span>
+              <span class="live-metric-lbl">Custos estimados</span>
+            </div>
+            <div class="live-metric live-metric-highlight">
+              <span class="live-metric-val">R$ 268.000</span>
+              <span class="live-metric-lbl">Lance máximo</span>
+            </div>
+          </div>
+          <span class="live-verdict">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+            Análise completa — imóvel com boa margem para arrematação
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NÚMEROS -->
+  <section class="numbers" data-reveal>
+    <div class="container numbers-grid">
+      <div class="number-item">
+        <span class="number-val" data-count="2847" data-suffix="+">0</span>
+        <span class="number-lbl">Leilões agregados</span>
+      </div>
+      <div class="number-item">
+        <span class="number-val" data-count="27" data-suffix=" UFs">0</span>
+        <span class="number-lbl">Todo o Brasil</span>
+      </div>
+      <div class="number-item">
+        <span class="number-val" data-count="3" data-suffix=" min">0</span>
+        <span class="number-lbl">Tempo por análise</span>
+      </div>
+      <div class="number-item">
+        <span class="number-val" data-count="40" data-suffix="%">0</span>
+        <span class="number-lbl">Desconto médio por imóvel</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOR -->
+  <section class="section" id="problema" data-reveal>
+    <div class="container">
+      <div class="section-center">
+        <span class="overline">O problema</span>
+        <h2 class="section-title">Arrematar sem análise é jogar no escuro.</h2>
+        <p class="section-sub">Se você já participou de um leilão, sabe que o processo é assim:</p>
+      </div>
+
+      <div class="pain-grid">
+        <div class="pain-card">
+          <div class="pain-ico">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg>
+          </div>
+          <h3>Editais de 30 páginas em linguagem jurídica</h3>
+          <p>Você lê, relê, e ainda não tem certeza se entendeu todas as condições, ônus e restrições do imóvel.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-ico">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>Sem ideia do valor real de mercado</h3>
+          <p>O lance mínimo é atrativo, mas quanto o imóvel realmente vale? Sem essa conta, você pode pagar caro achando que está barato.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-ico">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+          </div>
+          <h3>Custos que só aparecem depois</h3>
+          <p>ITBI, cartório, dívidas de IPTU e condomínio, reforma, comissão do leiloeiro — a conta final pode transformar um desconto de 40% em prejuízo.</p>
+        </div>
+        <div class="pain-card">
+          <div class="pain-ico">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="M12 8v4M12 16h.01"/></svg>
+          </div>
+          <h3>Risco jurídico invisível</h3>
+          <p>Ações judiciais, penhoras sobrepostas, imóvel ocupado — problemas que só um advogado encontraria, depois de horas de pesquisa.</p>
+        </div>
+      </div>
+
+      <p class="pain-transition" data-reveal>E se existisse uma forma de saber tudo isso antes de dar seu lance?</p>
+    </div>
+  </section>
+
+  <!-- 4 PILARES (SOLUÇÃO) -->
+  <section class="section section-soft" id="solucao" data-reveal>
+    <div class="container">
+      <div class="section-center">
+        <span class="overline">A solução</span>
+        <h2 class="section-title">Quatro dimensões de análise. Resultado em minutos.</h2>
+        <p class="section-sub">Cada pilar do Argos resolve diretamente um dos problemas acima.</p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-num">01</div>
+          <div class="pillar-ico">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><circle cx="10" cy="13" r="2"/><path d="m14 17-2.5-2.5"/></svg>
+          </div>
+          <h3>Edital</h3>
+          <p class="pillar-desc">A IA lê, interpreta e resume o edital inteiro</p>
+          <ul class="pillar-list">
+            <li>Condições de pagamento</li>
+            <li>Ônus e gravames</li>
+            <li>Restrições e alertas</li>
+            <li>Resumo em linguagem clara</li>
+          </ul>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">02</div>
+          <div class="pillar-ico">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          </div>
+          <h3>Mercado</h3>
+          <p class="pillar-desc">Comparativo real de valor na região</p>
+          <ul class="pillar-list">
+            <li>Preço médio do m² no bairro</li>
+            <li>Imóveis similares à venda</li>
+            <li>Percentual real de desconto</li>
+            <li>Tendência de valorização</li>
+          </ul>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">03</div>
+          <div class="pillar-ico">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h5"/><circle cx="15" cy="17" r="2"/></svg>
+          </div>
+          <h3>Custos</h3>
+          <p class="pillar-desc">Todos os custos, sem surpresas</p>
+          <ul class="pillar-list">
+            <li>ITBI e taxas de cartório</li>
+            <li>Dívidas de IPTU e condomínio</li>
+            <li>Comissão do leiloeiro</li>
+            <li>Estimativa de reforma</li>
+          </ul>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num">04</div>
+          <div class="pillar-ico">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>Jurídico</h3>
+          <p class="pillar-desc">Mapeamento completo de riscos</p>
+          <ul class="pillar-list">
+            <li>Ações judiciais vinculadas</li>
+            <li>Penhoras e gravames</li>
+            <li>Situação de ocupação</li>
+            <li>Classificação de risco</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pillar-result" data-reveal>
+        <p>Tudo isso gera um <strong>relatório completo de viabilidade</strong> que te mostra, objetivamente, se o negócio vale a pena — com o lance máximo que faz sentido e todos os custos calculados.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="section" id="como-funciona" data-reveal>
+    <div class="container">
+      <div class="section-center">
+        <span class="overline">Como funciona</span>
+        <h2 class="section-title">3 passos. Resultado em minutos.</h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-num">01</span>
+          <h3>Navegue pelo catálogo ou cole um link</h3>
+          <p>Explore leilões de todo o Brasil na plataforma, ou cole o link de qualquer leiloeiro que o Argos analisa na hora.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num">02</span>
+          <h3>A IA analisa tudo automaticamente</h3>
+          <p>Edital, mercado, custos e riscos jurídicos são cruzados e processados em minutos.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num">03</span>
+          <h3>Receba o relatório e o lance máximo</h3>
+          <p>Análise completa com valor de mercado, custos reais e o lance máximo que faz sentido pagar.</p>
+        </div>
+      </div>
+
+      <div class="steps-cta">
+        <button class="btn-primary" data-open-modal>Quero testar quando lançar</button>
+        <span class="cta-support">Gratuito. Sem cartão. Leva 2 minutos.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO / VÍDEO -->
+  <section class="section section-soft" id="demo" data-reveal>
+    <div class="container">
+      <div class="section-center">
+        <span class="overline">Veja funcionando</span>
+        <h2 class="section-title">Do edital ao parecer, em poucos minutos.</h2>
+        <p class="section-sub">Veja como o Argos transforma um imóvel de leilão em uma análise completa de viabilidade.</p>
+      </div>
+
+      <div class="video-wrap">
+        <button class="video-placeholder" id="videoPlay" data-video-src="" aria-label="Reproduzir vídeo de demonstração">
+          <span class="video-lines" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="play-btn">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M5 3.5v17l14-8.5L5 3.5Z"/></svg>
+          </span>
+        </button>
+      </div>
+      <p class="video-note">Prévia em produção — vídeo completo disponível no lançamento.</p>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAL -->
+  <section class="section" id="diferencial" data-reveal>
+    <div class="container">
+      <div class="section-center">
+        <span class="overline">Diferencial</span>
+        <h2 class="section-title">O que levava dias, agora leva minutos.</h2>
+      </div>
+
+      <div class="compare">
+        <div class="compare-head">
+          <span></span>
+          <span class="compare-lbl">Método tradicional</span>
+          <span class="compare-lbl compare-lbl-accent">Com o Argos</span>
+        </div>
+        <div class="compare-row" data-reveal-row>
+          <span class="compare-item">Tempo por análise</span>
+          <span class="compare-old">2 a 4 horas</span>
+          <span class="compare-new">3 minutos</span>
+        </div>
+        <div class="compare-row" data-reveal-row>
+          <span class="compare-item">Preço de mercado</span>
+          <span class="compare-old">Pesquisa manual</span>
+          <span class="compare-new">Dados reais da região</span>
+        </div>
+        <div class="compare-row" data-reveal-row>
+          <span class="compare-item">ROI do investimento</span>
+          <span class="compare-old">Planilha genérica</span>
+          <span class="compare-new">Projeção com IA</span>
+        </div>
+        <div class="compare-row" data-reveal-row>
+          <span class="compare-item">Riscos ocultos</span>
+          <span class="compare-old">Descobre depois</span>
+          <span class="compare-new">Mapeados antes</span>
+        </div>
+        <div class="compare-row" data-reveal-row>
+          <span class="compare-item">Lance máximo</span>
+          <span class="compare-old">Instinto</span>
+          <span class="compare-new">Calculado por IA</span>
+        </div>
+        <div class="compare-row" data-reveal-row>
+          <span class="compare-item">Parecer jurídico</span>
+          <span class="compare-old">R$ 1.800+ por consulta</span>
+          <span class="compare-new">Incluído no premium</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDIBILIDADE -->
+  <section class="section section-soft" data-reveal>
+    <div class="container">
+      <div class="section-center">
+        <span class="overline">Quem está por trás</span>
+        <h2 class="section-title">Construído por investidores, advogados e desenvolvedores.</h2>
+      </div>
+
+      <div class="cred-grid">
+        <div class="cred-card">
+          <div class="cred-ico">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+          </div>
+          <p><strong>Advogados especialistas</strong> em direito imobiliário e leilões judiciais validam cada análise</p>
+        </div>
+        <div class="cred-card">
+          <div class="cred-ico">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M5 20V9l7-5 7 5v11"/><path d="M9 20v-5h6v5"/></svg>
+          </div>
+          <p><strong>Investidores com experiência real</strong> em arrematação de imóveis em leilões judiciais e extrajudiciais</p>
+        </div>
+        <div class="cred-card">
+          <div class="cred-ico">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <p><strong>Desenvolvedores de fintechs</strong> com stack de tecnologia usada por líderes do mercado</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq" data-reveal>
+    <div class="container">
+      <div class="section-center">
+        <span class="overline">Dúvidas frequentes</span>
+        <h2 class="section-title">Perguntas frequentes</h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Funciona para leilão judicial e extrajudicial?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Sim. O Argos analisa ambos os tipos. A IA é treinada para interpretar editais de leiloeiros oficiais, bancos (Caixa, BB, Itaú) e plataformas online.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>A análise jurídica substitui um advogado?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>O Argos faz uma triagem automatizada de riscos — penhoras, ações, gravames, ocupação. Para imóveis com análise positiva, muitos investidores dispensam consulta extra. Para casos complexos, recomendamos validar com um advogado especializado. O Argos não é escritório de advocacia.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Preciso ter experiência com leilões?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Não. A plataforma foi desenhada tanto para investidores experientes quanto para quem está começando. O relatório de viabilidade mostra tudo de forma clara: custos, riscos e se o negócio compensa.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Quanto custa?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>A primeira análise será gratuita. Depois, cada análise custará um crédito. Os planos e valores serão divulgados no lançamento — entre na lista de espera para ser o primeiro a saber.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Quais leiloeiros estão na plataforma?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>O Argos agrega leilões de leiloeiros oficiais, bancos (Caixa, BB, Itaú, Santander) e plataformas online de todo o Brasil. Se um leiloeiro ainda não estiver no catálogo, basta colar o link do leilão que a IA analisa na hora.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>E se eu não gostar?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Você poderá cancelar a qualquer momento. Sem fidelidade, sem multa, sem burocracia.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="section section-soft" id="cadastro" data-reveal>
+    <div class="container">
+      <div class="cta-box">
+        <span class="overline">Lançamento em breve</span>
+        <h2 class="section-title">Deixe a IA fazer a análise. Você faz o lance certo.</h2>
+        <p class="section-sub">Você vai receber <strong>uma única mensagem</strong> — no dia do lançamento. Sem spam, sem newsletter.</p>
+        <button class="btn-primary btn-lg" data-open-modal>Entrar na lista de espera</button>
+        <span class="cta-support">Gratuito. Sem cartão. Leva 2 minutos.</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="logo">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+      </span>
+      <span class="logo-word">Argos</span>
+    </div>
+    <p class="footer-sub">Inteligência em leilões imobiliários.</p>
+    <nav class="footer-links">
+      <a href="/blog/">Blog</a>
+    </nav>
+    <p class="footer-copy">&copy; 2026 Argos. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<!-- FAB CADASTRO FLUTUANTE -->
+<button class="signup-fab" id="signupFab" data-open-modal aria-label="Entrar na lista de espera">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4 20-7Z"/></svg>
+  <span>Entrar na lista</span>
+</button>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+  <div class="modal-box" role="dialog" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Fechar">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+
+    <div class="modal-body" id="modalBody">
+      <div class="modal-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <h3 id="modalTitle">Entre na lista de espera</h3>
+      <p class="modal-desc">Preencha abaixo. Você receberá <strong>uma única mensagem</strong> — no dia do lançamento.</p>
+
+      <form id="waitlistForm" class="modal-form" novalidate>
+        <div class="field">
+          <label for="fullName">Nome completo</label>
+          <input type="text" id="fullName" name="fullName" placeholder="Seu nome completo" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="phone">Celular (WhatsApp)</label>
+          <input type="tel" id="phone" name="phone" placeholder="(41) 99999-9999" required autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email">
+        </div>
+        <button type="submit" class="btn-primary modal-submit" id="submitBtn">
+          <span class="btn-label">Quero ser avisado no lançamento</span>
+        </button>
+        <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off">
+        <p class="form-err" id="formError" role="alert" hidden></p>
+      </form>
+
+      <p class="modal-note">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-3.5 7-9V6l-7-3-7 3v6c0 5.5 7 9 7 9Z"/><path d="m9.5 11.5 2 2 3.5-3.5"/></svg>
+        Zero spam. Somente no dia do lançamento.
+      </p>
+    </div>
+
+    <div class="modal-ok" id="modalSuccess" hidden>
+      <div class="ok-ico">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <h3>Você está na lista!</h3>
+      <p>Vamos avisar por e-mail assim que o Argos for lançado.</p>
+    </div>
+  </div>
+</div>
+
+<script src="/lp/script.js"></script>
+</body>
+</html>
