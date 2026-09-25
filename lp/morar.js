@@ -78,7 +78,6 @@ const EXAMPLE = {
 
 const pctSobreOferta = EXAMPLE.comissao + EXAMPLE.itbi + EXAMPLE.registro;
 const brl = (v) => 'R$ ' + Math.round(v).toLocaleString('pt-BR');
-const brlCents = (v) => 'R$ ' + v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 const budgetRange = document.getElementById('budgetRange');
 const renoRange = document.getElementById('renoRange');
@@ -91,29 +90,41 @@ function reforma() {
   return Math.round((Number(renoRange.value) / 100) * EXAMPLE.reformaMax / 100) * 100;
 }
 
-// Explicações "?" abertas continuam abertas quando a conta é refeita.
-const openHints = new Set();
-
 function desocupacao() {
   return desocToggle && !desocToggle.checked ? 0 : EXAMPLE.desocupacao;
 }
 
-function rowHtml(r, total) {
-  const pct = total > 0 ? (r.value / total) * 100 : 0;
-  const open = openHints.has(r.label);
-  return `
-    <div class="bill-row" role="row">
-      <button type="button" class="bill-q" aria-expanded="${open}" aria-label="Explicação de ${r.label}" data-key="${r.label}">?</button>
-      <span><span class="bill-label">${r.label}</span><span class="bill-hint"${open ? '' : ' hidden'}>${r.hint}</span></span>
-      <span class="bill-weight"><span class="bill-bar"><span style="width:${Math.min(pct * 2.5, 100)}%"></span></span><span class="bill-pct">${pct.toFixed(1)}%</span></span>
-      <span class="bill-money">${brlCents(r.value)}</span>
-    </div>`;
+// Cada linha da conta é criada uma vez e reaproveitada: a cada mudança só o
+// valor é reescrito. Assim o arraste não recria o DOM (sem engasgo) e as
+// explicações "?" abertas continuam abertas.
+const rowEls = new Map();
+
+function rowEl(r) {
+  let item = rowEls.get(r.label);
+  if (!item) {
+    const el = document.createElement('div');
+    el.className = 'bill-row';
+    el.setAttribute('role', 'row');
+    el.innerHTML = `
+      <button type="button" class="bill-q" aria-expanded="false" aria-label="Explicação de ${r.label}">?</button>
+      <span><span class="bill-label">${r.label}</span><span class="bill-hint" hidden>${r.hint}</span></span>
+      <span class="bill-money"></span>`;
+    item = { el, money: el.querySelector('.bill-money') };
+    rowEls.set(r.label, item);
+  }
+  return item;
+}
+
+function setText(el, text) {
+  if (el && el.textContent !== text) el.textContent = text;
 }
 
 function setFill(input) {
   const pct = ((input.value - input.min) / (input.max - input.min)) * 100;
   input.style.setProperty('--fill', pct + '%');
 }
+
+let lastAnswer = '';
 
 function render() {
   const budget = Number(budgetRange.value);
@@ -134,27 +145,31 @@ function render() {
     { label: 'Reforma', value: ref, hint: 'O que você pretende gastar para se mudar. Você escolhe no controle acima.' },
   ].filter((r) => r.value > 0);
 
+  // A conta mostra reais inteiros; o total é a soma do que aparece na tela.
+  rows.forEach((r) => { r.value = Math.round(r.value); });
   const total = rows.reduce((s, r) => s + r.value, 0);
-  billRows.innerHTML = rows.map((r) => rowHtml(r, total)).join('');
 
-  document.querySelector('[data-out="budget"]').textContent = brl(budget);
-  document.querySelector('[data-out="reforma"]').textContent = brl(ref);
+  const els = rows.map((r) => rowEl(r).el);
+  const cur = billRows.children;
+  if (cur.length !== els.length || els.some((el, i) => cur[i] !== el)) billRows.replaceChildren(...els);
+  rows.forEach((r) => setText(rowEls.get(r.label).money, brl(r.value)));
+
+  setText(document.querySelector('[data-out="budget"]'), brl(budget));
+  setText(document.querySelector('[data-out="reforma"]'), brl(ref));
   const desocOut = document.querySelector('[data-out="desocupacao"]');
   if (desocOut) desocOut.closest('.field-card').classList.toggle('is-off', desoc === 0);
-  document.querySelector('[data-out="total"]').textContent = brlCents(total);
+  setText(document.querySelector('[data-out="total"]'), brl(total));
 
-  if (cabe) {
-    budgetAnswer.classList.remove('is-short');
-    budgetAnswer.innerHTML = `Com <strong>${brl(budget)}</strong> para a sua casa, dá para oferecer até <strong>${brl(oferta)}</strong> neste imóvel — com todos os custos até a chave.`;
-  } else {
-    budgetAnswer.classList.add('is-short');
-    budgetAnswer.innerHTML = `Com <strong>${brl(budget)}</strong> ainda não fecha. Neste imóvel, o valor inicial é ${brl(EXAMPLE.valorInicial)} e o total mínimo até a chave é <strong>${brl(total)}</strong>.`;
-  }
+  budgetAnswer.classList.toggle('is-short', !cabe);
+  const answer = cabe
+    ? `Com <strong>${brl(budget)}</strong> para a sua casa, dá para oferecer até <strong>${brl(oferta)}</strong> neste imóvel — com todos os custos até a chave.`
+    : `Com <strong>${brl(budget)}</strong> ainda não fecha. Neste imóvel, o valor inicial é ${brl(EXAMPLE.valorInicial)} e o total mínimo até a chave é <strong>${brl(total)}</strong>.`;
+  if (answer !== lastAnswer) { budgetAnswer.innerHTML = answer; lastAnswer = answer; }
 
   const folga = EXAMPLE.avaliacao - total;
-  compareFact.textContent = folga >= 0
+  setText(compareFact, folga >= 0
     ? `O total fica ${brl(folga)} abaixo do valor de avaliação (${brl(EXAMPLE.avaliacao)}).`
-    : `O total passa o valor de avaliação (${brl(EXAMPLE.avaliacao)}) em ${brl(-folga)}.`;
+    : `O total passa o valor de avaliação (${brl(EXAMPLE.avaliacao)}) em ${brl(-folga)}.`);
 
   budgetRange.setAttribute('aria-valuetext', brl(budget));
   renoRange.setAttribute('aria-valuetext', brl(ref));
@@ -174,36 +189,68 @@ if (budgetRange) {
     const hint = btn.parentElement.querySelector('.bill-hint');
     hint.hidden = !hint.hidden;
     btn.setAttribute('aria-expanded', String(!hint.hidden));
-    if (hint.hidden) openHints.delete(btn.dataset.key); else openHints.add(btn.dataset.key);
   });
 
   render();
 
-  // Movimento sutil na primeira vez que o simulador aparece: mostra que dá
-  // para arrastar sem ninguém precisar explicar.
+  // Movimento sutil na primeira vez que o simulador aparece (1× por sessão):
+  // mostra que dá para arrastar sem ninguém precisar explicar. Para na hora
+  // se a pessoa tocar, focar (Tab) ou usar o teclado/roda no controle, e
+  // devolve o valor inicial.
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const NUDGE_KEY = 'argos-nudge-visto';
+  let seen = false;
+  try { seen = sessionStorage.getItem(NUDGE_KEY) === '1'; } catch (err) { /* sem storage */ }
+
   let touched = false;
-  budgetRange.addEventListener('pointerdown', () => { touched = true; });
+  let nudgeStart = null; // valor antes do movimento; null = não está rodando
+
+  function stopNudge() {
+    touched = true;
+    if (nudgeStart === null) return;
+    budgetRange.value = nudgeStart;
+    nudgeStart = null;
+    budgetAnswer.setAttribute('aria-live', 'polite');
+    render();
+  }
+  ['pointerdown', 'touchstart', 'focus', 'keydown', 'wheel'].forEach((ev) => {
+    budgetRange.addEventListener(ev, stopNudge, { passive: true });
+  });
 
   const nudgeObserver = new IntersectionObserver((entries) => {
     if (!entries[0].isIntersecting) return;
     nudgeObserver.disconnect();
-    if (reduced) return;
+    if (reduced || seen || touched) return;
+    try { sessionStorage.setItem(NUDGE_KEY, '1'); } catch (err) { /* sem storage */ }
 
     const start = Number(budgetRange.value);
     const peak = start + 30000;
     const duration = 1600;
     let t0;
+    let last = start;
 
     function frame(now) {
       if (touched) return;
       t0 = t0 || now;
       const p = Math.min((now - t0) / duration, 1);
-      budgetRange.value = Math.round((start + (peak - start) * Math.sin(p * Math.PI)) / 1000) * 1000;
-      render();
-      if (p < 1) requestAnimationFrame(frame);
+      const v = Math.round((start + (peak - start) * Math.sin(p * Math.PI)) / 1000) * 1000;
+      // Só refaz a conta quando o valor muda de fato (degraus de R$ 1.000)
+      if (v !== last) {
+        last = v;
+        budgetRange.value = v;
+        render();
+      }
+      if (p < 1) { requestAnimationFrame(frame); return; }
+      nudgeStart = null;
+      budgetAnswer.setAttribute('aria-live', 'polite');
     }
-    setTimeout(() => requestAnimationFrame(frame), 500);
+    setTimeout(() => {
+      if (touched) return;
+      nudgeStart = start;
+      // O leitor de tela não precisa ouvir cada passo do movimento
+      budgetAnswer.setAttribute('aria-live', 'off');
+      requestAnimationFrame(frame);
+    }, 500);
   }, { threshold: 0.6 });
 
   nudgeObserver.observe(budgetRange);
@@ -217,7 +264,8 @@ const progressText = document.getElementById('progressText');
 function renderProgress() {
   const done = checks.filter((c) => c.classList.contains('is-done')).length;
   const pct = Math.round((done / checks.length) * 100);
-  progressFill.style.width = pct + '%';
+  // transform (não width): só compõe, não refaz o layout
+  progressFill.style.transform = `scaleX(${done / checks.length})`;
   progressText.textContent = `${done} de ${checks.length} etapas · ${pct}%`;
 }
 

@@ -6,10 +6,11 @@
    - troca de slide: transform 360ms, ease-out forte, interrompível (transition);
    - arraste: segue o dedo 1:1, sem transition; ao soltar, a mesma curva;
    - explicação: só nos slides 2 e 4, uma vez, na primeira vez que aparecem;
-   - press: scale(0.97) em 160ms. */
+   - press: scale(0.97) em 160ms.
+   Curvas e durações base vêm de styles.css (:root). */
 
 .lm-section {
-  --lm-ease: cubic-bezier(0.23, 1, 0.32, 1);
+  --lm-ease: var(--ease-out);
   --lm-slide: 360ms;
   padding-top: var(--sp-16);
 }
@@ -18,7 +19,7 @@
   position: relative;
   max-width: 980px;
   margin: 0 auto;
-  background: linear-gradient(135deg, #F6F2FF 0%, #FFFFFF 62%);
+  background: linear-gradient(135deg, var(--violet-wash) 0%, var(--white) 62%);
   border: 1px solid var(--violet-border);
   border-radius: var(--r-xl);
   box-shadow: var(--shadow-card);
@@ -62,11 +63,9 @@
 
 .lm-kicker {
   display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
   color: var(--violet);
   background: var(--violet-bg);
   padding: 4px 10px;
@@ -115,11 +114,8 @@
 
 .lm-tag {
   display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
   color: var(--text-3);
   background: var(--bg-soft);
   border: 1px dashed var(--border);
@@ -222,7 +218,7 @@
   transition: transform 700ms var(--lm-ease);
 }
 
-.lm-bar-fill-muted { background: #C9BCF5; }
+.lm-bar-fill-muted { background: var(--violet-muted); }
 
 .lm-bar-row:nth-child(2) .lm-bar-fill { transition-delay: 120ms; }
 
@@ -312,14 +308,12 @@
   background: var(--yellow-bg);
   color: var(--yellow-text);
   font-weight: 600;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .lm-money {
-  font-family: var(--font-mono);
-  font-weight: 500;
-  font-feature-settings: 'tnum';
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
   color: var(--text);
   white-space: nowrap;
 }
@@ -373,7 +367,7 @@
   height: 22px;
   margin-top: -11px;
   border-radius: 50%;
-  border: 2px solid var(--text-4);
+  border: 2px solid var(--line-strong);
   background: var(--white);
   font-size: 11px;
   font-weight: 700;
@@ -429,7 +423,7 @@
   min-height: 46px;
   min-width: 46px;
   padding: 0 18px;
-  border-radius: 12px;
+  border-radius: var(--r);
   font-size: 15px;
   font-weight: 600;
   -webkit-tap-highlight-color: transparent;
@@ -451,12 +445,11 @@
 .lm-progress { display: flex; align-items: center; gap: var(--sp-4); }
 
 .lm-count {
-  font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 600;
   color: var(--text-2);
   white-space: nowrap;
-  font-feature-settings: 'tnum';
+  font-variant-numeric: tabular-nums;
 }
 
 .lm-dots { display: flex; align-items: center; }
@@ -479,7 +472,7 @@
   transition: background-color 200ms ease, transform 160ms var(--lm-ease);
 }
 
-.lm-dot.is-seen::before { background: #C9BCF5; }
+.lm-dot.is-seen::before { background: var(--violet-muted); }
 .lm-dot[aria-current="true"]::before { background: var(--violet); }
 .lm-dot:active::before { transform: scaleY(1.5); }
 
@@ -520,7 +513,7 @@
   .lm-section { padding-top: var(--sp-10); }
   .lm { border-radius: var(--r-lg); }
   .lm-slide { padding: var(--sp-5) var(--sp-4) var(--sp-4); gap: var(--sp-4); }
-  .lm-kicker { margin-bottom: 10px; font-size: 10.5px; }
+  .lm-kicker { margin-bottom: 10px; font-size: 12px; padding: 3px 10px; }
   .lm-title { font-size: 22px; margin-bottom: 10px; }
   .lm-text p { font-size: 15px; line-height: 1.5; }
   .lm-text p + p { margin-top: 4px; }
@@ -545,7 +538,7 @@
   .lm-way-top { margin-bottom: 4px; }
   .lm-way-name { font-size: 15px; }
   .lm-way p { font-size: 13.5px; line-height: 1.45; }
-  .lm-chip { font-size: 11.5px; padding: 2px 8px; }
+  .lm-chip { font-size: 12px; padding: 2px 8px; }
 
   .lm-bill li { font-size: 13.5px; padding: 5px 0; }
   .lm-bill small:not(.lm-est) { display: block; margin: 0 0 0 12px; line-height: 1.3; }
@@ -573,9 +566,9 @@
 }
 
 /* ----- Movimento reduzido -----
-   styles.css já zera transition/animation com !important. Aqui a troca de
-   slide vira um fade curto de opacidade (sem deslocamento), e as explicações
-   aparecem no estado final. A navegação continua igual. */
+   A troca de slide vira um fade curto de opacidade (o JS já tira a
+   transição do trilho), as explicações aparecem no estado final e o
+   aperto dos botões não escala. A navegação continua igual. */
 
 @media (prefers-reduced-motion: reduce) {
   .lm.is-ready .lm-slide { opacity: 0; transition: opacity 200ms ease !important; }
@@ -584,4 +577,6 @@
   .lm.is-ready [data-explain] .lm-bar-fill { transform: scaleX(var(--v, 1)) !important; }
   .lm.is-ready [data-explain] .lm-save,
   .lm.is-ready [data-explain] .lm-bill li { opacity: 1 !important; transform: none !important; }
+  .lm-nav:active, .lm .lm-cta:active { transform: none; }
+  .lm-dot:active::before { transform: none; }
 }

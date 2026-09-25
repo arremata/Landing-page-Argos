@@ -3,26 +3,25 @@
    vídeo, modal e rodapé da LP de investidor. O bloco .app replica a página
    do imóvel do app (leilao-br/frontend/src/styles.css — identidade Arctic/Violet). */
 
+/* Tokens do app, usados só dentro de .app-frame. O que é igual à marca
+   aponta para os tokens de styles.css; o resto é o que o app tem de próprio
+   (cinzas frios, selos). --a-fg-2 e --a-fg-3 passam AA (4,5:1) sobre
+   --a-bg-1 e --a-bg-2. */
 :root {
-  --yellow: #F5A623;
-  --yellow-bg: #FFF6E5;
-  --yellow-text: #9A5B00;
-
-  /* Tokens do app, usados só dentro de .app-frame */
-  --a-bg-0: #FAFAFA;
-  --a-bg-1: #FFFFFF;
+  --a-bg-0: var(--bg);
+  --a-bg-1: var(--white);
   --a-bg-2: #F3F4F6;
   --a-bg-3: #ECEEF1;
   --a-line-1: #E5E7EB;
   --a-line-2: #D1D5DB;
   --a-fg-0: #111827;
   --a-fg-1: #374151;
-  --a-fg-2: #6B7280;
-  --a-fg-3: #9CA3AF;
-  --a-accent: #7C3AED;
-  --a-accent-strong: #6D28D9;
+  --a-fg-2: #4B5563;
+  --a-fg-3: #646B78;
+  --a-accent: var(--violet);
+  --a-accent-strong: var(--violet-hover);
   --a-accent-soft: #EDE9FE;
-  --a-good: #16A34A;
+  --a-good: var(--green-text);
   --a-good-soft: #DCFCE7;
   --a-warn: #B45309;
   --a-warn-soft: #FEF3C7;
@@ -42,33 +41,7 @@ body { font-size: 16px; }
   margin-top: var(--sp-4);
 }
 
-/* ===== Duas portas ===== */
-
-.doors {
-  display: inline-flex;
-  padding: 4px;
-  gap: 4px;
-  background: var(--bg-soft);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  margin-bottom: var(--sp-6);
-  animation: fade-up 0.5s ease both;
-}
-
-.door {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 18px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--text-3);
-  transition: color 0.15s ease, background 0.15s ease;
-}
-
-a.door:hover { color: var(--text); background: var(--white); }
-.door.is-active { background: var(--white); color: var(--violet); box-shadow: var(--shadow-sm); }
+/* Link "Quero investir" no menu do celular */
 .mobile-door { color: var(--text-3); }
 
 /* ===== Selos do card ===== */
@@ -103,7 +76,7 @@ a.door:hover { color: var(--text); background: var(--white); }
   border-radius: var(--r-xl);
   overflow: hidden;
   box-shadow: var(--shadow-card);
-  animation: fade-up 0.6s 0.25s ease both;
+  animation: fade-up var(--dur-reveal) 180ms var(--ease-out) both;
 }
 
 .home-photo { position: relative; min-height: 260px; background: var(--violet-bg); }
@@ -168,7 +141,7 @@ a.door:hover { color: var(--text); background: var(--white); }
   max-width: 920px;
   margin: 0 auto;
   border: 1px solid var(--a-line-1);
-  border-radius: 16px;
+  border-radius: var(--r-lg);
   overflow: hidden;
   background: var(--a-bg-0);
   box-shadow: 0 24px 60px rgba(17,24,39,0.10), 0 2px 8px rgba(17,24,39,0.04);
@@ -224,7 +197,7 @@ a.door:hover { color: var(--text); background: var(--white); }
 .tag.warn { background: var(--a-warn-soft); color: var(--a-warn); }
 .tag.accent { background: var(--a-accent-soft); color: var(--a-accent-strong); }
 .tag.dot::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
-.tag-xs { padding: 1px 6px; font-size: 9px; }
+.tag-xs { padding: 1px 6px; font-size: 10px; }
 
 /* Cabeçalho do imóvel */
 
@@ -232,7 +205,7 @@ a.door:hover { color: var(--text); background: var(--white); }
   padding: 20px;
   background: var(--a-bg-1);
   border: 1px solid var(--a-line-1);
-  border-radius: 16px;
+  border-radius: var(--r-lg);
   margin-bottom: 20px;
 }
 
@@ -294,17 +267,19 @@ a.door:hover { color: var(--text); background: var(--white); }
   font-size: 13px;
   font-weight: 400;
   white-space: nowrap;
-  transition: color .15s;
+  transition: color var(--dur-color) ease;
 }
 
-.app-tab:hover { color: var(--a-fg-0); }
+@media (hover: hover) and (pointer: fine) {
+  .app-tab:hover { color: var(--a-fg-0); }
+}
 .app-tab.is-active { color: var(--a-fg-0); font-weight: 600; border-bottom-color: var(--a-accent); }
 .app-tab .ix { font-family: var(--font-mono); font-size: 11px; color: var(--a-fg-3); }
 
 .app-card {
   background: var(--a-bg-1);
   border: 1px solid var(--a-line-1);
-  border-radius: 16px;
+  border-radius: var(--r-lg);
   padding: 24px;
 }
 
@@ -351,9 +326,11 @@ a.door:hover { color: var(--text); background: var(--white); }
   margin-top: 14px;
   padding: 14px 16px;
   background: var(--a-accent-soft);
-  border-radius: 12px;
+  border-radius: var(--r);
   font-size: 15px;
   color: var(--a-fg-0);
+  /* "fecha" ⇄ "ainda não fecha": só a cor muda, sem mexer a caixa */
+  transition: background-color var(--dur-ui) ease;
 }
 .budget-answer strong { color: var(--a-accent-strong); white-space: nowrap; }
 .budget-answer.is-short { background: var(--a-warn-soft); }
@@ -382,9 +359,8 @@ a.door:hover { color: var(--text); background: var(--white); }
   border: 3px solid var(--a-bg-1);
   box-shadow: 0 1px 4px rgba(17,24,39,.18);
   cursor: pointer;
-  transition: transform .1s, box-shadow .15s;
+  transition: transform 100ms var(--ease-out), box-shadow var(--dur-color) ease;
 }
-.app-slider::-webkit-slider-thumb:hover { transform: scale(1.12); box-shadow: 0 2px 8px rgba(124,58,237,.35); }
 
 .app-slider::-moz-range-thumb {
   width: 16px; height: 16px;
@@ -393,12 +369,22 @@ a.door:hover { color: var(--text); background: var(--white); }
   border: 3px solid var(--a-bg-1);
   box-shadow: 0 1px 4px rgba(17,24,39,.18);
   cursor: pointer;
+  transition: transform 100ms var(--ease-out), box-shadow var(--dur-color) ease;
 }
 
 .app-slider-lg { height: 6px; margin-top: 16px; }
 .app-slider-lg::-webkit-slider-thumb { width: 26px; height: 26px; border-width: 4px; box-shadow: 0 2px 10px rgba(124,58,237,.4); }
 .app-slider-lg::-moz-range-thumb { width: 22px; height: 22px; border-width: 4px; box-shadow: 0 2px 10px rgba(124,58,237,.4); }
-.app-slider:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 5px var(--a-accent-soft); }
+
+/* A alça cresce enquanto é segurada: resposta no aperto, também no toque */
+.app-slider:active::-webkit-slider-thumb { transform: scale(1.15); }
+.app-slider:active::-moz-range-thumb { transform: scale(1.15); }
+@media (hover: hover) and (pointer: fine) {
+  .app-slider:hover::-webkit-slider-thumb { box-shadow: 0 2px 10px rgba(124,58,237,.45); }
+  .app-slider:hover::-moz-range-thumb { box-shadow: 0 2px 10px rgba(124,58,237,.45); }
+}
+.app-slider:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 5px var(--a-accent-soft), 0 2px 10px rgba(124,58,237,.4); }
+.app-slider:focus-visible::-moz-range-thumb { box-shadow: 0 0 0 5px var(--a-accent-soft), 0 2px 10px rgba(124,58,237,.4); }
 
 /* Valores que dependem de você */
 
@@ -406,7 +392,7 @@ a.door:hover { color: var(--text); background: var(--white); }
   margin-top: 24px;
   padding: 22px;
   border: 1px solid var(--a-line-1);
-  border-radius: 12px;
+  border-radius: var(--r);
   background: var(--a-bg-2);
 }
 
@@ -423,15 +409,15 @@ a.door:hover { color: var(--text); background: var(--white); }
   padding: 14px 16px;
   background: var(--a-bg-1);
   border: 1px solid var(--a-line-1);
-  border-radius: 12px;
+  border-radius: var(--r);
   box-shadow: 0 1px 2px rgba(17,24,39,.03);
 }
 
 .field-card .uppy { color: var(--a-fg-2); letter-spacing: .06em; }
 .field-val { font-family: var(--font-mono); font-size: 18px; font-weight: 600; color: var(--a-fg-0); white-space: nowrap; }
-.field-note { font-size: 11.5px; color: var(--a-fg-2); }
+.field-note { font-size: 12px; color: var(--a-fg-2); }
 .field-row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-.field-ends { margin-top: 8px; font-size: 11px; color: var(--a-fg-3); }
+.field-ends { margin-top: 8px; font-size: 12px; color: var(--a-fg-3); }
 
 /* Conta item por item — .cost-row do app */
 
@@ -439,13 +425,14 @@ a.door:hover { color: var(--text); background: var(--white); }
   margin-top: 24px;
   background: var(--a-bg-1);
   border: 1px solid var(--a-line-1);
-  border-radius: 16px;
+  border-radius: var(--r-lg);
   overflow: hidden;
 }
 
+/* Três colunas: ?, o que você paga, valor (sem a coluna "peso") */
 .bill-row {
   display: grid;
-  grid-template-columns: 24px minmax(0, 1fr) 96px minmax(120px, 170px);
+  grid-template-columns: 24px minmax(0, 1fr) minmax(110px, auto);
   gap: 14px;
   align-items: baseline;
   padding: 14px 20px;
@@ -466,24 +453,24 @@ a.door:hover { color: var(--text); background: var(--white); }
 .bill-head > :nth-child(n+3), .bill-row > :nth-child(n+3) { text-align: right; }
 
 .bill-q {
-  width: 16px; height: 16px;
+  position: relative;
+  width: 18px; height: 18px;
   border-radius: 50%;
   border: 1px solid var(--a-line-2);
   color: var(--a-fg-3);
-  font-size: 9px;
+  font-size: 10px;
   font-family: var(--font-mono);
-  line-height: 14px;
+  line-height: 16px;
   text-align: center;
+  transition: color var(--dur-color) ease, border-color var(--dur-color) ease, background-color var(--dur-color) ease;
 }
+/* Área de toque de 44px sem aumentar o círculo */
+.bill-q::after { content: ''; position: absolute; inset: -13px; }
+.bill-q[aria-expanded="true"] { color: var(--a-accent-strong); border-color: var(--a-accent); background: var(--a-accent-soft); }
 
 .bill-label { font-size: 13.5px; color: var(--a-fg-0); }
-.bill-hint { display: block; margin-top: 5px; font-size: 11.5px; color: var(--a-fg-2); }
+.bill-hint { display: block; margin-top: 5px; font-size: 12px; color: var(--a-fg-2); }
 .bill-hint[hidden] { display: none; }
-
-.bill-weight { display: inline-flex; align-items: center; justify-content: flex-end; gap: 6px; }
-.bill-bar { width: 40px; height: 4px; border-radius: 2px; background: var(--a-bg-3); overflow: hidden; }
-.bill-bar > span { display: block; height: 100%; background: var(--a-fg-3); }
-.bill-pct { font-family: var(--font-mono); font-size: 11px; color: var(--a-fg-2); min-width: 36px; text-align: right; }
 
 .bill-money { font-family: var(--font-mono); font-weight: 500; letter-spacing: -0.02em; color: var(--a-fg-0); white-space: nowrap; }
 
@@ -521,42 +508,6 @@ a.door:hover { color: var(--text); background: var(--white); }
 .app-soon .app-h2 { margin-top: 12px; }
 .app-soon .app-muted { margin: 8px auto 0; }
 
-/* ===== Alugar x financiar x leilão ===== */
-
-.paths { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); max-width: 900px; margin: 0 auto; }
-
-.path {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: var(--sp-6);
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-}
-
-.path-highlight { border: 2px solid var(--violet); box-shadow: var(--shadow-md); }
-
-.path-flag {
-  position: absolute;
-  top: -12px; left: 20px;
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: var(--violet);
-  color: white;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.path-name { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--text); margin-bottom: var(--sp-4); }
-.path-highlight .path-name { color: var(--violet); }
-.path dl { display: flex; flex-direction: column; margin-bottom: var(--sp-5); }
-.path dl div { display: flex; justify-content: space-between; gap: var(--sp-3); padding: 10px 0; border-bottom: 1px solid var(--border-light); }
-.path dt { font-size: 14px; color: var(--text-3); }
-.path dd { font-size: 15px; font-weight: 600; color: var(--text); text-align: right; }
-.path-end { margin-top: auto; font-size: 15px; color: var(--text-2); }
-.path-end strong { color: var(--text); }
-
 /* ===== Passo a passo ===== */
 
 .guide {
@@ -573,7 +524,17 @@ a.door:hover { color: var(--text); background: var(--white); }
 .progress-text { font-size: 13px; font-weight: 600; color: var(--text-2); }
 
 .progress { height: 8px; background: var(--border-light); border-radius: 999px; overflow: hidden; margin-bottom: var(--sp-5); }
-.progress-fill { display: block; height: 100%; width: 17%; background: var(--green); border-radius: 999px; transition: width 0.3s ease; }
+/* Anima só transform (scaleX), nunca width. O JS escreve o transform. */
+.progress-fill {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--green);
+  border-radius: 999px;
+  transform-origin: left center;
+  transform: scaleX(0.17);
+  transition: transform 250ms var(--ease-out);
+}
 
 .checklist { list-style: none; display: flex; flex-direction: column; gap: 6px; }
 
@@ -588,29 +549,41 @@ a.door:hover { color: var(--text); background: var(--white); }
   border-radius: var(--r);
   border: 1px solid var(--border-light);
   background: var(--bg);
-  transition: background 0.15s ease, border-color 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color var(--dur-color) ease, border-color var(--dur-color) ease,
+              transform var(--dur-press) var(--ease-out);
 }
 
-.check:hover { border-color: var(--violet-border); background: var(--white); }
+/* Elemento largo: aperto mais sutil que o dos botões */
+.check:active { transform: scale(0.98); }
+
+@media (hover: hover) and (pointer: fine) {
+  .check:hover { border-color: var(--violet-border); background: var(--white); }
+}
 
 .check .box {
   grid-area: box;
   width: 22px; height: 22px;
   margin-top: 1px;
   border-radius: 50%;
-  border: 2px solid var(--text-4);
+  border: 2px solid var(--line-strong);
   background: var(--white);
   display: flex; align-items: center; justify-content: center;
-  transition: all 0.15s ease;
+  transition: background-color var(--dur-color) ease, border-color var(--dur-color) ease;
 }
 
 .check.is-done .box { background: var(--green); border-color: var(--green); }
+/* O check entra (não "teleporta"): opacidade + escala a partir de 0.9 */
 .check.is-done .box::after {
   content: '';
   width: 6px; height: 11px;
   border: solid white;
   border-width: 0 2.5px 2.5px 0;
   transform: rotate(45deg) translate(-1px, -1px);
+  animation: check-in var(--dur-color) var(--ease-out);
+}
+@keyframes check-in {
+  from { opacity: 0; transform: rotate(45deg) translate(-1px, -1px) scale(0.9); }
 }
 
 .check-text { grid-area: text; font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.4; }
@@ -627,7 +600,7 @@ a.door:hover { color: var(--text); background: var(--white); }
   gap: var(--sp-12);
   align-items: center;
   padding: var(--sp-12);
-  background: linear-gradient(135deg, #F6F2FF 0%, #FFFFFF 70%);
+  background: linear-gradient(135deg, var(--violet-wash) 0%, var(--white) 70%);
   border: 1px solid var(--violet-border);
   border-radius: var(--r-xl);
 }
@@ -670,12 +643,16 @@ a.door:hover { color: var(--text); background: var(--white); }
 .faq-answer p { font-size: 16px; color: var(--text-2); }
 
 .cta-strong { background: var(--violet); border-color: var(--violet); }
-.cta-strong .overline { color: #DDD0FF; }
+/* Texto claro sobre o roxo: #EDE7FF dá 4,7:1 (AA) */
+.cta-strong .overline { color: #EDE7FF; }
 .cta-strong .section-title { color: white; }
 .cta-strong .section-sub { color: #EDE7FF; }
-.cta-strong .cta-support { color: #DDD0FF; }
+.cta-strong .cta-support { color: #EDE7FF; margin-top: var(--sp-3); }
 .cta-strong .btn-primary { background: white; color: var(--violet); box-shadow: 0 4px 16px rgba(0,0,0,.12); }
-.cta-strong .btn-primary:hover { background: #F5F1FF; }
+@media (hover: hover) and (pointer: fine) {
+  .cta-strong .btn-primary:hover { background: #F5F1FF; }
+}
+.cta-strong .btn-primary:focus-visible { outline-color: white; }
 
 .footer-legal { max-width: 520px; font-size: 12px; color: var(--text-3); line-height: 1.5; margin-top: var(--sp-2); }
 
@@ -683,8 +660,6 @@ a.door:hover { color: var(--text); background: var(--white); }
 
 @media (max-width: 880px) {
   .q-grid { grid-template-columns: repeat(2, 1fr); }
-  .paths { grid-template-columns: 1fr; gap: var(--sp-6); }
-  .path-highlight { order: -1; }
   .home-card { grid-template-columns: 1fr; }
   .home-photo { min-height: 190px; }
   .help { grid-template-columns: 1fr; padding: var(--sp-8) var(--sp-6); gap: var(--sp-8); }
@@ -710,8 +685,8 @@ a.door:hover { color: var(--text); background: var(--white); }
   .scenario { padding: 14px; }
   .scenario-pair { grid-template-columns: 1fr; }
   .bill-row { grid-template-columns: 18px minmax(0, 1fr) auto; gap: 10px; padding: 12px 14px; }
-  .bill-row > :nth-child(3) { display: none; }
-  .bill-total-val { font-size: 20px; }
+  .bill-total { padding: 16px 14px; }
+  .bill-total-val { font-size: 18px; }
   .rules li { grid-template-columns: 1fr; gap: 6px; }
   .help { padding: var(--sp-6) var(--sp-5); }
 }
@@ -720,14 +695,7 @@ a.door:hover { color: var(--text); background: var(--white); }
    Melhorias v2 — hero que desmistifica, comparativo, contato
    ========================================================= */
 
-:root {
-  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-/* O título é o maior elemento da primeira tela: aparece na hora (sem fade),
-   para não atrasar a leitura nem o LCP. */
-.hero-morar .hero-title { animation: none; }
+/* Curvas e durações vêm de styles.css (:root). O título aparece na hora. */
 
 .hero-kicker {
   display: inline-flex;
@@ -758,7 +726,7 @@ a.door:hover { color: var(--text); background: var(--white); }
   gap: 10px 22px;
   margin-top: var(--sp-8);
   max-width: 820px;
-  animation: fade-up 0.5s 0.25s var(--ease-out) both;
+  animation: fade-up var(--dur-reveal) 180ms var(--ease-out) both;
 }
 .myths li {
   display: inline-flex;
@@ -810,17 +778,15 @@ a.door:hover { color: var(--text); background: var(--white); }
   border-radius: inherit;
   transform-origin: left center;
   transform: scaleX(var(--pb, 1));
-  animation: pb-grow 0.9s 0.55s var(--ease-out) both;
+  animation: pb-grow 800ms 450ms var(--ease-out) both;
 }
-.pb-fill-ref { background: #D9D2F4; }
-.pb-fill-you { background: var(--violet); animation-delay: 0.75s; }
+.pb-fill-ref { background: var(--violet-muted); }
+.pb-fill-you { background: var(--violet); animation-delay: 600ms; }
 @keyframes pb-grow { from { transform: scaleX(0); } }
 
-.home-save { animation: fade-in 0.4s 1.35s ease both; }
+/* A economia aparece depois que as barras mostram a diferença */
+.home-save { animation: fade-in 300ms 1150ms ease both; }
 @keyframes fade-in { from { opacity: 0; } }
-
-/* Feedback de toque: o botão responde no aperto, não só no clique. */
-.btn-primary:active, .btn-outline:active { transform: scale(0.97); }
 
 /* ===== Simulador: desocupação opcional ===== */
 
@@ -842,7 +808,7 @@ a.door:hover { color: var(--text); background: var(--white); }
   width: 32px; height: 18px;
   border-radius: 999px;
   background: var(--a-line-2);
-  transition: background-color 0.2s ease;
+  transition: background-color var(--dur-ui) ease;
 }
 .opt-thumb {
   position: absolute;
@@ -851,7 +817,7 @@ a.door:hover { color: var(--text); background: var(--white); }
   border-radius: 50%;
   background: #fff;
   box-shadow: 0 1px 2px rgba(17,24,39,.2);
-  transition: transform 0.2s var(--ease-out);
+  transition: transform var(--dur-ui) var(--ease-out);
 }
 .opt-switch input:checked + .opt-track { background: var(--a-accent); }
 .opt-switch input:checked + .opt-track .opt-thumb { transform: translateX(14px); }
@@ -896,7 +862,8 @@ a.door:hover { color: var(--text); background: var(--white); }
   font-size: 14px;
   font-weight: 600;
   color: var(--text-3);
-  transition: color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  transition: color var(--dur-ui) ease;
 }
 .cmp-opt.is-on { color: var(--violet); }
 .cmp-opt:focus-visible { outline: 2px solid var(--violet); outline-offset: 2px; }
@@ -909,7 +876,7 @@ a.door:hover { color: var(--text); background: var(--white); }
   background: var(--white);
   box-shadow: var(--shadow-sm);
   transform: translateX(calc(var(--i, 1) * 100%));
-  transition: transform 0.3s var(--ease-out);
+  transition: transform 240ms var(--ease-out);
 }
 
 .cmp-rows { display: flex; flex-direction: column; gap: var(--sp-5); }
@@ -945,13 +912,15 @@ a.door:hover { color: var(--text); background: var(--white); }
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: var(--text-4);
+  background: var(--line-strong);
+  opacity: 0.7;
   transform-origin: left center;
   transform: scaleX(var(--w, 0));
-  transition: transform 0.5s var(--ease-out);
+  /* Explicação: a barra cresce/encolhe com o prazo escolhido */
+  transition: transform var(--dur-reveal) var(--ease-out);
 }
-.cmp-row[data-path="imobiliaria"] .cmp-fill { background: #B9A7F0; }
-.cmp-row-hl .cmp-fill { background: var(--violet); }
+.cmp-row[data-path="imobiliaria"] .cmp-fill { background: var(--violet-muted); opacity: 1; }
+.cmp-row-hl .cmp-fill { background: var(--violet); opacity: 1; }
 
 .cmp-paid { font-size: 15px; color: var(--text-2); }
 .cmp-paid strong { color: var(--text); font-variant-numeric: tabular-nums; }
@@ -972,7 +941,8 @@ a.door:hover { color: var(--text); background: var(--white); }
 .cmp-take:empty { display: none; }
 
 .cmp-how { max-width: 900px; margin: var(--sp-4) auto 0; font-size: 13px; color: var(--text-3); }
-.cmp-how summary { cursor: pointer; font-weight: 600; color: var(--text-2); width: fit-content; }
+.cmp-how summary { cursor: pointer; font-weight: 600; color: var(--text-2); width: fit-content; border-radius: 4px; }
+.cmp-how summary:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; }
 .cmp-how p { margin-top: 8px; line-height: 1.55; }
 
 /* ===== Contato no fim do FAQ ===== */
@@ -1006,8 +976,17 @@ a.door:hover { color: var(--text); background: var(--white); }
   .faq-contact-btn { width: 100%; justify-content: center; }
 }
 
+/* Movimento reduzido (complementa o bloco de styles.css): card, mitos e
+   economia entram só com fade (fade-up já vira fade lá); as barras aparecem
+   no tamanho final com fade, sem crescer; nada desliza nem escala. */
 @media (prefers-reduced-motion: reduce) {
-  .home-card, .doors, .myths, .pb-fill, .home-save { animation: none; }
+  .home-card, .myths { animation-duration: 200ms; animation-delay: 0s; }
+  @keyframes pb-grow { from { opacity: 0; } }
+  .pb-fill { animation-duration: 200ms; animation-delay: 0s; }
+  .home-save { animation-duration: 200ms; animation-delay: 0s; }
   .cmp-fill, .cmp-seg-ind { transition: none; }
+  .check:active { transform: none; }
+  @keyframes check-in { from { opacity: 0; } }
+  .app-slider:active::-webkit-slider-thumb { transform: none; }
+  .app-slider:active::-moz-range-thumb { transform: none; }
 }
-section[id] { scroll-margin-top: 64px; }
