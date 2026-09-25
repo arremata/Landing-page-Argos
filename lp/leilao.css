@@ -1,1 +1,587 @@
-/* Seção "Leilão em 1 minuto" */
+/* ===== Argos — "Leilão em 1 minuto" =====
+   Carrossel didático logo depois do hero. Reaproveita tokens de styles.css
+   e os selos (.badge) de morar.css. Sem JS, os slides aparecem empilhados.
+
+   Movimento (tudo transform/opacity):
+   - troca de slide: transform 360ms, ease-out forte, interrompível (transition);
+   - arraste: segue o dedo 1:1, sem transition; ao soltar, a mesma curva;
+   - explicação: só nos slides 2 e 4, uma vez, na primeira vez que aparecem;
+   - press: scale(0.97) em 160ms. */
+
+.lm-section {
+  --lm-ease: cubic-bezier(0.23, 1, 0.32, 1);
+  --lm-slide: 360ms;
+  padding-top: var(--sp-16);
+}
+
+.lm {
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #F6F2FF 0%, #FFFFFF 62%);
+  border: 1px solid var(--violet-border);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+/* ----- Trilho ----- */
+
+.lm-viewport { overflow: hidden; }
+
+.lm-track { display: flex; flex-direction: column; }
+
+.lm.is-ready .lm-viewport { touch-action: pan-y; cursor: grab; }
+.lm.is-ready.is-dragging .lm-viewport { cursor: grabbing; }
+.lm.is-dragging .lm-track { user-select: none; -webkit-user-select: none; }
+
+.lm.is-ready .lm-track {
+  flex-direction: row;
+  transform: translate3d(0, 0, 0);
+  transition: transform var(--lm-slide) var(--lm-ease);
+  will-change: transform;
+}
+
+.lm-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: var(--sp-10);
+  align-items: center;
+  padding: var(--sp-12) var(--sp-12) var(--sp-10);
+}
+
+.lm-slide:focus { outline: none; }
+
+/* Sem JS: slides empilhados, separados por uma linha */
+.lm:not(.is-ready) .lm-slide + .lm-slide { border-top: 1px solid var(--violet-border); }
+.lm:not(.is-ready) .lm-controls { display: none; }
+
+/* ----- Texto ----- */
+
+.lm-kicker {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--violet);
+  background: var(--violet-bg);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: var(--sp-4);
+}
+
+.lm-title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin-bottom: var(--sp-4);
+  text-wrap: balance;
+}
+
+.lm-text p { font-size: 16px; line-height: 1.55; color: var(--text-2); }
+.lm-text p + p { margin-top: 6px; }
+
+.lm-def {
+  margin-top: var(--sp-4) !important;
+  padding: 10px 14px;
+  font-size: 14px !important;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+}
+.lm-def strong { color: var(--text); }
+
+.lm-strong { font-weight: 600; color: var(--violet) !important; }
+
+/* ----- Visual ----- */
+
+.lm-visual { min-width: 0; }
+
+.lm-panel {
+  position: relative;
+  padding: var(--sp-6);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.lm-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  background: var(--bg-soft);
+  border: 1px dashed var(--border);
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-bottom: var(--sp-4);
+}
+
+.lm-src { margin-top: var(--sp-3); font-size: 12.5px; color: var(--text-3); }
+
+/* 1 · Fluxo */
+
+.lm-flow { list-style: none; display: flex; flex-direction: column; }
+
+.lm-flow li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 14px 16px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+
+.lm-flow li + li { margin-top: 22px; }
+
+.lm-flow li + li::before {
+  content: '';
+  position: absolute;
+  left: 35px;
+  top: -23px;
+  width: 2px;
+  height: 22px;
+  background: var(--violet-border);
+}
+
+.lm-flow li.is-last { border-color: var(--violet); box-shadow: 0 0 0 3px var(--violet-bg); }
+.lm-flow li.is-last .lm-flow-ico { background: var(--green-bg); color: var(--green-text); }
+
+.lm-flow-ico {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--violet-bg);
+  color: var(--violet);
+}
+
+/* 2 · Barras */
+
+.lm-bars { display: flex; flex-direction: column; gap: var(--sp-5); }
+
+.lm-bar-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--sp-3);
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--text-2);
+}
+
+.lm-bar-head strong {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.lm-bar {
+  position: relative;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  overflow: hidden;
+}
+
+/* O pedaço que falta até a avaliação fica tracejado: é o desconto */
+.lm-bar-gap {
+  background: repeating-linear-gradient(-45deg, var(--green-bg) 0 6px, #D3F2DF 6px 12px);
+}
+
+.lm-bar-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--violet);
+  transform-origin: left center;
+  transform: scaleX(var(--v, 1));
+  transition: transform 700ms var(--lm-ease);
+}
+
+.lm-bar-fill-muted { background: #C9BCF5; }
+
+.lm-bar-row:nth-child(2) .lm-bar-fill { transition-delay: 120ms; }
+
+.lm-save {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--sp-5);
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--green-bg);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--green-text);
+  transition: opacity 300ms var(--lm-ease) 620ms, transform 300ms var(--lm-ease) 620ms;
+}
+
+/* 3 · Jeitos de comprar */
+
+.lm-ways { list-style: none; display: flex; flex-direction: column; gap: var(--sp-3); }
+
+.lm-way {
+  padding: 14px 16px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.lm-way-top { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 6px; }
+
+.lm-way-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text);
+  margin-right: 4px;
+}
+
+.lm-way p { font-size: 14px; line-height: 1.5; color: var(--text-2); }
+
+.lm-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--bg-soft);
+  color: var(--text-2);
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.lm-chip-strong { background: var(--yellow-bg); color: var(--yellow-text); border-color: transparent; }
+
+/* 4 · Conta */
+
+.lm-panel-tight { padding: var(--sp-5) var(--sp-6); }
+
+.lm-bill { list-style: none; display: flex; flex-direction: column; }
+
+.lm-bill li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--sp-3);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 14.5px;
+  color: var(--text-2);
+  transition: opacity 260ms var(--lm-ease), transform 260ms var(--lm-ease);
+}
+
+.lm-bill li:first-child { color: var(--text); font-weight: 600; }
+
+.lm-bill small {
+  font-size: 12px;
+  color: var(--text-3);
+  margin-left: 4px;
+}
+
+.lm-bill small.lm-est {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--yellow-bg);
+  color: var(--yellow-text);
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.lm-money {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-feature-settings: 'tnum';
+  letter-spacing: -0.02em;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.lm-bill-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--sp-3);
+  margin-top: var(--sp-3);
+  padding: 12px 14px;
+  border-radius: var(--r);
+  background: var(--violet-bg);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.lm-bill-total .lm-money { font-size: 19px; font-weight: 600; color: var(--violet); }
+
+/* 5 · Selos */
+
+.lm-panel-lbl { font-size: 13px; font-weight: 600; color: var(--text-3); margin-bottom: 10px; }
+.lm-badges + .lm-panel-lbl { margin-top: var(--sp-5); }
+.lm-badges { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.lm-badge-free { background: var(--green-bg); color: var(--green-text); }
+.lm-badge-free .dot { background: var(--green); }
+
+/* 6 · Passo a passo + conversa */
+
+.lm-steps { list-style: none; display: flex; flex-direction: column; gap: 8px; counter-reset: lm-step; }
+
+.lm-steps li {
+  position: relative;
+  padding: 10px 12px 10px 44px;
+  border-radius: var(--r);
+  background: var(--bg);
+  border: 1px solid var(--border-light);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--text);
+  counter-increment: lm-step;
+}
+
+.lm-steps li::before {
+  content: counter(lm-step);
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  margin-top: -11px;
+  border-radius: 50%;
+  border: 2px solid var(--text-4);
+  background: var(--white);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  color: var(--text-3);
+}
+
+.lm-steps li.is-done { color: var(--text-3); }
+.lm-steps li.is-done::before { content: '✓'; background: var(--green); border-color: var(--green); color: white; }
+
+.lm-chat { display: flex; flex-direction: column; gap: 8px; margin-top: var(--sp-5); }
+.lm-chat span { max-width: 85%; padding: 9px 13px; font-size: 14px; line-height: 1.4; border-radius: 14px; }
+.lm-chat-in { align-self: flex-end; background: var(--violet); color: white; border-bottom-right-radius: 4px; }
+.lm-chat-out { align-self: flex-start; background: var(--bg-soft); color: var(--text); border-bottom-left-radius: 4px; }
+
+.lm-cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3) var(--sp-5); margin-top: var(--sp-6); }
+
+.lm .lm-cta { transition: transform 160ms var(--lm-ease), background-color 150ms ease, box-shadow 150ms ease; }
+.lm .lm-cta:active { transform: scale(0.97); }
+
+.lm-more {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-3);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 4px;
+  transition: color 150ms ease, text-decoration-color 150ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lm-more:hover { color: var(--violet); text-decoration-color: currentColor; }
+}
+
+/* ----- Controles ----- */
+
+.lm-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: var(--sp-4) var(--sp-6);
+  border-top: 1px solid var(--violet-border);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.lm-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 46px;
+  min-width: 46px;
+  padding: 0 18px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 160ms var(--lm-ease), background-color 150ms ease, opacity 150ms ease, border-color 150ms ease;
+}
+
+.lm-prev { color: var(--text-2); border: 1px solid var(--border); background: var(--white); }
+.lm-next { color: white; background: var(--violet); box-shadow: 0 1px 3px rgba(124, 58, 237, 0.2); }
+
+.lm-nav:active { transform: scale(0.97); }
+
+@media (hover: hover) and (pointer: fine) {
+  .lm-prev:hover { border-color: var(--violet-border); color: var(--violet); background: var(--violet-bg); }
+  .lm-next:hover { background: var(--violet-hover); }
+}
+
+.lm-nav[aria-disabled="true"] { opacity: 0.35; cursor: default; pointer-events: none; }
+
+.lm-progress { display: flex; align-items: center; gap: var(--sp-4); }
+
+.lm-count {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+  white-space: nowrap;
+  font-feature-settings: 'tnum';
+}
+
+.lm-dots { display: flex; align-items: center; }
+
+.lm-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 36px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lm-dot::before {
+  content: '';
+  width: 20px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--border);
+  transition: background-color 200ms ease, transform 160ms var(--lm-ease);
+}
+
+.lm-dot.is-seen::before { background: #C9BCF5; }
+.lm-dot[aria-current="true"]::before { background: var(--violet); }
+.lm-dot:active::before { transform: scaleY(1.5); }
+
+@media (hover: hover) and (pointer: fine) {
+  .lm-dot:not([aria-current="true"]):hover::before { background: var(--text-4); }
+}
+
+.lm-live {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ----- Explicação: estado antes de tocar (só com JS) ----- */
+
+.lm.is-ready [data-explain]:not(.is-played) .lm-bar-fill { transform: scaleX(0.04); }
+.lm.is-ready [data-explain]:not(.is-played) .lm-save { opacity: 0; transform: translateY(6px); }
+.lm.is-ready [data-explain]:not(.is-played) .lm-bill li:not(:first-child) { opacity: 0; transform: translateY(6px); }
+
+/* ----- Responsivo ----- */
+
+@media (max-width: 860px) {
+  .lm-slide {
+    grid-template-columns: 1fr;
+    align-items: start;
+    align-content: start;
+    gap: var(--sp-6);
+    padding: var(--sp-8) var(--sp-8) var(--sp-6);
+  }
+}
+
+/* Celular: tudo precisa caber numa tela, com os botões à vista */
+@media (max-width: 560px) {
+  .lm-section { padding-top: var(--sp-10); }
+  .lm { border-radius: var(--r-lg); }
+  .lm-slide { padding: var(--sp-5) var(--sp-4) var(--sp-4); gap: var(--sp-4); }
+  .lm-kicker { margin-bottom: 10px; font-size: 10.5px; }
+  .lm-title { font-size: 22px; margin-bottom: 10px; }
+  .lm-text p { font-size: 15px; line-height: 1.5; }
+  .lm-text p + p { margin-top: 4px; }
+  .lm-def { margin-top: var(--sp-3) !important; padding: 8px 12px; font-size: 13.5px !important; }
+  .lm-panel { padding: var(--sp-4); border-radius: var(--r); }
+  .lm-tag { margin-bottom: var(--sp-3); }
+  .lm-src { margin-top: 10px; }
+
+  .lm-flow li { padding: 8px 12px; font-size: 14px; }
+  .lm-flow li + li { margin-top: 12px; }
+  .lm-flow li + li::before { left: 27px; top: -13px; height: 12px; }
+  .lm-flow-ico { width: 30px; height: 30px; border-radius: 8px; }
+  .lm-flow-ico svg { width: 17px; height: 17px; }
+
+  .lm-bars { gap: var(--sp-4); }
+  .lm-bar-head { font-size: 13.5px; }
+  .lm-bar-head strong { font-size: 16px; }
+  .lm-save { margin-top: var(--sp-4); font-size: 14px; }
+
+  .lm-ways { gap: 8px; }
+  .lm-way { padding: 10px 12px; border-radius: var(--r); }
+  .lm-way-top { margin-bottom: 4px; }
+  .lm-way-name { font-size: 15px; }
+  .lm-way p { font-size: 13.5px; line-height: 1.45; }
+  .lm-chip { font-size: 11.5px; padding: 2px 8px; }
+
+  .lm-bill li { font-size: 13.5px; padding: 5px 0; }
+  .lm-bill small:not(.lm-est) { display: block; margin: 0 0 0 12px; line-height: 1.3; }
+  .lm-bill-total { margin-top: 10px; padding: 10px 12px; font-size: 14px; }
+  .lm-bill-total .lm-money { font-size: 17px; }
+
+  .lm-badges + .lm-panel-lbl { margin-top: var(--sp-4); }
+
+  .lm-steps { gap: 6px; }
+  .lm-steps li { padding: 7px 10px 7px 40px; font-size: 14px; }
+  .lm-steps li::before { left: 10px; }
+  .lm-chat { display: none; } /* o texto do slide já diz isso; no celular, falta espaço */
+  .lm-cta-row { margin-top: var(--sp-4); gap: 10px; justify-content: center; }
+  .lm-cta-row .lm-cta { width: 100%; }
+
+  /* Uma linha só: [‹]  3 de 6 · traços  [Próximo ›] */
+  .lm-controls { gap: var(--sp-2); padding: 10px var(--sp-3); }
+  .lm-nav { min-height: 48px; padding: 0 14px; }
+  .lm-prev { width: 48px; padding: 0; }
+  .lm-prev span { display: none; }
+  .lm-progress { flex-direction: column; gap: 0; }
+  .lm-count { font-size: 12px; line-height: 1; margin-top: 4px; }
+  .lm-dot { width: 18px; height: 26px; }
+  .lm-dot::before { width: 12px; }
+}
+
+/* ----- Movimento reduzido -----
+   styles.css já zera transition/animation com !important. Aqui a troca de
+   slide vira um fade curto de opacidade (sem deslocamento), e as explicações
+   aparecem no estado final. A navegação continua igual. */
+
+@media (prefers-reduced-motion: reduce) {
+  .lm.is-ready .lm-slide { opacity: 0; transition: opacity 200ms ease !important; }
+  .lm.is-ready .lm-slide.is-active,
+  .lm.is-ready.is-dragging .lm-slide { opacity: 1; }
+  .lm.is-ready [data-explain] .lm-bar-fill { transform: scaleX(var(--v, 1)) !important; }
+  .lm.is-ready [data-explain] .lm-save,
+  .lm.is-ready [data-explain] .lm-bill li { opacity: 1 !important; transform: none !important; }
+}
