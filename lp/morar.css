@@ -851,3 +851,110 @@ body { font-size: 16px; }
   .cta-banner-btn { width: 100%; }
   .cta-banner-art { height: 40%; }
 }
+
+
+/* =========================================================
+   Microinterações (hover, foco e entradas em sequência)
+   Critério das skills: só onde há propósito (feedback, estado,
+   explicação), rápido (≤ 250ms), transform/opacity, hover só com
+   mouse, e versão reduzida sem deslocamento.
+   ========================================================= */
+
+/* --- Card do hero: vira link para a demo; o hover mostra que é clicável --- */
+.home-card { position: relative; transition: box-shadow 250ms var(--ease-out), transform 250ms var(--ease-out); }
+.home-photo svg { transition: transform 600ms var(--ease-out); }
+.home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--sp-4);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--violet);
+}
+.home-link svg { transition: transform 200ms var(--ease-out); }
+.home-link::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.home-link:focus-visible { outline: none; }
+.home-card:has(.home-link:focus-visible) { outline: 2px solid var(--violet); outline-offset: 4px; }
+
+/* --- Links do menu: sublinhado que cresce da esquerda --- */
+.nav-links a { position: relative; }
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -4px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--violet);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 200ms var(--ease-out);
+}
+
+/* --- Dúvidas: linha responde ao mouse; resposta abre com altura suave --- */
+.faq-item { transition: background-color 150ms ease; border-radius: var(--r); }
+.faq-question { transition: color 150ms ease; }
+@supports (interpolate-size: allow-keywords) {
+  .faq-list { interpolate-size: allow-keywords; }
+  .faq-item::details-content {
+    height: 0;
+    overflow: clip;
+    transition: height 250ms var(--ease-out), content-visibility 250ms allow-discrete;
+  }
+  .faq-item[open]::details-content { height: auto; }
+}
+
+/* --- Demo: linha da conta destaca ao passar o mouse (tem o "?") --- */
+.bill-row:not(.bill-head):not(.bill-total) { transition: background-color 120ms ease; }
+
+/* --- Atendimento: a conversa aparece em sequência quando a seção entra --- */
+.js #ajuda .chat {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 300ms var(--ease-out), transform 300ms var(--ease-out);
+}
+.js #ajuda.is-visible .chat { opacity: 1; transform: none; }
+.js #ajuda.is-visible .chat:nth-child(1) { transition-delay: 150ms; }
+.js #ajuda.is-visible .chat:nth-child(2) { transition-delay: 450ms; }
+.js #ajuda.is-visible .chat:nth-child(3) { transition-delay: 750ms; }
+.js #ajuda.is-visible .chat:nth-child(4) { transition-delay: 1050ms; }
+
+/* --- Hero: as três frases entram em sequência curta --- */
+.myths { animation: none; }
+.myths li { animation: fade-up 400ms var(--ease-out) both; }
+.myths li:nth-child(1) { animation-delay: 250ms; }
+.myths li:nth-child(2) { animation-delay: 310ms; }
+.myths li:nth-child(3) { animation-delay: 370ms; }
+
+@media (hover: hover) and (pointer: fine) {
+  .home-card:hover { transform: translateY(-3px); box-shadow: 0 18px 44px rgba(17,24,39,0.10), 0 2px 8px rgba(17,24,39,0.04); }
+  .home-card:hover .home-photo svg { transform: scale(1.04); }
+  .home-card:hover .home-link svg { transform: translateX(3px); }
+
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  .faq-item:hover { background: var(--white); }
+  .faq-item:hover .faq-question { color: var(--violet); }
+
+  .bill-row:not(.bill-head):not(.bill-total):hover { background: var(--a-bg-2); }
+
+  .faq-contact-btn:hover { border-color: var(--violet); }
+}
+
+.home-card:active { transform: scale(0.99); }
+
+@media (prefers-reduced-motion: reduce) {
+  .home-card, .home-card:hover, .home-card:active { transform: none; }
+  .home-card:hover .home-photo svg, .home-card:hover .home-link svg { transform: none; }
+  .nav-links a::after { transition: none; }
+  .js #ajuda .chat { transform: none; transition: opacity 200ms ease; }
+  .js #ajuda.is-visible .chat { transition-delay: 0ms; }
+  .myths li { animation: fade-in 200ms ease both; animation-delay: 0ms; }
+  .faq-item::details-content { transition: none; }
+}
+
+/* Realce do FAQ com respiro lateral, sem mudar o alinhamento do texto */
+.faq-list .faq-item { margin: 0 calc(var(--sp-4) * -1); padding: 0 var(--sp-4); }
+@media (max-width: 640px) {
+  .faq-list .faq-item { margin: 0; padding: 0; }
+}

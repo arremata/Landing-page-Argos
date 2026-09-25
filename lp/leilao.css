@@ -614,3 +614,17 @@
   .lm.is-ready .lm-slide { min-height: 0; }
   .lm-status li { padding: var(--sp-4); }
 }
+
+
+/* ----- Hover nos cartões do carrossel -----
+   Os cartões não são clicáveis: o hover só realça a borda e a sombra
+   (sem levantar), para acompanhar o olhar sem prometer clique. */
+.lm-status li, .lm-way, .lm-flow li, .lm-panel {
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .lm-status li:hover, .lm-way:hover, .lm-flow li:hover {
+    border-color: rgba(124,58,237,0.35);
+    box-shadow: var(--shadow-md);
+  }
+}
