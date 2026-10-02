@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 const { marked } = require('marked');
+const { buildDictionary } = require('./build-dictionary');
 
 const POSTS_DIR = path.join(__dirname, '..', 'blog', 'posts');
 const BLOG_OUT = path.join(__dirname, '..', 'blog');
@@ -159,7 +160,7 @@ function postTemplate(post, content, toc) {
 <meta property="og:type" content="article">
 <meta property="og:url" content="${SITE_URL}/blog/${post.slug}/">
 <meta name="theme-color" content="#FFFFFF">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%237C3AED'/%3E%3Cpath d='M4 12s3-5.5 8-5.5 8 5.5 8 5.5-3 5.5-8 5.5-8-5.5-8-5.5Z' fill='none' stroke='white' stroke-width='1.5'/%3E%3Ccircle cx='12' cy='12' r='2.3' fill='white'/%3E%3C/svg%3E">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -175,12 +176,13 @@ ${faq.schema}
   <div class="container nav-inner">
     <a href="${SITE_URL}/" class="logo">
       <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <img src="/brand/argos-mark.svg" alt="">
       </span>
       <span class="logo-word">Argos</span>
     </a>
     <nav class="nav-links" aria-label="Navegação">
       <a href="/blog/">Blog</a>
+      <a href="/dicionario">Dicionário</a>
       <a href="${SITE_URL}/#passo-a-passo">Como funciona</a>
       <a href="${SITE_URL}/#faq">Dúvidas</a>
     </nav>
@@ -233,12 +235,13 @@ ${DISCLAIMER_OAB}
   <div class="container footer-inner">
     <div class="logo">
       <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <img src="/brand/argos-mark.svg" alt="">
       </span>
       <span class="logo-word">Argos</span>
     </div>
     <p class="footer-sub">Inteligência em leilões imobiliários.</p>
     <nav class="footer-links">
+      <a href="/dicionario">Dicionário</a>
       <a href="/blog/">Blog</a>
     </nav>
     <p class="footer-copy">&copy; 2026 Argos. Todos os direitos reservados.</p>
@@ -295,12 +298,13 @@ function listingTemplate(posts) {
   <div class="container nav-inner">
     <a href="${SITE_URL}/" class="logo">
       <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <img src="/brand/argos-mark.svg" alt="">
       </span>
       <span class="logo-word">Argos</span>
     </a>
     <nav class="nav-links" aria-label="Navegação">
       <a href="/blog/">Blog</a>
+      <a href="/dicionario">Dicionário</a>
       <a href="${SITE_URL}/#passo-a-passo">Como funciona</a>
       <a href="${SITE_URL}/#faq">Dúvidas</a>
     </nav>
@@ -326,12 +330,13 @@ ${cards}
   <div class="container footer-inner">
     <div class="logo">
       <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <img src="/brand/argos-mark.svg" alt="">
       </span>
       <span class="logo-word">Argos</span>
     </div>
     <p class="footer-sub">Inteligência em leilões imobiliários.</p>
     <nav class="footer-links">
+      <a href="/dicionario">Dicionário</a>
       <a href="/blog/">Blog</a>
     </nav>
     <p class="footer-copy">&copy; 2026 Argos. Todos os direitos reservados.</p>
@@ -342,7 +347,7 @@ ${cards}
 </html>`;
 }
 
-function generateSitemap(posts) {
+function generateSitemap(posts, dictionaryPaths = []) {
   const now = new Date().toISOString().split('T')[0];
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -375,6 +380,16 @@ function generateSitemap(posts) {
   </url>`;
   }
 
+  for (const dictionaryPath of dictionaryPaths) {
+    xml += `
+  <url>
+    <loc>${SITE_URL}${dictionaryPath}</loc>
+    <lastmod>${now}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`;
+  }
+
   xml += '\n</urlset>\n';
   return xml;
 }
@@ -395,8 +410,7 @@ function build() {
 
   const files = fs.readdirSync(POSTS_DIR).filter(f => f.endsWith('.md'));
   if (files.length === 0) {
-    console.log('Nenhum post encontrado em blog/posts/. Nada para compilar.');
-    return;
+    console.log('Nenhum post encontrado em blog/posts/.');
   }
 
   const posts = [];
@@ -472,7 +486,9 @@ function build() {
   fs.writeFileSync(path.join(BLOG_OUT, 'index.html'), listHtml, 'utf-8');
   console.log(`  ✓ blog/index.html (${posts.length} artigos)`);
 
-  const sitemap = generateSitemap(posts);
+  const dictionaryPaths = buildDictionary({ root: ROOT, siteUrl: SITE_URL });
+
+  const sitemap = generateSitemap(posts, dictionaryPaths);
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap, 'utf-8');
   console.log('  ✓ sitemap.xml');
 
