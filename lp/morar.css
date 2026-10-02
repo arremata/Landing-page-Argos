@@ -1,267 +1,205 @@
-/* ===== Argos — LP "Quero morar" =====
-   Carrega depois de /lp/styles.css: reaproveita tokens, nav, botões, FAQ,
-   vídeo, modal e rodapé da LP de investidor. O bloco .app replica a página
-   do imóvel do app (leilao-br/frontend/src/styles.css — identidade Arctic/Violet). */
+/* ===== Argos — componentes da home =====
+   Contrato: DESIGN-SYSTEM.md. Ordem de carga: styles.css (tokens e base
+   compartilhada com /investidor e blog) → client-first.css (globais) →
+   este arquivo → leilao.css (carrossel).
 
-/* Tokens do app, usados só dentro de .app-frame. O que é igual à marca
-   aponta para os tokens de styles.css; o resto é o que o app tem de próprio
-   (cinzas frios, selos). --a-fg-2 e --a-fg-3 passam AA (4,5:1) sobre
-   --a-bg-1 e --a-bg-2. */
+   Aqui só entram classes de componente com o prefixo da seção
+   (hero_, ajuda_, faq_, cadastro_ ...) e os ajustes da home sobre peças
+   de styles.css que o JS usa (nav, modal, FAQ, botão flutuante). */
+
 :root {
-  --a-bg-0: var(--bg);
-  --a-bg-1: var(--white);
-  --a-bg-2: #F3F4F6;
-  --a-bg-3: #ECEEF1;
-  --a-line-1: #E5E7EB;
-  --a-line-2: #D1D5DB;
-  --a-fg-0: #111827;
-  --a-fg-1: #374151;
-  --a-fg-2: #4B5563;
-  --a-fg-3: #646B78;
-  --a-accent: var(--violet);
-  --a-accent-strong: var(--violet-hover);
-  --a-accent-soft: #EDE9FE;
-  --a-good: var(--green-text);
-  --a-good-soft: #DCFCE7;
-  --a-warn: #B45309;
-  --a-warn-soft: #FEF3C7;
+  --nav-h: 61px;
+
+  /* Faixa da chamada final (fundo escuro da marca) */
+  --ink-1: #2A1760;
+  --ink-2: #1B1040;
+  --ink-3: #140B30;
+  --ink-text: #E4DCFF;        /* texto claro sobre --ink-*: AA */
+  --ink-glow: rgba(167, 139, 250, 0.35);
+  --ink-glow-0: rgba(124, 58, 237, 0);
+  --ink-art: rgba(196, 181, 253, 0.12);
+  --ink-shadow: 0 16px 36px -18px rgba(27, 16, 64, 0.45);
+
+  --video-bg: #000000;
 }
 
 body { font-size: 16px; }
-.section-sub { font-size: 17px; color: var(--text-2); }
-.hero-sub { color: var(--text-2); font-size: 18px; max-width: 540px; }
-.hero-morar .hero-title { max-width: 760px; }
-.hero-title .hl { color: var(--violet); }
-.btn-outline svg { flex-shrink: 0; }
-
-.card-note {
-  text-align: center;
-  font-size: 13px;
-  color: var(--text-3);
-  margin-top: var(--sp-4);
-}
-
-/* Link "Quero investir" no menu do celular */
-.mobile-door { color: var(--text-3); }
-
-/* ===== Selos do card ===== */
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1;
-  padding: 7px 11px;
-  border-radius: 999px;
-  white-space: nowrap;
-}
-
-.badge .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.badge-occ-yellow { background: var(--yellow-bg); color: var(--yellow-text); }
-.badge-occ-yellow .dot { background: var(--yellow); }
-.badge-pay { background: var(--violet-bg); color: var(--violet); }
-.badge-when { background: var(--bg-soft); color: var(--text-2); border: 1px solid var(--border); }
-
-/* ===== Card do imóvel (hero) ===== */
-
-.home-card {
-  display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  max-width: 820px;
-  margin: 0 auto;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--r-xl);
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
-  animation: fade-up var(--dur-reveal) 180ms var(--ease-out) both;
-}
-
-.home-photo { position: relative; min-height: 260px; background: var(--violet-bg); }
-.home-photo svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.home-photo .badge { position: absolute; top: 16px; left: 16px; box-shadow: var(--shadow-md); font-size: 14px; }
-
-.home-body { padding: var(--sp-6) var(--sp-8); display: flex; flex-direction: column; }
-.home-kind { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: var(--sp-5); }
-.home-total-lbl { font-size: 13px; color: var(--text-3); }
-.home-total {
-  font-family: var(--font-display);
-  font-size: clamp(32px, 5vw, 40px);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  line-height: 1.15;
-}
-.home-total-sub { font-size: 14px; color: var(--text-3); margin-top: 2px; }
-.home-save { display: inline-flex; align-items: center; gap: 6px; margin: var(--sp-4) 0 var(--sp-5); font-size: 15px; font-weight: 600; color: var(--green-text); }
-.home-badges { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: auto; }
-
-/* ===== Vídeo (reaproveita .video-* da LP) ===== */
-
-.video-wrap iframe, .video-wrap video {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16/9;
-  border: 0;
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow-lg);
-  background: #000;
-}
-
-/* ===== Acompanhamento ===== */
-
-.help {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: var(--sp-12);
-  align-items: center;
-  padding: var(--sp-12);
-  background: linear-gradient(135deg, var(--violet-wash) 0%, var(--white) 70%);
-  border: 1px solid var(--violet-border);
-  border-radius: var(--r-xl);
-}
-
-.help .section-title { margin-bottom: var(--sp-5); }
-
-.help-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: var(--sp-8); }
-.help-list li { position: relative; padding-left: 28px; font-size: 16px; color: var(--text); }
-.help-list li::before {
-  content: '✓';
-  position: absolute; left: 0; top: 1px;
-  width: 20px; height: 20px;
-  border-radius: 50%;
-  background: var(--violet);
-  color: white;
-  font-size: 11px;
-  font-weight: 700;
-  line-height: 20px;
-  text-align: center;
-}
-
-.help-card {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: var(--sp-6);
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow-lg);
-}
-
-.chat { max-width: 85%; padding: 10px 14px; font-size: 14px; line-height: 1.45; border-radius: 14px; }
-.chat-in { align-self: flex-end; background: var(--violet); color: white; border-bottom-right-radius: 4px; }
-.chat-out { align-self: flex-start; background: var(--bg-soft); color: var(--text); border-bottom-left-radius: 4px; }
-
-/* ===== FAQ / CTA / rodapé ===== */
-
-.faq-question { font-size: 17px; }
-.faq-answer p { font-size: 16px; color: var(--text-2); }
-
-/* Texto claro sobre o roxo: #EDE7FF dá 4,7:1 (AA) */
-
-.footer-legal { max-width: 520px; font-size: 12px; color: var(--text-3); line-height: 1.5; margin-top: var(--sp-2); }
-
-/* ===== Responsivo ===== */
-
-@media (max-width: 880px) {
-  .home-card { grid-template-columns: 1fr; }
-  .home-photo { min-height: 190px; }
-  .help { grid-template-columns: 1fr; padding: var(--sp-8) var(--sp-6); gap: var(--sp-8); }
-}
-
-@media (max-width: 640px) {
-  .container { padding: 0 16px; }
-  .hero { padding-top: var(--sp-12); }
-  .section { padding: var(--sp-16) 0; }
-  .section-center { margin-bottom: var(--sp-10); }
-  .home-body { padding: var(--sp-5); }
-  .hero-cta-row { flex-direction: column; width: 100%; }
-  .hero-cta-row .btn-lg, .hero-cta-row .btn-outline { width: 100%; justify-content: center; }
-
-  .help { padding: var(--sp-6) var(--sp-5); }
-}
 
 /* =========================================================
-   Melhorias v2 — hero que desmistifica, comparativo, contato
+   Menu (nav) — sai por cima ao rolar; o botão flutuante assume
    ========================================================= */
 
-/* Curvas e durações vêm de styles.css (:root). O título aparece na hora. */
-
-.hero-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: var(--sp-5);
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: var(--violet-bg);
-  color: var(--violet);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
+.nav {
+  transition: transform 420ms var(--ease-out),
+              opacity 320ms ease,
+              border-color var(--dur-ui) ease, box-shadow var(--dur-ui) ease;
 }
-.hero-kicker::before {
+.nav.is-hidden { transform: translateY(-100%); opacity: 0; }
+
+.nav-links a { position: relative; }
+.nav-links a::after {
   content: "";
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: currentColor;
+  position: absolute;
+  left: 0; right: 0; bottom: -4px;
+  height: 2px;
+  border-radius: var(--radius-round);
+  background: var(--violet);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 200ms var(--ease-out);
 }
 
-.hero-morar .hero-sub { max-width: 600px; }
+.mobile-menu { padding-left: 24px; padding-right: 24px; }
+.mobile-menu .button { align-self: flex-start; margin-top: var(--sp-2); }
+.mobile-door { color: var(--text-3); }
 
-.myths {
+/* Botão flutuante "Quero ser avisado": mesmo botão do menu, só muda o lugar.
+   As transições de entrada/saída substituem as do .button. */
+.signup-fab.button {
+  right: 24px;
+  bottom: 24px;
+  box-shadow: var(--shadow-brand-hover);
+  transition: opacity 320ms ease, transform 420ms var(--ease-out),
+              background-color 150ms ease, box-shadow 150ms ease;
+}
+.signup-fab.button:not(.is-visible) { transform: translateY(16px); }
+
+/* =========================================================
+   Hero
+   ========================================================= */
+
+.section_hero .padding-section-medium { padding-top: 0; }
+
+.hero_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100svh - var(--nav-h));
+  padding-block: var(--sp-12);
+}
+
+.hero_tagline { margin-bottom: 28px; }
+
+.hero_title { margin-bottom: 28px; }
+
+.hero_sub { max-width: 640px; margin-bottom: 44px; }
+
+.hero_buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px 22px;
-  margin-top: var(--sp-8);
-  max-width: 820px;
-  animation: fade-up var(--dur-reveal) 180ms var(--ease-out) both;
+  gap: var(--sp-4);
 }
-.myths li {
+
+.hero_myths {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 48px;
+}
+.hero_myths li {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
+  gap: 10px;
+  font-size: 15px;
   font-weight: 500;
+  line-height: 1.5;
   color: var(--text-2);
 }
-.myth-ico {
+.hero_myths li strong { color: var(--text); font-weight: 600; }
+
+.hero_myth-icon {
+  position: relative;
   flex-shrink: 0;
-  width: 18px; height: 18px;
+  width: 22px; height: 22px;
   border-radius: 50%;
   background: var(--green-bg);
-  position: relative;
 }
-.myth-ico::after {
+.hero_myth-icon::after {
   content: "";
   position: absolute;
-  left: 6px; top: 3.5px;
-  width: 5px; height: 9px;
+  left: 8px; top: 5px;
+  width: 5px; height: 10px;
   border: solid var(--green-text);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
 
-/* Barras de preço no card do hero: mostram o desconto em vez de só dizer.
-   Anima uma vez (explicação), quando o card aparece. */
-.price-bars { display: flex; flex-direction: column; gap: 12px; margin-top: var(--sp-4); }
-.pb-row {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  row-gap: 6px;
-  align-items: baseline;
+/* Entrada: cada bloco aparece depois do outro, uma vez por visita. */
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
 }
+.hero_tagline, .hero_title, .hero_sub, .hero_buttons, .hero_myths li {
+  animation: hero-in 600ms var(--ease-out) both;
+}
+.hero_tagline { animation-delay: 80ms; }
+.hero_title   { animation-delay: 200ms; }
+.hero_sub     { animation-delay: 360ms; }
+.hero_buttons { animation-delay: 500ms; }
+.hero_myths li:nth-child(1) { animation-delay: 640ms; }
+.hero_myths li:nth-child(2) { animation-delay: 720ms; }
+.hero_myths li:nth-child(3) { animation-delay: 800ms; }
+
+/* ----- Card do imóvel ----- */
+
+.hero_card {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  animation: fade-up var(--dur-reveal) 180ms var(--ease-out) both;
+}
+
+.hero_card-photo { position: relative; min-height: 260px; background: var(--violet-bg); }
+.hero_card-photo svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero_card-status { position: absolute; top: 16px; left: 16px; box-shadow: var(--shadow-md); }
+
+.hero_card-body { display: flex; flex-direction: column; padding: var(--sp-6) var(--sp-8); }
+.hero_card-kind { margin-bottom: var(--sp-5); }
+.hero_card-total {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 40px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.hero_card-total-sub { margin-top: 2px; font-size: 14px; color: var(--text-3); }
+
+.hero_card-save {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: var(--sp-4) 0 var(--sp-5);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--green-text);
+  animation: fade-in 300ms 1150ms ease both;
+}
+@keyframes fade-in { from { opacity: 0; } }
+
+.hero_card-tags { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: auto; }
+
+.hero_card-note {
+  margin-top: var(--sp-3);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Barras de preço: mostram o desconto. Animam uma vez, quando o card entra. */
+.price-bars { display: flex; flex-direction: column; gap: 12px; margin-top: var(--sp-4); }
+.pb-row { display: grid; grid-template-columns: 1fr auto; row-gap: 6px; align-items: baseline; }
 .pb-lbl { font-size: 13px; color: var(--text-3); }
 .pb-lbl em { font-style: normal; color: var(--text-4); }
 .pb-val { font-size: 14px; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; }
 .pb-track {
   grid-column: 1 / -1;
   height: 8px;
-  border-radius: 999px;
+  border-radius: var(--radius-round);
   background: var(--bg-soft);
   overflow: hidden;
 }
@@ -277,182 +215,110 @@ body { font-size: 16px; }
 .pb-fill-you { background: var(--violet); animation-delay: 600ms; }
 @keyframes pb-grow { from { transform: scaleX(0); } }
 
-/* A economia aparece depois que as barras mostram a diferença */
-.home-save { animation: fade-in 300ms 1150ms ease both; }
-@keyframes fade-in { from { opacity: 0; } }
-
-/* ===== Contato no fim do FAQ ===== */
-
-.faq-answer a { color: var(--violet); font-weight: 600; }
-
-.faq-contact {
-  max-width: 720px;
-  margin: var(--sp-8) auto 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--sp-4);
-  flex-wrap: wrap;
-  padding: var(--sp-5) var(--sp-6);
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-}
-.faq-contact-title { font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--text); }
-.faq-contact-sub { font-size: 14px; color: var(--text-2); }
-.faq-contact-btn { background: var(--white); }
-
-@media (max-width: 640px) {
-  .myths { flex-direction: column; align-items: flex-start; gap: 8px; }
-  .faq-contact { flex-direction: column; align-items: flex-start; }
-  .faq-contact-btn { width: 100%; justify-content: center; }
-}
-
-/* Movimento reduzido (complementa o bloco de styles.css): card, mitos e
-   economia entram só com fade (fade-up já vira fade lá); as barras aparecem
-   no tamanho final com fade, sem crescer; nada desliza nem escala. */
-@media (prefers-reduced-motion: reduce) {
-  .home-card, .myths { animation-duration: 200ms; animation-delay: 0s; }
-  @keyframes pb-grow { from { opacity: 0; } }
-  .pb-fill { animation-duration: 200ms; animation-delay: 0s; }
-  .home-save { animation-duration: 200ms; animation-delay: 0s; }
-  @keyframes check-in { from { opacity: 0; } }
-}
-
-
 /* =========================================================
-   Sistema de tamanhos e ritmo das seções (home)
-   S 640 · M 800 · L 960 · XL 1120 — cada bloco usa um deles.
+   Cabeçalho de seção (tagline + h2 centralizados)
    ========================================================= */
 
-.container { max-width: calc(var(--w-xl) + 48px); }
+.section_header { margin: 0 auto var(--sp-12); }
 
-.section { padding: var(--sec-y) 0; }
-.section-center { margin-bottom: var(--sp-12); }
-.section-center .section-title { max-width: var(--w-s); }
-.section-center .section-sub { max-width: var(--w-s); }
+/* =========================================================
+   Vídeo
+   ========================================================= */
 
-/* M */
-.hero-morar .hero-content,
-.home-card { max-width: var(--w-m); margin-left: auto; margin-right: auto; }
-.hero-morar .hero-title { max-width: var(--w-m); }
-.hero-morar .hero-sub { max-width: var(--w-s); }
-.faq-list, .faq-contact { max-width: var(--w-m); }
+.demo_video { max-width: none; }
+.demo_video .video-placeholder { border-radius: var(--radius-large); }
+.demo_video .video-lines span { border-radius: var(--radius-round); }
+.demo_video iframe, .demo_video video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-lg);
+  background: var(--video-bg);
+}
+.demo_note { margin-top: var(--sp-4); }
 
-/* L */
-.lm, .video-wrap, .help { max-width: var(--w-l); margin-left: auto; margin-right: auto; }
+/* =========================================================
+   Atendimento
+   ========================================================= */
 
-/* XL */
-.cta-banner { max-width: var(--w-xl); margin: 0 auto; }
-
-/* Fundos intercalados: hero branco → leilão cinza → vídeo branco →
-   atendimento cinza → dúvidas branco → chamada final cinza. */
-#inicio, #demo, #faq { background: var(--white); }
-#leilao, #ajuda, #cadastro { background: var(--bg-soft); }
-
-.lm-section { padding-top: var(--sec-y); }
-.card-note {
-  margin-top: var(--sp-3);
-  font-size: 12px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--text-3);
+.ajuda_component {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--sp-12);
+  align-items: center;
+  padding: var(--sp-12);
+  background: linear-gradient(135deg, var(--violet-wash) 0%, var(--white) 70%);
+  border: 1px solid var(--violet-border);
+  border-radius: var(--radius-large);
 }
 
-/* ===== Chamada final ===== */
+.ajuda_title { margin-bottom: var(--sp-5); }
 
-.section-cta { padding: var(--sec-y-sm) 0 var(--sec-y); }
+.ajuda_list { display: flex; flex-direction: column; gap: 10px; margin-bottom: var(--sp-8); }
+.ajuda_list li { position: relative; padding-left: 28px; font-size: 16px; color: var(--text); }
+.ajuda_list li::before {
+  content: '✓';
+  position: absolute; left: 0; top: 1px;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--violet);
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+}
 
-.cta-banner {
-  position: relative;
-  overflow: hidden;
+.ajuda_chat {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 72px var(--sp-8) 88px;
-  border-radius: 28px;
-  color: #fff;
-  background:
-    radial-gradient(120% 90% at 50% 0%, rgba(167,139,250,0.35) 0%, rgba(124,58,237,0) 60%),
-    linear-gradient(160deg, #2A1760 0%, #1B1040 55%, #140B30 100%);
-  box-shadow: 0 30px 60px -20px rgba(27,16,64,0.45);
+  gap: 10px;
+  padding: var(--sp-6);
+  box-shadow: var(--shadow-lg);
 }
 
-.cta-banner-art {
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  width: 100%;
-  height: 58%;
-  color: rgba(196,181,253,0.22);
-  pointer-events: none;
+.ajuda_bubble {
+  max-width: 85%;
+  padding: 10px 14px;
+  font-size: 14px;
+  line-height: 1.45;
+  border-radius: var(--radius-medium);
 }
+.ajuda_bubble.is-in { align-self: flex-end; background: var(--violet); color: var(--white); border-bottom-right-radius: 0; }
+.ajuda_bubble.is-out { align-self: flex-start; background: var(--bg-soft); color: var(--text); border-bottom-left-radius: 0; }
 
-.cta-banner-title {
-  position: relative;
-  max-width: 720px;
-  font-family: var(--font-display);
-  font-size: clamp(28px, 4.2vw, 46px);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  color: #fff;
+/* A conversa aparece em sequência quando a seção entra (uma vez). */
+.js #ajuda .ajuda_bubble {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 300ms var(--ease-out), transform 300ms var(--ease-out);
 }
-
-.cta-banner-sub {
-  position: relative;
-  margin-top: var(--sp-4);
-  font-size: 18px;
-  color: #E4DCFF;
-}
-
-.cta-banner-btn {
-  position: relative;
-  margin-top: var(--sp-8);
-  background: #fff;
-  color: var(--violet);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-}
-@media (hover: hover) and (pointer: fine) {
-  .cta-banner-btn:hover { background: #F3EFFE; color: var(--violet-hover); }
-}
-.cta-banner-btn:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
-
-@media (max-width: 640px) {
-  :root { --sec-y: 64px; --sec-y-sm: 48px; }
-  .section-center { margin-bottom: var(--sp-10); }
-  .cta-banner { padding: 48px 20px 64px; border-radius: 20px; }
-  .cta-banner-sub { font-size: 16px; }
-  .cta-banner-btn { width: 100%; }
-  .cta-banner-art { height: 40%; }
-}
-
+.js #ajuda.is-visible .ajuda_bubble { opacity: 1; transform: none; }
+.js #ajuda.is-visible .ajuda_bubble:nth-child(1) { transition-delay: 150ms; }
+.js #ajuda.is-visible .ajuda_bubble:nth-child(2) { transition-delay: 450ms; }
+.js #ajuda.is-visible .ajuda_bubble:nth-child(3) { transition-delay: 750ms; }
+.js #ajuda.is-visible .ajuda_bubble:nth-child(4) { transition-delay: 1050ms; }
 
 /* =========================================================
-   Microinterações (hover, foco e entradas em sequência)
-   Critério das skills: só onde há propósito (feedback, estado,
-   explicação), rápido (≤ 250ms), transform/opacity, hover só com
-   mouse, e versão reduzida sem deslocamento.
+   Dúvidas (faq-* vem de styles.css; aqui só os ajustes da home)
    ========================================================= */
 
+.section_faq .faq-list { max-width: none; }
 
-/* --- Links do menu: sublinhado que cresce da esquerda --- */
-.nav-links a { position: relative; }
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: -4px;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--violet);
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 200ms var(--ease-out);
+.faq-item {
+  margin: 0 calc(var(--sp-4) * -1);
+  padding: 0 var(--sp-4);
+  border-radius: var(--radius-medium);
+  transition: background-color 150ms ease;
 }
+.faq-question { font-size: 17px; transition: color 150ms ease; }
+.faq-question:focus-visible { border-radius: var(--radius-medium); }
+.faq-answer p { font-size: 16px; color: var(--text-2); }
+.faq-answer a { color: var(--violet); font-weight: 600; }
 
-/* --- Dúvidas: linha responde ao mouse; resposta abre com altura suave --- */
-.faq-item { transition: background-color 150ms ease; border-radius: var(--r); }
-.faq-question { transition: color 150ms ease; }
+/* Resposta abre com altura suave onde o navegador permite */
 @supports (interpolate-size: allow-keywords) {
   .faq-list { interpolate-size: allow-keywords; }
   .faq-item::details-content {
@@ -463,149 +329,61 @@ body { font-size: 16px; }
   .faq-item[open]::details-content { height: auto; }
 }
 
-/* --- Demo: linha da conta destaca ao passar o mouse (tem o "?") --- */
-
-/* --- Atendimento: a conversa aparece em sequência quando a seção entra --- */
-.js #ajuda .chat {
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 300ms var(--ease-out), transform 300ms var(--ease-out);
-}
-.js #ajuda.is-visible .chat { opacity: 1; transform: none; }
-.js #ajuda.is-visible .chat:nth-child(1) { transition-delay: 150ms; }
-.js #ajuda.is-visible .chat:nth-child(2) { transition-delay: 450ms; }
-.js #ajuda.is-visible .chat:nth-child(3) { transition-delay: 750ms; }
-.js #ajuda.is-visible .chat:nth-child(4) { transition-delay: 1050ms; }
-
-/* --- Hero: as três frases entram em sequência curta --- */
-.myths { animation: none; }
-.myths li { animation: fade-up 400ms var(--ease-out) both; }
-.myths li:nth-child(1) { animation-delay: 250ms; }
-.myths li:nth-child(2) { animation-delay: 310ms; }
-.myths li:nth-child(3) { animation-delay: 370ms; }
-
-@media (hover: hover) and (pointer: fine) {
-
-  .nav-links a:hover::after { transform: scaleX(1); }
-
-  .faq-item:hover { background: var(--bg-soft); }
-  .faq-item:hover .faq-question { color: var(--violet); }
-
-
-  .faq-contact-btn:hover { border-color: var(--violet); }
+.faq_contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  margin-top: var(--sp-8);
+  padding: var(--sp-5) var(--sp-6);
+  box-shadow: none;
 }
 
+/* =========================================================
+   Chamada final
+   ========================================================= */
 
-@media (prefers-reduced-motion: reduce) {
-  .home-card, .home-card:hover,   .nav-links a::after { transition: none; }
-  .js #ajuda .chat { transform: none; transition: opacity 200ms ease; }
-  .js #ajuda.is-visible .chat { transition-delay: 0ms; }
-  .myths li { animation: fade-in 200ms ease both; animation-delay: 0ms; }
-  .faq-item::details-content { transition: none; }
-}
-
-/* Realce do FAQ com respiro lateral, sem mudar o alinhamento do texto */
-.faq-list .faq-item { margin: 0 calc(var(--sp-4) * -1); padding: 0 var(--sp-4); }
-@media (max-width: 640px) {
-  .faq-list .faq-item { margin: 0; padding: 0; }
-}
-
-
-/* Chamada final compacta: faixa baixa, largura L, texto à esquerda e botão à direita */
-.section-cta { padding: var(--sec-y-sm) 0; }
-.cta-banner {
-  max-width: var(--w-l);
-  flex-direction: row;
+.cadastro_component {
+  position: relative;
+  overflow: hidden;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--sp-8);
-  text-align: left;
   padding: 36px 44px;
-  border-radius: var(--r-xl);
-  box-shadow: 0 16px 36px -18px rgba(27,16,64,0.45);
-}
-.cta-banner-text { position: relative; }
-.cta-banner-title { max-width: none; font-size: clamp(22px, 2.4vw, 28px); line-height: 1.2; letter-spacing: -0.02em; }
-.cta-banner-sub { margin-top: 6px; font-size: 15px; }
-.cta-banner-btn { margin-top: 0; flex-shrink: 0; }
-.cta-banner-art { height: 100%; color: rgba(196,181,253,0.12); }
-
-@media (max-width: 760px) {
-  .cta-banner { flex-direction: column; align-items: stretch; text-align: center; gap: var(--sp-5); padding: 32px 20px; }
-  .cta-banner-btn { width: 100%; }
+  border-radius: var(--radius-large);
+  color: var(--white);
+  background:
+    radial-gradient(120% 90% at 50% 0%, var(--ink-glow) 0%, var(--ink-glow-0) 60%),
+    linear-gradient(160deg, var(--ink-1) 0%, var(--ink-2) 55%, var(--ink-3) 100%);
+  box-shadow: var(--ink-shadow);
 }
 
+.cadastro_art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--ink-art);
+  pointer-events: none;
+}
+
+.cadastro_text { position: relative; }
+.cadastro_title { color: var(--white); }
+.cadastro_sub { margin-top: 6px; color: var(--ink-text); }
+.cadastro_button { position: relative; flex-shrink: 0; }
 
 /* =========================================================
-   Botão "Quero ser avisado" único (menu ↔ flutuante) e menu que some
+   Modais e campos (modal-* vem de styles.css; o JS usa essas classes)
    ========================================================= */
 
-/* Mesmo formato e tamanho no menu e flutuando */
-.cta-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  height: 40px;
-  padding: 0 18px;
-  border-radius: 999px;
-  background: var(--violet);
-  color: #fff;
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 600;
-  white-space: nowrap;
-  box-shadow: 0 4px 14px rgba(124,58,237,0.28);
-  transition: background-color var(--dur-color) ease, box-shadow var(--dur-color) ease,
-              transform var(--dur-press) var(--ease-out);
-}
-.cta-pill svg { flex-shrink: 0; }
-.cta-pill:active { transform: scale(0.97); }
-.cta-pill:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; }
-@media (hover: hover) and (pointer: fine) {
-  .cta-pill:hover { background: var(--violet-hover); box-shadow: 0 6px 20px rgba(124,58,237,0.38); }
-}
-
-/* Flutuante: só a posição muda; entra de baixo quando o menu sai */
-.signup-fab.cta-pill { padding: 0 18px; font-size: 14px; }
-
-/* Menu sai por cima ao rolar para baixo */
-.nav { transition: transform 250ms var(--ease-out), border-color var(--dur-ui) ease, box-shadow var(--dur-ui) ease; }
-.nav.is-hidden { transform: translateY(-100%); }
-
-/* Primeira dobra: menos espaço acima do título para o texto caber na tela */
-.hero { padding-top: var(--sp-12); padding-bottom: var(--sp-16); }
-.hero-kicker { margin-bottom: var(--sp-4); }
-
-@media (max-width: 640px) {
-  .hero { padding-top: var(--sp-8); }
-  .signup-fab.cta-pill { right: 16px; bottom: 16px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .nav { transition: opacity 200ms ease; }
-  .nav.is-hidden { transform: translateY(-100%); }
-}
-
-
-/* Campo de texto da dúvida, no mesmo estilo dos outros campos do formulário */
-.field textarea {
-  font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 1.5;
-  padding: 11px 14px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--bg-soft);
-  color: var(--text);
-  width: 100%;
-  resize: vertical;
-  min-height: 104px;
-  transition: border-color var(--dur-color) ease, box-shadow var(--dur-color) ease;
-}
-.field textarea::placeholder { color: var(--text-4); opacity: 0.8; }
-.field textarea:focus { outline: none; border-color: var(--violet); box-shadow: 0 0 0 3px rgba(124,58,237,0.14); }
+.modal-close { border-radius: var(--radius-round); }
 .modal-ok a { color: var(--violet); font-weight: 600; }
 
+.form_field { display: flex; flex-direction: column; gap: 3px; }
+.form_field label { font-size: 13px; font-weight: 600; color: var(--text); }
+.form_row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
 
 /* Popup de contato compacto: cabe inteiro na tela, sem rolagem */
 #contactOverlay .modal-box { max-width: 480px; padding: var(--sp-6) var(--sp-8); }
@@ -613,185 +391,98 @@ body { font-size: 16px; }
 #contactOverlay .modal-body h3 { font-size: 19px; margin-bottom: 4px; }
 #contactOverlay .modal-desc { margin-bottom: var(--sp-4); }
 #contactOverlay .modal-form { gap: var(--sp-3); }
-#contactOverlay .field input { padding: 9px 12px; }
-#contactOverlay .field textarea { min-height: 76px; padding: 9px 12px; }
-.field-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
+#contactOverlay .form_input { padding: 9px 12px; }
+#contactOverlay .form_textarea { min-height: 76px; padding: 9px 12px; }
+
+/* =========================================================
+   Rodapé
+   ========================================================= */
+
+.footer-legal { max-width: 520px; margin-top: var(--sp-2); font-size: 12px; line-height: 1.5; color: var(--text-3); }
+
+/* =========================================================
+   Hover (só com mouse)
+   ========================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+  .nav-links a:hover::after { transform: scaleX(1); }
+  .faq-item:hover { background: var(--bg-soft); }
+  .faq-item:hover .faq-question { color: var(--violet); }
+}
+
+/* =========================================================
+   Responsivo
+   ========================================================= */
+
+@media (max-width: 880px) {
+  .hero_card { grid-template-columns: 1fr; }
+  .hero_card-photo { min-height: 190px; }
+  .ajuda_component { grid-template-columns: 1fr; padding: var(--sp-8) var(--sp-6); gap: var(--sp-8); }
+}
+
+@media (max-width: 760px) {
+  .cadastro_component { flex-direction: column; align-items: stretch; text-align: center; gap: var(--sp-5); padding: 32px 20px; }
+  .cadastro_button { width: 100%; }
+}
+
+@media (max-width: 640px) {
+  .mobile-menu { padding-left: 16px; padding-right: 16px; }
+  .signup-fab.button { right: 16px; bottom: 16px; }
+
+  .hero_content { padding-block: var(--sp-8); }
+  .hero_tagline { margin-bottom: 22px; }
+  .hero_title { font-size: clamp(29px, 7.8vw, 34px); line-height: 1.16; margin-bottom: 22px; }
+  .hero_sub { font-size: 16px; line-height: 1.7; margin-bottom: 32px; }
+  .hero_buttons { flex-direction: column; width: 100%; gap: 12px; }
+  .hero_buttons .button { width: 100%; }
+  .hero_myths { align-items: flex-start; gap: 14px; margin-top: 36px; }
+  .hero_myths li { align-items: flex-start; text-align: left; }
+  .hero_myth-icon { margin-top: 1px; }
+  .hero_card-body { padding: var(--sp-5); }
+
+  .section_header { margin-bottom: var(--sp-10); }
+
+  .ajuda_component { padding: var(--sp-6) var(--sp-5); }
+
+  .faq-item { margin: 0; padding: 0; }
+  .faq_contact { flex-direction: column; align-items: flex-start; }
+  .faq_contact-button { width: 100%; }
+}
 
 @media (max-width: 560px), (max-height: 640px) {
   #contactOverlay .modal-box { padding: var(--sp-5); }
   #contactOverlay .modal-ico { display: none; }
   #contactOverlay .modal-desc { font-size: 13px; margin-bottom: var(--sp-3); }
   #contactOverlay .modal-form { gap: 10px; }
-  #contactOverlay .field textarea { min-height: 64px; }
+  #contactOverlay .form_textarea { min-height: 64px; }
 }
+
 @media (max-width: 420px) {
-  .field-row-2 { grid-template-columns: 1fr; gap: 10px; }
+  .form_row { grid-template-columns: 1fr; gap: 10px; }
 }
 
 /* =========================================================
-   Hero ocupando a primeira tela, centralizado, com entrada em sequência
+   Movimento reduzido: sem deslocamento, só fade curto
    ========================================================= */
 
-:root { --nav-h: 61px; }
-
-.hero-morar { padding: 0 0 var(--sec-y); }
-.hero-morar .hero-content {
-  min-height: calc(100svh - var(--nav-h));
-  justify-content: center;
-  margin-bottom: 0;
-  padding-block: var(--sp-8);
-}
-.hero-morar .hero-title { margin-bottom: var(--sp-5); }
-.hero-morar .hero-sub { margin-bottom: var(--sp-8); }
-.hero-morar .myths { margin-top: var(--sp-8); }
-
-
-/* Entrada: cada bloco de texto aparece um depois do outro ao carregar a página.
-   Uma vez por visita (rara) e com propósito: guia a leitura na ordem certa. */
-@keyframes hero-in {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: none; }
-}
-.hero-morar .hero-kicker,
-.hero-morar .hero-title,
-.hero-morar .hero-sub,
-.hero-morar .hero-cta-row,
-.hero-morar .myths li {
-  animation: hero-in 600ms var(--ease-out) both;
-}
-.hero-morar .hero-kicker  { animation-delay: 80ms; }
-.hero-morar .hero-title   { animation-delay: 200ms; }
-.hero-morar .hero-sub     { animation-delay: 360ms; }
-.hero-morar .hero-cta-row { animation-delay: 500ms; }
-.hero-morar .myths { animation: none; }
-.hero-morar .myths li:nth-child(1) { animation-delay: 640ms; }
-.hero-morar .myths li:nth-child(2) { animation-delay: 720ms; }
-.hero-morar .myths li:nth-child(3) { animation-delay: 800ms; }
-
 @media (prefers-reduced-motion: reduce) {
-  @keyframes hero-in { from { opacity: 0; } to { opacity: 1; } }
-  .hero-morar .hero-kicker, .hero-morar .hero-title, .hero-morar .hero-sub,
-  .hero-morar .hero-cta-row, .hero-morar .myths li { animation-duration: 250ms; animation-delay: 0ms; }
-}
-
-
-/* =========================================================
-   Hero: tipografia maior, respiro generoso e destaques
-   ========================================================= */
-
-.hero-morar .hero-content { padding-block: var(--sp-12); }
-
-.hero-kicker { font-size: 14px; padding: 7px 16px; margin-bottom: var(--sp-6); }
-
-.hero-morar .hero-title {
-  font-size: clamp(38px, 5.4vw, 66px);
-  line-height: 1.06;
-  letter-spacing: -0.035em;
-  max-width: 980px;
-  margin-bottom: var(--sp-6);
-}
-
-.hero-morar .hero-sub {
-  font-size: clamp(17px, 1.45vw, 20px);
-  line-height: 1.65;
-  color: var(--text-2);
-  max-width: 700px;
-  margin-bottom: var(--sp-10);
-}
-.hero-morar .hero-sub strong { color: var(--text); font-weight: 600; }
-
-.hero-morar .hero-cta-row { gap: var(--sp-4); }
-.hero-morar .hero-cta-row .btn-lg { padding: 17px 36px; font-size: 16px; border-radius: 12px; }
-
-.hero-morar .myths {
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  margin-top: var(--sp-10);
-}
-.hero-morar .myths li { font-size: 16px; color: var(--text-2); gap: 10px; }
-.hero-morar .myths li strong { color: var(--text); font-weight: 600; }
-.hero-morar .myth-ico { width: 22px; height: 22px; }
-.hero-morar .myth-ico::after { left: 8px; top: 5px; width: 5px; height: 10px; }
-
-@media (max-width: 640px) {
-  .hero-morar .hero-content { padding-block: var(--sp-8); }
-  .hero-kicker { font-size: 13px; margin-bottom: var(--sp-5); }
-  .hero-morar .hero-title { font-size: clamp(32px, 9vw, 40px); margin-bottom: var(--sp-5); }
-  .hero-morar .hero-sub { font-size: 17px; margin-bottom: var(--sp-8); }
-  .hero-morar .hero-cta-row .btn-lg, .hero-morar .hero-cta-row .btn-outline { padding: 16px 20px; font-size: 16px; }
-  .hero-morar .myths { align-items: flex-start; gap: 12px; margin-top: var(--sp-8); }
-  .hero-morar .myths li { font-size: 15px; text-align: left; align-items: flex-start; }
-  .hero-morar .myth-ico { margin-top: 1px; }
-}
-.hero-morar .hero-content { max-width: 1080px; }
-.hero-morar .hero-cta-row .btn-outline { padding: 17px 30px; font-size: 16px; border-radius: 12px; }
-@media (max-width: 640px) {
-  .hero-morar .hero-title { font-size: clamp(30px, 8.4vw, 36px); }
-  .hero-morar .hero-sub { font-size: 16px; margin-bottom: var(--sp-6); }
-  .hero-morar .hero-cta-row .btn-lg, .hero-morar .hero-cta-row .btn-outline { padding: 15px 20px; }
-  .hero-morar .myths { margin-top: var(--sp-6); gap: 10px; }
-}
-
-/* Ajuste: tamanho intermediário e mais ar entre as linhas e os blocos */
-.hero-kicker { margin-bottom: 28px; }
-.hero-morar .hero-title {
-  font-size: clamp(34px, 4.1vw, 54px);
-  line-height: 1.14;
-  letter-spacing: -0.025em;
-  max-width: 900px;
-  margin-bottom: 28px;
-}
-.hero-morar .hero-sub {
-  font-size: clamp(17px, 1.25vw, 18px);
-  line-height: 1.75;
-  max-width: 640px;
-  margin-bottom: 44px;
-}
-.hero-morar .hero-cta-row .btn-lg { padding: 15px 32px; font-size: 15px; }
-.hero-morar .hero-cta-row .btn-outline { padding: 15px 28px; font-size: 15px; }
-.hero-morar .myths { margin-top: 48px; gap: 16px; }
-.hero-morar .myths li { font-size: 15px; line-height: 1.5; }
-
-@media (max-width: 640px) {
-  .hero-kicker { margin-bottom: 22px; }
-  .hero-morar .hero-title { font-size: clamp(29px, 7.8vw, 34px); line-height: 1.16; margin-bottom: 22px; }
-  .hero-morar .hero-sub { font-size: 16px; line-height: 1.7; margin-bottom: 32px; }
-  .hero-morar .hero-cta-row { gap: 12px; }
-  .hero-morar .myths { margin-top: 36px; gap: 14px; }
-}
-
-/* Botão da chamada final: no hover as cores invertem (fundo roxo, texto branco) */
-.cta-banner .cta-banner-btn {
-  border: 1.5px solid #fff;
-  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform var(--dur-press) var(--ease-out);
-}
-@media (hover: hover) and (pointer: fine) {
-  .cta-banner .cta-banner-btn:hover:not(:disabled) {
-    background: var(--violet);
-    color: #fff;
-    border-color: #fff;
-    box-shadow: 0 8px 24px rgba(124,58,237,0.45);
-    transform: none;
-  }
-}
-.cta-banner .cta-banner-btn:active { transform: scale(0.97); }
-
-
-/* Menu: saída e volta mais lentas e visíveis (deslize + leve fade), em sincronia
-   com o botão flutuante. */
-.nav {
-  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
-              opacity 320ms ease,
-              border-color var(--dur-ui) ease, box-shadow var(--dur-ui) ease;
-}
-.nav.is-hidden { transform: translateY(-100%); opacity: 0; }
-.signup-fab.cta-pill {
-  transition: opacity 320ms ease, transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
-              background-color var(--dur-color) ease, box-shadow var(--dur-color) ease;
-}
-.signup-fab.cta-pill:not(.is-visible) { transform: translateY(16px); }
-@media (prefers-reduced-motion: reduce) {
-  .nav.is-hidden { transform: none; opacity: 0; pointer-events: none; }
   .nav { transition: opacity 250ms ease; }
+  .nav.is-hidden { transform: none; opacity: 0; pointer-events: none; }
+  .nav-links a::after { transition: none; }
+  .signup-fab.button,
+  .signup-fab.button:not(.is-visible) { transform: none; transition: opacity 200ms ease; }
+
+  @keyframes hero-in { from { opacity: 0; } to { opacity: 1; } }
+  .hero_tagline, .hero_title, .hero_sub, .hero_buttons, .hero_myths li {
+    animation-duration: 250ms;
+    animation-delay: 0ms;
+  }
+  .hero_card { animation-duration: 200ms; animation-delay: 0s; }
+  @keyframes pb-grow { from { opacity: 0; } }
+  .pb-fill, .hero_card-save { animation-duration: 200ms; animation-delay: 0s; }
+
+  .js #ajuda .ajuda_bubble { transform: none; transition: opacity 200ms ease; }
+  .js #ajuda.is-visible .ajuda_bubble { transition-delay: 0ms; }
+
+  .faq-item::details-content { transition: none; }
 }
