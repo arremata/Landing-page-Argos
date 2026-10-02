@@ -126,8 +126,10 @@ if (videoBtn) {
   const menu = document.getElementById('mobileMenu');
   if (!nav || !fab) return;
 
-  const TOP = 80;      // perto do topo, o menu fica sempre visível
-  const DELTA = 6;     // ignora tremidas pequenas de rolagem
+  const TOP = 160;     // perto do topo, o menu fica sempre visível
+  const HIDE_AFTER = 60; // só some depois de descer 60px seguidos (evita sumir de repente)
+  const SHOW_AFTER = 24; // volta com uma subida curta
+  let travel = 0;        // quanto já rolou na direção atual
   let lastY = window.scrollY;
   let ticking = false;
 
@@ -158,10 +160,14 @@ if (videoBtn) {
     const y = window.scrollY;
     if (locked) { setHidden(false); lastY = y; unlockSoon(); return; }
     if (menu && menu.classList.contains('is-open')) { lastY = y; return; }
-    if (y < TOP) { setHidden(false); lastY = y; return; }
-    if (Math.abs(y - lastY) < DELTA) return;
-    setHidden(y > lastY);
+    if (y < TOP) { setHidden(false); travel = 0; lastY = y; return; }
+    const dy = y - lastY;
     lastY = y;
+    if (dy === 0) return;
+    // acumula na mesma direção; trocar de direção zera a conta
+    travel = (Math.sign(dy) === Math.sign(travel)) ? travel + dy : dy;
+    if (travel > HIDE_AFTER) setHidden(true);
+    else if (travel < -SHOW_AFTER) setHidden(false);
   }
 
   window.addEventListener('scroll', () => {

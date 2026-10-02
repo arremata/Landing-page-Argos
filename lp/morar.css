@@ -776,3 +776,22 @@ body { font-size: 16px; }
   }
 }
 .cta-banner .cta-banner-btn:active { transform: scale(0.97); }
+
+
+/* Menu: saída e volta mais lentas e visíveis (deslize + leve fade), em sincronia
+   com o botão flutuante. */
+.nav {
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 320ms ease,
+              border-color var(--dur-ui) ease, box-shadow var(--dur-ui) ease;
+}
+.nav.is-hidden { transform: translateY(-100%); opacity: 0; }
+.signup-fab.cta-pill {
+  transition: opacity 320ms ease, transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+              background-color var(--dur-color) ease, box-shadow var(--dur-color) ease;
+}
+.signup-fab.cta-pill:not(.is-visible) { transform: translateY(16px); }
+@media (prefers-reduced-motion: reduce) {
+  .nav.is-hidden { transform: none; opacity: 0; pointer-events: none; }
+  .nav { transition: opacity 250ms ease; }
+}
