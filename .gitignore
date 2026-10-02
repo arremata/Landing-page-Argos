@@ -6,3 +6,8 @@ data/signups.json
 .env
 .env.local
 .env*
+
+# Claude Code: só as definições compartilhadas entram no git
+.claude/*
+!.claude/agents/
+!.claude/skills/

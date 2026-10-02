@@ -6,7 +6,8 @@
     "dev": "node dev-server.js",
     "blog": "node scripts/build-blog.js",
     "build": "node scripts/build-blog.js",
-    "test": "node --test"
+    "test": "node --test",
+    "lint:design": "node scripts/check-design.js"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

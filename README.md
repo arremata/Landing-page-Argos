@@ -22,8 +22,11 @@ HTML, CSS e JavaScript puros — sem framework. O blog é gerado estaticamente a
 ├── lp/
 │   ├── styles.css          # Design system (usado pelas LPs e pelo blog)
 │   ├── script.js           # Interações comuns às LPs (nav, modal, formulário)
-│   ├── morar.css           # Estilos só da LP "Quero morar"
-│   └── morar.js            # Interações só da LP "Quero morar"
+│   ├── client-first.css    # Globais Client-First da home (DESIGN-SYSTEM.md)
+│   ├── morar.css           # Componentes da LP "Quero morar"
+│   ├── leilao.css          # Carrossel "Leilão em 1 minuto"
+│   ├── morar.js            # Interações só da LP "Quero morar"
+│   └── leilao.js           # Carrossel "Leilão em 1 minuto"
 ├── blog/
 │   ├── index.html          # Listagem de artigos (GERADO — não editar)
 │   ├── blog-styles.css     # Estilos do blog
@@ -34,7 +37,8 @@ HTML, CSS e JavaScript puros — sem framework. O blog é gerado estaticamente a
 ├── dicionario/             # Dicionário e verbetes (GERADOS — não editar)
 ├── scripts/
 │   ├── build-blog.js       # Markdown → HTML + sitemap + robots
-│   └── build-dictionary.js # Glossário → páginas HTML do dicionário
+│   ├── build-dictionary.js # Glossário → páginas HTML do dicionário
+│   └── check-design.js     # npm run lint:design (valida DESIGN-SYSTEM.md)
 ├── api/
 │   └── waitlist.js         # Endpoint serverless da lista de espera
 ├── dev-server.js           # Servidor local (simula roteamento da Vercel)
