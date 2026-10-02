@@ -185,7 +185,7 @@ body { font-size: 16px; }
 
 .hero_card-note {
   margin-top: var(--sp-3);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
@@ -307,13 +307,16 @@ body { font-size: 16px; }
 
 .section_faq .faq-list { max-width: none; }
 
-.faq-item {
+/* A linha divisória do item fica reta; o realce do hover é só na pergunta */
+.faq-item { margin: 0; padding: 0; border-radius: 0; }
+.faq-question {
+  font-size: 18px;
   margin: 0 calc(var(--sp-4) * -1);
-  padding: 0 var(--sp-4);
+  padding-left: var(--sp-4);
+  padding-right: var(--sp-4);
   border-radius: var(--radius-medium);
-  transition: background-color 150ms ease;
+  transition: color 150ms ease, background-color 150ms ease;
 }
-.faq-question { font-size: 17px; transition: color 150ms ease; }
 .faq-question:focus-visible { border-radius: var(--radius-medium); }
 .faq-answer p { font-size: 16px; color: var(--text-2); }
 .faq-answer a { color: var(--violet); font-weight: 600; }
@@ -388,7 +391,7 @@ body { font-size: 16px; }
 /* Popup de contato compacto: cabe inteiro na tela, sem rolagem */
 #contactOverlay .modal-box { max-width: 480px; padding: var(--sp-6) var(--sp-8); }
 #contactOverlay .modal-ico { width: 36px; height: 36px; margin-bottom: var(--sp-3); }
-#contactOverlay .modal-body h3 { font-size: 19px; margin-bottom: 4px; }
+#contactOverlay .modal-body h3 { margin-bottom: 4px; }
 #contactOverlay .modal-desc { margin-bottom: var(--sp-4); }
 #contactOverlay .modal-form { gap: var(--sp-3); }
 #contactOverlay .form_input { padding: 9px 12px; }
@@ -406,8 +409,8 @@ body { font-size: 16px; }
 
 @media (hover: hover) and (pointer: fine) {
   .nav-links a:hover::after { transform: scaleX(1); }
-  .faq-item:hover { background: var(--bg-soft); }
-  .faq-item:hover .faq-question { color: var(--violet); }
+  .faq-question:hover { background: var(--bg-soft); }
+  .faq-question:hover { color: var(--violet); }
 }
 
 /* =========================================================
@@ -431,8 +434,8 @@ body { font-size: 16px; }
 
   .hero_content { padding-block: var(--sp-8); }
   .hero_tagline { margin-bottom: 22px; }
-  .hero_title { font-size: clamp(29px, 7.8vw, 34px); line-height: 1.16; margin-bottom: 22px; }
-  .hero_sub { font-size: 16px; line-height: 1.7; margin-bottom: 32px; }
+  .hero_title { margin-bottom: 22px; }
+  .hero_sub { margin-bottom: 32px; }
   .hero_buttons { flex-direction: column; width: 100%; gap: 12px; }
   .hero_buttons .button { width: 100%; }
   .hero_myths { align-items: flex-start; gap: 14px; margin-top: 36px; }
@@ -486,3 +489,9 @@ body { font-size: 16px; }
 
   .faq-item::details-content { transition: none; }
 }
+
+/* Marca: mesmo raio padrão dos ícones quadrados */
+.logo-mark { border-radius: var(--radius-medium); }
+
+/* Títulos dos modais: heading-style-h4 (20px no modal) */
+.modal-body h3 { font-size: 20px; }

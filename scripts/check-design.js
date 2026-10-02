@@ -6,10 +6,15 @@
 //   radius      border-radius só com var(--radius-*), 50%, inherit ou 0
 //   hex         cor hex só dentro de blocos :root (exceto fill/stroke/stop-color
 //               de SVG decorativo e valores dentro de url(data:...))
-//   transition  nada de `transition: all`
-//   hover       todo :hover dentro de @media (hover: hover)
-//   button      <button>/<a> com cara de botão na home precisa da classe `button`
-//   texto       palavras proibidas (seção 7) no index.html
+//   transition  nada de `transition: all` nem transition sem propriedade
+//   easing      nada de `ease-in` (só ease-out / ease-in-out / ease / curvas)
+//   infinite    nada de animação infinita
+//   hover       todo :hover dentro de @media (hover: hover) and (pointer: fine)
+//   hover-move  hover não sobe o elemento (translateY negativo)
+//   pill        regra de .button só pode usar var(--radius-round)
+//   button      <button>/<a>/role=button/input submit com cara de botão precisa da classe `button`
+//   estrutura   toda <section> da home: section_* > padding-global > container-* > padding-section-*
+//   texto       palavras proibidas (seção 7), sem acento e sem quebra de linha
 
 'use strict';
 
@@ -104,7 +109,7 @@ function walkCss(css, onSelector, onDeclaration) {
   }
 }
 
-const ALLOWED_RADIUS_TOKEN = /^(var\(--radius-(round|medium|large)\)|50%|inherit|0)$/;
+const ALLOWED_RADIUS_TOKEN = /^(var\(--radius-(round|medium|large)\)|50%|inherit|0(px)?)$/;
 const HEX = /#[0-9a-fA-F]{3,8}\b/g;
 const HEX_OK_PROPS = /^(fill|stroke|stop-color|flood-color|lighting-color)$/;
 
@@ -117,8 +122,8 @@ function checkCss(rel) {
     css,
     (selector, start, ctx) => {
       if (!/:hover\b/.test(selector)) return;
-      const gated = ctx.some((h) => /^@media[^{]*\(\s*hover\s*:\s*hover\s*\)/i.test(h));
-      if (!gated) report(rel, lineAt(css, start), 'hover', `":hover" fora de @media (hover: hover): ${selector.replace(/\s+/g, ' ')}`);
+      const gated = ctx.some((h) => /^@media\s+\(\s*hover\s*:\s*hover\s*\)\s+and\s+\(\s*pointer\s*:\s*fine\s*\)/i.test(h));
+      if (!gated) report(rel, lineAt(css, start), 'hover', `":hover" fora de @media (hover: hover) and (pointer: fine): ${selector.replace(/\s+/g, ' ')}`);
     },
     (decl, start, ctx) => {
       const m = decl.match(/^([\w-]+)\s*:\s*([\s\S]*)$/);
@@ -136,6 +141,24 @@ function checkCss(rel) {
 
       if (/^transition(-property)?$/.test(prop) && /(^|[\s,])all(\s|,|$)/.test(value)) {
         report(rel, line, 'transition', `${prop}: ${value} (liste as propriedades; nunca "all")`);
+      }
+      if (prop === 'transition' && value !== 'none') {
+        for (const part of value.split(/,(?![^(]*\))/)) {
+          if (/^\s*(var\(|\d|\.)/.test(part)) report(rel, line, 'transition', `transition sem propriedade ("${part.trim()}" equivale a "all")`);
+        }
+      }
+      if (/^(transition|transition-timing-function|animation|animation-timing-function)$/.test(prop) && /(^|[\s,])ease-in(?!-)/.test(value)) {
+        report(rel, line, 'easing', `${prop}: ${value} ("ease-in" atrasa a resposta; use ease-out)`);
+      }
+      if (/^animation(-iteration-count)?$/.test(prop) && /\binfinite\b/.test(value)) {
+        report(rel, line, 'infinite', `${prop}: ${value} (sem animação infinita)`);
+      }
+      const selectors = ctx.filter((h) => !h.startsWith('@')).join(' ');
+      if (/:hover\b/.test(selectors) && /^(transform|translate)$/.test(prop) && /translate(Y|3d)?\(\s*[^,)]*,?\s*-|translateY\(\s*-/.test(value)) {
+        report(rel, line, 'hover-move', `hover sobe o elemento (${prop}: ${value}); hover não move botões nem cards`);
+      }
+      if (/^border(-[a-z]+)*-radius$/.test(prop) && /(^|[\s,.])\.button\b/.test(selectors) && !/^var\(--radius-round\)$/.test(value)) {
+        report(rel, line, 'pill', `${selectors.replace(/\s+/g, ' ')} { ${prop}: ${value} } — botão é sempre pílula (var(--radius-round))`);
       }
 
       if (!inRoot && !HEX_OK_PROPS.test(prop)) {
@@ -175,8 +198,28 @@ function checkHtml(rel) {
     }
   }
 
+  // role="button" e <input type="submit|button"> também precisam da classe button
+  const roleRe = /<(\w+)\b([^>]*\brole\s*=\s*["']button["'][^>]*)>|<input\b([^>]*\btype\s*=\s*["'](?:submit|button)["'][^>]*)>/gi;
+  while ((m = roleRe.exec(html))) {
+    const attrs = m[2] || m[3] || '';
+    if (!classesOf(attrs).includes('button')) report(rel, lineAt(html, m.index), 'button', `${m[0].slice(0, 60)}… sem a classe "button"`);
+  }
+
+  // Estrutura Client-First de cada <section>
+  const secRe = /<section\b([^>]*)>([\s\S]*?)<\/section>/gi;
+  while ((m = secRe.exec(html))) {
+    const line = lineAt(html, m.index);
+    const cls = classesOf(m[1]);
+    const name = cls.find((c) => c.startsWith('section_'));
+    if (!name) { report(rel, line, 'estrutura', `<section class="${cls.join(' ')}"> sem classe section_[nome]`); continue; }
+    const inner = m[2];
+    for (const need of [/\bpadding-global\b/, /\bcontainer-(small|medium|large)\b/, /\bpadding-section-(small|medium|large)\b/]) {
+      if (!need.test(inner)) report(rel, line, 'estrutura', `${name} sem ${need.source.replace(/\\b/g, '')}`);
+    }
+  }
+
   // Estilo inline com hex ou raio solto
-  const styleRe = /\bstyle\s*=\s*"([^"]*)"/gi;
+  const styleRe = /\bstyle\s*=\s*["']([^"']*)["']/gi;
   while ((m = styleRe.exec(html))) {
     const line = lineAt(html, m.index);
     if (HEX.test(m[1])) report(rel, line, 'hex', `style="${m[1]}" com cor hex`);
@@ -200,12 +243,16 @@ function checkHtml(rel) {
   // Remove as frases de exceção antes de procurar
   let cleaned = haystack;
   for (const ex of TEXT_EXCEPTIONS) cleaned = cleaned.split(ex.text).join(' '.repeat(ex.text.length));
+  // Sem acento e com espaços colapsados: pega "analise juridica", "vale a\n pena"
+  // e "vale a <strong>pena</strong>" (as tags já viraram espaço).
+  const plain = (str) => str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').toLowerCase();
+  const flat = plain(cleaned);
   for (const re of FORBIDDEN_TEXT) {
-    const g = new RegExp(re.source, re.flags.includes('g') ? re.flags : re.flags + 'g');
+    const g = new RegExp(plain(re.source), 'gi');
     let t;
-    while ((t = g.exec(cleaned))) {
-      const idx = t.index < text.length ? t.index : -1;
-      report(rel, idx >= 0 ? lineAt(html, idx) : 0, 'texto', `palavra proibida: "${t[0]}"`);
+    while ((t = g.exec(flat))) {
+      const around = flat.slice(Math.max(0, t.index - 30), t.index + t[0].length + 30).trim();
+      report(rel, 0, 'texto', `palavra proibida: "${t[0]}" em "…${around}…"`);
     }
   }
 }

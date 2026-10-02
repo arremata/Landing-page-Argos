@@ -48,7 +48,8 @@
   --sp-12: 48px; --sp-16: 64px; --sp-20: 80px; --sp-24: 96px;
 
   /* Raios (DESIGN-SYSTEM.md): a home usa só estes quatro + 50% para círculos. */
-  --radius-round: 999px;   /* botões, selos, chips, pílulas, pontos */
+  --radius-round: 999px;
+  --lm-controls-bg: rgba(255,255,255,0.7);   /* botões, selos, chips, pílulas, pontos */
   --radius-medium: 12px;   /* campos, itens pequenos, ícones quadrados */
   --radius-large: 20px;    /* cards, painéis, modal, carrossel, faixa final */
 

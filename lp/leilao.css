@@ -100,7 +100,7 @@
 /* .tag.is-neutral, menor e tracejado: rótulo "Exemplo ilustrativo" */
 .lm-tag {
   padding: 4px 9px;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-3);
   border-style: dashed;
   margin-bottom: var(--sp-4);
@@ -236,7 +236,7 @@
 .lm-way p { font-size: 14px; line-height: 1.5; color: var(--text-2); }
 
 /* .tag menor, dentro do cartão da modalidade */
-.lm-chip { padding: 4px 9px; font-size: 12px; }
+.lm-chip { padding: 4px 9px; font-size: 13px; }
 
 /* 4 · Conta */
 
@@ -251,7 +251,7 @@
   gap: var(--sp-3);
   padding: 8px 0;
   border-bottom: 1px solid var(--border-light);
-  font-size: 14.5px;
+  font-size: 15px;
   color: var(--text-2);
   transition: opacity 260ms var(--lm-ease), transform 260ms var(--lm-ease);
 }
@@ -259,13 +259,13 @@
 .lm-bill li:first-child { color: var(--text); font-weight: 600; }
 
 .lm-bill small {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-3);
   margin-left: 4px;
 }
 
 /* .tag.is-warning, em linha com o texto */
-.lm-bill small.lm-est { padding: 2px 7px; font-size: 12px; }
+.lm-bill small.lm-est { padding: 2px 7px; font-size: 13px; }
 
 .lm-money {
   font-weight: 600;
@@ -300,7 +300,7 @@
   border-radius: var(--radius-medium);
   background: var(--bg);
   border: 1px solid var(--border-light);
-  font-size: 14.5px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--text);
   counter-increment: lm-step;
@@ -345,13 +345,13 @@
   gap: var(--sp-4);
   padding: var(--sp-4) var(--sp-6);
   border-top: 1px solid var(--violet-border);
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--lm-controls-bg);
 }
 
 /* Anterior = .button.is-secondary, Próximo = .button (formato, cores,
    hover e press vêm dos globais). Aqui só o ícone e o estado de limite. */
 .lm-nav { gap: 6px; min-width: 48px; }
-.lm-nav svg { width: 18px; height: 18px; }
+.lm-nav svg { width: 16px; height: 16px; }
 .lm-nav[aria-disabled="true"] { opacity: 0.35; cursor: default; pointer-events: none; }
 
 .lm-progress { display: flex; align-items: center; gap: var(--sp-4); }
@@ -423,11 +423,11 @@
 /* Celular: tudo precisa caber numa tela, com os botões à vista */
 @media (max-width: 560px) {
   .lm-slide { padding: var(--sp-5) var(--sp-4) var(--sp-4); gap: var(--sp-4); }
-  .lm-kicker { margin-bottom: 10px; font-size: 12px; padding: 5px 10px; }
+  .lm-kicker { margin-bottom: 10px; font-size: 13px; padding: 5px 10px; }
   .lm-title { font-size: 22px; margin-bottom: 10px; }
   .lm-text p { font-size: 15px; line-height: 1.5; }
   .lm-text p + p { margin-top: 4px; }
-  .lm-def { margin-top: var(--sp-3) !important; padding: 8px 12px; font-size: 13.5px !important; }
+  .lm-def { margin-top: var(--sp-3) !important; padding: 8px 12px; font-size: 13px !important; }
   .lm-panel { padding: var(--sp-4); }
   .lm-tag { margin-bottom: var(--sp-3); }
 
@@ -438,7 +438,7 @@
   .lm-flow-ico svg { width: 17px; height: 17px; }
 
   .lm-bars { gap: var(--sp-4); }
-  .lm-bar-head { font-size: 13.5px; }
+  .lm-bar-head { font-size: 13px; }
   .lm-bar-head strong { font-size: 16px; }
   .lm-save { margin-top: var(--sp-4); font-size: 14px; }
 
@@ -446,10 +446,10 @@
   .lm-way { padding: 10px 12px; }
   .lm-way-top { margin-bottom: 4px; }
   .lm-way-name { font-size: 15px; }
-  .lm-way p { font-size: 13.5px; line-height: 1.45; }
+  .lm-way p { font-size: 13px; line-height: 1.45; }
   .lm-chip { padding: 3px 8px; }
 
-  .lm-bill li { font-size: 13.5px; padding: 5px 0; }
+  .lm-bill li { font-size: 13px; padding: 5px 0; }
   .lm-bill small:not(.lm-est) { display: block; margin: 0 0 0 12px; line-height: 1.3; }
   .lm-bill-total { margin-top: 10px; padding: 10px 12px; font-size: 14px; }
   .lm-bill-total .lm-money { font-size: 17px; }
@@ -467,7 +467,7 @@
   .lm-prev { width: 48px; padding: 0; }
   .lm-prev span { display: none; }
   .lm-progress { flex-direction: column; gap: 0; }
-  .lm-count { font-size: 12px; line-height: 1; margin-top: 4px; }
+  .lm-count { font-size: 13px; line-height: 1; margin-top: 4px; }
   .lm-dot { width: 18px; height: 26px; }
   .lm-dot::before { width: 12px; }
 }
@@ -507,7 +507,7 @@
   border-radius: var(--radius-large);
   box-shadow: var(--shadow-sm);
 }
-.lm-status p { font-size: 14.5px; line-height: 1.5; color: var(--text-2); }
+.lm-status p { font-size: 15px; line-height: 1.5; color: var(--text-2); }
 
 /* Enquadramento: todos os slides com a mesma altura útil e o visual
    ocupando a coluna inteira. */
@@ -526,5 +526,5 @@
    levantar), para acompanhar o olhar sem prometer clique. */
 .lm-status li, .lm-way, .lm-flow li { transition: border-color 200ms ease; }
 @media (hover: hover) and (pointer: fine) {
-  .lm-status li:hover, .lm-way:hover, .lm-flow li:hover { border-color: var(--lm-card-hover); }
+  .lm-status li:hover, .lm-way:hover, .lm-flow li:not(.is-last):hover { border-color: var(--lm-card-hover); }
 }

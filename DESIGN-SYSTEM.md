@@ -92,16 +92,18 @@ Nada de 4/6/8/10/14/28px soltos.
 | `padding-section-large` | 128px | 80px |
 
 Padrão: `padding-section-medium`. Chamada final: `small`.
+Exceção: o hero não tem espaço no topo, porque ocupa a primeira tela inteira
+(`min-height: 100svh` menos o menu) e centraliza o conteúdo.
 
 ## 3. Tipografia
 
 | Classe | Tamanho | Uso |
 | --- | --- | --- |
-| `heading-style-h1` | clamp(34px, 4.1vw, 54px), 800, entrelinha 1.14 | só o título do hero |
+| `heading-style-h1` | clamp(34px, 4.1vw, 54px), 800, entrelinha 1.14 (celular: 30–34px) | só o título do hero |
 | `heading-style-h2` | clamp(28px, 3.2vw, 40px), 700 | título de seção |
 | `heading-style-h3` | clamp(22px, 2.4vw, 28px), 800 | título de slide/card grande |
-| `heading-style-h4` | 18px, 700 | título de card/item |
-| `text-size-large` | 18px, entrelinha 1.75 | subtítulo do hero |
+| `heading-style-h4` | 18px, 700 (título de modal: 20px) | título de card/item, pergunta do FAQ |
+| `text-size-large` | 18px, entrelinha 1.75 (celular: 17px) | subtítulo do hero |
 | `text-size-medium` | 16px | corpo |
 | `text-size-regular` | 15px | listas, apoio |
 | `text-size-small` | 13px | notas, rótulos |
@@ -139,7 +141,7 @@ Regras:
   - `card is-hoverable` só quando **clicável**: hover com borda `--violet-border`
     e sombra `--shadow-md`. Card que não é clicável não reage ao mouse, exceto os
     cartões didáticos do carrossel, que só realçam a borda.
-- `tag`: selo pílula, 13px/600. Variações `is-brand`, `is-success`, `is-warning`,
+- `tag`: selo pílula, 13px/600 (mínimo de texto da página: 13px). Variações `is-brand`, `is-success`, `is-warning`,
   `is-neutral`.
 - Campos (`form_input`, `form_textarea`): `--radius-medium`, fundo `--bg-soft`,
   foco com borda roxa e anel de 3px.
@@ -158,6 +160,11 @@ Siga as skills de Emil Kowalski em `.claude/skills/` (`emil-design-eng`,
 - `prefers-reduced-motion`: sem deslocamento, só fade curto.
 - Sem animação infinita. Animação só com propósito (feedback, estado,
   explicação, evitar salto).
+
+Exceções aprovadas (não copie para outros lugares sem aprovação):
+- Menu que some ao rolar e botão flutuante: 420ms (pedido do dono, "mais suave").
+- Resposta do FAQ: `height` com `interpolate-size` (só onde o navegador suporta),
+  250ms; sem suporte, abre na hora.
 
 ## 7. Texto (regras do produto)
 
