@@ -290,4 +290,19 @@ if (signupFab && signupFab.dataset.fabMode !== 'nav') {
     const scrolled = window.scrollY / (document.body.scrollHeight - window.innerHeight);
     signupFab.classList.toggle('is-visible', scrolled > 0.3);
   }, { passive: true });
+
+  const fabMobileMq = window.matchMedia('(max-width: 640px)');
+  const fabCoveredBlocks = new Set();
+  function updateFabCoverage() {
+    signupFab.classList.toggle('is-content-action', fabMobileMq.matches && fabCoveredBlocks.size > 0);
+  }
+  const fabCoverageObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) fabCoveredBlocks.add(entry.target);
+      else fabCoveredBlocks.delete(entry.target);
+    });
+    updateFabCoverage();
+  });
+  document.querySelectorAll('.live-card, .pain-grid, .pillars-grid, .steps-grid, .cred-grid, .compare, .faq-list, .steps-cta, .cta-box, .footer').forEach((el) => fabCoverageObserver.observe(el));
+  fabMobileMq.addEventListener('change', updateFabCoverage);
 }

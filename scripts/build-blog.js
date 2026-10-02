@@ -187,6 +187,16 @@ ${faq.schema}
       <a href="${SITE_URL}/#faq">Dúvidas</a>
     </nav>
     <a href="${SITE_URL}/" class="btn-primary btn-sm nav-cta" target="_blank" rel="noopener">Conhecer o Argos</a>
+    <details class="blog-mobile-nav">
+      <summary aria-label="Abrir menu de navegação">Menu</summary>
+      <nav aria-label="Navegação no celular">
+        <a href="/">Conhecer o Argos</a>
+        <a href="/blog/">Blog</a>
+        <a href="/dicionario">Dicionário</a>
+        <a href="/#leilao">Como funciona</a>
+        <a href="/#faq">Dúvidas</a>
+      </nav>
+    </details>
   </div>
 </header>
 
@@ -309,6 +319,16 @@ function listingTemplate(posts) {
       <a href="${SITE_URL}/#faq">Dúvidas</a>
     </nav>
     <a href="${SITE_URL}/" class="btn-primary btn-sm nav-cta" target="_blank" rel="noopener">Conhecer o Argos</a>
+    <details class="blog-mobile-nav">
+      <summary aria-label="Abrir menu de navegação">Menu</summary>
+      <nav aria-label="Navegação no celular">
+        <a href="/">Conhecer o Argos</a>
+        <a href="/blog/">Blog</a>
+        <a href="/dicionario">Dicionário</a>
+        <a href="/#leilao">Como funciona</a>
+        <a href="/#faq">Dúvidas</a>
+      </nav>
+    </details>
   </div>
 </header>
 
@@ -321,7 +341,7 @@ function listingTemplate(posts) {
     </header>
 
     <div class="blog-grid">
-${cards}
+${cards || '<div class="blog-empty"><p>Nenhum artigo publicado por enquanto.</p><a href="/dicionario">Consultar o Dicionário do leilão →</a></div>'}
     </div>
   </div>
 </main>

@@ -23,6 +23,7 @@
 
 .lm {
   position: relative;
+  scroll-margin-top: 72px;
   background: linear-gradient(135deg, var(--violet-wash) 0%, var(--white) 62%);
   border: 1px solid var(--violet-border);
   border-radius: var(--radius-large);
@@ -420,7 +421,7 @@
   }
 }
 
-/* Celular: tudo precisa caber numa tela, com os botões à vista */
+/* Celular: leitura em uma coluna, sem comprimir as explicações. */
 @media (max-width: 560px) {
   .lm-slide { padding: var(--sp-5) var(--sp-4) var(--sp-4); gap: var(--sp-4); }
   .lm-kicker { margin-bottom: 10px; font-size: 13px; padding: 5px 10px; }
@@ -457,7 +458,7 @@
   .lm-steps { gap: 6px; }
   .lm-steps li { padding: 7px 10px 7px 40px; font-size: 14px; }
   .lm-steps li::before { left: 10px; }
-  .lm-chat { display: none; } /* o texto do slide já diz isso; no celular, falta espaço */
+  .lm-chat { display: flex; }
   .lm-cta-row { margin-top: var(--sp-4); gap: 10px; justify-content: center; }
   .lm-cta-row .lm-cta { width: 100%; }
 
@@ -470,6 +471,37 @@
   .lm-count { font-size: 13px; line-height: 1; margin-top: 4px; }
   .lm-dot { width: 18px; height: 26px; }
   .lm-dot::before { width: 12px; }
+}
+
+@media (max-width: 860px) {
+  .lm.is-ready .lm-track { align-items: flex-start; }
+}
+
+@media (max-width: 640px) {
+  .lm-slide { padding: var(--sp-5) var(--sp-4); gap: var(--sp-5); }
+  .lm-text p, .lm-way p, .lm-status p { font-size: 15px; line-height: 1.6; }
+  .lm-status li { padding: var(--sp-4); gap: 10px; }
+  .lm-way { padding: var(--sp-4); }
+  .lm-way-top { gap: 8px; margin-bottom: 10px; }
+  .lm-way-top .lm-chip { white-space: normal; line-height: 1.3; }
+  .lm-bar-head { flex-direction: column; gap: 2px; }
+  .lm-bar-head strong { font-size: 18px; }
+  .lm-save { line-height: 1.5; align-items: flex-start; }
+  .lm-save svg { flex-shrink: 0; margin-top: 3px; }
+  .lm-bill li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; font-size: 15px; padding: 10px 0; }
+  .lm-bill small, .lm-bill small:not(.lm-est) { display: block; width: fit-content; margin: 4px 0 0; line-height: 1.4; }
+  .lm-bill-total { flex-direction: column; gap: 4px; font-size: 15px; }
+  .lm-bill-total .lm-money { font-size: 22px; }
+  .lm-chat span { max-width: 95%; font-size: 15px; line-height: 1.5; }
+  .lm-cta-row .lm-more { padding-block: 12px; }
+  .lm-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: var(--sp-4); }
+  .lm-prev { width: 100%; padding-inline: 12px; }
+  .lm-prev span { display: inline; }
+  .lm-next { width: 100%; grid-column: 2; grid-row: 1; }
+  .lm-progress { grid-column: 1 / -1; grid-row: 2; gap: 4px; }
+  .lm-count { margin: 0; }
+  .lm-dot { width: 36px; height: 44px; }
+  .lm-dot::before { width: 20px; }
 }
 
 /* ----- Movimento reduzido -----

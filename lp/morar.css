@@ -432,24 +432,42 @@ body { font-size: 16px; }
   .mobile-menu { padding-left: 16px; padding-right: 16px; }
   .signup-fab.button { right: 16px; bottom: 16px; }
 
-  .hero_content { padding-block: var(--sp-8); }
-  .hero_tagline { margin-bottom: 22px; }
-  .hero_title { margin-bottom: 22px; }
-  .hero_sub { margin-bottom: 32px; }
+  .hero_content { align-items: flex-start; text-align: left; padding-block: var(--sp-6); }
+  .hero_tagline { margin-bottom: var(--sp-5); }
+  .hero_title { margin-bottom: var(--sp-5); }
+  .hero_sub { margin-bottom: var(--sp-6); line-height: 1.6; }
   .hero_buttons { flex-direction: column; width: 100%; gap: 12px; }
   .hero_buttons .button { width: 100%; }
-  .hero_myths { align-items: flex-start; gap: 14px; margin-top: 36px; }
+  .hero_myths { width: 100%; align-items: flex-start; gap: 14px; margin-top: var(--sp-6); }
   .hero_myths li { align-items: flex-start; text-align: left; }
   .hero_myth-icon { margin-top: 1px; }
   .hero_card-body { padding: var(--sp-5); }
+  .hero_card-photo { min-height: 0; aspect-ratio: 5 / 2; }
+  .hero_card-save { align-items: flex-start; line-height: 1.5; }
+  .hero_card-save svg { flex-shrink: 0; margin-top: 4px; }
+  .hero_card-tags { gap: 8px; }
+  .hero_card-tags .tag { white-space: normal; line-height: 1.3; }
+  .pb-row { column-gap: 12px; }
+  .pb-val { white-space: nowrap; }
 
-  .section_header { margin-bottom: var(--sp-10); }
+  .section_header { margin-bottom: var(--sp-8); text-align: left; }
 
-  .ajuda_component { padding: var(--sp-6) var(--sp-5); }
+  .ajuda_component { padding: var(--sp-5); gap: var(--sp-6); }
+  .ajuda_list { margin-bottom: var(--sp-6); gap: 14px; }
+  .ajuda_component .button { width: 100%; }
+  .ajuda_chat { padding: var(--sp-4); }
+  .ajuda_bubble { max-width: 95%; font-size: 15px; line-height: 1.55; }
+  .demo_note { text-align: left; }
 
   .faq-item { margin: 0; padding: 0; }
+  .faq-question { margin: 0; padding-inline: 0; gap: 16px; align-items: flex-start; }
+  .faq-chevron { margin-top: 4px; }
   .faq_contact { flex-direction: column; align-items: flex-start; }
   .faq_contact-button { width: 100%; }
+  .cadastro_component { text-align: left; padding: var(--sp-6) var(--sp-5); }
+  .cadastro_sub { line-height: 1.6; }
+  .signup-fab.button { bottom: calc(16px + env(safe-area-inset-bottom)); }
+  .signup-fab.button.is-content-action { opacity: 0; pointer-events: none; }
 }
 
 @media (max-width: 560px), (max-height: 640px) {

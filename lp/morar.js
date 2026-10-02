@@ -177,4 +177,20 @@ if (videoBtn) {
   // Foco por teclado dentro do menu traz o menu de volta.
   nav.addEventListener('focusin', () => setHidden(false));
   setHidden(false);
+
+  // O convite não encobre controles do carrossel nem outras ações visíveis.
+  const mobileMq = window.matchMedia('(max-width: 640px)');
+  const visibleActions = new Set();
+  function updateFabSpace() {
+    fab.classList.toggle('is-content-action', mobileMq.matches && visibleActions.size > 0);
+  }
+  const actionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) visibleActions.add(entry.target);
+      else visibleActions.delete(entry.target);
+    });
+    updateFabSpace();
+  });
+  document.querySelectorAll('.lm, .ajuda_component, .faq_contact, .section_cadastro, .footer').forEach((el) => actionObserver.observe(el));
+  mobileMq.addEventListener('change', updateFabSpace);
 })();

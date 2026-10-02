@@ -15,9 +15,16 @@
   const live = root.querySelector('.lm-live');
   const total = slides.length;
   const reduceMq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const stackedMq = window.matchMedia('(max-width: 860px)');
   const reduced = () => reduceMq.matches;
 
   let index = 0;
+
+  // A coluna do celular acompanha apenas o conteúdo do slide atual.
+  // Não animamos altura; a leitura e a rolagem permanecem livres.
+  function fitViewport() {
+    viewport.style.height = stackedMq.matches ? `${slides[index].offsetHeight}px` : '';
+  }
 
   // ----- Pontos de progresso -----
   const dots = slides.map((slide, i) => {
@@ -26,7 +33,7 @@
     dot.className = 'lm-dot';
     dot.setAttribute('aria-label', `Ir para o slide ${i + 1} de ${total}`);
     // e.detail === 0: clique veio do teclado (Enter/Espaço) → sem animação
-    dot.addEventListener('click', (e) => go(i, e.detail !== 0));
+    dot.addEventListener('click', (e) => go(i, e.detail !== 0, true));
     dotsWrap.appendChild(dot);
     return dot;
   });
@@ -129,19 +136,23 @@
     }
 
     play(slides[index]);
+    fitViewport();
   }
 
-  function go(i, animate) {
+  function go(i, animate, reveal = false) {
     const next = Math.max(0, Math.min(total - 1, i));
     const changed = next !== index;
     index = next;
     place(animate);
     if (changed) update(true);
+    if (changed && reveal && stackedMq.matches && root.getBoundingClientRect().top < 64) {
+      root.scrollIntoView({ behavior: 'instant', block: 'start' });
+    }
   }
 
   // ----- Botões -----
-  prevBtn.addEventListener('click', (e) => go(index - 1, e.detail !== 0));
-  nextBtn.addEventListener('click', (e) => go(index + 1, e.detail !== 0));
+  prevBtn.addEventListener('click', (e) => go(index - 1, e.detail !== 0, true));
+  nextBtn.addEventListener('click', (e) => go(index + 1, e.detail !== 0, true));
 
   // ----- Teclado (setas quando o foco está no carrossel) -----
   // Ação de teclado não anima: troca direto.
@@ -150,7 +161,7 @@
     if (!(e.key in map) || e.altKey || e.ctrlKey || e.metaKey) return;
     e.preventDefault();
     const onDot = dots.includes(document.activeElement);
-    go(map[e.key], false);
+    go(map[e.key], false, true);
     if (onDot) dots[index].focus();
   });
 
@@ -251,4 +262,7 @@
   root.classList.add('is-ready');
   place(false);
   update(false);
+  const sizeObserver = new ResizeObserver(fitViewport);
+  slides.forEach((slide) => sizeObserver.observe(slide));
+  stackedMq.addEventListener('change', fitViewport);
 })();

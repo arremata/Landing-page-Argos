@@ -105,3 +105,9 @@ O domínio usado nos canonicals, no sitemap e nos links do blog vem de `SITE_URL
 - Não existe "score de viabilidade". A análise entrega valor de mercado, custos reais e lance máximo — a decisão de viabilidade é do usuário.
 - O formulário da lista de espera grava na tabela `public.waitlist` do Supabase da plataforma (schema em `supabase/waitlist.sql`, com e-mail único e a origem `morar`/`investir`). A função usa `DATABASE_URL`, definida só na Vercel; sem ela, em dev local, grava em `data/signups.json`. Tem honeypot anti-spam.
 - O dicionário é conteúdo público do `www`; a plataforma autenticada apenas aponta para ele. Os convites do dicionário levam para `https://app.argosleiloes.com.br/entrar` e não existe uma segunda cópia no app.
+- Blog e Dicionário podem ser abertos pelos menus desktop e mobile das páginas de moradia e investidores, além dos links no rodapé.
+
+## Histórico
+
+- **2026-10-02** — Revisada a leitura no celular em todas as seções: menus com áreas de toque maiores, cards em uma coluna, valores e estimativas separados, carrossel com altura do slide atual e controles ampliados, FAQ e atendimento mais legíveis e formulários que rolam em telas baixas. Blog ganhou navegação móvel e indicação de ausência de artigos; Dicionário ganhou verbetes e atalhos maiores, com espaço para a barra inferior. Mantidos os textos da home e os rascunhos do blog.
+- **2026-10-01** — Adicionados acessos ao Blog e ao Dicionário nos menus das landing pages, em desktop e celular, seguindo o padrão visual existente.
