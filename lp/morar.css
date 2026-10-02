@@ -585,3 +585,24 @@ body { font-size: 16px; }
   .nav { transition: opacity 200ms ease; }
   .nav.is-hidden { transform: translateY(-100%); }
 }
+
+
+/* Campo de texto da dúvida, no mesmo estilo dos outros campos do formulário */
+.field textarea {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  color: var(--text);
+  width: 100%;
+  resize: vertical;
+  min-height: 104px;
+  transition: border-color var(--dur-color) ease, box-shadow var(--dur-color) ease;
+}
+.field textarea::placeholder { color: var(--text-4); opacity: 0.8; }
+.field textarea:focus { outline: none; border-color: var(--violet); box-shadow: 0 0 0 3px rgba(124,58,237,0.14); }
+.modal-ok a { color: var(--violet); font-weight: 600; }
+#contactOverlay .modal-box { max-height: calc(100vh - 32px); overflow-y: auto; }

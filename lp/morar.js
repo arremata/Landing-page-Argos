@@ -39,44 +39,82 @@ if (videoBtn) {
   });
 }
 
-// ===== Modal em modo "contato" =====
-// Os botões com data-modal="contato" abrem o mesmo formulário, com texto de contato.
+// ===== Contato: formulário que abre o e-mail com a dúvida pronta =====
 (() => {
-  const form = document.getElementById('waitlistForm');
-  if (!form) return;
-  const title = document.getElementById('modalTitle');
-  const desc = document.querySelector('.modal-desc');
-  const label = form.querySelector('.btn-label');
-  const okTitle = document.querySelector('#modalSuccess h3');
-  const okText = document.querySelector('#modalSuccess p');
+  const EMAIL_TO = 'argosleiloes@gmail.com';
+  const overlay = document.getElementById('contactOverlay');
+  if (!overlay) return;
+  const form = document.getElementById('contactForm');
+  const body = document.getElementById('contactBody');
+  const ok = document.getElementById('contactSuccess');
+  const err = document.getElementById('contactError');
+  const phone = document.getElementById('cPhone');
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const PHONE_RE = /^\(\d{2}\)\s?\d{4,5}-?\d{4}$/;
+  let lastFocus = null;
 
-  const TEXTS = {
-    padrao: {
-      title: title.textContent, desc: desc.textContent, label: label.textContent,
-      okTitle: okTitle.textContent, okText: okText.textContent, source: form.dataset.source,
-    },
-    contato: {
-      title: 'Fale com a nossa equipe',
-      desc: 'Informe seus dados e entraremos em contato pelo WhatsApp.',
-      label: 'Enviar',
-      okTitle: 'Contato recebido',
-      okText: 'Nossa equipe falará com você em breve.',
-      source: 'contato',
-    },
-  };
+  function open() {
+    lastFocus = document.activeElement;
+    body.hidden = false;
+    ok.hidden = true;
+    err.hidden = true;
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => document.getElementById('cName').focus(), 200);
+  }
 
-  document.addEventListener('click', (e) => {
-    const btn = e.target.closest('[data-open-modal]');
-    if (!btn) return;
-    const t = TEXTS[btn.dataset.modal] || TEXTS.padrao;
-    title.textContent = t.title;
-    desc.textContent = t.desc;
-    label.textContent = t.label;
-    label.closest('button').dataset.label = t.label;
-    okTitle.textContent = t.okTitle;
-    okText.textContent = t.okText;
-    form.dataset.source = t.source;
-  }, true);
+  function close() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus({ preventScroll: true });
+  }
+
+  document.querySelectorAll('[data-open-contact]').forEach((btn) => {
+    btn.addEventListener('click', (e) => { e.preventDefault(); open(); });
+  });
+  document.getElementById('contactClose').addEventListener('click', close);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) close();
+  });
+
+  phone.addEventListener('input', () => {
+    let v = phone.value.replace(/\D/g, '').slice(0, 11);
+    if (v.length > 6) v = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
+    else if (v.length > 2) v = `(${v.slice(0, 2)}) ${v.slice(2)}`;
+    else if (v.length > 0) v = `(${v}`;
+    phone.value = v;
+  });
+
+  function fail(msg, field) {
+    err.textContent = msg;
+    err.hidden = false;
+    field.focus();
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    err.hidden = true;
+    const name = form.elements.name.value.trim();
+    const email = form.elements.email.value.trim();
+    const tel = form.elements.phone.value.trim();
+    const msg = form.elements.message.value.trim();
+
+    if (name.length < 3) return fail('Informe seu nome completo.', form.elements.name);
+    if (!EMAIL_RE.test(email)) return fail('Informe um e-mail válido.', form.elements.email);
+    if (!PHONE_RE.test(tel)) return fail('Informe um telefone válido. Ex.: (41) 99999-9999', form.elements.phone);
+    if (msg.length < 5) return fail('Escreva sua dúvida.', form.elements.message);
+
+    const subject = `Dúvida pelo site — ${name}`;
+    const text = `${msg}\n\n---\nNome: ${name}\nE-mail: ${email}\nTelefone: ${tel}`;
+    window.location.href = `mailto:${EMAIL_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+
+    body.hidden = true;
+    ok.hidden = false;
+    form.reset();
+  });
 })();
 
 // ===== Menu some ao rolar para baixo; o botão flutuante assume o lugar =====

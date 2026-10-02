@@ -400,7 +400,7 @@
             <li>Orientação sobre crédito e documentação</li>
             <li>Acompanhamento até a entrega das chaves</li>
           </ul>
-          <button class="btn-primary btn-lg" data-open-modal data-modal="contato">Falar com a equipe</button>
+          <button class="btn-primary btn-lg" data-open-contact>Falar com a equipe</button>
         </div>
         <div class="help-card" aria-hidden="true">
           <div class="chat chat-in">Esse apartamento aceita FGTS?</div>
@@ -517,7 +517,7 @@
           <p class="faq-contact-title">Ainda tem dúvidas?</p>
           <p class="faq-contact-sub">Fale com a nossa equipe.</p>
         </div>
-        <button class="btn-outline faq-contact-btn" data-open-modal data-modal="contato">Entrar em contato</button>
+        <button class="btn-outline faq-contact-btn" data-open-contact>Entrar em contato</button>
       </div>
     </div>
   </section>
@@ -613,6 +613,54 @@
       </div>
       <h3>Cadastro realizado</h3>
       <p>Você receberá o aviso quando o Argos for lançado.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DE CONTATO (abre o e-mail com a mensagem pronta) -->
+<div class="modal-overlay" id="contactOverlay" aria-hidden="true">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <button class="modal-close" id="contactClose" aria-label="Fechar">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+
+    <div class="modal-body" id="contactBody">
+      <div class="modal-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      </div>
+      <h3 id="contactTitle">Fale com a nossa equipe</h3>
+      <p class="modal-desc">Preencha os campos e envie sua dúvida. A mensagem segue para o nosso e-mail.</p>
+
+      <form id="contactForm" class="modal-form" novalidate>
+        <div class="field">
+          <label for="cName">Nome</label>
+          <input type="text" id="cName" name="name" placeholder="Nome e sobrenome" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="cEmail">E-mail</label>
+          <input type="email" id="cEmail" name="email" placeholder="seu@email.com" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="cPhone">Telefone</label>
+          <input type="tel" id="cPhone" name="phone" placeholder="(41) 99999-9999" required autocomplete="tel" inputmode="numeric">
+        </div>
+        <div class="field">
+          <label for="cMsg">Sua dúvida</label>
+          <textarea id="cMsg" name="message" rows="4" placeholder="Escreva sua dúvida" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary modal-submit">
+          <span class="btn-label">Enviar dúvida</span>
+        </button>
+        <p class="form-err" id="contactError" role="alert" hidden></p>
+      </form>
+    </div>
+
+    <div class="modal-ok" id="contactSuccess" hidden>
+      <div class="ok-ico">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <h3>Mensagem pronta</h3>
+      <p>Abrimos o seu aplicativo de e-mail com a dúvida preenchida. Basta enviar. Se ele não abrir, escreva para <a href="mailto:argosleiloes@gmail.com">argosleiloes@gmail.com</a>.</p>
     </div>
   </div>
 </div>
