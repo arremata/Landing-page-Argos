@@ -605,4 +605,25 @@ body { font-size: 16px; }
 .field textarea::placeholder { color: var(--text-4); opacity: 0.8; }
 .field textarea:focus { outline: none; border-color: var(--violet); box-shadow: 0 0 0 3px rgba(124,58,237,0.14); }
 .modal-ok a { color: var(--violet); font-weight: 600; }
-#contactOverlay .modal-box { max-height: calc(100vh - 32px); overflow-y: auto; }
+
+
+/* Popup de contato compacto: cabe inteiro na tela, sem rolagem */
+#contactOverlay .modal-box { max-width: 480px; padding: var(--sp-6) var(--sp-8); }
+#contactOverlay .modal-ico { width: 36px; height: 36px; margin-bottom: var(--sp-3); }
+#contactOverlay .modal-body h3 { font-size: 19px; margin-bottom: 4px; }
+#contactOverlay .modal-desc { margin-bottom: var(--sp-4); }
+#contactOverlay .modal-form { gap: var(--sp-3); }
+#contactOverlay .field input { padding: 9px 12px; }
+#contactOverlay .field textarea { min-height: 76px; padding: 9px 12px; }
+.field-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
+
+@media (max-width: 560px), (max-height: 640px) {
+  #contactOverlay .modal-box { padding: var(--sp-5); }
+  #contactOverlay .modal-ico { display: none; }
+  #contactOverlay .modal-desc { font-size: 13px; margin-bottom: var(--sp-3); }
+  #contactOverlay .modal-form { gap: 10px; }
+  #contactOverlay .field textarea { min-height: 64px; }
+}
+@media (max-width: 420px) {
+  .field-row-2 { grid-template-columns: 1fr; gap: 10px; }
+}
