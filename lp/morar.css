@@ -732,3 +732,31 @@ body { font-size: 16px; }
   .hero-morar .hero-cta-row .btn-lg, .hero-morar .hero-cta-row .btn-outline { padding: 15px 20px; }
   .hero-morar .myths { margin-top: var(--sp-6); gap: 10px; }
 }
+
+/* Ajuste: tamanho intermediário e mais ar entre as linhas e os blocos */
+.hero-kicker { margin-bottom: 28px; }
+.hero-morar .hero-title {
+  font-size: clamp(34px, 4.1vw, 54px);
+  line-height: 1.14;
+  letter-spacing: -0.025em;
+  max-width: 900px;
+  margin-bottom: 28px;
+}
+.hero-morar .hero-sub {
+  font-size: clamp(17px, 1.25vw, 18px);
+  line-height: 1.75;
+  max-width: 640px;
+  margin-bottom: 44px;
+}
+.hero-morar .hero-cta-row .btn-lg { padding: 15px 32px; font-size: 15px; }
+.hero-morar .hero-cta-row .btn-outline { padding: 15px 28px; font-size: 15px; }
+.hero-morar .myths { margin-top: 48px; gap: 16px; }
+.hero-morar .myths li { font-size: 15px; line-height: 1.5; }
+
+@media (max-width: 640px) {
+  .hero-kicker { margin-bottom: 22px; }
+  .hero-morar .hero-title { font-size: clamp(29px, 7.8vw, 34px); line-height: 1.16; margin-bottom: 22px; }
+  .hero-morar .hero-sub { font-size: 16px; line-height: 1.7; margin-bottom: 32px; }
+  .hero-morar .hero-cta-row { gap: 12px; }
+  .hero-morar .myths { margin-top: 36px; gap: 14px; }
+}
