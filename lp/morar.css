@@ -645,13 +645,6 @@ body { font-size: 16px; }
 .hero-morar .hero-sub { margin-bottom: var(--sp-8); }
 .hero-morar .myths { margin-top: var(--sp-8); }
 
-/* Telas baixas (notebooks): tudo um pouco mais compacto para caber inteiro */
-@media (max-height: 760px) and (min-width: 641px) {
-  .hero-morar .hero-title { font-size: clamp(30px, 5.6vh, 44px); margin-bottom: var(--sp-4); }
-  .hero-morar .hero-sub { font-size: 16px; line-height: 1.55; margin-bottom: var(--sp-6); }
-  .hero-morar .myths { margin-top: var(--sp-6); }
-  .hero-kicker { margin-bottom: var(--sp-3); }
-}
 
 /* Entrada: cada bloco de texto aparece um depois do outro ao carregar a página.
    Uma vez por visita (rara) e com propósito: guia a leitura na ordem certa. */
@@ -681,15 +674,61 @@ body { font-size: 16px; }
   .hero-morar .hero-cta-row, .hero-morar .myths li { animation-duration: 250ms; animation-delay: 0ms; }
 }
 
-@media (max-width: 640px) {
-  .hero-morar .hero-content { padding-block: var(--sp-5); }
-  .hero-morar .hero-title { font-size: clamp(27px, 7.6vw, 32px); margin-bottom: var(--sp-3); }
-  .hero-morar .hero-sub { font-size: 15px; line-height: 1.5; margin-bottom: var(--sp-5); }
-  .hero-morar .myths { margin-top: var(--sp-5); gap: 6px; }
-  .hero-morar .myths li { font-size: 13.5px; }
-  .hero-kicker { margin-bottom: var(--sp-3); font-size: 12px; }
+
+/* =========================================================
+   Hero: tipografia maior, respiro generoso e destaques
+   ========================================================= */
+
+.hero-morar .hero-content { padding-block: var(--sp-12); }
+
+.hero-kicker { font-size: 14px; padding: 7px 16px; margin-bottom: var(--sp-6); }
+
+.hero-morar .hero-title {
+  font-size: clamp(38px, 5.4vw, 66px);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  max-width: 980px;
+  margin-bottom: var(--sp-6);
 }
 
-/* As três frases, uma por linha, centralizadas (desktop e celular) */
-.hero-morar .myths { flex-direction: column; align-items: center; gap: 10px; }
-@media (max-width: 640px) { .hero-morar .myths { gap: 6px; } .hero-morar .myths li { text-align: left; } }
+.hero-morar .hero-sub {
+  font-size: clamp(17px, 1.45vw, 20px);
+  line-height: 1.65;
+  color: var(--text-2);
+  max-width: 700px;
+  margin-bottom: var(--sp-10);
+}
+.hero-morar .hero-sub strong { color: var(--text); font-weight: 600; }
+
+.hero-morar .hero-cta-row { gap: var(--sp-4); }
+.hero-morar .hero-cta-row .btn-lg { padding: 17px 36px; font-size: 16px; border-radius: 12px; }
+
+.hero-morar .myths {
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: var(--sp-10);
+}
+.hero-morar .myths li { font-size: 16px; color: var(--text-2); gap: 10px; }
+.hero-morar .myths li strong { color: var(--text); font-weight: 600; }
+.hero-morar .myth-ico { width: 22px; height: 22px; }
+.hero-morar .myth-ico::after { left: 8px; top: 5px; width: 5px; height: 10px; }
+
+@media (max-width: 640px) {
+  .hero-morar .hero-content { padding-block: var(--sp-8); }
+  .hero-kicker { font-size: 13px; margin-bottom: var(--sp-5); }
+  .hero-morar .hero-title { font-size: clamp(32px, 9vw, 40px); margin-bottom: var(--sp-5); }
+  .hero-morar .hero-sub { font-size: 17px; margin-bottom: var(--sp-8); }
+  .hero-morar .hero-cta-row .btn-lg, .hero-morar .hero-cta-row .btn-outline { padding: 16px 20px; font-size: 16px; }
+  .hero-morar .myths { align-items: flex-start; gap: 12px; margin-top: var(--sp-8); }
+  .hero-morar .myths li { font-size: 15px; text-align: left; align-items: flex-start; }
+  .hero-morar .myth-ico { margin-top: 1px; }
+}
+.hero-morar .hero-content { max-width: 1080px; }
+.hero-morar .hero-cta-row .btn-outline { padding: 17px 30px; font-size: 16px; border-radius: 12px; }
+@media (max-width: 640px) {
+  .hero-morar .hero-title { font-size: clamp(30px, 8.4vw, 36px); }
+  .hero-morar .hero-sub { font-size: 16px; margin-bottom: var(--sp-6); }
+  .hero-morar .hero-cta-row .btn-lg, .hero-morar .hero-cta-row .btn-outline { padding: 15px 20px; }
+  .hero-morar .myths { margin-top: var(--sp-6); gap: 10px; }
+}
