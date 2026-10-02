@@ -5,7 +5,7 @@
    Sem JS, os slides aparecem empilhados.
 
    Movimento (tudo transform/opacity):
-   - troca de slide: transform 360ms, ease-out forte, interrompível (transition);
+   - troca de slide: transform 300ms, ease-out forte, interrompível (transition);
    - arraste: segue o dedo 1:1, sem transition; ao soltar, a mesma curva;
    - explicação: só nos slides 2 e 4, uma vez, na primeira vez que aparecem;
    - press: scale(0.97) em 160ms.
@@ -18,7 +18,7 @@
 
 .lm-section {
   --lm-ease: var(--ease-out);
-  --lm-slide: 360ms;
+  --lm-slide: 300ms;
 }
 
 .lm {
