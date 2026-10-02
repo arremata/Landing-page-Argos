@@ -58,12 +58,7 @@ const FORBIDDEN_TEXT = [
 
 // Frases já aprovadas que casam com um padrão acima, mas não têm o sentido
 // proibido. Cada uma precisa de justificativa.
-const TEXT_EXCEPTIONS = [
-  {
-    text: 'A mudança depende apenas da transferência.',
-    why: 'uso descritivo (condição objetiva do imóvel desocupado), não a resposta evasiva "depende"; texto aprovado do slide 5',
-  },
-];
+const TEXT_EXCEPTIONS = [];
 
 // ---------------------------------------------------------------------------
 
