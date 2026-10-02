@@ -136,9 +136,27 @@ if (videoBtn) {
     fab.classList.toggle('is-visible', hidden);
   }
 
+  // Clique num link do menu (ou em qualquer âncora da página): a rolagem até a
+  // seção é nossa, não da pessoa, então o menu fica visível até ela terminar.
+  let locked = false;
+  let unlockTimer = null;
+  function unlockSoon() {
+    clearTimeout(unlockTimer);
+    unlockTimer = setTimeout(() => { locked = false; lastY = window.scrollY; }, 150);
+  }
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link || link.getAttribute('href').length < 2) return;
+    locked = true;
+    setHidden(false);
+    clearTimeout(unlockTimer);
+    unlockTimer = setTimeout(() => { locked = false; lastY = window.scrollY; }, 1200);
+  }, true);
+
   function update() {
     ticking = false;
     const y = window.scrollY;
+    if (locked) { setHidden(false); lastY = y; unlockSoon(); return; }
     if (menu && menu.classList.contains('is-open')) { lastY = y; return; }
     if (y < TOP) { setHidden(false); lastY = y; return; }
     if (Math.abs(y - lastY) < DELTA) return;
