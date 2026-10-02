@@ -627,3 +627,69 @@ body { font-size: 16px; }
 @media (max-width: 420px) {
   .field-row-2 { grid-template-columns: 1fr; gap: 10px; }
 }
+
+/* =========================================================
+   Hero ocupando a primeira tela, centralizado, com entrada em sequência
+   ========================================================= */
+
+:root { --nav-h: 61px; }
+
+.hero-morar { padding: 0 0 var(--sec-y); }
+.hero-morar .hero-content {
+  min-height: calc(100svh - var(--nav-h));
+  justify-content: center;
+  margin-bottom: 0;
+  padding-block: var(--sp-8);
+}
+.hero-morar .hero-title { margin-bottom: var(--sp-5); }
+.hero-morar .hero-sub { margin-bottom: var(--sp-8); }
+.hero-morar .myths { margin-top: var(--sp-8); }
+
+/* Telas baixas (notebooks): tudo um pouco mais compacto para caber inteiro */
+@media (max-height: 760px) and (min-width: 641px) {
+  .hero-morar .hero-title { font-size: clamp(30px, 5.6vh, 44px); margin-bottom: var(--sp-4); }
+  .hero-morar .hero-sub { font-size: 16px; line-height: 1.55; margin-bottom: var(--sp-6); }
+  .hero-morar .myths { margin-top: var(--sp-6); }
+  .hero-kicker { margin-bottom: var(--sp-3); }
+}
+
+/* Entrada: cada bloco de texto aparece um depois do outro ao carregar a página.
+   Uma vez por visita (rara) e com propósito: guia a leitura na ordem certa. */
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+.hero-morar .hero-kicker,
+.hero-morar .hero-title,
+.hero-morar .hero-sub,
+.hero-morar .hero-cta-row,
+.hero-morar .myths li {
+  animation: hero-in 600ms var(--ease-out) both;
+}
+.hero-morar .hero-kicker  { animation-delay: 80ms; }
+.hero-morar .hero-title   { animation-delay: 200ms; }
+.hero-morar .hero-sub     { animation-delay: 360ms; }
+.hero-morar .hero-cta-row { animation-delay: 500ms; }
+.hero-morar .myths { animation: none; }
+.hero-morar .myths li:nth-child(1) { animation-delay: 640ms; }
+.hero-morar .myths li:nth-child(2) { animation-delay: 720ms; }
+.hero-morar .myths li:nth-child(3) { animation-delay: 800ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes hero-in { from { opacity: 0; } to { opacity: 1; } }
+  .hero-morar .hero-kicker, .hero-morar .hero-title, .hero-morar .hero-sub,
+  .hero-morar .hero-cta-row, .hero-morar .myths li { animation-duration: 250ms; animation-delay: 0ms; }
+}
+
+@media (max-width: 640px) {
+  .hero-morar .hero-content { padding-block: var(--sp-5); }
+  .hero-morar .hero-title { font-size: clamp(27px, 7.6vw, 32px); margin-bottom: var(--sp-3); }
+  .hero-morar .hero-sub { font-size: 15px; line-height: 1.5; margin-bottom: var(--sp-5); }
+  .hero-morar .myths { margin-top: var(--sp-5); gap: 6px; }
+  .hero-morar .myths li { font-size: 13.5px; }
+  .hero-kicker { margin-bottom: var(--sp-3); font-size: 12px; }
+}
+
+/* As três frases, uma por linha, centralizadas (desktop e celular) */
+.hero-morar .myths { flex-direction: column; align-items: center; gap: 10px; }
+@media (max-width: 640px) { .hero-morar .myths { gap: 6px; } .hero-morar .myths li { text-align: left; } }
