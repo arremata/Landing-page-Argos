@@ -117,12 +117,17 @@ cor nova para destacar.
 
 ## 4. Botões — formato único: pílula
 
-| Classe | Aparência | Hover (só com mouse) |
-| --- | --- | --- |
-| `button` | fundo roxo, texto branco | fundo `--violet-hover`, sombra roxa |
-| `button is-secondary` | fundo branco, borda `--border`, texto `--text` | borda e texto roxos, fundo `--violet-bg` |
-| `button is-inverse` | fundo branco, texto roxo (para fundo escuro) | fundo roxo, texto branco, borda branca |
-| `button is-text` | só texto roxo, sublinhado ao passar | sublinhado aparece |
+| Classe | Aparência normal |
+| --- | --- |
+| `button` | fundo roxo, texto branco |
+| `button is-secondary` | fundo branco, borda `--border`, texto `--text` |
+| `button is-inverse` | fundo branco, texto roxo (para fundo escuro) |
+| `button is-text` | só texto roxo (link de ação) |
+
+**Hover único (só com mouse):** todo botão — principal, `is-secondary` e
+`is-inverse` — fica igual ao passar o mouse: fundo `--violet-hover`, borda da
+mesma cor, texto branco e sombra roxa (`--shadow-brand-hover`). Não crie hover
+próprio para um botão. `is-text` é link: só escurece e ganha sublinhado.
 
 Tamanhos: `is-small` 40px de altura, padrão 48px, `is-large` 52px.
 Ícone: `<svg>` 16px dentro do botão, à esquerda (ação) ou à direita (seta).

@@ -181,28 +181,19 @@
               transform 160ms var(--ease-out);
 }
 
+/* Hover único para todos os botões (principal, is-secondary e is-inverse):
+   o botão fica roxo cheio com texto branco. Mesmo estado final em qualquer
+   variação; só o ponto de partida muda. is-text é link e só ganha sublinhado. */
 @media (hover: hover) and (pointer: fine) {
-  .button:hover:not(:disabled) {
+  .button:not(.is-text):hover:not(:disabled) {
     background-color: var(--violet-hover);
-    box-shadow: var(--shadow-brand-hover);
-  }
-  .button.is-secondary:hover:not(:disabled) {
-    background-color: var(--violet-bg);
-    border-color: var(--violet);
-    color: var(--violet);
-    box-shadow: none;
-  }
-  .button.is-inverse:hover:not(:disabled) {
-    background-color: var(--violet);
-    border-color: var(--white);
+    border-color: var(--violet-hover);
     color: var(--white);
     box-shadow: var(--shadow-brand-hover);
   }
   .button.is-text:hover:not(:disabled) {
-    background-color: transparent;
     color: var(--violet-hover);
     text-decoration-color: currentColor;
-    box-shadow: none;
   }
 }
 

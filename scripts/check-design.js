@@ -12,6 +12,7 @@
 //   hover       todo :hover dentro de @media (hover: hover) and (pointer: fine)
 //   hover-move  hover não sobe o elemento (translateY negativo)
 //   pill        regra de .button só pode usar var(--radius-round)
+//   hover-unico hover de .button só em lp/client-first.css (mesmo hover para todos)
 //   button      <button>/<a>/role=button/input submit com cara de botão precisa da classe `button`
 //   estrutura   toda <section> da home: section_* > padding-global > container-* > padding-section-*
 //   texto       palavras proibidas (seção 7), sem acento e sem quebra de linha
@@ -124,6 +125,9 @@ function checkCss(rel) {
       if (!/:hover\b/.test(selector)) return;
       const gated = ctx.some((h) => /^@media\s+\(\s*hover\s*:\s*hover\s*\)\s+and\s+\(\s*pointer\s*:\s*fine\s*\)/i.test(h));
       if (!gated) report(rel, lineAt(css, start), 'hover', `":hover" fora de @media (hover: hover) and (pointer: fine): ${selector.replace(/\s+/g, ' ')}`);
+      if (rel !== 'lp/client-first.css' && /\.button\b[^,]*:hover/.test(selector)) {
+        report(rel, lineAt(css, start), 'hover-unico', `hover próprio de botão (${selector.replace(/\s+/g, ' ')}); o hover dos botões é único e fica só em lp/client-first.css`);
+      }
     },
     (decl, start, ctx) => {
       const m = decl.match(/^([\w-]+)\s*:\s*([\s\S]*)$/);
