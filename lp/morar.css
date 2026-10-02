@@ -534,3 +534,54 @@ body { font-size: 16px; }
   .cta-banner { flex-direction: column; align-items: stretch; text-align: center; gap: var(--sp-5); padding: 32px 20px; }
   .cta-banner-btn { width: 100%; }
 }
+
+
+/* =========================================================
+   Botão "Quero ser avisado" único (menu ↔ flutuante) e menu que some
+   ========================================================= */
+
+/* Mesmo formato e tamanho no menu e flutuando */
+.cta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: var(--violet);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(124,58,237,0.28);
+  transition: background-color var(--dur-color) ease, box-shadow var(--dur-color) ease,
+              transform var(--dur-press) var(--ease-out);
+}
+.cta-pill svg { flex-shrink: 0; }
+.cta-pill:active { transform: scale(0.97); }
+.cta-pill:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) {
+  .cta-pill:hover { background: var(--violet-hover); box-shadow: 0 6px 20px rgba(124,58,237,0.38); }
+}
+
+/* Flutuante: só a posição muda; entra de baixo quando o menu sai */
+.signup-fab.cta-pill { padding: 0 18px; font-size: 14px; }
+
+/* Menu sai por cima ao rolar para baixo */
+.nav { transition: transform 250ms var(--ease-out), border-color var(--dur-ui) ease, box-shadow var(--dur-ui) ease; }
+.nav.is-hidden { transform: translateY(-100%); }
+
+/* Primeira dobra: menos espaço acima do título para o texto caber na tela */
+.hero { padding-top: var(--sp-12); padding-bottom: var(--sp-16); }
+.hero-kicker { margin-bottom: var(--sp-4); }
+
+@media (max-width: 640px) {
+  .hero { padding-top: var(--sp-8); }
+  .signup-fab.cta-pill { right: 16px; bottom: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav { transition: opacity 200ms ease; }
+  .nav.is-hidden { transform: translateY(-100%); }
+}

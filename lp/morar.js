@@ -78,3 +78,41 @@ if (videoBtn) {
     form.dataset.source = t.source;
   }, true);
 })();
+
+// ===== Menu some ao rolar para baixo; o botão flutuante assume o lugar =====
+// Rolando para baixo: o menu sai por cima e o "Quero ser avisado" flutuante entra.
+// Rolando para cima (ou no topo): o menu volta e o flutuante sai. Nunca os dois.
+(() => {
+  const nav = document.getElementById('nav');
+  const fab = document.getElementById('signupFab');
+  const menu = document.getElementById('mobileMenu');
+  if (!nav || !fab) return;
+
+  const TOP = 80;      // perto do topo, o menu fica sempre visível
+  const DELTA = 6;     // ignora tremidas pequenas de rolagem
+  let lastY = window.scrollY;
+  let ticking = false;
+
+  function setHidden(hidden) {
+    nav.classList.toggle('is-hidden', hidden);
+    fab.classList.toggle('is-visible', hidden);
+  }
+
+  function update() {
+    ticking = false;
+    const y = window.scrollY;
+    if (menu && menu.classList.contains('is-open')) { lastY = y; return; }
+    if (y < TOP) { setHidden(false); lastY = y; return; }
+    if (Math.abs(y - lastY) < DELTA) return;
+    setHidden(y > lastY);
+    lastY = y;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+
+  // Foco por teclado dentro do menu traz o menu de volta.
+  nav.addEventListener('focusin', () => setHidden(false));
+  setHidden(false);
+})();

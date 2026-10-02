@@ -284,7 +284,8 @@ compareRows.forEach((el) => rowObserver.observe(el));
 // ===== Signup FAB (show after 30% scroll) =====
 const signupFab = document.getElementById('signupFab');
 
-if (signupFab) {
+// Com data-fab-mode="nav", quem decide é a página (o botão troca de lugar com o menu).
+if (signupFab && signupFab.dataset.fabMode !== 'nav') {
   window.addEventListener('scroll', () => {
     const scrolled = window.scrollY / (document.body.scrollHeight - window.innerHeight);
     signupFab.classList.toggle('is-visible', scrolled > 0.3);
