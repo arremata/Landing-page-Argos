@@ -1334,6 +1334,11 @@ h3 { font-size: 16px; font-weight: 600; line-height: 1.4; }
   .live-metric-highlight { grid-column: 1 / -1; }
   .pain-grid, .pillars-grid, .steps-grid, .cred-grid { gap: 16px; }
   .pain-card, .pillar-card, .step-card, .cred-card { padding: 20px; }
+  .pain-card h3, .pillar-card h3, .step-card h3 { font-size: 18px; line-height: 1.4; }
+  .pillar-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
+  .pillar-ico { grid-column: 1; grid-row: 1; }
+  .pillar-num { grid-column: 2; grid-row: 1; }
+  .pillar-card h3, .pillar-desc, .pillar-list { grid-column: 1 / -1; }
   .pain-card p, .pillar-desc, .pillar-list li, .step-card p, .cred-card p { font-size: 15px; line-height: 1.6; }
   .step-num { margin-bottom: 16px; }
   .cred-card { align-items: flex-start; text-align: left; }

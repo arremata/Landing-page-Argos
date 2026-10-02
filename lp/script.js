@@ -303,6 +303,6 @@ if (signupFab && signupFab.dataset.fabMode !== 'nav') {
     });
     updateFabCoverage();
   });
-  document.querySelectorAll('.live-card, .compare, .faq-list, .steps-cta, .cta-box, .footer').forEach((el) => fabCoverageObserver.observe(el));
+  document.querySelectorAll('.live-card, .pain-grid, .pillars-grid, .steps-grid, .cred-grid, .compare, .faq-list, .steps-cta, .cta-box, .footer').forEach((el) => fabCoverageObserver.observe(el));
   fabMobileMq.addEventListener('change', updateFabCoverage);
 }
