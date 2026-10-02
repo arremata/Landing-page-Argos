@@ -1296,6 +1296,72 @@ h3 { font-size: 16px; font-weight: 600; line-height: 1.4; }
   .pillars-grid { grid-template-columns: 1fr; }
 }
 
+/* Leitura e toque em telas estreitas, compartilhados com as páginas públicas. */
+.modal-box { max-height: calc(100dvh - 48px); overflow-y: auto; overscroll-behavior: contain; }
+
+@media (max-width: 880px) {
+  .nav .nav-cta { display: none; }
+  .nav-toggle { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; }
+  .mobile-menu { gap: 0; max-height: calc(100dvh - 61px); overflow-y: auto; overscroll-behavior: contain; }
+  .mobile-menu > a { display: flex; align-items: center; min-height: 48px; padding-block: 10px; }
+  .mobile-menu > button { width: 100%; min-height: 48px; }
+}
+
+@media (max-width: 640px) {
+  .container { padding-inline: 16px; }
+  .hero { padding-top: 40px; padding-bottom: 48px; }
+  .hero-content { align-items: stretch; text-align: left; margin-bottom: 32px; }
+  .hero-title { font-size: clamp(30px, 8.4vw, 34px); text-wrap: balance; }
+  .hero-sub { font-size: 17px; line-height: 1.6; }
+  .hero-cta-row { flex-direction: column; align-items: stretch; gap: 12px; }
+  .hero-cta-row > * { width: 100%; justify-content: center; }
+  .hero-support { line-height: 1.6; }
+  .section { padding-block: 64px; }
+  .section-center { text-align: left; align-items: flex-start; margin-bottom: 32px; }
+  .section-center .section-sub { margin-inline: 0; }
+  .section-title { text-wrap: balance; }
+  .section-sub { color: var(--text-2); }
+  .numbers { padding-block: 32px; }
+  .numbers-grid { gap: 24px 16px; text-align: left; }
+  .number-lbl { line-height: 1.5; }
+  .live-card-bar { flex-wrap: wrap; gap: 8px; padding: 16px; }
+  .live-card-status { margin-left: 0; }
+  .live-card-body { padding: 20px; gap: 24px; }
+  .live-step { gap: 8px; font-size: 14px; }
+  .live-step-check, .live-step-time { flex-shrink: 0; }
+  .live-result { padding: 20px; }
+  .live-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; gap: 16px; }
+  .live-metric-highlight { grid-column: 1 / -1; }
+  .pain-grid, .pillars-grid, .steps-grid, .cred-grid { gap: 16px; }
+  .pain-card, .pillar-card, .step-card, .cred-card { padding: 20px; }
+  .pain-card p, .pillar-desc, .pillar-list li, .step-card p, .cred-card p { font-size: 15px; line-height: 1.6; }
+  .step-num { margin-bottom: 16px; }
+  .cred-card { align-items: flex-start; text-align: left; }
+  .steps-cta > button, .cta-box > button { width: 100%; }
+  .compare-head { display: none; }
+  .compare-row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px; padding: 20px 0; align-items: start; }
+  .compare-item { grid-column: 1 / -1; font-size: 16px; }
+  .compare-old, .compare-new { font-size: 14px; line-height: 1.6; }
+  .compare-old::before, .compare-new::before { display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+  .compare-old::before { content: 'Método tradicional'; }
+  .compare-new::before { content: 'Com o Argos'; }
+  .faq-question { gap: 16px; align-items: flex-start; line-height: 1.5; }
+  .faq-answer p { font-size: 16px; }
+  .cta-box { padding: 24px 20px; align-items: stretch; text-align: left; }
+  .footer { padding-block: 32px calc(32px + env(safe-area-inset-bottom)); }
+  .footer-inner { align-items: flex-start; text-align: left; gap: 16px; }
+  .footer-links { flex-wrap: wrap; gap: 8px 20px; }
+  .footer-links a { display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; }
+  .footer-copy { font-size: 13px; }
+  .modal-overlay { padding: 16px; padding-top: max(16px, env(safe-area-inset-top)); padding-bottom: max(16px, env(safe-area-inset-bottom)); }
+  .modal-box { max-height: calc(100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom)); padding: 24px 20px; }
+  .modal-body h3 { padding-right: 32px; }
+  .modal-form input:not(.hp), .modal-form textarea { font-size: 16px; min-height: 48px; }
+  .modal-form button[type='submit'] { min-height: 48px; }
+  .signup-fab { bottom: calc(16px + env(safe-area-inset-bottom)); right: 16px; }
+  .signup-fab.is-content-action { opacity: 0; pointer-events: none; }
+}
+
 /* ===== Hover: só onde existe mouse =====
    No toque, o hover dispara no tap e fica "preso". */
 

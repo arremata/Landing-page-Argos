@@ -261,6 +261,11 @@
 
 .form_textarea { min-height: 104px; resize: vertical; }
 
+@media (max-width: 640px) {
+  .button.is-large { padding-inline: 20px; }
+  .form_input, .form_textarea { font-size: 16px; }
+}
+
 .form_input::placeholder,
 .form_textarea::placeholder { color: var(--text-4); opacity: 0.8; }
 

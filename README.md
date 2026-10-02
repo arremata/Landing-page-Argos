@@ -109,4 +109,5 @@ O domínio usado nos canonicals, no sitemap e nos links do blog vem de `SITE_URL
 
 ## Histórico
 
+- **2026-10-02** — Revisada a leitura no celular em todas as seções: menus com áreas de toque maiores, cards em uma coluna, valores e estimativas separados, carrossel com altura do slide atual e controles ampliados, FAQ e atendimento mais legíveis e formulários que rolam em telas baixas. Blog ganhou navegação móvel e indicação de ausência de artigos; Dicionário ganhou verbetes e atalhos maiores, com espaço para a barra inferior. Mantidos os textos da home e os rascunhos do blog.
 - **2026-10-01** — Adicionados acessos ao Blog e ao Dicionário nos menus das landing pages, em desktop e celular, seguindo o padrão visual existente.

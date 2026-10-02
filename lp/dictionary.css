@@ -379,3 +379,27 @@
     max-width: 150px;
   }
 }
+
+@media (max-width: 680px) {
+  .dictionary-page { padding-bottom: 48px; }
+  .dictionary-body { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
+  .dictionary-head h1, .dictionary-term-page h1 { font-size: clamp(30px, 8.4vw, 34px); line-height: 1.18; text-wrap: balance; }
+  .dictionary-intro { align-items: flex-start; padding: 16px; margin-bottom: 24px; }
+  .dictionary-intro p { font-size: 14px; }
+  .dictionary-kicker { font-size: 13px !important; }
+  .dictionary-search input { font-size: 16px; }
+  .dictionary-index { gap: 8px; margin-top: 24px; }
+  .dictionary-index a, .dictionary-related li a { display: inline-flex; align-items: center; min-height: 44px; white-space: normal; }
+  .dictionary-group { margin-top: 32px; }
+  .dictionary-entry { padding: 20px 16px; gap: 8px; }
+  .dictionary-entry dt { font-size: 16px; }
+  .dictionary-entry dt a { display: inline-block; padding-block: 4px; }
+  .dictionary-entry dd { font-size: 16px; line-height: 1.6; }
+  .dictionary-cta { margin-top: 32px; padding: 20px; gap: 16px; }
+  .dictionary-cta .btn-primary { width: 100%; text-align: center; }
+  .dictionary-crumbs { flex-wrap: wrap; }
+  .dictionary-related ul { gap: 8px; }
+  .dictionary-sticky span { font-size: 13px; flex: 1; min-width: 0; max-width: none; }
+  .dictionary-sticky .btn-primary { flex-shrink: 0; min-height: 44px; padding-inline: 12px; }
+  .dictionary-note { font-size: 13px; }
+}
