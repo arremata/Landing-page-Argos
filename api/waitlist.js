@@ -1,18 +1,43 @@
-// MVP local-first: grava os cadastros em data/signups.json no disco.
-// Em produção na Vercel o filesystem é efêmero — troque por Supabase,
-// Airtable ou Resend antes de divulgar a lista publicamente.
+// Grava os cadastros na tabela public.waitlist do Supabase (schema em
+// supabase/waitlist.sql) pela conexão Postgres que já existe na Vercel.
+// Sem DATABASE_URL (dev local) cai em data/signups.json;
+// na Vercel o filesystem é efêmero, então lá o Supabase é obrigatório.
 
 const fs = require('fs/promises');
 const path = require('path');
+const { Pool } = require('pg');
 
 const DATA_FILE = path.join(__dirname, '..', 'data', 'signups.json');
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^\(\d{2}\)\s?\d{4,5}-?\d{4}$/;
+let pool;
 
-// De qual porta a pessoa veio: LP de investidor (/) ou de quem quer morar (/morar/)
+// De qual porta a pessoa veio: LP de quem quer morar (/) ou de investidor (/investidor/)
 const SOURCES = ['investir', 'morar'];
 
-async function saveSignup({ fullName, phone, email, source }) {
+function getPool() {
+  if (!pool) {
+    pool = new Pool({
+      connectionString: process.env.DATABASE_URL,
+      max: 1,
+      idleTimeoutMillis: 5000,
+      connectionTimeoutMillis: 5000,
+      allowExitOnIdle: true,
+    });
+  }
+  return pool;
+}
+
+async function saveToDatabase({ fullName, phone, email, source }) {
+  await getPool().query(
+    `insert into public.waitlist (full_name, phone, email, source)
+     values ($1, $2, $3, $4)
+     on conflict (email) do nothing`,
+    [fullName, phone, email, source]
+  );
+}
+
+async function saveToFile({ fullName, phone, email, source }) {
   let entries = [];
   try {
     const raw = await fs.readFile(DATA_FILE, 'utf-8');
@@ -23,8 +48,19 @@ async function saveSignup({ fullName, phone, email, source }) {
 
   if (!entries.some((e) => e.email.toLowerCase() === email.toLowerCase())) {
     entries.push({ fullName, phone, email, source, ts: new Date().toISOString() });
+    await fs.mkdir(path.dirname(DATA_FILE), { recursive: true });
     await fs.writeFile(DATA_FILE, JSON.stringify(entries, null, 2));
   }
+}
+
+async function saveSignup(signup) {
+  if (process.env.DATABASE_URL) {
+    return saveToDatabase(signup);
+  }
+  if (process.env.VERCEL) {
+    throw new Error('DATABASE_URL não configurada na Vercel');
+  }
+  return saveToFile(signup);
 }
 
 module.exports = async (req, res) => {
@@ -64,6 +100,7 @@ module.exports = async (req, res) => {
     });
     res.status(200).json({ ok: true });
   } catch (err) {
+    console.error('[waitlist]', err);
     res.status(500).json({ ok: false, error: 'server_error' });
   }
 };
