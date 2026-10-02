@@ -25,13 +25,16 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ===== Smooth scroll =====
+// Com "movimento reduzido" ligado no sistema, pula direto (sem rolar animado).
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener('click', (e) => {
     const id = link.getAttribute('href').slice(1);
     const target = document.getElementById(id);
     if (!target) return;
     e.preventDefault();
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    target.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });
   });
 });
 
@@ -47,10 +50,11 @@ function openModal() {
   overlay.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
   closeMobileMenu();
+  // Foca o primeiro campo quando a caixa já assentou (entrada = 240ms)
   setTimeout(() => {
     const firstInput = modalBox.querySelector('input:not(.hp)');
     if (firstInput) firstInput.focus();
-  }, 350);
+  }, 250);
 }
 
 function closeModal() {
@@ -158,7 +162,7 @@ form.addEventListener('submit', async (e) => {
   } catch (err) {
     setError('Não foi possível concluir. Tente novamente em alguns instantes.');
     submitBtn.disabled = false;
-    submitBtn.querySelector('.btn-label').textContent = submitLabel;
+    submitBtn.querySelector('.btn-label').textContent = submitBtn.dataset.label || submitLabel;
   }
 });
 
@@ -199,9 +203,9 @@ const liveCardObserver = new IntersectionObserver((entries) => {
 const liveCard = document.getElementById('liveCard');
 if (liveCard) liveCardObserver.observe(liveCard);
 
-// ===== Scroll reveal =====
+// ===== Scroll reveal (uma vez por elemento) =====
 const revealEls = document.querySelectorAll('[data-reveal]');
-const revealCards = document.querySelectorAll('.step-card, .feature-card');
+const revealCards = document.querySelectorAll('.step-card');
 
 const sectionObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -220,7 +224,7 @@ const cardObserver = new IntersectionObserver((entries) => {
       const card = entry.target;
       const siblings = Array.from(card.parentElement.children);
       const idx = siblings.indexOf(card);
-      setTimeout(() => card.classList.add('is-visible'), idx * 120);
+      setTimeout(() => card.classList.add('is-visible'), idx * 60);
       cardObserver.unobserve(card);
     }
   });
@@ -239,7 +243,7 @@ const counterObserver = new IntersectionObserver((entries) => {
     const target = parseFloat(el.dataset.count);
     const suffix = el.dataset.suffix || '';
     const isDecimal = String(target).includes('.');
-    const duration = 1600;
+    const duration = reduceMotion.matches ? 1 : 1600; // reduzido: vai direto ao valor
     const start = performance.now();
 
     function tick(now) {
@@ -270,7 +274,7 @@ const rowObserver = new IntersectionObserver((entries) => {
     const row = entry.target;
     const rows = Array.from(row.parentElement.querySelectorAll('[data-reveal-row]'));
     const idx = rows.indexOf(row);
-    setTimeout(() => row.classList.add('is-visible'), idx * 100);
+    setTimeout(() => row.classList.add('is-visible'), idx * 60);
     rowObserver.unobserve(row);
   });
 }, { threshold: 0.1 });
@@ -280,7 +284,8 @@ compareRows.forEach((el) => rowObserver.observe(el));
 // ===== Signup FAB (show after 30% scroll) =====
 const signupFab = document.getElementById('signupFab');
 
-if (signupFab) {
+// Com data-fab-mode="nav", quem decide é a página (o botão troca de lugar com o menu).
+if (signupFab && signupFab.dataset.fabMode !== 'nav') {
   window.addEventListener('scroll', () => {
     const scrolled = window.scrollY / (document.body.scrollHeight - window.innerHeight);
     signupFab.classList.toggle('is-visible', scrolled > 0.3);

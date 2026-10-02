@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.classList.add('js')</script>
 <title>Argos — Imóvel de leilão para morar, com a conta inteira</title>
 <meta name="description" content="Quanto você paga até pegar a chave, quem mora lá e se dá para usar o FGTS. Imóveis de leilão explicados em reais, antes do lance.">
 <meta property="og:title" content="Argos — Imóvel de leilão para morar, sem letra miúda">
@@ -15,6 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/lp/styles.css">
 <link rel="stylesheet" href="/lp/morar.css">
+<link rel="stylesheet" href="/lp/leilao.css">
 </head>
 <body>
 
@@ -28,13 +30,12 @@
     </a>
 
     <nav class="nav-links" aria-label="Navegação principal">
-      <a href="#demo">Vídeo</a>
-      <a href="#exemplo">Ver a conta</a>
-      <a href="#ajuda">Ajuda</a>
+      <a href="#leilao">Como funciona</a>
+      <a href="#ajuda">Atendimento</a>
       <a href="#faq">Dúvidas</a>
     </nav>
 
-    <button class="btn-primary btn-sm nav-cta" data-open-modal>Quero ser avisado</button>
+    <button class="cta-pill nav-cta" data-open-modal><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4 20-7Z"/></svg><span>Quero ser avisado</span></button>
 
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
       <svg class="icon-menu" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -43,9 +44,8 @@
   </div>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#demo">Vídeo</a>
-    <a href="#exemplo">Ver a conta</a>
-    <a href="#ajuda">Ajuda</a>
+    <a href="#leilao">Como funciona</a>
+    <a href="#ajuda">Atendimento</a>
     <a href="#faq">Dúvidas</a>
     <a href="/investidor/" class="mobile-door">Quero investir →</a>
     <button class="btn-primary btn-sm" data-open-modal>Quero ser avisado</button>
@@ -57,26 +57,25 @@
   <!-- HERO -->
   <section class="hero hero-morar" id="inicio">
     <div class="container hero-content">
-      <div class="doors" role="group" aria-label="O que você procura">
-        <span class="door is-active" aria-current="page">
-          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/></svg>
-          Quero morar
-        </span>
-        <a href="/investidor/" class="door">Quero investir</a>
-      </div>
+      <span class="hero-kicker">Leilão de imóveis, sem mistério</span>
 
-      <h1 class="hero-title">Sua casa própria pode estar num leilão. <span class="hl">A conta, a gente mostra.</span></h1>
+      <h1 class="hero-title">Sua casa própria pode sair mais barata num leilão. <span class="hl">E é mais simples do que parece.</span></h1>
 
-      <p class="hero-sub">Quanto você paga até pegar a chave, quem mora lá e se dá para usar o FGTS. Tudo em reais, antes do lance.</p>
+      <p class="hero-sub">Imóveis retomados por bancos são vendidos em leilão, em geral <strong>abaixo do valor de avaliação</strong>. O Argos reúne, para cada imóvel, <strong>o custo total até a entrega das chaves</strong>, a situação de ocupação e as formas de pagamento aceitas.</p>
 
       <div class="hero-cta-row">
         <button class="btn-primary btn-lg" data-open-modal>Quero ser avisado</button>
-        <a href="#demo" class="btn-outline">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M6 4v16l14-8L6 4Z"/></svg>
-          Ver como funciona
+        <a href="#leilao" class="btn-outline">
+          Entender o leilão em 1 minuto
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
         </a>
       </div>
-      <p class="hero-support">Grátis. Sem cartão. Uma mensagem só, no dia que abrir.</p>
+
+      <ul class="myths" aria-label="O que pouca gente sabe sobre leilão">
+        <li><span class="myth-ico" aria-hidden="true"></span><span>Não é preciso ser <strong>investidor</strong> nem ter <strong>experiência</strong> com leilões.</span></li>
+        <li><span class="myth-ico" aria-hidden="true"></span><span>Muitos imóveis aceitam <strong>financiamento e uso do FGTS</strong>.</span></li>
+        <li><span class="myth-ico" aria-hidden="true"></span><span>Custos e ocupação ficam claros <strong>antes do lance</strong>.</span></li>
+      </ul>
     </div>
 
     <!-- Card do imóvel — os 7 elementos do modo Morar -->
@@ -112,9 +111,22 @@
           <p class="home-total">R$ 209.840</p>
           <p class="home-total-sub">lance inicial R$ 180.000 + custos</p>
 
+          <div class="price-bars" aria-hidden="true">
+            <div class="pb-row">
+              <span class="pb-lbl">Valor de avaliação <em>(da Caixa)</em></span>
+              <span class="pb-val">R$ 290.000</span>
+              <span class="pb-track"><span class="pb-fill pb-fill-ref"></span></span>
+            </div>
+            <div class="pb-row">
+              <span class="pb-lbl">Você paga até a chave</span>
+              <span class="pb-val">R$ 209.840</span>
+              <span class="pb-track"><span class="pb-fill pb-fill-you" style="--pb:0.7236"></span></span>
+            </div>
+          </div>
+
           <p class="home-save">
             <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-            R$ 80.160 abaixo do valor de avaliação
+            R$ 80 mil de desconto sobre o valor de avaliação
           </p>
 
           <div class="home-badges">
@@ -124,12 +136,239 @@
           </div>
         </div>
       </article>
-      <p class="card-note">Imóvel de exemplo. Números ilustrativos.</p>
+      <p class="card-note">Exemplo ilustrativo</p>
     </div>
   </section>
 
+  <!-- LEILAO-1-MINUTO:INICIO -->
+  <section class="section section-soft lm-section" id="leilao" aria-labelledby="lm-title" data-reveal>
+    <div class="container">
+      <div class="section-center">
+        <span class="overline">Leilão em 1 minuto</span>
+        <h2 class="section-title" id="lm-title">Nunca comprou em leilão? Comece por aqui.</h2>
+      </div>
+
+      <div class="lm" data-lm role="region" aria-roledescription="carrossel" aria-label="Leilão em 1 minuto">
+        <div class="lm-viewport">
+          <div class="lm-track">
+
+            <!-- 1 · O que é -->
+            <div class="lm-slide" role="group" aria-roledescription="slide" aria-label="1 de 7" data-title="Leilão é outra forma de comprar um imóvel.">
+              <div class="lm-text">
+                <span class="lm-kicker">O que é</span>
+                <h3 class="lm-title">Leilão é outra forma de comprar um imóvel.</h3>
+                <p>Quando um financiamento deixa de ser pago, o banco retoma o imóvel e o coloca à venda.</p>
+                <p>Como o objetivo do banco é vender, o preço de partida costuma ficar abaixo do valor de avaliação.</p>
+                <p class="lm-def"><strong>Valor de avaliação</strong> é o valor de mercado do imóvel, apurado em avaliação feita para o banco.</p>
+              </div>
+              <div class="lm-visual">
+                <ol class="lm-flow">
+                  <li>
+                    <span class="lm-flow-ico" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 12 4l9 6"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/><path d="M3 20h18"/></svg>
+                    </span>
+                    <span>O banco retoma o imóvel</span>
+                  </li>
+                  <li>
+                    <span class="lm-flow-ico" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="8" cy="8" r="1.5"/></svg>
+                    </span>
+                    <span>Coloca o imóvel à venda</span>
+                  </li>
+                  <li class="is-last">
+                    <span class="lm-flow-ico" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                    </span>
+                    <span>O preço começa abaixo da avaliação</span>
+                  </li>
+                </ol>
+              </div>
+            </div>
+
+            <!-- 2 · O desconto -->
+            <div class="lm-slide" role="group" aria-roledescription="slide" aria-label="2 de 7" data-title="O desconto é real e aparece antes do lance." data-explain>
+              <div class="lm-text">
+                <span class="lm-kicker">O desconto</span>
+                <h3 class="lm-title">O desconto é real e aparece antes do lance.</h3>
+                <p>Cada imóvel tem dois valores publicados pela Caixa: o valor de avaliação e o valor inicial.</p>
+                <p>O Argos mostra a diferença entre eles em reais.</p>
+              </div>
+              <div class="lm-visual">
+                <div class="lm-panel">
+                  <span class="lm-tag">Exemplo ilustrativo</span>
+                  <div class="lm-bars">
+                    <div class="lm-bar-row">
+                      <div class="lm-bar-head"><span>Valor de avaliação</span><strong>R$ 290.000</strong></div>
+                      <div class="lm-bar" aria-hidden="true"><span class="lm-bar-fill lm-bar-fill-muted" style="--v:1"></span></div>
+                    </div>
+                    <div class="lm-bar-row">
+                      <div class="lm-bar-head"><span>Valor inicial na 2ª rodada</span><strong>R$ 180.000</strong></div>
+                      <div class="lm-bar lm-bar-gap" aria-hidden="true"><span class="lm-bar-fill" style="--v:0.6207"></span></div>
+                    </div>
+                  </div>
+                  <p class="lm-save">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                    R$ 110 mil de desconto sobre a avaliação
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3 · Jeitos de comprar -->
+            <div class="lm-slide" role="group" aria-roledescription="slide" aria-label="3 de 7" data-title="Três formas de compra na Caixa.">
+              <div class="lm-text">
+                <span class="lm-kicker">Modalidades</span>
+                <h3 class="lm-title">Três formas de compra na Caixa.</h3>
+                <p>Cada imóvel é vendido em uma modalidade, com regras próprias.</p>
+                <p>O Argos informa a modalidade de cada um.</p>
+              </div>
+              <div class="lm-visual">
+                <ul class="lm-ways">
+                  <li class="lm-way">
+                    <div class="lm-way-top"><span class="lm-way-name">Leilão</span><span class="lm-chip">Data marcada</span><span class="lm-chip">Disputa de lances</span></div>
+                    <p>Pode ter 1ª e 2ª rodada. Na 2ª, o preço mínimo costuma ser menor.</p>
+                  </li>
+                  <li class="lm-way">
+                    <div class="lm-way-top"><span class="lm-way-name">Licitação aberta</span><span class="lm-chip">Data marcada</span><span class="lm-chip">Propostas</span></div>
+                    <p>Em data definida, cada participante apresenta sua proposta.</p>
+                  </li>
+                  <li class="lm-way">
+                    <div class="lm-way-top"><span class="lm-way-name">Venda direta</span><span class="lm-chip lm-chip-strong">Não é leilão</span><span class="lm-chip">Sem disputa</span></div>
+                    <p>Não há disputa de lances: a primeira proposta válida fica com o imóvel.</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 4 · A conta inteira -->
+            <div class="lm-slide" role="group" aria-roledescription="slide" aria-label="4 de 7" data-title="O lance não é o preço final." data-explain>
+              <div class="lm-text">
+                <span class="lm-kicker">A conta inteira</span>
+                <h3 class="lm-title">O lance não é o preço final.</h3>
+                <p>A compra envolve outros custos: impostos, registro em cartório e, quando houver, comissão do leiloeiro.</p>
+                <p class="lm-strong">O Argos soma tudo até a entrega das chaves.</p>
+              </div>
+              <div class="lm-visual">
+                <div class="lm-panel lm-panel-tight">
+                  <span class="lm-tag">Exemplo ilustrativo</span>
+                  <ul class="lm-bill">
+                    <li data-add="180000"><span>Lance</span><span class="lm-money">R$ 180.000</span></li>
+                    <li data-add="9000"><span>+ Comissão do leiloeiro <small>quando houver</small></span><span class="lm-money">R$ 9.000</span></li>
+                    <li data-add="5400"><span>+ ITBI <small>imposto da prefeitura</small></span><span class="lm-money">R$ 5.400</span></li>
+                    <li data-add="1440"><span>+ Registro em cartório</span><span class="lm-money">R$ 1.440</span></li>
+                    <li data-add="5000"><span>+ Desocupação <small class="lm-est">estimativa</small></span><span class="lm-money">R$ 5.000</span></li>
+                    <li data-add="9000"><span>+ Reforma <small class="lm-est">estimativa</small></span><span class="lm-money">R$ 9.000</span></li>
+                  </ul>
+                  <div class="lm-bill-total"><span>Total até a chave</span><span class="lm-money" data-lm-total>R$ 209.840</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5 · Ocupação -->
+            <div class="lm-slide" role="group" aria-roledescription="slide" aria-label="5 de 7" data-title="Você sabe se o imóvel está ocupado antes do lance.">
+              <div class="lm-text">
+                <span class="lm-kicker">Ocupação</span>
+                <h3 class="lm-title">Você sabe se o imóvel está ocupado antes do lance.</h3>
+                <p>Cada imóvel traz a situação de ocupação informada pela Caixa.</p>
+                <p>Se houver moradores, a desocupação faz parte do processo e o custo estimado entra na conta.</p>
+              </div>
+              <div class="lm-visual">
+                <ul class="lm-status">
+                  <li>
+                    <span class="badge badge-occ-yellow"><span class="dot"></span>Ocupado</span>
+                    <p>Há moradores no imóvel. A saída faz parte do processo de compra.</p>
+                  </li>
+                  <li>
+                    <span class="badge lm-badge-free"><span class="dot"></span>Desocupado</span>
+                    <p>Não há moradores informados. A mudança depende apenas da transferência.</p>
+                  </li>
+                  <li>
+                    <span class="badge badge-when">Não informado</span>
+                    <p>A Caixa não informou a situação. Confirme antes de dar o lance.</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 6 · Pagamento -->
+            <div class="lm-slide" role="group" aria-roledescription="slide" aria-label="6 de 7" data-title="Você sabe como pode pagar antes do lance.">
+              <div class="lm-text">
+                <span class="lm-kicker">Pagamento</span>
+                <h3 class="lm-title">Você sabe como pode pagar antes do lance.</h3>
+                <p>Cada imóvel informa as formas de pagamento aceitas.</p>
+                <p>Quando permitido, é possível financiar parte do valor e usar o saldo do FGTS.</p>
+              </div>
+              <div class="lm-visual">
+                <ul class="lm-status">
+                  <li>
+                    <span class="badge badge-pay">Aceita financiamento</span>
+                    <p>Você paga uma entrada e financia o restante com o banco.</p>
+                  </li>
+                  <li>
+                    <span class="badge badge-pay">Aceita FGTS</span>
+                    <p>O saldo do FGTS pode compor o pagamento, conforme as regras do fundo.</p>
+                  </li>
+                  <li>
+                    <span class="badge badge-when">Só à vista</span>
+                    <p>O pagamento é feito integralmente com recursos próprios.</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 7 · Acompanhamento -->
+            <div class="lm-slide" role="group" aria-roledescription="slide" aria-label="7 de 7" data-title="Acompanhamento em todas as etapas.">
+              <div class="lm-text">
+                <span class="lm-kicker">Acompanhamento</span>
+                <h3 class="lm-title">Acompanhamento em todas as etapas.</h3>
+                <p>Cada imóvel acompanha um roteiro com as etapas e os prazos do processo de compra.</p>
+                <p>Nossa equipe está à disposição para esclarecer suas dúvidas.</p>
+                <div class="lm-cta-row">
+                  <button class="btn-primary btn-lg lm-cta" data-open-modal>Quero ser avisado</button>
+                  <a href="/blog/" class="lm-more">Ler os guias</a>
+                </div>
+              </div>
+              <div class="lm-visual">
+                <div class="lm-panel">
+                  <ol class="lm-steps">
+                    <li class="is-done">Conferir a conta</li>
+                    <li class="is-done">Aprovar o crédito</li>
+                    <li>Dar o lance</li>
+                    <li>Pegar a chave</li>
+                  </ol>
+                  <div class="lm-chat">
+                    <span class="lm-chat-in">Este imóvel aceita FGTS?</span>
+                    <span class="lm-chat-out">Aceita. Explicamos como usar o saldo.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="lm-controls">
+          <button type="button" class="lm-nav lm-prev" data-lm-prev aria-label="Slide anterior">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>
+            <span>Anterior</span>
+          </button>
+          <div class="lm-progress">
+            <span class="lm-count" aria-hidden="true"><span data-lm-now>1</span> de 7</span>
+            <div class="lm-dots"></div>
+          </div>
+          <button type="button" class="lm-nav lm-next" data-lm-next aria-label="Próximo slide">
+            <span>Próximo</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+          </button>
+        </div>
+        <p class="lm-live" aria-live="polite" aria-atomic="true"></p>
+      </div>
+    </div>
+  </section>
+  <!-- LEILAO-1-MINUTO:FIM -->
+
   <!-- VÍDEO DEMO -->
-  <section class="section section-soft" id="demo" data-reveal>
+  <section class="section" id="demo" data-reveal>
     <div class="container">
       <div class="section-center">
         <span class="overline">Veja funcionando</span>
@@ -149,284 +388,25 @@
     </div>
   </section>
 
-  <!-- AS 4 PERGUNTAS -->
-  <section class="section" id="perguntas" data-reveal>
-    <div class="container">
-      <div class="section-center">
-        <span class="overline">Antes do lance</span>
-        <h2 class="section-title">As 4 respostas que ninguém te dá. O Argos dá.</h2>
-      </div>
-
-      <div class="q-grid">
-        <div class="q-card">
-          <span class="q-num">1</span>
-          <h3>Quanto vou pagar no total?</h3>
-          <p>A conta inteira até a chave. Não só o lance.</p>
-        </div>
-        <div class="q-card">
-          <span class="q-num">2</span>
-          <h3>Tem alguém morando?</h3>
-          <p>Selo em todo imóvel: desocupado, ocupado ou não informado.</p>
-        </div>
-        <div class="q-card">
-          <span class="q-num">3</span>
-          <h3>Que dívidas vêm junto?</h3>
-          <p>Depende do tipo de leilão. A gente mostra o que fica com você em cada imóvel.</p>
-        </div>
-        <div class="q-card">
-          <span class="q-num">4</span>
-          <h3>Dá para financiar?</h3>
-          <p>Aceita financiamento? Aceita FGTS? Está no card.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXEMPLO — igual à página do imóvel no app -->
-  <section class="section section-soft" id="exemplo" data-reveal>
-    <div class="container">
-      <div class="section-center">
-        <span class="overline">Mexa você mesmo</span>
-        <h2 class="section-title">Veja a conta de verdade.</h2>
-        <p class="section-sub">É assim que cada imóvel aparece no Argos. Diga quanto você tem disponível — a gente mostra até quanto dá para oferecer.</p>
-      </div>
-
-      <div class="app-frame">
-        <div class="app-bar" aria-hidden="true">
-          <span class="app-dots"><span></span><span></span><span></span></span>
-          <span class="app-url">argos · imóvel</span>
-        </div>
-
-        <div class="app">
-          <!-- Cabeçalho do imóvel -->
-          <div class="app-head">
-            <div class="app-tags">
-              <span class="tag accent">2ª rodada</span>
-              <span class="tag">Apartamento</span>
-              <span class="tag warn dot">Ocupado</span>
-            </div>
-            <h3 class="app-title">Apartamento 52 m², Portão</h3>
-            <p class="app-addr">Curitiba, PR · 52 m² · 2 quartos</p>
-
-            <div class="app-prices">
-              <div>
-                <span class="uppy">Valor inicial · 2ª rodada</span>
-                <span class="app-num">R$ 180.000,00</span>
-              </div>
-              <div>
-                <span class="uppy">Valor de avaliação</span>
-                <span class="app-num">R$ 290.000,00</span>
-              </div>
-              <div>
-                <span class="uppy">Encerra em</span>
-                <span class="app-num app-num-sm">9 dias</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Abas do app -->
-          <div class="app-tabs" role="tablist" aria-label="Informações do imóvel">
-            <button class="app-tab is-active" role="tab" id="tab-custo" aria-selected="true" aria-controls="panel-custo"><span class="ix">01</span>Quanto você vai pagar</button>
-            <button class="app-tab" role="tab" id="tab-regiao" aria-selected="false" aria-controls="panel-regiao" tabindex="-1"><span class="ix">02</span>Preço na região</button>
-            <button class="app-tab" role="tab" id="tab-regras" aria-selected="false" aria-controls="panel-regras" tabindex="-1"><span class="ix">03</span>Regras deste leilão</button>
-            <button class="app-tab" role="tab" id="tab-pend" aria-selected="false" aria-controls="panel-pend" tabindex="-1"><span class="ix">04</span>Pendências do imóvel <span class="tag accent tag-xs">em breve</span></button>
-          </div>
-
-          <!-- 01 · Quanto você vai pagar -->
-          <div class="app-panel" role="tabpanel" id="panel-custo" aria-labelledby="tab-custo">
-            <div class="app-card app-sim">
-              <h4 class="app-h2">Quanto você vai pagar até receber a chave</h4>
-              <p class="app-muted">Comece pelo que você tem disponível. A gente separa o que vai para o lance e o que vai para os custos.</p>
-
-              <div class="budget">
-                <div class="budget-head">
-                  <label class="uppy" for="budgetRange">Quanto você tem disponível para pagar</label>
-                  <span class="budget-hint">
-                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7 4 12l4 5M16 7l4 5-4 5"/></svg>
-                    arraste para simular
-                  </span>
-                </div>
-                <span class="budget-val" data-out="budget">R$ 210.000</span>
-                <input type="range" id="budgetRange" class="app-slider app-slider-lg" min="190000" max="320000" step="1000" value="210000" aria-label="Quanto você tem disponível para pagar" aria-valuetext="R$ 210.000">
-                <div class="field-row field-ends"><span>R$ 190 mil</span><span>R$ 320 mil</span></div>
-                <p class="budget-answer" id="budgetAnswer">Com <strong>R$ 210.000</strong>, você consegue oferecer até <strong>R$ 180.100</strong> — já contando todos os custos até a chave.</p>
-              </div>
-
-              <div class="scenario">
-                <span class="uppy">Valores que dependem de você</span>
-                <p class="app-muted">Mude o que quiser. A conta abaixo acompanha.</p>
-                <div class="scenario-pair">
-                  <div class="field-card">
-                    <span class="uppy">Desocupação</span>
-                    <span class="field-val">R$ 5.000</span>
-                    <span class="field-note">Reserva sugerida por nós</span>
-                  </div>
-                  <div class="field-card">
-                    <div class="field-row">
-                      <span class="uppy">Precisa de reforma para você se mudar?</span>
-                      <span class="field-val" data-out="reforma">R$ 9.000</span>
-                    </div>
-                    <input type="range" id="renoRange" class="app-slider" min="0" max="100" value="15" aria-label="Precisa de reforma para você se mudar?" aria-valuetext="R$ 9.000">
-                    <div class="field-row field-ends">
-                      <span>dá para morar já</span>
-                      <span>precisa refazer tudo</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="bill" role="table" aria-label="O que você paga">
-                <div class="bill-row bill-head" role="row">
-                  <span></span><span role="columnheader">O que você paga</span><span role="columnheader">peso</span><span role="columnheader">Valor</span>
-                </div>
-                <div id="billRows"></div>
-                <div class="bill-row bill-total" role="row">
-                  <span class="mono">∑</span><span>Total até a chave</span><span></span><span class="bill-total-val" data-out="total">R$ 209.948,80</span>
-                </div>
-              </div>
-              <p class="compare-fact" id="compareFact">O total fica R$ 80.051 abaixo do valor de avaliação (R$ 290.000).</p>
-            </div>
-          </div>
-
-          <!-- 02 · Preço na região -->
-          <div class="app-panel" role="tabpanel" id="panel-regiao" aria-labelledby="tab-regiao" hidden>
-            <div class="app-card">
-              <h4 class="app-h2">Quanto vale na região</h4>
-              <div class="app-prices app-prices-2">
-                <div>
-                  <span class="uppy">Avaliação oficial</span>
-                  <span class="app-num">R$ 290.000</span>
-                </div>
-                <div>
-                  <span class="uppy">Estimativa nossa</span>
-                  <span class="app-num">R$ 275.000</span>
-                </div>
-              </div>
-              <p class="app-line"><span class="tag good dot">Confiança média</span> Baseado em 14 imóveis parecidos vendidos na região nos últimos 12 meses.</p>
-            </div>
-          </div>
-
-          <!-- 03 · Regras deste leilão -->
-          <div class="app-panel" role="tabpanel" id="panel-regras" aria-labelledby="tab-regras" hidden>
-            <div class="app-card">
-              <h4 class="app-h2">O que as regras deste leilão dizem</h4>
-              <ul class="rules">
-                <li>
-                  <span class="tag warn dot">Ocupado</span>
-                  <p>O antigo dono ainda mora lá. Para entrar, você vai precisar de uma ordem judicial.</p>
-                </li>
-                <li>
-                  <span class="tag">Dívidas</span>
-                  <p>Leilão do banco: IPTU e condomínio atrasados ficam com quem compra. <span class="src">Regras, pág. 7</span></p>
-                </li>
-                <li>
-                  <span class="tag accent">Pagamento</span>
-                  <p>Aceita financiamento e FGTS. Entrada de 5% sai do seu bolso.</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- 04 · Pendências do imóvel (em breve, como no app) -->
-          <div class="app-panel" role="tabpanel" id="panel-pend" aria-labelledby="tab-pend" hidden>
-            <div class="app-card app-soon">
-              <span class="tag accent">em breve</span>
-              <h4 class="app-h2">Pendências do imóvel</h4>
-              <p class="app-muted">O que está registrado na certidão do imóvel no cartório, lido e explicado em português claro.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p class="card-note">Imóvel de exemplo. No Argos, cada conta sai dos documentos do próprio imóvel.</p>
-    </div>
-  </section>
-
-  <!-- ALUGAR x FINANCIAR x LEILÃO -->
-  <section class="section" id="comparar" data-reveal>
-    <div class="container">
-      <div class="section-center">
-        <span class="overline">Faça a conta</span>
-        <h2 class="section-title">Pagar aluguel ou pagar o que é seu?</h2>
-        <p class="section-sub">O mesmo apartamento, três caminhos.</p>
-      </div>
-
-      <div class="paths">
-        <div class="path">
-          <p class="path-name">Continuar alugando</p>
-          <dl>
-            <div><dt>Entrada</dt><dd>R$ 0</dd></div>
-            <div><dt>Por mês</dt><dd>R$ 1.800</dd></div>
-          </dl>
-          <p class="path-end">Em 5 anos: <strong>R$ 108 mil pagos, nada é seu</strong></p>
-        </div>
-        <div class="path">
-          <p class="path-name">Financiar pela imobiliária</p>
-          <dl>
-            <div><dt>Entrada</dt><dd>R$ 60.000</dd></div>
-            <div><dt>Por mês</dt><dd>R$ 2.400</dd></div>
-          </dl>
-          <p class="path-end">Em 5 anos: <strong>o imóvel é seu</strong></p>
-        </div>
-        <div class="path path-highlight">
-          <span class="path-flag">Com o Argos</span>
-          <p class="path-name">Comprar em leilão</p>
-          <dl>
-            <div><dt>Entrada</dt><dd>R$ 9.000</dd></div>
-            <div><dt>Por mês</dt><dd>R$ 1.550</dd></div>
-          </dl>
-          <p class="path-end">Em 5 anos: <strong>o imóvel é seu</strong></p>
-        </div>
-      </div>
-      <p class="card-note">Números ilustrativos. No Argos, a comparação é feita para cada imóvel.</p>
-    </div>
-  </section>
-
-  <!-- PASSO A PASSO -->
-  <section class="section section-soft" id="passo-a-passo" data-reveal>
-    <div class="container">
-      <div class="section-center">
-        <span class="overline">Passo a passo</span>
-        <h2 class="section-title">Do lance até a chave. Você não se perde.</h2>
-        <p class="section-sub">Cada imóvel vem com o caminho e as datas. Toque para marcar.</p>
-      </div>
-
-      <div class="guide">
-        <div class="guide-top">
-          <span class="guide-count">Faltam 9 dias para o leilão</span>
-          <span class="progress-text" id="progressText">1 de 6 etapas · 17%</span>
-        </div>
-        <div class="progress" aria-hidden="true"><span class="progress-fill" id="progressFill"></span></div>
-        <ol class="checklist">
-          <li><button class="check is-done" aria-pressed="true"><span class="box"></span><span class="check-text">Conferir a conta</span><span class="check-meta">feito</span></button></li>
-          <li><button class="check" aria-pressed="false"><span class="box"></span><span class="check-text">Conseguir o crédito aprovado</span><span class="check-meta check-meta-now">comece agora · leva de 5 a 15 dias</span></button></li>
-          <li><button class="check" aria-pressed="false"><span class="box"></span><span class="check-text">Fazer o cadastro no leiloeiro</span><span class="check-meta">até 2 dias antes</span></button></li>
-          <li><button class="check" aria-pressed="false"><span class="box"></span><span class="check-text">Dar o lance</span><span class="check-meta">01/10, às 14h</span></button></li>
-          <li><button class="check" aria-pressed="false"><span class="box"></span><span class="check-text">Pagar, registrar e passar para o seu nome</span><span class="check-meta">depois que você ganhar</span></button></li>
-          <li><button class="check" aria-pressed="false"><span class="box"></span><span class="check-text">Pegar a chave</span><span class="check-meta">depende de quem mora lá</span></button></li>
-        </ol>
-      </div>
-    </div>
-  </section>
-
   <!-- ACOMPANHAMENTO -->
   <section class="section" id="ajuda" data-reveal>
     <div class="container">
       <div class="help">
         <div class="help-text">
-          <span class="overline">Não precisa fazer sozinho</span>
-          <h2 class="section-title">Quer ajuda? A gente te acompanha do começo ao fim.</h2>
+          <span class="overline">Atendimento</span>
+          <h2 class="section-title">Conte com a nossa equipe do início ao fim.</h2>
           <ul class="help-list">
-            <li>Tire suas dúvidas com quem entende de leilão</li>
-            <li>Ajuda para organizar o crédito e os documentos</li>
-            <li>Acompanhamento até você pegar a chave</li>
+            <li>Esclarecimento de dúvidas com quem conhece leilões</li>
+            <li>Orientação sobre crédito e documentação</li>
+            <li>Acompanhamento até a entrega das chaves</li>
           </ul>
-          <button class="btn-primary btn-lg" data-open-modal>Quero ajuda para comprar</button>
+          <button class="btn-primary btn-lg" data-open-contact>Falar com a equipe</button>
         </div>
         <div class="help-card" aria-hidden="true">
           <div class="chat chat-in">Esse apartamento aceita FGTS?</div>
-          <div class="chat chat-out">Aceita. A entrada de R$ 9.000 sai do seu bolso, o resto pode ser FGTS + financiamento.</div>
-          <div class="chat chat-in">E quando eu consigo entrar?</div>
-          <div class="chat chat-out">Tem gente morando. A gente te explica cada passo até a chave.</div>
+          <div class="chat chat-out">Aceita. A entrada é paga com recursos próprios; o restante pode combinar FGTS e financiamento.</div>
+          <div class="chat chat-in">E quando consigo me mudar?</div>
+          <div class="chat chat-out">O imóvel está ocupado. Explicamos cada etapa até a entrega das chaves.</div>
         </div>
       </div>
     </div>
@@ -437,72 +417,131 @@
     <div class="container">
       <div class="section-center">
         <span class="overline">Dúvidas</span>
-        <h2 class="section-title">O que todo mundo pergunta</h2>
+        <h2 class="section-title">Perguntas frequentes</h2>
       </div>
 
       <div class="faq-list">
         <details class="faq-item">
           <summary class="faq-question">
-            <span>Nunca participei de leilão. É para mim?</span>
-            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <span>Nunca participei de um leilão. O Argos é para mim?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </summary>
           <div class="faq-answer">
-            <p>É. O Argos foi feito para quem está procurando o primeiro imóvel. Sem palavra difícil, com o passo a passo de cada imóvel.</p>
+            <p>Sim. O Argos foi criado para quem vai comprar o primeiro imóvel. Cada imóvel é apresentado em linguagem clara, com o custo total e as etapas da compra.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Por que o imóvel de leilão costuma sair mais barato?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Quando um financiamento deixa de ser pago, o banco retoma o imóvel e o coloca à venda. Como o objetivo é vender, o preço de partida costuma ficar abaixo do valor de avaliação. O Argos mostra essa diferença em reais.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Qual é a diferença entre leilão, licitação aberta e venda direta?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>No leilão, há data marcada e disputa de lances, podendo haver uma 2ª rodada com preço mínimo menor. Na licitação aberta, cada participante apresenta sua proposta em data definida. Na venda direta não há disputa: a primeira proposta válida fica com o imóvel. <a href="#leilao">Veja o resumo</a>.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary class="faq-question">
             <span>As dívidas do imóvel ficam comigo?</span>
-            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </summary>
           <div class="faq-answer">
-            <p>Depende do leilão. No leilão da Justiça, as dívidas antigas são pagas com o valor do leilão — você arca só com os encargos da compra. No leilão do banco, IPTU e condomínio atrasados podem ficar com você. O Argos mostra qual é o caso de cada imóvel.</p>
+            <p>No leilão judicial, as dívidas anteriores são quitadas com o valor arrecadado, e você arca apenas com os encargos da compra. No leilão do banco, IPTU e condomínio em atraso podem ficar com o comprador. O Argos informa qual regra se aplica a cada imóvel.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Preciso ter todo o valor à vista?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Não. Nos imóveis que aceitam financiamento, você paga uma entrada e financia o restante. Alguns imóveis são vendidos somente à vista, e essa informação aparece em cada um deles.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary class="faq-question">
             <span>Posso usar o FGTS?</span>
-            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </summary>
           <div class="faq-answer">
-            <p>Em muitos imóveis, sim. Cada um tem um selo: “Aceita FGTS”, “Aceita financiamento” ou “Só à vista”. E dá para filtrar só os que aceitam.</p>
+            <p>Sim, nos imóveis que aceitam. Cada imóvel exibe as formas de pagamento permitidas: “Aceita FGTS”, “Aceita financiamento” ou “Só à vista”.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary class="faq-question">
-            <span>E se tiver alguém morando?</span>
-            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <span>O que acontece se o imóvel estiver ocupado?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </summary>
           <div class="faq-answer">
-            <p>Você vai precisar de uma ordem judicial para entrar — não dá para trocar a fechadura. Por isso o selo de ocupação aparece logo no card, antes de você se interessar.</p>
+            <p>A saída dos moradores segue um procedimento próprio, definido pelas regras da venda. Por isso, a situação de ocupação é exibida logo no card do imóvel, antes de qualquer decisão.</p>
           </div>
         </details>
 
         <details class="faq-item">
           <summary class="faq-question">
-            <span>Leilão de imóvel é seguro?</span>
-            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <span>A reserva para desocupação é obrigatória?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
           </summary>
           <div class="faq-answer">
-            <p>Os riscos são conhecidos: alguém morando, dívida junto, tempo até entrar. O Argos mostra cada um antes do lance. Imóvel não tem “batida escondida”: tem certidão no cartório com o histórico inteiro.</p>
+            <p>Não. É uma estimativa para que esse custo não seja uma surpresa quando há moradores. Se o imóvel estiver desocupado ou a saída for negociada, o valor pode ser menor ou nem existir.</p>
           </div>
         </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Comprar imóvel em leilão é seguro?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Os principais pontos de atenção são conhecidos e podem ser verificados antes do lance: ocupação, dívidas e prazo até a posse. O Argos apresenta cada um deles de forma objetiva.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="faq-contact">
+        <div>
+          <p class="faq-contact-title">Ainda tem dúvidas?</p>
+          <p class="faq-contact-sub">Fale com a nossa equipe.</p>
+        </div>
+        <button class="btn-outline faq-contact-btn" data-open-contact>Entrar em contato</button>
       </div>
     </div>
   </section>
 
   <!-- CTA FINAL -->
-  <section class="section" id="cadastro" data-reveal>
+  <section class="section section-cta" id="cadastro">
     <div class="container">
-      <div class="cta-box cta-strong">
-        <span class="overline">Lançamento em breve</span>
-        <h2 class="section-title">Seja o primeiro a ver os imóveis com a conta inteira.</h2>
-        <p class="section-sub">Uma mensagem só, no dia que o Argos abrir. Sem spam.</p>
-        <button class="btn-primary btn-lg" data-open-modal>Quero ser avisado</button>
-        <span class="cta-support">Grátis. Sem cartão. Leva 1 minuto.</span>
+      <div class="cta-banner" data-reveal>
+        <svg class="cta-banner-art" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M40 300V190h90v110M85 190v-40l45-30 45 30v150"/>
+            <path d="M210 300V150l70-50 70 50v150M250 300v-50h60v50M240 170h20v20h-20zM300 170h20v20h-20z"/>
+            <path d="M400 300V120h120v180M420 140h20v20h-20zM460 140h20v20h-20zM420 190h20v20h-20zM460 190h20v20h-20zM420 240h20v20h-20zM460 240h20v20h-20z"/>
+            <path d="M560 300V200l60-45 60 45v100M600 300v-45h40v45"/>
+            <path d="M720 300V90h140v210M745 115h25v25h-25zM790 115h25v25h-25zM745 165h25v25h-25zM790 165h25v25h-25zM745 215h25v25h-25zM790 215h25v25h-25z"/>
+            <path d="M900 300V170l75-55 75 55v130M945 300v-60h60v60"/>
+            <path d="M1080 300V140h90v160M1100 160h20v20h-20zM1140 160h20v20h-20zM1100 210h20v20h-20zM1140 210h20v20h-20z"/>
+          </g>
+        </svg>
+        <div class="cta-banner-text">
+          <h2 class="cta-banner-title">Quer ser avisado quando o Argos for lançado?</h2>
+          <p class="cta-banner-sub">Cadastre-se para receber o aviso de lançamento.</p>
+        </div>
+        <button class="btn-primary btn-lg cta-banner-btn" data-open-modal>Quero me inscrever</button>
       </div>
     </div>
   </section>
@@ -528,7 +567,7 @@
 </footer>
 
 <!-- FAB CADASTRO FLUTUANTE -->
-<button class="signup-fab" id="signupFab" data-open-modal aria-label="Quero ser avisado quando abrir">
+<button class="signup-fab cta-pill" id="signupFab" data-open-modal data-fab-mode="nav" aria-label="Quero ser avisado quando o Argos for lançado">
   <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4 20-7Z"/></svg>
   <span>Quero ser avisado</span>
 </button>
@@ -544,8 +583,8 @@
       <div class="modal-ico" aria-hidden="true">
         <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1Z"/></svg>
       </div>
-      <h3 id="modalTitle">Quer ser avisado quando abrir?</h3>
-      <p class="modal-desc">Deixe seu contato. Você recebe <strong>uma mensagem só</strong>, no dia do lançamento.</p>
+      <h3 id="modalTitle">Receba o aviso de lançamento</h3>
+      <p class="modal-desc">Informe seus dados para ser avisado quando o Argos for lançado.</p>
 
       <form id="waitlistForm" class="modal-form" data-source="morar" novalidate>
         <div class="field">
@@ -561,29 +600,75 @@
           <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email">
         </div>
         <button type="submit" class="btn-primary modal-submit" id="submitBtn">
-          <span class="btn-label">Quero ser avisado</span>
+          <span class="btn-label">Cadastrar</span>
         </button>
         <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off">
         <p class="form-err" id="formError" role="alert" hidden></p>
       </form>
-
-      <p class="modal-note">
-        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-3.5 7-9V6l-7-3-7 3v6c0 5.5 7 9 7 9Z"/><path d="m9.5 11.5 2 2 3.5-3.5"/></svg>
-        Sem spam. Só no dia do lançamento.
-      </p>
     </div>
 
     <div class="modal-ok" id="modalSuccess" hidden>
       <div class="ok-ico">
         <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
       </div>
-      <h3>Pronto, você está na lista!</h3>
-      <p>No dia que o Argos abrir, a gente te avisa.</p>
+      <h3>Cadastro realizado</h3>
+      <p>Você receberá o aviso quando o Argos for lançado.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DE CONTATO (abre o e-mail com a mensagem pronta) -->
+<div class="modal-overlay" id="contactOverlay" aria-hidden="true">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <button class="modal-close" id="contactClose" aria-label="Fechar">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+
+    <div class="modal-body" id="contactBody">
+      <div class="modal-ico" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      </div>
+      <h3 id="contactTitle">Fale com a nossa equipe</h3>
+      <p class="modal-desc">Preencha os campos e envie sua dúvida. A mensagem segue para o nosso e-mail.</p>
+
+      <form id="contactForm" class="modal-form" novalidate>
+        <div class="field">
+          <label for="cName">Nome</label>
+          <input type="text" id="cName" name="name" placeholder="Nome e sobrenome" required autocomplete="name">
+        </div>
+        <div class="field-row-2">
+        <div class="field">
+          <label for="cEmail">E-mail</label>
+          <input type="email" id="cEmail" name="email" placeholder="seu@email.com" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="cPhone">Telefone</label>
+          <input type="tel" id="cPhone" name="phone" placeholder="(41) 99999-9999" required autocomplete="tel" inputmode="numeric">
+        </div>
+        </div>
+        <div class="field">
+          <label for="cMsg">Sua dúvida</label>
+          <textarea id="cMsg" name="message" rows="3" placeholder="Escreva sua dúvida" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary modal-submit">
+          <span class="btn-label">Enviar dúvida</span>
+        </button>
+        <p class="form-err" id="contactError" role="alert" hidden></p>
+      </form>
+    </div>
+
+    <div class="modal-ok" id="contactSuccess" hidden>
+      <div class="ok-ico">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <h3>Mensagem pronta</h3>
+      <p>Abrimos o seu aplicativo de e-mail com a dúvida preenchida. Basta enviar. Se ele não abrir, escreva para <a href="mailto:argosleiloes@gmail.com">argosleiloes@gmail.com</a>.</p>
     </div>
   </div>
 </div>
 
 <script src="/lp/script.js"></script>
 <script src="/lp/morar.js"></script>
+<script src="/lp/leilao.js"></script>
 </body>
 </html>

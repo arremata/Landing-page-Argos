@@ -39,180 +39,136 @@ if (videoBtn) {
   });
 }
 
-// ===== Abas do imóvel (mesmo comportamento das abas do app) =====
-const tabs = Array.from(document.querySelectorAll('.app-tab'));
+// ===== Contato: formulário que abre o e-mail com a dúvida pronta =====
+(() => {
+  const EMAIL_TO = 'argosleiloes@gmail.com';
+  const overlay = document.getElementById('contactOverlay');
+  if (!overlay) return;
+  const form = document.getElementById('contactForm');
+  const body = document.getElementById('contactBody');
+  const ok = document.getElementById('contactSuccess');
+  const err = document.getElementById('contactError');
+  const phone = document.getElementById('cPhone');
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const PHONE_RE = /^\(\d{2}\)\s?\d{4,5}-?\d{4}$/;
+  let lastFocus = null;
 
-function selectTab(tab) {
-  tabs.forEach((t) => {
-    const active = t === tab;
-    t.classList.toggle('is-active', active);
-    t.setAttribute('aria-selected', String(active));
-    t.tabIndex = active ? 0 : -1;
-    document.getElementById(t.getAttribute('aria-controls')).hidden = !active;
-  });
-}
-
-tabs.forEach((tab, i) => {
-  tab.addEventListener('click', () => selectTab(tab));
-  tab.addEventListener('keydown', (e) => {
-    const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
-    if (!step) return;
-    const next = tabs[(i + step + tabs.length) % tabs.length];
-    selectTab(next);
-    next.focus();
-  });
-});
-
-// ===== Simulador: quanto você tem disponível → quanto dá para oferecer =====
-// Mesma equação do app (PD-006/PD-008): oferta + custos = total até a chave.
-// Aqui ela roda ao contrário: parte do valor que a pessoa tem.
-const EXAMPLE = {
-  valorInicial: 180000,
-  avaliacao: 290000,
-  comissao: 0.05,
-  itbi: 0.03,
-  registro: 0.008,
-  desocupacao: 5000,
-  reformaMax: 60000,
-};
-
-const pctSobreOferta = EXAMPLE.comissao + EXAMPLE.itbi + EXAMPLE.registro;
-const brl = (v) => 'R$ ' + Math.round(v).toLocaleString('pt-BR');
-const brlCents = (v) => 'R$ ' + v.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-
-const budgetRange = document.getElementById('budgetRange');
-const renoRange = document.getElementById('renoRange');
-const billRows = document.getElementById('billRows');
-const budgetAnswer = document.getElementById('budgetAnswer');
-const compareFact = document.getElementById('compareFact');
-
-function reforma() {
-  return Math.round((Number(renoRange.value) / 100) * EXAMPLE.reformaMax / 100) * 100;
-}
-
-function rowHtml(r, total) {
-  const pct = total > 0 ? (r.value / total) * 100 : 0;
-  return `
-    <div class="bill-row" role="row">
-      <button type="button" class="bill-q" aria-expanded="false" aria-label="Explicação de ${r.label}">?</button>
-      <span><span class="bill-label">${r.label}</span><span class="bill-hint" hidden>${r.hint}</span></span>
-      <span class="bill-weight"><span class="bill-bar"><span style="width:${Math.min(pct * 2.5, 100)}%"></span></span><span class="bill-pct">${pct.toFixed(1)}%</span></span>
-      <span class="bill-money">${brlCents(r.value)}</span>
-    </div>`;
-}
-
-function setFill(input) {
-  const pct = ((input.value - input.min) / (input.max - input.min)) * 100;
-  input.style.setProperty('--fill', pct + '%');
-}
-
-function render() {
-  const budget = Number(budgetRange.value);
-  const ref = reforma();
-  const fixos = EXAMPLE.desocupacao + ref;
-
-  const maxOferta = Math.floor((budget - fixos) / (1 + pctSobreOferta) / 100) * 100;
-  const cabe = maxOferta >= EXAMPLE.valorInicial;
-  const oferta = cabe ? maxOferta : EXAMPLE.valorInicial;
-
-  const rows = [
-    { label: 'Valor da compra', value: oferta, hint: 'O seu lance. É o que vai para quem está vendendo.' },
-    { label: 'Comissão do leiloeiro (5%)', value: oferta * EXAMPLE.comissao, hint: 'Pago por você, além do lance. Não está incluído no preço.' },
-    { label: 'ITBI (3%)', value: oferta * EXAMPLE.itbi, hint: 'O imposto da prefeitura para passar o imóvel para o seu nome.' },
-    { label: 'Registro em cartório (0,8%)', value: oferta * EXAMPLE.registro, hint: 'Para o imóvel ficar oficialmente no seu nome.' },
-    { label: 'Desocupação', value: EXAMPLE.desocupacao, hint: 'Reserva para tirar quem está morando. Estimativa nossa.' },
-    { label: 'Reforma', value: ref, hint: 'O que você pretende gastar para se mudar. Você escolhe no controle acima.' },
-  ].filter((r) => r.value > 0);
-
-  const total = rows.reduce((s, r) => s + r.value, 0);
-  billRows.innerHTML = rows.map((r) => rowHtml(r, total)).join('');
-
-  document.querySelector('[data-out="budget"]').textContent = brl(budget);
-  document.querySelector('[data-out="reforma"]').textContent = brl(ref);
-  document.querySelector('[data-out="total"]').textContent = brlCents(total);
-
-  if (cabe) {
-    budgetAnswer.classList.remove('is-short');
-    budgetAnswer.innerHTML = `Com <strong>${brl(budget)}</strong>, você consegue oferecer até <strong>${brl(oferta)}</strong> — já contando todos os custos até a chave.`;
-  } else {
-    budgetAnswer.classList.add('is-short');
-    budgetAnswer.innerHTML = `Com <strong>${brl(budget)}</strong> ainda não fecha. Neste imóvel, o valor inicial é ${brl(EXAMPLE.valorInicial)} e o total mínimo até a chave é <strong>${brl(total)}</strong>.`;
+  function open() {
+    lastFocus = document.activeElement;
+    body.hidden = false;
+    ok.hidden = true;
+    err.hidden = true;
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => document.getElementById('cName').focus(), 200);
   }
 
-  const folga = EXAMPLE.avaliacao - total;
-  compareFact.textContent = folga >= 0
-    ? `O total fica ${brl(folga)} abaixo do valor de avaliação (${brl(EXAMPLE.avaliacao)}).`
-    : `O total passa o valor de avaliação (${brl(EXAMPLE.avaliacao)}) em ${brl(-folga)}.`;
+  function close() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus({ preventScroll: true });
+  }
 
-  budgetRange.setAttribute('aria-valuetext', brl(budget));
-  renoRange.setAttribute('aria-valuetext', brl(ref));
-  setFill(budgetRange);
-  setFill(renoRange);
-}
-
-if (budgetRange) {
-  budgetRange.addEventListener('input', render);
-  renoRange.addEventListener('input', render);
-
-  // "?" de cada linha abre a explicação, como no app
-  billRows.addEventListener('click', (e) => {
-    const btn = e.target.closest('.bill-q');
-    if (!btn) return;
-    const hint = btn.parentElement.querySelector('.bill-hint');
-    hint.hidden = !hint.hidden;
-    btn.setAttribute('aria-expanded', String(!hint.hidden));
+  document.querySelectorAll('[data-open-contact]').forEach((btn) => {
+    btn.addEventListener('click', (e) => { e.preventDefault(); open(); });
+  });
+  document.getElementById('contactClose').addEventListener('click', close);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) close();
   });
 
-  render();
-
-  // Movimento sutil na primeira vez que o simulador aparece: mostra que dá
-  // para arrastar sem ninguém precisar explicar.
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let touched = false;
-  budgetRange.addEventListener('pointerdown', () => { touched = true; });
-
-  const nudgeObserver = new IntersectionObserver((entries) => {
-    if (!entries[0].isIntersecting) return;
-    nudgeObserver.disconnect();
-    if (reduced) return;
-
-    const start = Number(budgetRange.value);
-    const peak = start + 30000;
-    const duration = 1600;
-    let t0;
-
-    function frame(now) {
-      if (touched) return;
-      t0 = t0 || now;
-      const p = Math.min((now - t0) / duration, 1);
-      budgetRange.value = Math.round((start + (peak - start) * Math.sin(p * Math.PI)) / 1000) * 1000;
-      render();
-      if (p < 1) requestAnimationFrame(frame);
-    }
-    setTimeout(() => requestAnimationFrame(frame), 500);
-  }, { threshold: 0.6 });
-
-  nudgeObserver.observe(budgetRange);
-}
-
-// ===== Passo a passo: marcar o que já fez =====
-const checks = Array.from(document.querySelectorAll('.check'));
-const progressFill = document.getElementById('progressFill');
-const progressText = document.getElementById('progressText');
-
-function renderProgress() {
-  const done = checks.filter((c) => c.classList.contains('is-done')).length;
-  const pct = Math.round((done / checks.length) * 100);
-  progressFill.style.width = pct + '%';
-  progressText.textContent = `${done} de ${checks.length} etapas · ${pct}%`;
-}
-
-checks.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const done = btn.classList.toggle('is-done');
-    btn.setAttribute('aria-pressed', String(done));
-    renderProgress();
+  phone.addEventListener('input', () => {
+    let v = phone.value.replace(/\D/g, '').slice(0, 11);
+    if (v.length > 6) v = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
+    else if (v.length > 2) v = `(${v.slice(0, 2)}) ${v.slice(2)}`;
+    else if (v.length > 0) v = `(${v}`;
+    phone.value = v;
   });
-});
 
-renderProgress();
+  function fail(msg, field) {
+    err.textContent = msg;
+    err.hidden = false;
+    field.focus();
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    err.hidden = true;
+    const name = form.elements.name.value.trim();
+    const email = form.elements.email.value.trim();
+    const tel = form.elements.phone.value.trim();
+    const msg = form.elements.message.value.trim();
+
+    if (name.length < 3) return fail('Informe seu nome completo.', form.elements.name);
+    if (!EMAIL_RE.test(email)) return fail('Informe um e-mail válido.', form.elements.email);
+    if (!PHONE_RE.test(tel)) return fail('Informe um telefone válido. Ex.: (41) 99999-9999', form.elements.phone);
+    if (msg.length < 5) return fail('Escreva sua dúvida.', form.elements.message);
+
+    const subject = `Dúvida pelo site — ${name}`;
+    const text = `${msg}\n\n---\nNome: ${name}\nE-mail: ${email}\nTelefone: ${tel}`;
+    window.location.href = `mailto:${EMAIL_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+
+    body.hidden = true;
+    ok.hidden = false;
+    form.reset();
+  });
+})();
+
+// ===== Menu some ao rolar para baixo; o botão flutuante assume o lugar =====
+// Rolando para baixo: o menu sai por cima e o "Quero ser avisado" flutuante entra.
+// Rolando para cima (ou no topo): o menu volta e o flutuante sai. Nunca os dois.
+(() => {
+  const nav = document.getElementById('nav');
+  const fab = document.getElementById('signupFab');
+  const menu = document.getElementById('mobileMenu');
+  if (!nav || !fab) return;
+
+  const TOP = 80;      // perto do topo, o menu fica sempre visível
+  const DELTA = 6;     // ignora tremidas pequenas de rolagem
+  let lastY = window.scrollY;
+  let ticking = false;
+
+  function setHidden(hidden) {
+    nav.classList.toggle('is-hidden', hidden);
+    fab.classList.toggle('is-visible', hidden);
+  }
+
+  // Clique num link do menu (ou em qualquer âncora da página): a rolagem até a
+  // seção é nossa, não da pessoa, então o menu fica visível até ela terminar.
+  let locked = false;
+  let unlockTimer = null;
+  function unlockSoon() {
+    clearTimeout(unlockTimer);
+    unlockTimer = setTimeout(() => { locked = false; lastY = window.scrollY; }, 150);
+  }
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link || link.getAttribute('href').length < 2) return;
+    locked = true;
+    setHidden(false);
+    clearTimeout(unlockTimer);
+    unlockTimer = setTimeout(() => { locked = false; lastY = window.scrollY; }, 1200);
+  }, true);
+
+  function update() {
+    ticking = false;
+    const y = window.scrollY;
+    if (locked) { setHidden(false); lastY = y; unlockSoon(); return; }
+    if (menu && menu.classList.contains('is-open')) { lastY = y; return; }
+    if (y < TOP) { setHidden(false); lastY = y; return; }
+    if (Math.abs(y - lastY) < DELTA) return;
+    setHidden(y > lastY);
+    lastY = y;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+
+  // Foco por teclado dentro do menu traz o menu de volta.
+  nav.addEventListener('focusin', () => setHidden(false));
+  setHidden(false);
+})();
