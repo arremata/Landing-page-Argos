@@ -1,6 +1,6 @@
 # Argos — Landing Page + Blog
 
-Landing page e blog do Argos, plataforma de inteligência para leilões de imóveis.
+Landing page, dicionário público e blog do Argos, plataforma de inteligência para leilões de imóveis.
 
 Site em produção: https://www.argosleiloes.com.br/ (projeto `landing-page-argos`
 no time `argos33` da Vercel; cada push na `main` publica sozinho). O domínio sem
@@ -29,8 +29,12 @@ HTML, CSS e JavaScript puros — sem framework. O blog é gerado estaticamente a
 │   ├── blog-styles.css     # Estilos do blog
 │   ├── posts/              # Fonte dos artigos em Markdown
 │   └── <slug>/index.html   # Artigos (GERADOS — não editar)
+├── content/
+│   └── glossary.js         # Fonte editorial única do dicionário
+├── dicionario/             # Dicionário e verbetes (GERADOS — não editar)
 ├── scripts/
-│   └── build-blog.js       # Markdown → HTML + sitemap + robots
+│   ├── build-blog.js       # Markdown → HTML + sitemap + robots
+│   └── build-dictionary.js # Glossário → páginas HTML do dicionário
 ├── api/
 │   └── waitlist.js         # Endpoint serverless da lista de espera
 ├── dev-server.js           # Servidor local (simula roteamento da Vercel)
@@ -45,7 +49,7 @@ npm install
 npm run dev
 ```
 
-Acesse http://localhost:3000 (LP de morar), http://localhost:3000/investidor/ (LP de investidor) e http://localhost:3000/blog/ (blog).
+Acesse http://localhost:3000 (LP de morar), http://localhost:3000/investidor/ (LP de investidor), http://localhost:3000/dicionario (dicionário) e http://localhost:3000/blog/ (blog).
 
 ### Workspaces do Superset
 
@@ -77,7 +81,7 @@ faq:
 Conteúdo em Markdown. Use `##` para seções (entram no índice automático).
 ```
 
-O build gera: HTML do artigo, listagem atualizada, `sitemap.xml` e `robots.txt`.
+O build gera: HTML dos artigos, listagem atualizada, dicionário, `sitemap.xml` e `robots.txt`.
 
 Artigos são curtos por definição editorial — cerca de 1.500 caracteres, tom didático, sempre com link para o site principal no corpo do texto.
 
@@ -85,7 +89,7 @@ Artigos são curtos por definição editorial — cerca de 1.500 caracteres, tom
 
 A Vercel serve os arquivos estáticos direto da raiz e reconhece `api/waitlist.js` como função serverless. O `dev-server.js` existe apenas para desenvolvimento local — não é usado em produção.
 
-O `vercel.json` é obrigatório: sem ele a Vercel detecta o `build` do `package.json`, roda o script e depois procura uma pasta `public/` que não existe — o deploy falha. O arquivo aponta `outputDirectory` para a raiz e roda `npm run blog` no build, então os HTMLs do blog são regerados a cada deploy.
+O `vercel.json` é obrigatório: sem ele a Vercel detecta o `build` do `package.json`, roda o script e depois procura uma pasta `public/` que não existe — o deploy falha. O arquivo aponta `outputDirectory` para a raiz e roda `npm run blog` no build, então os HTMLs do blog e do dicionário são regerados a cada deploy.
 
 Como a raiz inteira vira site público, o `.vercelignore` tira do deploy o que é interno: os `.md` da raiz (relatórios, pendências), o `dev-server.js`, `data/`, `.superset/` e arquivos `.env*`.
 
@@ -96,3 +100,4 @@ O domínio usado nos canonicals, no sitemap e nos links do blog vem de `SITE_URL
 - A plataforma agrega leilões de todo o Brasil; quando um leiloeiro não está no catálogo, o usuário cola o link do leilão e a IA analisa na hora.
 - Não existe "score de viabilidade". A análise entrega valor de mercado, custos reais e lance máximo — a decisão de viabilidade é do usuário.
 - O formulário da lista de espera grava na tabela `public.waitlist` do Supabase da plataforma (schema em `supabase/waitlist.sql`, com e-mail único e a origem `morar`/`investir`). A função usa `DATABASE_URL`, definida só na Vercel; sem ela, em dev local, grava em `data/signups.json`. Tem honeypot anti-spam.
+- O dicionário é conteúdo público do `www`; a plataforma autenticada apenas aponta para ele. Os convites do dicionário levam para `https://app.argosleiloes.com.br/entrar` e não existe uma segunda cópia no app.

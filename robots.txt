@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://argos-leiloes.vercel.app/sitemap.xml
+Sitemap: https://www.argosleiloes.com.br/sitemap.xml
