@@ -760,3 +760,19 @@ body { font-size: 16px; }
   .hero-morar .hero-cta-row { gap: 12px; }
   .hero-morar .myths { margin-top: 36px; gap: 14px; }
 }
+
+/* Botão da chamada final: no hover as cores invertem (fundo roxo, texto branco) */
+.cta-banner .cta-banner-btn {
+  border: 1.5px solid #fff;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform var(--dur-press) var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .cta-banner .cta-banner-btn:hover:not(:disabled) {
+    background: var(--violet);
+    color: #fff;
+    border-color: #fff;
+    box-shadow: 0 8px 24px rgba(124,58,237,0.45);
+    transform: none;
+  }
+}
+.cta-banner .cta-banner-btn:active { transform: scale(0.97); }
