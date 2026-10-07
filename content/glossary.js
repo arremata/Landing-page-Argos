@@ -13,6 +13,8 @@
 // RASCUNHO PARA REVISÃO: os textos descrevem as regras gerais das vendas da
 // Caixa. Cada venda tem suas regras oficiais (o edital), que prevalecem.
 
+const { GLOSSARY_ENRICHMENT } = require('./glossary-enrichment');
+
 /** Grupos do dicionário, na ordem em que aparecem na página. */
 const GLOSSARY_GROUPS = [
   { id: 'venda', title: 'Tipos de venda' },
@@ -91,7 +93,7 @@ const GLOSSARY = {
   confianca_estimativa: {
     group: 'rodadas',
     term: 'Confiança da estimativa',
-    body: 'Quanto dá para confiar no preço de imóveis parecidos. Depende de quantos anúncios encontramos, de quão parecidos eles são e de quão próximos estão entre si.',
+    body: 'Quanto dá para confiar no preço de imóveis parecidos. É calculada a partir da quantidade, da semelhança e da proximidade dos anúncios encontrados.',
   },
   rodada: {
     group: 'rodadas',
@@ -329,6 +331,11 @@ const GLOSSARY = {
     body: 'Quando e como você paga a comissão do leiloeiro. Costuma ser logo depois de vencer.',
   },
 };
+
+for (const [key, enrichment] of Object.entries(GLOSSARY_ENRICHMENT)) {
+  if (!GLOSSARY[key]) throw new Error(`Enriquecimento sem verbete correspondente: ${key}`);
+  Object.assign(GLOSSARY[key], enrichment);
+}
 
 function glossaryByGroup() {
   return GLOSSARY_GROUPS.map(group => ({

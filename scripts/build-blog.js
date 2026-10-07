@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 const { marked } = require('marked');
-const { buildDictionary } = require('./build-dictionary');
+const { buildDictionary, DICTIONARY_UPDATED_AT } = require('./build-dictionary');
 
 const POSTS_DIR = path.join(__dirname, '..', 'blog', 'posts');
 const BLOG_OUT = path.join(__dirname, '..', 'blog');
@@ -15,6 +15,7 @@ const SITE_URL = (
   (process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`) ||
   'https://www.argosleiloes.com.br'
 ).replace(/\/+$/, '');
+const FONT_STYLESHEET = 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=optional';
 
 marked.setOptions({
   gfm: true,
@@ -108,6 +109,14 @@ function escapeHtml(s) {
     .replace(/"/g, '&quot;');
 }
 
+function fontMarkup() {
+  return `<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="${FONT_STYLESHEET}">
+<link href="${FONT_STYLESHEET}" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="${FONT_STYLESHEET}" rel="stylesheet"></noscript>`;
+}
+
 function buildSources(sources, reviewedAt) {
   if (!sources.length) return '';
   const items = sources.map(source => `
@@ -194,9 +203,7 @@ function postTemplate(post, content, toc) {
 <meta property="og:url" content="${SITE_URL}/blog/${post.slug}/">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+${fontMarkup()}
 <link rel="stylesheet" href="/lp/styles.css">
 <link rel="stylesheet" href="/blog/blog-styles.css">
 <script type="application/ld+json">${JSON.stringify(articleSchema)}</script>
@@ -336,9 +343,7 @@ function listingTemplate(posts) {
 <meta property="og:url" content="${SITE_URL}/blog/">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%237C3AED'/%3E%3Cpath d='M4 12s3-5.5 8-5.5 8 5.5 8 5.5-3 5.5-8 5.5-8-5.5-8-5.5Z' fill='none' stroke='white' stroke-width='1.5'/%3E%3Ccircle cx='12' cy='12' r='2.3' fill='white'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+${fontMarkup()}
 <link rel="stylesheet" href="/lp/styles.css">
 <link rel="stylesheet" href="/blog/blog-styles.css">
 </head>
@@ -444,7 +449,7 @@ function generateSitemap(posts, dictionaryPaths = []) {
     xml += `
   <url>
     <loc>${SITE_URL}${dictionaryPath}</loc>
-    <lastmod>${now}</lastmod>
+    <lastmod>${DICTIONARY_UPDATED_AT}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>`;
