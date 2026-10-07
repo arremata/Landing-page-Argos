@@ -3,11 +3,21 @@ title: "Arrematei o imóvel: eu pago as dívidas de IPTU e condomínio?"
 slug: "dividas-do-imovel-arrematado"
 description: "O que o STJ decidiu sobre IPTU e dívidas de condomínio do imóvel arrematado, o que muda conforme o edital e como calcular o risco antes do lance."
 keywordPrincipal: "dívida de condomínio imóvel arrematado"
-publishedAt: "2026-08-18"
-updatedAt: "2026-08-18"
+publishedAt: "2026-10-06"
+updatedAt: "2026-10-06"
 author: "Equipe Argos"
+reviewedBy: "Equipe editorial Argos"
+reviewedAt: "2026-10-06"
+reviewType: "Revisão editorial e checagem de fontes"
+sources:
+  - title: "Código Tributário Nacional — Lei 5.172/1966"
+    url: "https://www.planalto.gov.br/ccivil_03/leis/l5172compilado.htm"
+  - title: "Código de Processo Civil — Lei 13.105/2015"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm"
+  - title: "STJ — Tema Repetitivo 1.134"
+    url: "https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?novaConsulta=true&tipo_pesquisa=T&cod_tema_inicial=1134&cod_tema_final=1134"
 cluster: "maior dor"
-status: draft
+status: published
 tags: ["IPTU", "condomínio", "dívidas", "Tema 1134"]
 ---
 
@@ -40,7 +50,7 @@ Uma circunstância processual limita o alcance do precedente predominante e mere
 
 **O que aconteceu em 2026.** Em 13 de maio de 2026, a **2ª Seção do STJ julgou o AgInt nos EREsp 2.042.756/SP** (acórdão publicado em 18/05/2026). Era a oportunidade natural de uniformizar. Mas a Seção apenas manteve o indeferimento dos embargos por ausência de similitude fática e de divergência atual. Não julgou quem deve pagar, não resolveu o conflito com o art. 908, § 1º e não fixou tese vinculante.
 
-Ou seja: **a esperada uniformização de 2026 não veio.** A orientação contra o arrematante ficou mais firme quando o débito consta do edital, mas permanece jurisprudência de Turma, sem solução de mérito para o art. 908, § 1º. Também não há afetação repetitiva nem IAC sobre o tema, e a Corte Especial não se manifestou.
+Ou seja: **a esperada uniformização de 2026 não veio.** A orientação contra o arrematante ficou mais firme quando o débito consta do edital, mas permanece jurisprudência de Turma, sem solução de mérito para o art. 908, § 1º. No levantamento encerrado em agosto de 2026, não havia afetação repetitiva nem IAC sobre o tema, e a Corte Especial não havia se manifestado.
 
 **Regra prática atual:**
 

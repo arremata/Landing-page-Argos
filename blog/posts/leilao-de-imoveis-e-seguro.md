@@ -3,11 +3,21 @@ title: "Leilão de imóveis é seguro? A resposta honesta, com os 7 pontos a ver
 slug: "leilao-de-imoveis-e-seguro"
 description: "Leilão de imóveis é seguro se você verificar sete coisas antes do lance. Veja quais são, o que a lei garante e onde estão os riscos reais."
 keywordPrincipal: "leilão de imóveis é seguro"
-publishedAt: "2026-08-18"
-updatedAt: "2026-08-18"
+publishedAt: "2026-10-06"
+updatedAt: "2026-10-06"
 author: "Equipe Argos"
+reviewedBy: "Equipe editorial Argos"
+reviewedAt: "2026-10-06"
+reviewType: "Revisão editorial e checagem de fontes"
+sources:
+  - title: "Profissão de leiloeiro — Decreto 21.981/1932"
+    url: "https://www.planalto.gov.br/ccivil_03/decreto/1930-1949/d21981.htm"
+  - title: "Código de Processo Civil — Lei 13.105/2015"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm"
+  - title: "DREI — legislação de leiloeiros e tradutores públicos"
+    url: "https://www.gov.br/empresas-e-negocios/pt-br/drei/legislacao"
 cluster: "constrói confiança"
-status: draft
+status: published
 tags: ["segurança", "riscos", "golpe leilão"]
 ---
 

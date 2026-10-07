@@ -3,17 +3,27 @@ title: "Como financiar imóvel de leilão: quando é possível e como se prepara
 slug: "como-financiar-imovel-de-leilao"
 description: "Nem todo leilão aceita financiamento. Veja em quais modalidades é possível financiar, quando o FGTS entra e o que preparar antes do lance."
 keywordPrincipal: "como financiar imóvel de leilão"
-publishedAt: "2026-08-18"
-updatedAt: "2026-08-18"
+publishedAt: "2026-10-06"
+updatedAt: "2026-10-06"
 author: "Equipe Argos"
+reviewedBy: "Equipe editorial Argos"
+reviewedAt: "2026-10-06"
+reviewType: "Revisão editorial e checagem de fontes"
+sources:
+  - title: "Código de Processo Civil — Lei 13.105/2015"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm"
+  - title: "Portal de imóveis da Caixa"
+    url: "https://venda-imoveis.caixa.gov.br/sistema/busca-imovel.asp"
+  - title: "FGTS — aquisição de moradia"
+    url: "https://www.fgts.gov.br/Paginas/trabalhador/fgts-na-moradia.aspx"
 cluster: "fundamentos e apoio"
-status: draft
+status: published
 tags: ["financiamento", "FGTS", "crédito imobiliário"]
 ---
 
 ## Dá para financiar um imóvel arrematado em leilão?
 
-**Resposta direta.** Depende do leilão. Nos leilões promovidos por bancos — em especial a Caixa, sobre imóveis próprios — o financiamento é frequentemente aceito, e isso consta do anúncio e do edital de cada imóvel. Já no leilão judicial, a lógica é diferente: o CPC prevê pagamento imediato ou parcelamento nos moldes do art. 895, e não um financiamento bancário tradicional contratado depois do lance.
+**Resposta direta.** É possível financiar quando o anúncio e o edital aceitam essa forma de pagamento. Nos leilões promovidos por bancos — em especial a Caixa, sobre imóveis próprios — essa condição aparece com frequência. Já no leilão judicial, a lógica é diferente: o CPC prevê pagamento imediato ou parcelamento nos moldes do art. 895, e não um financiamento bancário tradicional contratado depois do lance.
 
 **Na prática.** A regra de ouro é: **aprovação de crédito antes do lance, não depois.** O prazo de pagamento da arrematação não espera análise bancária. Quem dá lance contando com um financiamento que ainda não foi aprovado está apostando, não comprando.
 
@@ -46,7 +56,7 @@ tags: ["financiamento", "FGTS", "crédito imobiliário"]
 
 ## Existe financiamento bancário para leilão judicial?
 
-**Resposta direta.** Dizer que "não existe financiamento" é excessivo, mas dizer que existe uma linha pronta também é. Não há, até agosto de 2026, produto de banco de varejo disponível nacionalmente e destinado especificamente a financiar imóvel judicialmente arrematado de terceiro. As linhas verificáveis da Caixa e dos demais bancos concentram-se nos imóveis do próprio banco.
+**Resposta direta.** Dizer que "não existe financiamento" é excessivo, mas dizer que existe uma linha pronta também é. No levantamento de produtos bancários encerrado em agosto de 2026, não foi localizada uma linha de varejo disponível nacionalmente e destinada especificamente a financiar imóvel judicialmente arrematado de terceiro. As linhas verificadas da Caixa e dos demais bancos concentravam-se nos imóveis do próprio banco.
 
 **O detalhe — as três vias possíveis, que são coisas distintas:**
 

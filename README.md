@@ -11,7 +11,7 @@ no time `argos33` da Vercel; cada push na `main` publica sozinho). O domínio se
 
 ## Stack
 
-HTML, CSS e JavaScript puros — sem framework. O blog é gerado estaticamente a partir de Markdown por um script Node.
+HTML, CSS e JavaScript puros — sem framework. O blog e o dicionário são gerados estaticamente por scripts Node.
 
 ## Estrutura
 
@@ -73,10 +73,18 @@ servidor nessa porta; apagar o workspace para o servidor e libera a porta.
 title: "Título do Artigo"
 slug: "slug-do-artigo"
 description: "Resumo de 1 a 2 linhas para SEO e para o card na listagem."
-date: "2026-07-29"
+publishedAt: "2026-10-06"
+updatedAt: "2026-10-06"
 author: "Equipe Argos"
+reviewedBy: "Equipe editorial Argos"
+reviewedAt: "2026-10-06"
+reviewType: "Revisão editorial e checagem de fontes"
+status: published
 tags: ["tag1", "tag2"]
-keyword: "palavra-chave principal"
+keywordPrincipal: "palavra-chave principal"
+sources:
+  - title: "Nome da fonte oficial"
+    url: "https://endereco-oficial.example/documento"
 faq:
   - q: "Pergunta frequente?"
     a: "Resposta objetiva — vira FAQ Schema para o Google."
@@ -104,10 +112,11 @@ O domínio usado nos canonicals, no sitemap e nos links do blog vem de `SITE_URL
 - A plataforma agrega leilões de todo o Brasil; quando um leiloeiro não está no catálogo, o usuário cola o link do leilão e a IA analisa na hora.
 - Não existe "score de viabilidade". A análise entrega valor de mercado, custos reais e lance máximo — a decisão de viabilidade é do usuário.
 - O formulário da lista de espera grava na tabela `public.waitlist` do Supabase da plataforma (schema em `supabase/waitlist.sql`, com e-mail único e a origem `morar`/`investir`). A função usa `DATABASE_URL`, definida só na Vercel; sem ela, em dev local, grava em `data/signups.json`. Tem honeypot anti-spam.
-- O dicionário é conteúdo público do `www`; a plataforma autenticada apenas aponta para ele. Os convites do dicionário levam para `https://app.argosleiloes.com.br/entrar` e não existe uma segunda cópia no app.
+- O dicionário é conteúdo público do `www`; seus convites levam à explicação pública da LP e à lista de espera, sem barreira de login.
 - Blog e Dicionário podem ser abertos pelos menus desktop e mobile das páginas de moradia e investidores, além dos links no rodapé.
 
 ## Histórico
 
+- **2026-10-06** — Publicados 12 artigos com autoria institucional, revisão editorial, fontes oficiais visíveis e citações no schema `Article`. A home ganhou schema de `Organization`, `WebSite`, `WebPage` e `SoftwareApplication`; os convites do dicionário deixaram de apontar para login.
 - **2026-10-02** — Revisada a leitura no celular em todas as seções: menus com áreas de toque maiores, cards em uma coluna, valores e estimativas separados, carrossel com altura do slide atual e controles ampliados, FAQ e atendimento mais legíveis e formulários que rolam em telas baixas. Blog ganhou navegação móvel e indicação de ausência de artigos; Dicionário ganhou verbetes e atalhos maiores, com espaço para a barra inferior. Mantidos os textos da home e os rascunhos do blog.
 - **2026-10-01** — Adicionados acessos ao Blog e ao Dicionário nos menus das landing pages, em desktop e celular, seguindo o padrão visual existente.

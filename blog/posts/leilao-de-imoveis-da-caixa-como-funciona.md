@@ -3,11 +3,23 @@ title: "Leilão de imóveis da Caixa: como funciona, modalidades e custos"
 slug: "leilao-de-imoveis-da-caixa-como-funciona"
 description: "Como funciona o leilão de imóveis da Caixa Econômica Federal: modalidades de venda, financiamento, uso do FGTS e quem paga as dívidas do imóvel."
 keywordPrincipal: "como funciona o leilão de imóveis da caixa"
-publishedAt: "2026-08-18"
-updatedAt: "2026-08-18"
+publishedAt: "2026-10-06"
+updatedAt: "2026-10-06"
 author: "Equipe Argos"
+reviewedBy: "Equipe editorial Argos"
+reviewedAt: "2026-10-06"
+reviewType: "Revisão editorial e checagem de fontes"
+sources:
+  - title: "Portal de imóveis da Caixa"
+    url: "https://venda-imoveis.caixa.gov.br/sistema/busca-imovel.asp"
+  - title: "Alienação fiduciária de imóveis — Lei 9.514/1997"
+    url: "https://www.planalto.gov.br/ccivil_03/leis/l9514.htm"
+  - title: "FGTS — aquisição de moradia"
+    url: "https://www.fgts.gov.br/Paginas/trabalhador/fgts-na-moradia.aspx"
+  - title: "Banco Central — Resolução CMN 5.255/2025"
+    url: "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20CMN&numero=5255"
 cluster: "maior volume"
-status: draft
+status: published
 tags: ["leilão Caixa", "imóveis retomados", "FGTS"]
 ---
 
@@ -48,12 +60,12 @@ As alternativas de crédito e as regras gerais estão em [como financiar imóvel
 
 **O detalhe — e aqui é preciso ser preciso, porque a resposta não é fechada.** Existe tese vinculante do STJ, o Tema 1134, que invalida a cláusula de edital atribuindo ao arrematante os débitos tributários anteriores. Mas ela ainda não alcança com segurança o leilão extrajudicial, que é o caso dos imóveis retomados pela Caixa.
 
-O enunciado do Tema 1134 é amplo. Os recursos julgados, a questão afetada, a ementa e a fundamentação, porém, tratam expressamente de alienação judicial em hasta pública, com base no art. 130, parágrafo único, do CTN. Não houve análise do procedimento extrajudicial da Lei 9.514/1997. Até agosto de 2026:
+O enunciado do Tema 1134 é amplo. Os recursos julgados, a questão afetada, a ementa e a fundamentação, porém, tratam expressamente de alienação judicial em hasta pública, com base no art. 130, parágrafo único, do CTN. Não houve análise do procedimento extrajudicial da Lei 9.514/1997. No levantamento jurisprudencial encerrado em agosto de 2026:
 
 - não há decisão do STJ aplicando ou recusando expressamente o Tema 1134 ao leilão do art. 27 da Lei 9.514;
 - não há nova afetação repetitiva nem IAC sobre a extensão;
 - há um precedente do TJPR (AI 0113307-37.2025.8.16.0000, dez/2025) que aplicou o Tema 1134 a uma operação materialmente ligada à alienação fiduciária — mas o acórdão chamou a alienação de "judicial" e não enfrentou a distinção. Isso o torna argumento auxiliar, não fundamento: um precedente que não percebe a diferença é mais frágil que um que a enfrenta e decide.
 
-Em resumo: a regra do edital é o cenário que você precisa considerar no cálculo; o Tema 1134 é um argumento que existe e ainda não foi testado nesse contexto; e a resposta concreta depende do caso e merece análise específica. Não é correto dizer que você não precisa pagar, nem que certamente vai pagar.
+Em resumo: a regra do edital é o cenário que entra no cálculo; o Tema 1134 é um argumento que existe e ainda não foi testado nesse contexto; e a resposta concreta exige examinar os documentos e a modalidade daquela venda. Não é correto afirmar de forma geral que o comprador nunca paga ou que sempre paga.
 
 **Na prática.** Para fins de decisão de compra, o caminho conservador é levantar os débitos e **incluí-los no cálculo do custo total**. Se depois for possível discutir a responsabilidade, isso vira ganho; o contrário vira prejuízo. O panorama completo dos passivos está em [dívidas do imóvel arrematado](/blog/dividas-do-imovel-arrematado/), e o desenho geral do processo em [como funciona um leilão de imóveis](/blog/como-funciona-leilao-de-imoveis/).

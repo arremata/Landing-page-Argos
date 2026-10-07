@@ -3,11 +3,21 @@ title: "Como ler o edital de leilão e a matrícula do imóvel"
 slug: "como-ler-edital-de-leilao-e-matricula"
 description: "Os dois documentos que decidem se o leilão é um bom negócio. O que procurar em cada um e o que fazer quando eles se contradizem."
 keywordPrincipal: "como ler edital de leilão"
-publishedAt: "2026-08-18"
-updatedAt: "2026-08-18"
+publishedAt: "2026-10-06"
+updatedAt: "2026-10-06"
 author: "Equipe Argos"
+reviewedBy: "Equipe editorial Argos"
+reviewedAt: "2026-10-06"
+reviewType: "Revisão editorial e checagem de fontes"
+sources:
+  - title: "Código de Processo Civil — Lei 13.105/2015"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm"
+  - title: "Lei de Registros Públicos — Lei 6.015/1973"
+    url: "https://www.planalto.gov.br/ccivil_03/leis/l6015compilada.htm"
+  - title: "CNJ — Resolução 236/2016"
+    url: "https://atos.cnj.jus.br/atos/detalhar/2313"
 cluster: "fundamentos e apoio"
-status: draft
+status: published
 tags: ["edital", "matrícula", "análise documental"]
 ---
 

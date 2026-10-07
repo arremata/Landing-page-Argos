@@ -3,11 +3,21 @@ title: "Leilão judicial e leilão extrajudicial: as diferenças que mudam o seu
 slug: "leilao-judicial-e-extrajudicial-diferencas"
 description: "Judicial e extrajudicial são dois mundos com regras, prazos e riscos diferentes. Entenda o que muda em cada um antes de dar o lance."
 keywordPrincipal: "leilão de imóvel extrajudicial e judicial"
-publishedAt: "2026-08-18"
-updatedAt: "2026-08-18"
+publishedAt: "2026-10-06"
+updatedAt: "2026-10-06"
 author: "Equipe Argos"
+reviewedBy: "Equipe editorial Argos"
+reviewedAt: "2026-10-06"
+reviewType: "Revisão editorial e checagem de fontes"
+sources:
+  - title: "Código de Processo Civil — Lei 13.105/2015"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm"
+  - title: "Alienação fiduciária de imóveis — Lei 9.514/1997"
+    url: "https://www.planalto.gov.br/ccivil_03/leis/l9514.htm"
+  - title: "Marco Legal das Garantias — Lei 14.711/2023"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm"
 cluster: "fundamentos e apoio"
-status: draft
+status: published
 tags: ["leilão judicial", "leilão extrajudicial", "tipos de leilão"]
 ---
 
@@ -66,6 +76,6 @@ tags: ["leilão judicial", "leilão extrajudicial", "tipos de leilão"]
 
 ## Preciso de advogado para arrematar?
 
-**Resposta direta.** Não é exigência legal para dar lance. Mas a análise que antecede o lance — leitura da matrícula, do edital, da situação processual e da ocupação — é o que separa um bom negócio de um problema, e ela exige conhecimento técnico. A decisão sensata é: participar do leilão você pode sozinho; decidir *se vale a pena* participar daquele leilão específico, é onde a assessoria se paga.
+**Resposta direta.** Não é exigência legal para dar lance. A avaliação anterior ao lance — leitura da matrícula, do edital, da situação processual e da ocupação — exige conhecimento técnico e reduz o risco de uma decisão baseada apenas no preço. A participação pode ser feita sem advogado; dúvidas sobre os efeitos dos documentos ou do processo podem exigir apoio profissional habilitado.
 
 **Na prática.** O custo de uma análise prévia é uma fração do custo de arrematar um imóvel com uma penhora que você não viu na matrícula. Não é uma questão de formalidade — é de assimetria de informação. O ponto de partida está em [como funciona um leilão de imóveis](/blog/como-funciona-leilao-de-imoveis/).

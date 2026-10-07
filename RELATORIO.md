@@ -2,11 +2,18 @@
 
 18/08/2026 · fonte: `argos-blog-perguntas-e-respostas.md` (revisão 2) + especificação de execução
 
+> **Atualização de publicação — 06/10/2026.** Os 12 artigos passaram para
+> `published`, receberam data real de publicação e atualização, autoria
+> institucional visível, revisão editorial com checagem de fontes e listas de
+> fontes oficiais. O schema `Article` agora informa autoria, revisão e citações.
+> Não se declara revisão jurídica externa, porque não há profissional nomeado
+> no repositório para sustentar essa informação.
+
 ---
 
 ## O que foi feito
 
-**12 artigos criados**, todos em `status: draft`, com 66 das 68 perguntas do documento-fonte. As duas ausentes estão justificadas em [PENDENCIAS.md](PENDENCIAS.md) — nenhuma foi omitida por conveniência.
+**12 artigos criados**, originalmente em `status: draft` e publicados em 06/10/2026, com 66 das 68 perguntas do documento-fonte. As duas ausentes estão justificadas em [PENDENCIAS.md](PENDENCIAS.md) — nenhuma foi omitida por conveniência.
 
 **5 artigos antigos removidos**, por decisão sua, sem redirecionamento.
 
@@ -60,19 +67,19 @@ Dois ⚠️ menores viraram ressalva no corpo: o alcance do Tema 1113 (firmado s
 
 ---
 
-## O que precisa de revisão humana antes de publicar
+## Decisões tomadas na publicação de 06/10/2026
 
-1. **A ocorrência do filtro OAB** no Artigo 2 — a única, descrita em PENDENCIAS.md. Não corrigi por conta própria, como manda a Seção 5.
-2. **A taxonomia de `cluster`**, derivada da Parte II porque o documento-fonte não a define.
-3. **A assinatura dos artigos**, que a Parte VIII lista como decisão sua e segue pendente.
-4. **O `publishedAt`**, hoje provisório em 18/08/2026.
-5. **Revisão jurídica de leitura**, artigo por artigo. Compilei sem alterar conteúdo jurídico, mas a conversão das ressalvas de linguagem técnica para linguagem de leitor envolveu reescrita de forma — e é exatamente onde um deslize mudaria o sentido.
+1. **A ocorrência do filtro OAB** foi reescrita em linguagem estritamente informativa, sem promover assessoria.
+2. **A taxonomia de `cluster`** foi mantida como organizada na compilação original.
+3. **A assinatura** permanece institucional: `Equipe Argos`, acompanhada de descrição factual do processo editorial.
+4. **O `publishedAt` e o `updatedAt`** passaram para 06/10/2026, data da publicação.
+5. **A revisão registrada** é editorial e de fontes oficiais. O site não afirma que houve revisão jurídica externa ou individualizada.
 
 ---
 
 ## Verificações executadas
 
-- 12 arquivos criados, todos com `status: draft`
+- Na compilação original, 12 arquivos criados com `status: draft`; todos foram publicados em 06/10/2026
 - Nenhum marcador interno vazou
 - Nenhuma referência `[Artigo N]` sobrou
 - Todos os links internos apontam para slug existente
