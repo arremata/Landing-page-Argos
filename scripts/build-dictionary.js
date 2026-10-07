@@ -9,6 +9,94 @@ const LEARN_URL = '/#leilao';
 const WAITLIST_URL = '/?cadastro=1';
 const DICTIONARY_TITLE = 'Dicionário do leilão de imóveis da Caixa';
 const DICTIONARY_DESCRIPTION = 'O que quer dizer cada palavra dos leilões e da venda direta da Caixa: rodadas, valor de avaliação, imóvel ocupado, ITBI, matrícula e outros termos, sem juridiquês.';
+const UPDATED_AT = '2026-10-07';
+const FONT_STYLESHEET = 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=optional';
+
+const OFFICIAL_SOURCES = {
+  caixa: {
+    title: 'Portal de Imóveis CAIXA',
+    url: 'https://venda-imoveis.caixa.gov.br/sistema/busca-imovel.asp',
+  },
+  lei9514: {
+    title: 'Lei 9.514/1997 — alienação fiduciária de imóveis',
+    url: 'https://www.planalto.gov.br/ccivil_03/leis/l9514.htm',
+  },
+  cpc: {
+    title: 'Código de Processo Civil — Lei 13.105/2015',
+    url: 'https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm',
+  },
+  registros: {
+    title: 'Lei de Registros Públicos — Lei 6.015/1973',
+    url: 'https://www.planalto.gov.br/ccivil_03/leis/l6015compilada.htm',
+  },
+  ctn: {
+    title: 'Código Tributário Nacional — Lei 5.172/1966',
+    url: 'https://www.planalto.gov.br/ccivil_03/leis/l5172compilado.htm',
+  },
+  fgts: {
+    title: 'FGTS na moradia — regras oficiais',
+    url: 'https://www.fgts.gov.br/Paginas/trabalhador/fgts-na-moradia.aspx',
+  },
+  leiloeiro: {
+    title: 'Profissão de leiloeiro — Decreto 21.981/1932',
+    url: 'https://www.planalto.gov.br/ccivil_03/decreto/1930-1949/d21981.htm',
+  },
+};
+
+const GROUP_GUIDANCE = {
+  venda: {
+    confirmation: 'A modalidade, o responsável pela venda e as regras da disputa aparecem na ficha do imóvel e no edital correspondente.',
+    sources: ['caixa', 'lei9514'],
+    article: { path: '/blog/leilao-de-imoveis-da-caixa-como-funciona/', title: 'Como funciona o leilão de imóveis da Caixa' },
+  },
+  rodadas: {
+    confirmation: 'Use sempre a rodada e a data atuais. Valores de uma etapa anterior podem continuar circulando em anúncios e não servir para a disputa aberta.',
+    sources: ['caixa', 'lei9514'],
+    article: { path: '/blog/leilao-de-imoveis-da-caixa-como-funciona/', title: 'Como funciona o leilão de imóveis da Caixa' },
+  },
+  situacao: {
+    confirmation: 'A ficha e o edital registram o que o vendedor informa sobre ocupação e posse. Quando a informação não existe, a página não presume que o imóvel esteja livre.',
+    sources: ['caixa', 'cpc'],
+    article: { path: '/blog/imovel-de-leilao-ocupado-desocupacao/', title: 'Imóvel de leilão ocupado: custos e caminhos para desocupação' },
+  },
+  pagamento: {
+    confirmation: 'As formas aceitas aparecem na ficha de cada imóvel. Aprovação de crédito e uso do FGTS seguem verificações próprias, mesmo quando a modalidade permite esses recursos.',
+    sources: ['caixa', 'fgts'],
+    article: { path: '/blog/como-financiar-imovel-de-leilao/', title: 'Como financiar um imóvel de leilão' },
+  },
+  custos: {
+    confirmation: 'O edital distribui as despesas da venda. Prefeitura e cartório informam tributos e emolumentos que variam conforme o município, o estado e o valor do imóvel.',
+    sources: ['caixa', 'ctn', 'registros'],
+    article: { path: '/blog/quanto-custa-comprar-imovel-em-leilao/', title: 'Quanto custa comprar um imóvel em leilão' },
+  },
+  documentos: {
+    confirmation: 'Compare os identificadores da ficha, do edital e da matrícula. Eles precisam apontar para o mesmo imóvel e para o evento de venda correto.',
+    sources: ['caixa', 'registros'],
+    article: { path: '/blog/como-ler-edital-de-leilao-e-matricula/', title: 'Como ler o edital e a matrícula do imóvel' },
+  },
+  processo: {
+    confirmation: 'Os prazos depois do lance ficam no edital e nos comunicados oficiais. Pagamento, contrato, registro e posse são etapas diferentes.',
+    sources: ['caixa', 'cpc'],
+    article: { path: '/blog/como-funciona-leilao-de-imoveis/', title: 'Como funciona um leilão de imóveis do começo ao fim' },
+  },
+};
+
+const TERM_SOURCE_OVERRIDES = {
+  leiloeiro: ['caixa', 'leiloeiro'],
+  comissao_leiloeiro: ['caixa', 'leiloeiro'],
+  pagamento_comissao: ['caixa', 'leiloeiro'],
+  alienacao_fiduciaria: ['lei9514', 'registros'],
+  direito_preferencia: ['lei9514', 'caixa'],
+  fgts: ['caixa', 'fgts'],
+  sem_fgts: ['caixa', 'fgts'],
+  imissao_na_posse: ['cpc', 'registros'],
+  processo: ['cpc', 'caixa'],
+  matricula: ['registros', 'caixa'],
+  cartorio_oficio: ['registros', 'caixa'],
+  registro_cartorio: ['registros', 'caixa'],
+  emolumentos: ['registros', 'caixa'],
+  itbi: ['ctn', 'registros'],
+};
 
 function escapeHtml(value) {
   return String(value)
@@ -33,7 +121,14 @@ function termPath(key) {
 function dictionaryEntry(key) {
   const entry = GLOSSARY[key];
   if (!entry) return null;
-  return { key, ...entry, slug: termSlug(key), path: termPath(key), detail: entry.detail || [] };
+  return {
+    key,
+    ...entry,
+    slug: termSlug(key),
+    path: termPath(key),
+    detail: entry.detail || [],
+    checks: entry.checks || [],
+  };
 }
 
 function groupTitle(groupId) {
@@ -51,7 +146,10 @@ function relatedEntries(key, limit = 6) {
 }
 
 function isIndexableTerm(key) {
-  return (GLOSSARY[key]?.detail || []).length > 0;
+  const entry = dictionaryEntry(key);
+  if (!entry || entry.detail.length < 2 || entry.checks.length < 3) return false;
+  const detailWords = entry.detail.join(' ').trim().split(/\s+/).length;
+  return detailWords >= 45;
 }
 
 function dictionarySitemapPaths() {
@@ -76,12 +174,29 @@ function dictionaryMeta(key, siteUrl) {
     };
   }
   const entry = dictionaryEntry(key);
+  const title = entry.term.length > 30
+    ? `${entry.term} | Dicionário Argos`
+    : `${entry.term}: o que é no leilão da Caixa | Argos`;
   return {
-    title: `${entry.term}: o que é no leilão da Caixa | Argos`,
-    description: clip(entry.body),
+    title,
+    description: clip(`${entry.body} ${entry.detail[0]}`),
     canonical: `${siteUrl}${entry.path}`,
     index: isIndexableTerm(key),
   };
+}
+
+function termSources(key) {
+  const entry = dictionaryEntry(key);
+  const sourceIds = TERM_SOURCE_OVERRIDES[key] || GROUP_GUIDANCE[entry.group].sources;
+  return sourceIds.map(sourceId => OFFICIAL_SOURCES[sourceId]);
+}
+
+function fontMarkup() {
+  return `<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="${FONT_STYLESHEET}">
+  <link href="${FONT_STYLESHEET}" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="${FONT_STYLESHEET}" rel="stylesheet"></noscript>`;
 }
 
 function dictionaryJsonLd(key, siteUrl) {
@@ -112,14 +227,42 @@ function dictionaryJsonLd(key, siteUrl) {
   }
 
   const entry = dictionaryEntry(key);
+  const pageUrl = `${siteUrl}${entry.path}`;
   return [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      '@id': `${pageUrl}#webpage`,
+      name: `${entry.term}: o que é no leilão da Caixa`,
+      description: dictionaryMeta(key, siteUrl).description,
+      url: pageUrl,
+      inLanguage: 'pt-BR',
+      dateModified: UPDATED_AT,
+      isPartOf: { '@type': 'WebSite', '@id': `${siteUrl}/#website` },
+      mainEntity: { '@id': `${pageUrl}#termo` },
+      author: {
+        '@type': 'Organization',
+        '@id': `${siteUrl}/#organization`,
+        name: 'Equipe Argos',
+      },
+      reviewedBy: {
+        '@type': 'Organization',
+        name: 'Equipe editorial Argos',
+        url: siteUrl,
+      },
+      citation: termSources(key).map(source => ({
+        '@type': 'CreativeWork',
+        name: source.title,
+        url: source.url,
+      })),
+    },
     { '@context': 'https://schema.org', ...definedTerm(entry), inDefinedTermSet: termSet },
     {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Dicionário', item: setUrl },
-        { '@type': 'ListItem', position: 2, name: entry.term, item: `${siteUrl}${entry.path}` },
+        { '@type': 'ListItem', position: 2, name: entry.term, item: pageUrl },
       ],
     },
   ];
@@ -178,13 +321,13 @@ function introMarkup() {
 
 function hubBody() {
   const groups = glossaryByGroup();
-  const index = groups.map(group => `<a href="#${group.id}">${escapeHtml(group.title)}</a>`).join('');
+  const index = groups.map(group => `<a href="#grupo-${group.id}">${escapeHtml(group.title)}</a>`).join('');
   const sections = groups.map(group => {
     const entries = group.entries.map(entry => (
       `<div id="${entry.key}" class="dictionary-entry" data-dictionary-entry data-search="${escapeHtml(`${entry.term} ${entry.body}`.toLowerCase())}">`
       + `<dt><a href="${termPath(entry.key)}">${escapeHtml(entry.term)}</a></dt><dd>${escapeHtml(entry.body)}</dd></div>`
     )).join('');
-    return `<section id="${group.id}" class="dictionary-group" data-dictionary-group><h2>${escapeHtml(group.title)}</h2><dl>${entries}</dl></section>`;
+    return `<section id="grupo-${group.id}" class="dictionary-group" data-dictionary-group><h2>${escapeHtml(group.title)}</h2><dl>${entries}</dl></section>`;
   }).join('');
 
   return `<main class="dictionary-page">${introMarkup()}
@@ -205,12 +348,38 @@ function termBody(key) {
   const entry = dictionaryEntry(key);
   const group = groupTitle(entry.group);
   const detail = entry.detail.map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join('');
+  const checks = entry.checks.map(item => `<li>${escapeHtml(item)}</li>`).join('');
+  const guidance = GROUP_GUIDANCE[entry.group];
+  const sources = termSources(key)
+    .map(source => `<li><a href="${escapeHtml(source.url)}" rel="external">${escapeHtml(source.title)}</a></li>`)
+    .join('');
   const related = relatedEntries(key)
     .map(item => `<li><a href="${item.path}">${escapeHtml(item.term)}</a></li>`).join('');
 
   return `<main class="dictionary-page dictionary-term-page">${introMarkup()}
-    <nav class="dictionary-crumbs" aria-label="Você está em"><a href="${DICTIONARY_PATH}">Dicionário</a><span aria-hidden="true">›</span><a href="${DICTIONARY_PATH}#${entry.group}">${escapeHtml(group)}</a></nav>
-    <article><h1>${escapeHtml(entry.term)}</h1><p class="dictionary-term-lead">${escapeHtml(entry.body)}</p>${detail}<a class="dictionary-term-cta" href="${LEARN_URL}">Ver como o Argos explica os imóveis →</a></article>
+    <nav class="dictionary-crumbs" aria-label="Você está em"><a href="${DICTIONARY_PATH}">Dicionário</a><span aria-hidden="true">›</span><a href="${DICTIONARY_PATH}#grupo-${entry.group}">${escapeHtml(group)}</a></nav>
+    <article class="dictionary-term-article">
+      <header>
+        <h1>${escapeHtml(entry.term)}</h1>
+        <p class="dictionary-term-lead">${escapeHtml(entry.body)}</p>
+        <p class="dictionary-byline">Por Equipe Argos · Revisão editorial e checagem de fontes · <time datetime="${UPDATED_AT}">Atualizado em 7 out 2026</time></p>
+      </header>
+      <section aria-labelledby="entenda-o-termo">
+        <h2 id="entenda-o-termo">Como esse termo funciona na compra</h2>
+        ${detail}
+      </section>
+      <section class="dictionary-practical" aria-labelledby="o-que-conferir">
+        <h2 id="o-que-conferir">O que conferir nos documentos</h2>
+        <ul>${checks}</ul>
+      </section>
+      <section class="dictionary-confirm" aria-labelledby="onde-confirmar">
+        <h2 id="onde-confirmar">Onde confirmar esta informação</h2>
+        <p>${escapeHtml(guidance.confirmation)}</p>
+        <ul class="dictionary-sources">${sources}</ul>
+        <p class="dictionary-related-guide"><b>Guia relacionado:</b> <a href="${guidance.article.path}">${escapeHtml(guidance.article.title)}</a></p>
+      </section>
+      <a class="dictionary-term-cta" href="${LEARN_URL}">Ver como o Argos explica os imóveis →</a>
+    </article>
     ${related ? `<section class="dictionary-related"><h2>Outros termos de ${escapeHtml(group.toLowerCase())}</h2><ul>${related}</ul><a class="dictionary-all" href="${DICTIONARY_PATH}">Ver o dicionário completo</a></section>` : ''}
     ${catalogInvite()}${dictionaryNote()}${stickyCatalogBar()}
   </main>`;
@@ -229,7 +398,7 @@ function pageShell({ body, key, siteUrl }) {
   <meta name="description" content="${escapeHtml(meta.description)}">
   <meta name="robots" content="${meta.index ? 'index, follow' : 'noindex, follow'}">
   <link rel="canonical" href="${meta.canonical}">
-  <meta property="og:type" content="article">
+  <meta property="og:type" content="${key ? 'article' : 'website'}">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="Argos">
   <meta property="og:title" content="${escapeHtml(meta.title)}">
@@ -237,9 +406,7 @@ function pageShell({ body, key, siteUrl }) {
   <meta property="og:url" content="${meta.canonical}">
   <meta name="theme-color" content="#FFFFFF">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  ${fontMarkup()}
   <link rel="stylesheet" href="/lp/styles.css">
   <link rel="stylesheet" href="/lp/dictionary.css">
   ${schemas}
@@ -281,6 +448,7 @@ function buildDictionary({ root = ROOT, siteUrl = DEFAULT_SITE_URL } = {}) {
 if (require.main === module) buildDictionary();
 
 module.exports = {
+  DICTIONARY_UPDATED_AT: UPDATED_AT,
   buildDictionary,
   dictionaryMeta,
   dictionarySitemapPaths,
