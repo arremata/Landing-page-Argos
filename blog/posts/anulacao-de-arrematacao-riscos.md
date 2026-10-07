@@ -3,11 +3,19 @@ title: "O antigo dono pode anular o leilão? O que a lei garante ao arrematante"
 slug: "anulacao-de-arrematacao-riscos"
 description: "Prazos e hipóteses de anulação da arrematação, o que torna o negócio irretratável e quais proteções o arrematante tem se o leilão for questionado."
 keywordPrincipal: "anulação de arrematação"
-publishedAt: "2026-08-18"
-updatedAt: "2026-08-18"
+publishedAt: "2026-10-06"
+updatedAt: "2026-10-06"
 author: "Equipe Argos"
+reviewedBy: "Equipe editorial Argos"
+reviewedAt: "2026-10-06"
+reviewType: "Revisão editorial e checagem de fontes"
+sources:
+  - title: "Código de Processo Civil — Lei 13.105/2015"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm"
+  - title: "Código Civil — Lei 10.406/2002"
+    url: "https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm"
 cluster: "constrói confiança"
-status: draft
+status: published
 tags: ["anulação", "riscos", "arrematante"]
 ---
 
@@ -56,6 +64,6 @@ Duas ressalvas sobre o prazo de quatro anos. Ele não vem de tese repetitiva nem
 
 ## Posso revender o imóvel logo depois?
 
-**Resposta direta.** Juridicamente, depois de registrada a propriedade em seu nome, você pode vender. Na prática, a revenda depende de dois fatores que costumam levar meses: ter o imóvel efetivamente desocupado e ter a documentação regularizada, incluindo as certidões negativas que qualquer comprador vai exigir.
+**Resposta direta.** Juridicamente, depois de registrada a propriedade em seu nome, você pode vender. Na prática, a revenda costuma exigir duas etapas que levam meses: ter o imóvel efetivamente desocupado e regularizar a documentação, incluindo as certidões negativas que qualquer comprador vai exigir.
 
 **Na prática.** Comprador financiado não fecha negócio com imóvel ocupado nem com pendências na matrícula. Quem compra em leilão para revender precisa incluir esse tempo no cálculo de retorno — é o erro mais comum de quem começa. O prazo e o custo dessa etapa estão em [imóvel de leilão ocupado](/blog/imovel-de-leilao-ocupado-desocupacao/), e o desenho geral do processo em [como funciona um leilão de imóveis](/blog/como-funciona-leilao-de-imoveis/).

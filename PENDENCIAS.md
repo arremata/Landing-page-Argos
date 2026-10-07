@@ -2,6 +2,11 @@
 
 Gerado em 18/08/2026, a partir de `argos-blog-perguntas-e-respostas.md` (revisão 2) e da especificação de execução.
 
+> **Atualização — 06/10/2026.** Os 12 artigos foram publicados com autoria
+> institucional, revisão editorial, checagem de fontes oficiais e data real de
+> publicação. As lacunas de dados descritas nos itens 1 e 2 continuam válidas;
+> autoria, data e a ocorrência do filtro OAB foram resolvidas conforme abaixo.
+
 Nada aqui foi preenchido por estimativa. Onde o dado não existia, a pergunta saiu do artigo ou foi escrita sem número, conforme a Seção 3 da especificação.
 
 ---
@@ -42,17 +47,19 @@ Primeiro lote sugerido pelo documento-fonte: alíquotas de ITBI dos 30 maiores m
 
 ---
 
-## 3. Filtro OAB — ocorrência a revisar
+## 3. Filtro OAB — ocorrência resolvida
 
-Uma única ocorrência, **não corrigida por decisão própria**, conforme a Seção 5 da especificação.
+Uma única ocorrência havia sido sinalizada na compilação original.
 
 **Artigo 2 — "Preciso de advogado para arrematar?"**
 
 Trecho: *"decidir se vale a pena participar daquele leilão específico, é onde a assessoria se paga"*, seguido de *"O custo de uma análise prévia é uma fração do custo de arrematar um imóvel com uma penhora que você não viu na matrícula."*
 
-O texto é do documento-fonte e não nomeia escritório, não oferece serviço, não menciona honorários nem exibe número de OAB. Ainda assim, afirma o valor econômico da assessoria jurídica, o que fica próximo da linha do Provimento CFOAB 205/2021.
-
-Sinalizo porque o custo de um falso positivo é uma pergunta e o de um falso negativo é uma representação disciplinar. **Decisão sua:** manter como está, suavizar para linguagem estritamente informativa, ou remover a última frase.
+Na publicação de 06/10/2026, o trecho foi substituído por uma explicação
+estritamente informativa: a participação não exige advogado, a leitura dos
+documentos exige conhecimento técnico e dúvidas concretas podem exigir apoio
+profissional habilitado. A afirmação sobre o valor econômico da assessoria foi
+removida.
 
 ---
 
@@ -68,13 +75,17 @@ A Seção 2.2 exige o campo e manda não suprimi-lo, mas o documento-fonte não 
 
 Para não inventar taxonomia, o valor foi derivado do próprio raciocínio de ordem de publicação da Parte II: `hub`, `maior volume`, `constrói confiança`, `maior dor` e `fundamentos e apoio`. **Confirme ou substitua** por uma taxonomia própria.
 
-### Assinatura dos artigos ainda não decidida
+### Assinatura dos artigos definida
 A Parte VIII lista a assinatura como decisão sua, ainda pendente, e registra que a formulação segura é biografia factual, sem número de OAB como credencial e sem chamada para serviço jurídico.
 
-Todos os 12 artigos estão com `author: "Equipe Argos"`, que era o padrão do gerador. **Decisão pendente:** manter autoria institucional ou adotar autor nomeado com biografia factual, o que o documento aponta como melhor para E-E-A-T e citação em IA.
+Todos os 12 artigos permanecem com `author: "Equipe Argos"`. A página exibe a
+autoria institucional, descreve o processo editorial e informa separadamente a
+revisão editorial e a checagem de fontes. Não se atribui revisão jurídica a um
+profissional não identificado.
 
-### `publishedAt` provisório
-Os 12 artigos estão com `publishedAt: "2026-08-18"`, data da revisão 2 do documento-fonte. Como estão em `draft`, a data real de publicação ainda não existe. **Atualizar ao mudar o status para `published`.**
+### `publishedAt` definido
+Os 12 artigos foram publicados com `publishedAt: "2026-10-06"` e
+`updatedAt: "2026-10-06"`.
 
 ---
 

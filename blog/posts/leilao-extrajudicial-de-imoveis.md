@@ -3,11 +3,21 @@ title: "Leilão extrajudicial de imóveis: como funciona, prazos e o que você a
 slug: "leilao-extrajudicial-de-imoveis"
 description: "O leilão extrajudicial segue a Lei 9.514/97 e tem regras próprias de prazo, lance mínimo e desocupação. Guia completo com a base legal atualizada pela Lei 14.711/2023."
 keywordPrincipal: "leilões de imóveis extrajudiciais"
-publishedAt: "2026-08-18"
-updatedAt: "2026-08-18"
+publishedAt: "2026-10-06"
+updatedAt: "2026-10-06"
 author: "Equipe Argos"
+reviewedBy: "Equipe editorial Argos"
+reviewedAt: "2026-10-06"
+reviewType: "Revisão editorial e checagem de fontes"
+sources:
+  - title: "Alienação fiduciária de imóveis — Lei 9.514/1997"
+    url: "https://www.planalto.gov.br/ccivil_03/leis/l9514.htm"
+  - title: "Marco Legal das Garantias — Lei 14.711/2023"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm"
+  - title: "Código de Processo Civil — Lei 13.105/2015"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm"
 cluster: "maior volume"
-status: draft
+status: published
 tags: ["leilão extrajudicial", "Lei 9.514", "alienação fiduciária"]
 ---
 
@@ -71,13 +81,13 @@ Sobre as consequências dessa falha, porém, os tribunais divergem — e é impo
 
 **O que fica sem resposta clara:** como esses encargos interferem no lance mínimo da primeira praça, e quem suporta o saldo anterior perante o município e o condomínio quando o preço não é suficiente.
 
-Essa lacuna é real, e vale dizer com todas as letras: até agosto de 2026 não há precedente publicado do STJ decidindo diretamente a combinação de venda efetiva em primeira praça extrajudicial, passivo anterior e preço insuficiente. O REsp 1.654.112/SP descreve a mecânica das duas praças, mas não resolve a responsabilidade perante o município e o condomínio. Instituições como a Caixa transferem os débitos ao comprador nos editais — o que é alocação contratual de risco, e não solução dada pelos tribunais.
+Essa lacuna é real. No levantamento jurisprudencial encerrado em agosto de 2026, não foi localizado precedente publicado do STJ decidindo diretamente a combinação de venda efetiva em primeira praça extrajudicial, passivo anterior e preço insuficiente. O REsp 1.654.112/SP descreve a mecânica das duas praças, mas não resolve a responsabilidade perante o município e o condomínio. Instituições como a Caixa transferem os débitos ao comprador nos editais — o que é alocação contratual de risco, e não solução dada pelos tribunais.
 
 **Na prática.** Em primeira praça, levante IPTU e condomínio antes do lance e considere o passivo integral no cálculo, salvo comprovação escrita de quitação ou retenção suficiente do preço.
 
 ## Se o imóvel for vendido por menos que a dívida, o ex-dono ainda deve?
 
-**Resposta direta.** Depende do tipo de operação. Na regra geral, se o produto do leilão não for suficiente para pagar a dívida, as despesas e os encargos, o devedor continua obrigado pelo saldo remanescente. Mas nos financiamentos para aquisição ou construção de imóvel residencial do devedor, se no segundo leilão não houver lance que atinja o mínimo legal, a dívida é considerada extinta, com recíproca quitação.
+**Resposta direta.** A consequência muda conforme o tipo de operação. Na regra geral, se o produto do leilão não for suficiente para pagar a dívida, as despesas e os encargos, o devedor continua obrigado pelo saldo remanescente. Nos financiamentos para aquisição ou construção de imóvel residencial do devedor, se no segundo leilão não houver lance que atinja o mínimo legal, a dívida é considerada extinta, com recíproca quitação.
 
 **Base legal.** Lei 9.514/1997, art. 27, § 5º-A e art. 26-A, §§ 3º e 4º, incluídos pela Lei 14.711/2023.
 

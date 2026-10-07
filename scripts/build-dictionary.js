@@ -4,8 +4,9 @@ const { GLOSSARY, GLOSSARY_GROUPS, glossaryByGroup } = require('../content/gloss
 
 const ROOT = path.join(__dirname, '..');
 const DEFAULT_SITE_URL = 'https://www.argosleiloes.com.br';
-const DEFAULT_APP_URL = 'https://app.argosleiloes.com.br';
 const DICTIONARY_PATH = '/dicionario';
+const LEARN_URL = '/#leilao';
+const WAITLIST_URL = '/?cadastro=1';
 const DICTIONARY_TITLE = 'Dicionário do leilão de imóveis da Caixa';
 const DICTIONARY_DESCRIPTION = 'O que quer dizer cada palavra dos leilões e da venda direta da Caixa: rodadas, valor de avaliação, imóvel ocupado, ITBI, matrícula e outros termos, sem juridiquês.';
 
@@ -128,14 +129,14 @@ function logoMarkup() {
   return '<span class="logo-mark" aria-hidden="true"><img src="/brand/argos-mark.svg" alt=""></span><span class="logo-word">Argos</span>';
 }
 
-function headerMarkup(appUrl) {
+function headerMarkup() {
   return `<header class="nav dictionary-nav">
   <div class="container dictionary-nav-inner">
     <a href="/" class="logo">${logoMarkup()}</a>
     <a class="dictionary-nav-current" href="${DICTIONARY_PATH}" aria-current="page">Dicionário</a>
     <div class="dictionary-account">
-      <a href="${appUrl}/entrar">Entrar</a>
-      <a class="btn-primary btn-sm" href="${appUrl}/entrar">Criar conta grátis</a>
+      <a href="${LEARN_URL}">Como funciona</a>
+      <a class="btn-primary btn-sm" href="${WAITLIST_URL}">Quero ser avisado</a>
     </div>
   </div>
 </header>`;
@@ -152,30 +153,30 @@ function footerMarkup() {
 </footer>`;
 }
 
-function catalogInvite(appUrl) {
+function catalogInvite() {
   return `<aside class="dictionary-cta">
     <p><b>Veja estes termos num imóvel de verdade.</b> No Argos, cada imóvel da Caixa mostra a rodada, a ocupação e quanto você paga até receber a chave.</p>
-    <a class="btn-primary" href="${appUrl}/entrar">Criar conta grátis e ver os imóveis</a>
+    <a class="btn-primary" href="${LEARN_URL}">Entender o leilão em 1 minuto</a>
   </aside>`;
 }
 
-function stickyCatalogBar(appUrl) {
-  return `<div class="dictionary-sticky"><span>Imóveis da Caixa com a conta completa</span><a class="btn-primary btn-sm" href="${appUrl}/entrar">Criar conta grátis</a></div>`;
+function stickyCatalogBar() {
+  return `<div class="dictionary-sticky"><span>Leilão de imóveis, sem mistério</span><a class="btn-primary btn-sm" href="${WAITLIST_URL}">Quero ser avisado</a></div>`;
 }
 
 function dictionaryNote() {
   return '<p class="dictionary-note">Os textos descrevem as regras gerais das vendas da Caixa. Cada venda tem suas regras oficiais (o edital), que valem sobre qualquer explicação daqui.</p>';
 }
 
-function introMarkup(appUrl) {
+function introMarkup() {
   return `<aside class="dictionary-intro">
     <span class="logo-mark" aria-hidden="true"><img src="/brand/argos-mark.svg" alt=""></span>
     <p><b>Argos</b> reúne os imóveis da Caixa em leilão e venda direta, com a conta de quanto você paga até receber a chave.</p>
-    <a class="btn-primary btn-sm" href="${appUrl}/entrar">Criar conta grátis</a>
+    <a class="btn-primary btn-sm" href="${LEARN_URL}">Entender como funciona</a>
   </aside>`;
 }
 
-function hubBody(appUrl) {
+function hubBody() {
   const groups = glossaryByGroup();
   const index = groups.map(group => `<a href="#${group.id}">${escapeHtml(group.title)}</a>`).join('');
   const sections = groups.map(group => {
@@ -186,7 +187,7 @@ function hubBody(appUrl) {
     return `<section id="${group.id}" class="dictionary-group" data-dictionary-group><h2>${escapeHtml(group.title)}</h2><dl>${entries}</dl></section>`;
   }).join('');
 
-  return `<main class="dictionary-page">${introMarkup(appUrl)}
+  return `<main class="dictionary-page">${introMarkup()}
     <header class="dictionary-head">
       <p class="dictionary-kicker">Entenda antes do lance</p>
       <h1>Dicionário do leilão de imóveis</h1>
@@ -196,26 +197,26 @@ function hubBody(appUrl) {
     </header>
     <nav class="dictionary-index" aria-label="Assuntos" data-dictionary-index>${index}</nav>
     <p class="dictionary-empty" data-dictionary-empty hidden>Nenhuma palavra encontrada.</p>
-    ${sections}${catalogInvite(appUrl)}${dictionaryNote()}${stickyCatalogBar(appUrl)}
+    ${sections}${catalogInvite()}${dictionaryNote()}${stickyCatalogBar()}
   </main>`;
 }
 
-function termBody(key, appUrl) {
+function termBody(key) {
   const entry = dictionaryEntry(key);
   const group = groupTitle(entry.group);
   const detail = entry.detail.map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join('');
   const related = relatedEntries(key)
     .map(item => `<li><a href="${item.path}">${escapeHtml(item.term)}</a></li>`).join('');
 
-  return `<main class="dictionary-page dictionary-term-page">${introMarkup(appUrl)}
+  return `<main class="dictionary-page dictionary-term-page">${introMarkup()}
     <nav class="dictionary-crumbs" aria-label="Você está em"><a href="${DICTIONARY_PATH}">Dicionário</a><span aria-hidden="true">›</span><a href="${DICTIONARY_PATH}#${entry.group}">${escapeHtml(group)}</a></nav>
-    <article><h1>${escapeHtml(entry.term)}</h1><p class="dictionary-term-lead">${escapeHtml(entry.body)}</p>${detail}<a class="dictionary-term-cta" href="${appUrl}/entrar">Criar conta grátis e ver os imóveis da Caixa →</a></article>
+    <article><h1>${escapeHtml(entry.term)}</h1><p class="dictionary-term-lead">${escapeHtml(entry.body)}</p>${detail}<a class="dictionary-term-cta" href="${LEARN_URL}">Ver como o Argos explica os imóveis →</a></article>
     ${related ? `<section class="dictionary-related"><h2>Outros termos de ${escapeHtml(group.toLowerCase())}</h2><ul>${related}</ul><a class="dictionary-all" href="${DICTIONARY_PATH}">Ver o dicionário completo</a></section>` : ''}
-    ${catalogInvite(appUrl)}${dictionaryNote()}${stickyCatalogBar(appUrl)}
+    ${catalogInvite()}${dictionaryNote()}${stickyCatalogBar()}
   </main>`;
 }
 
-function pageShell({ body, key, siteUrl, appUrl }) {
+function pageShell({ body, key, siteUrl }) {
   const meta = dictionaryMeta(key, siteUrl);
   const schemas = dictionaryJsonLd(key, siteUrl)
     .map(data => `<script type="application/ld+json">${jsonForHtml(data)}</script>`).join('\n');
@@ -244,7 +245,7 @@ function pageShell({ body, key, siteUrl, appUrl }) {
   ${schemas}
 </head>
 <body class="dictionary-body">
-${headerMarkup(appUrl)}
+${headerMarkup()}
 ${body}
 ${footerMarkup()}
 <script src="/lp/dictionary.js" defer></script>
@@ -252,16 +253,14 @@ ${footerMarkup()}
 </html>`;
 }
 
-function buildDictionary({ root = ROOT, siteUrl = DEFAULT_SITE_URL, appUrl = DEFAULT_APP_URL } = {}) {
+function buildDictionary({ root = ROOT, siteUrl = DEFAULT_SITE_URL } = {}) {
   const normalizedSiteUrl = siteUrl.replace(/\/+$/, '');
-  const normalizedAppUrl = appUrl.replace(/\/+$/, '');
   const output = path.join(root, 'dicionario');
   fs.mkdirSync(output, { recursive: true });
   fs.writeFileSync(path.join(output, 'index.html'), pageShell({
-    body: hubBody(normalizedAppUrl),
+    body: hubBody(),
     key: null,
     siteUrl: normalizedSiteUrl,
-    appUrl: normalizedAppUrl,
   }), 'utf8');
 
   const keys = Object.keys(GLOSSARY);
@@ -269,10 +268,9 @@ function buildDictionary({ root = ROOT, siteUrl = DEFAULT_SITE_URL, appUrl = DEF
     const termOutput = path.join(output, termSlug(key));
     fs.mkdirSync(termOutput, { recursive: true });
     fs.writeFileSync(path.join(termOutput, 'index.html'), pageShell({
-      body: termBody(key, normalizedAppUrl),
+      body: termBody(key),
       key,
       siteUrl: normalizedSiteUrl,
-      appUrl: normalizedAppUrl,
     }), 'utf8');
   }
 

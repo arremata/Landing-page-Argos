@@ -38,8 +38,9 @@ test('a página principal é indexável e aponta para o domínio público', () =
   assert.match(html, /<link rel="canonical" href="https:\/\/www\.argosleiloes\.com\.br\/dicionario">/);
   assert.match(html, /<meta name="robots" content="index, follow">/);
   assert.match(html, /DefinedTermSet/);
-  assert.match(html, /Criar conta grátis e ver os imóveis/);
-  assert.match(html, /https:\/\/app\.argosleiloes\.com\.br\/entrar/);
+  assert.match(html, /Entender o leilão em 1 minuto/);
+  assert.match(html, /Quero ser avisado/);
+  assert.doesNotMatch(html, /\/entrar|app\.argosleiloes\.com\.br/);
 });
 
 test('verbetes curtos ficam fora do índice até ganharem explicação própria', () => {

@@ -3,11 +3,23 @@ title: "Quanto custa comprar imóvel em leilão: todos os custos além do lance"
 slug: "quanto-custa-comprar-imovel-em-leilao"
 description: "Comissão do leiloeiro, ITBI, cartório, dívidas e desocupação. Veja a conta completa do que se paga além do lance em um leilão de imóvel."
 keywordPrincipal: "custos leilão de imóveis"
-publishedAt: "2026-08-18"
-updatedAt: "2026-08-18"
+publishedAt: "2026-10-06"
+updatedAt: "2026-10-06"
 author: "Equipe Argos"
+reviewedBy: "Equipe editorial Argos"
+reviewedAt: "2026-10-06"
+reviewType: "Revisão editorial e checagem de fontes"
+sources:
+  - title: "Código de Processo Civil — Lei 13.105/2015"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm"
+  - title: "Código Tributário Nacional — Lei 5.172/1966"
+    url: "https://www.planalto.gov.br/ccivil_03/leis/l5172compilado.htm"
+  - title: "Profissão de leiloeiro — Decreto 21.981/1932"
+    url: "https://www.planalto.gov.br/ccivil_03/decreto/1930-1949/d21981.htm"
+  - title: "STJ — Tema Repetitivo 1.113"
+    url: "https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?novaConsulta=true&tipo_pesquisa=T&cod_tema_inicial=1113&cod_tema_final=1113"
 cluster: "fundamentos e apoio"
-status: draft
+status: published
 tags: ["custos", "ITBI", "comissão do leiloeiro"]
 ---
 
@@ -70,7 +82,7 @@ E há uma proteção adicional: quem suscitar vício infundado com o objetivo de
 
 **Base legal.** CPC, art. 903, *caput*, § 1º, III, § 5º, I a III, e § 6º.
 
-**Na prática.** A hipótese 1 é a mais relevante e a menos conhecida. Ela é o motivo pelo qual vale a pena puxar a matrícula atualizada logo após arrematar, e não só antes — o prazo é de dez dias e não se recupera.
+**Na prática.** A hipótese 1 é a mais relevante e a menos conhecida. Por isso, a matrícula atualizada também precisa ser consultada logo após a arrematação, e não só antes — o prazo é de dez dias e não se recupera.
 
 ## Quem paga o ITBI e sobre qual valor?
 

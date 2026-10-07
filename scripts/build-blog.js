@@ -108,6 +108,19 @@ function escapeHtml(s) {
     .replace(/"/g, '&quot;');
 }
 
+function buildSources(sources, reviewedAt) {
+  if (!sources.length) return '';
+  const items = sources.map(source => `
+          <li><a href="${escapeHtml(source.url)}" rel="external">${escapeHtml(source.title)}</a></li>`).join('');
+  return `
+      <section class="blog-sources" aria-labelledby="fontes-oficiais">
+        <h2 id="fontes-oficiais">Fontes oficiais e referências</h2>
+        <ul>${items}
+        </ul>
+        <p>Fontes conferidas na revisão editorial de <time datetime="${reviewedAt}">${formatDate(reviewedAt)}</time>.</p>
+      </section>`;
+}
+
 function buildBreadcrumbSchema(post) {
   return `<script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org',
@@ -120,11 +133,11 @@ function buildBreadcrumbSchema(post) {
   })}</script>`;
 }
 
-// Exigido pela Parte VI do documento-fonte (filtro OAB). O autor e advogado
-// inscrito; a ausencia deste bloco em artigo juridico e exposicao disciplinar.
+// Aviso editorial para separar conteudo educativo de orientacao profissional
+// individualizada. A autoria publicada e institucional, sem credencial inventada.
 const DISCLAIMER_OAB = `
       <aside class="blog-disclaimer">
-        <p>Este conteúdo tem finalidade informativa e educacional. Não constitui consultoria jurídica nem substitui a análise de um profissional habilitado sobre o seu caso concreto. Em um caso concreto, o edital, a matrícula, a legislação municipal e a cronologia da consolidação e da arrematação podem alterar substancialmente o resultado. Leis e entendimentos judiciais mudam; verifique a data de atualização no topo desta página.</p>
+        <p>Este conteúdo tem finalidade informativa e educacional. Não oferece orientação jurídica individualizada nem substitui a análise de um profissional habilitado sobre o seu caso concreto. O edital, a matrícula, a legislação municipal e a cronologia da consolidação e da arrematação podem alterar substancialmente o resultado. Leis e entendimentos judiciais mudam; verifique a data de atualização no topo desta página.</p>
       </aside>`;
 
 function postTemplate(post, content, toc) {
@@ -135,17 +148,37 @@ function postTemplate(post, content, toc) {
     description: post.description,
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,
-    author: { '@type': 'Organization', name: 'Argos' },
+    inLanguage: 'pt-BR',
+    isAccessibleForFree: true,
+    keywords: [post.keywordPrincipal, ...post.tags].filter(Boolean).join(', '),
+    author: {
+      '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
+      name: post.author,
+      url: SITE_URL,
+    },
+    reviewedBy: {
+      '@type': 'Organization',
+      name: post.reviewedBy,
+      url: SITE_URL,
+    },
     publisher: {
       '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
       name: 'Argos',
       logo: { '@type': 'ImageObject', url: `${SITE_URL}/favicon.svg` }
     },
+    citation: post.sources.map(source => ({
+      '@type': 'CreativeWork',
+      name: source.title,
+      url: source.url,
+    })),
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE_URL}/blog/${post.slug}/` }
   };
 
   const faq = buildFaq(post.faq);
   const breadcrumbSchema = buildBreadcrumbSchema(post);
+  const sourcesHtml = buildSources(post.sources, post.reviewedAt);
 
   return `<!DOCTYPE html>
 <html lang="pt-BR">
@@ -183,10 +216,10 @@ ${faq.schema}
     <nav class="nav-links" aria-label="Navegação">
       <a href="/blog/">Blog</a>
       <a href="/dicionario">Dicionário</a>
-      <a href="${SITE_URL}/#passo-a-passo">Como funciona</a>
+      <a href="${SITE_URL}/#leilao">Como funciona</a>
       <a href="${SITE_URL}/#faq">Dúvidas</a>
     </nav>
-    <a href="${SITE_URL}/" class="btn-primary btn-sm nav-cta" target="_blank" rel="noopener">Conhecer o Argos</a>
+    <a href="${SITE_URL}/?cadastro=1" class="btn-primary btn-sm nav-cta">Quero ser avisado</a>
     <details class="blog-mobile-nav">
       <summary aria-label="Abrir menu de navegação">Menu</summary>
       <nav aria-label="Navegação no celular">
@@ -220,7 +253,12 @@ ${faq.schema}
         </div>
         <h1 class="blog-title">${post.title}</h1>
         <p class="blog-desc">${post.description}</p>
-        <p class="blog-updated">Atualizado em <time datetime="${post.updatedAt}">${formatDate(post.updatedAt)}</time></p>
+        <div class="blog-byline">
+          <p><strong>Por ${escapeHtml(post.author)}</strong></p>
+          <p>Conteúdo educativo produzido a partir de legislação, decisões judiciais e fontes oficiais.</p>
+          <p>${escapeHtml(post.reviewType)} por ${escapeHtml(post.reviewedBy)} em <time datetime="${post.reviewedAt}">${formatDate(post.reviewedAt)}</time>.</p>
+        </div>
+        <p class="blog-updated">Publicado em <time datetime="${post.publishedAt}">${formatDate(post.publishedAt)}</time> · Atualizado em <time datetime="${post.updatedAt}">${formatDate(post.updatedAt)}</time></p>
       </header>
 
       ${toc}
@@ -229,12 +267,13 @@ ${faq.schema}
         ${content}
       </div>
 ${faq.html}
+${sourcesHtml}
 ${DISCLAIMER_OAB}
 
       <div class="blog-cta-box">
-        <h3>Quer analisar leilões com mais segurança?</h3>
-        <p>O Argos cruza edital, mercado, custos e riscos jurídicos em minutos. Veja como funciona.</p>
-        <a href="${SITE_URL}/" class="btn-primary" target="_blank" rel="noopener">Conhecer o Argos →</a>
+        <h3>Quer entender o imóvel antes do lance?</h3>
+        <p>O Argos reúne custo total, ocupação e formas de pagamento para explicar cada imóvel com clareza.</p>
+        <a href="${SITE_URL}/#leilao" class="btn-primary">Entender como funciona →</a>
       </div>
 
     </div>
@@ -288,12 +327,13 @@ function listingTemplate(posts) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Argos — Inteligência em Leilões Imobiliários</title>
-<meta name="description" content="Guias, análises e dicas sobre leilão de imóveis. Aprenda a avaliar editais, calcular custos e evitar riscos com inteligência artificial.">
+<title>Guias sobre leilão de imóveis | Blog Argos</title>
+<meta name="description" content="Entenda editais, custos, formas de pagamento e ocupação antes de participar de um leilão de imóveis. Guias práticos com fontes oficiais.">
 <link rel="canonical" href="${SITE_URL}/blog/">
 <meta property="og:title" content="Blog | Argos">
-<meta property="og:description" content="Guias, análises e dicas sobre leilão de imóveis.">
+<meta property="og:description" content="Entenda editais, custos, formas de pagamento e ocupação antes de participar de um leilão de imóveis. Guias práticos com fontes oficiais.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="${SITE_URL}/blog/">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%237C3AED'/%3E%3Cpath d='M4 12s3-5.5 8-5.5 8 5.5 8 5.5-3 5.5-8 5.5-8-5.5-8-5.5Z' fill='none' stroke='white' stroke-width='1.5'/%3E%3Ccircle cx='12' cy='12' r='2.3' fill='white'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -315,10 +355,10 @@ function listingTemplate(posts) {
     <nav class="nav-links" aria-label="Navegação">
       <a href="/blog/">Blog</a>
       <a href="/dicionario">Dicionário</a>
-      <a href="${SITE_URL}/#passo-a-passo">Como funciona</a>
+      <a href="${SITE_URL}/#leilao">Como funciona</a>
       <a href="${SITE_URL}/#faq">Dúvidas</a>
     </nav>
-    <a href="${SITE_URL}/" class="btn-primary btn-sm nav-cta" target="_blank" rel="noopener">Conhecer o Argos</a>
+    <a href="${SITE_URL}/?cadastro=1" class="btn-primary btn-sm nav-cta">Quero ser avisado</a>
     <details class="blog-mobile-nav">
       <summary aria-label="Abrir menu de navegação">Menu</summary>
       <nav aria-label="Navegação no celular">
@@ -337,7 +377,7 @@ function listingTemplate(posts) {
     <header class="blog-listing-header" data-reveal>
       <span class="overline">Blog</span>
       <h1 class="section-title">Guias e análises sobre leilão de imóveis</h1>
-      <p class="section-sub">Conteúdo prático para quem quer investir com segurança em leilões imobiliários.</p>
+      <p class="section-sub">Conteúdo prático para entender editais, custos, pagamento e ocupação antes do lance.</p>
     </header>
 
     <div class="blog-grid">
@@ -475,8 +515,24 @@ function build() {
       keywordPrincipal: data.keywordPrincipal || data.keyword || '',
       cluster: data.cluster || '',
       faq: data.faq || [],
+      reviewedBy: data.reviewedBy || '',
+      reviewedAt: data.reviewedAt || '',
+      reviewType: data.reviewType || 'Revisão editorial e checagem de fontes',
+      sources: data.sources || [],
       readTime,
     };
+
+    if (!post.reviewedBy || !post.reviewedAt) {
+      throw new Error(`${file}: artigo publicado precisa de reviewedBy e reviewedAt`);
+    }
+    if (post.sources.length < 2) {
+      throw new Error(`${file}: artigo publicado precisa de pelo menos duas fontes`);
+    }
+    for (const source of post.sources) {
+      if (!source.title || !/^https:\/\//.test(source.url || '')) {
+        throw new Error(`${file}: fonte invalida; informe title e URL https`);
+      }
+    }
 
     const outDir = path.join(BLOG_OUT, slug);
     fs.mkdirSync(outDir, { recursive: true });

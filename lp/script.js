@@ -70,6 +70,15 @@ document.querySelectorAll('[data-open-modal]').forEach((btn) => {
   });
 });
 
+// As paginas educativas convertem na mesma lista de espera da home, sem
+// copiar o formulario nem mandar o visitante para uma tela de login.
+const pageUrl = new URL(window.location.href);
+if (pageUrl.searchParams.get('cadastro') === '1') {
+  pageUrl.searchParams.delete('cadastro');
+  window.history.replaceState({}, '', `${pageUrl.pathname}${pageUrl.search}${pageUrl.hash}`);
+  window.setTimeout(openModal, 150);
+}
+
 modalClose.addEventListener('click', closeModal);
 
 overlay.addEventListener('click', (e) => {

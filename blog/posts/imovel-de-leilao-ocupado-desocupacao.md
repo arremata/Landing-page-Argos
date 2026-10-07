@@ -3,17 +3,27 @@ title: "Imóvel de leilão ocupado: como funciona a desocupação, prazos e cust
 slug: "imovel-de-leilao-ocupado-desocupacao"
 description: "O que fazer quando o imóvel arrematado está ocupado: imissão na posse, reintegração, prazos legais, negociação amigável e custos reais."
 keywordPrincipal: "imóvel de leilão ocupado"
-publishedAt: "2026-08-18"
-updatedAt: "2026-08-18"
+publishedAt: "2026-10-06"
+updatedAt: "2026-10-06"
 author: "Equipe Argos"
+reviewedBy: "Equipe editorial Argos"
+reviewedAt: "2026-10-06"
+reviewType: "Revisão editorial e checagem de fontes"
+sources:
+  - title: "Código de Processo Civil — Lei 13.105/2015"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm"
+  - title: "Alienação fiduciária de imóveis — Lei 9.514/1997"
+    url: "https://www.planalto.gov.br/ccivil_03/leis/l9514.htm"
+  - title: "CNJ — Resolução 236/2016"
+    url: "https://atos.cnj.jus.br/atos/detalhar/2313"
 cluster: "maior dor"
-status: draft
+status: published
 tags: ["imóvel ocupado", "imissão na posse", "desocupação"]
 ---
 
 ## E se o imóvel estiver ocupado?
 
-**Resposta direta.** É uma situação comum e não impede a compra — mas muda completamente o cálculo. Você terá que remover a ocupação, e isso tem prazo e custo. O caminho depende do tipo de leilão: no judicial, o mandado de imissão na posse; no extrajudicial de alienação fiduciária, a reintegração de posse com liminar prevista em lei.
+**Resposta direta.** É uma situação comum e não impede a compra — mas muda completamente o cálculo. A remoção da ocupação tem prazo e custo. O caminho muda conforme o tipo de leilão: no judicial, o mandado de imissão na posse; no extrajudicial de alienação fiduciária, a reintegração de posse com liminar prevista em lei.
 
 ## Como funciona a imissão na posse no leilão judicial?
 
@@ -37,7 +47,7 @@ Traduzindo: o ex-proprietário pode processar o banco discutindo cláusulas ou o
 
 **O detalhe — e aqui vale ser direto sobre o que não se sabe.** Não existe estatística pública consolidada de prazo médio de desocupação por tribunal. Qualquer número apresentado por aí como "média nacional" não tem fonte verificável atrás dele.
 
-O que se pode afirmar com segurança: o prazo legal é de 60 dias, o prazo real depende do tribunal e da resistência do ocupante, e a estimativa conservadora para planejamento financeiro deve considerar meses, não semanas.
+O que se pode afirmar com segurança: o prazo legal é de 60 dias, enquanto o prazo real varia conforme o tribunal e a resistência do ocupante. Um planejamento financeiro conservador considera meses, não semanas.
 
 ## Posso negociar a saída amigavelmente?
 
@@ -82,6 +92,6 @@ O regime dos débitos anteriores à arrematação é outro, e está em [dívidas
 3. É preciso verificar a **divisão temporal** entre o período do credor e o período do comprador, além de eventual cessão do crédito, para não cobrar em duplicidade o mesmo intervalo.
 4. Contra terceiro ocupante que não seja o fiduciante, pode caber indenização ou aluguel por outro fundamento — mas não a taxa legal de 1%.
 
-**Na prática.** Isso muda o cálculo do investidor: o período de ocupação após a arrematação não é puro prejuízo. Existe um valor legalmente devido — 1% ao mês sobre o valor de referência do contrato — cuja cobrança tem respaldo jurisprudencial. Quanto disso é efetivamente recuperável depende de quem está no imóvel e da estrutura do caso.
+**Na prática.** Isso muda o cálculo do investidor: o período de ocupação após a arrematação não é puro prejuízo. Existe um valor legalmente devido — 1% ao mês sobre o valor de referência do contrato — cuja cobrança tem respaldo jurisprudencial. O valor efetivamente recuperável varia conforme quem está no imóvel e a estrutura do caso.
 
 Os riscos de o próprio negócio ser questionado estão em [anulação da arrematação e riscos do arrematante](/blog/anulacao-de-arrematacao-riscos/), e o desenho geral do processo em [como funciona um leilão de imóveis](/blog/como-funciona-leilao-de-imoveis/).

@@ -3,11 +3,21 @@ title: "Como funciona um leilão de imóveis: o guia completo para quem nunca pa
 slug: "como-funciona-leilao-de-imoveis"
 description: "Entenda como funciona um leilão de imóvel do começo ao fim: tipos, praças, lance, custos e o que acontece depois da arrematação. Com a base legal de cada etapa."
 keywordPrincipal: "como funciona leilão de imóvel"
-publishedAt: "2026-08-18"
-updatedAt: "2026-08-18"
+publishedAt: "2026-10-06"
+updatedAt: "2026-10-06"
 author: "Equipe Argos"
+reviewedBy: "Equipe editorial Argos"
+reviewedAt: "2026-10-06"
+reviewType: "Revisão editorial e checagem de fontes"
+sources:
+  - title: "Código de Processo Civil — Lei 13.105/2015"
+    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm"
+  - title: "Alienação fiduciária de imóveis — Lei 9.514/1997"
+    url: "https://www.planalto.gov.br/ccivil_03/leis/l9514.htm"
+  - title: "Profissão de leiloeiro — Decreto 21.981/1932"
+    url: "https://www.planalto.gov.br/ccivil_03/decreto/1930-1949/d21981.htm"
 cluster: "hub"
-status: draft
+status: published
 tags: ["leilão de imóveis", "guia", "como funciona"]
 ---
 
@@ -30,7 +40,7 @@ Cada uma dessas etapas tem prazo, custo e regra própria — e elas mudam confor
 - Você pode não conseguir entrar no imóvel antes de comprar.
 - Pode haver alguém morando lá, e tirar essa pessoa leva tempo e dinheiro. Veja [o que fazer quando o imóvel está ocupado](/blog/imovel-de-leilao-ocupado-desocupacao/).
 - O pagamento costuma ser à vista ou em prazo curto. Há [caminhos de financiamento](/blog/como-financiar-imovel-de-leilao/), mas eles são limitados.
-- Pode haver dívidas sobre o imóvel — e a regra de quem paga depende do tipo de leilão. Isso está detalhado em [dívidas do imóvel arrematado](/blog/dividas-do-imovel-arrematado/).
+- Pode haver dívidas sobre o imóvel — e a regra de quem paga muda conforme o tipo de leilão. Isso está detalhado em [dívidas do imóvel arrematado](/blog/dividas-do-imovel-arrematado/).
 - O ex-proprietário pode questionar o leilão judicialmente. Veja [anulação da arrematação e os riscos do arrematante](/blog/anulacao-de-arrematacao-riscos/).
 
 Quando você soma esses custos e riscos ao lance, o "desconto de 50%" costuma virar algo entre 15% e 30% de vantagem real. Ainda é uma boa margem — mas é uma margem que precisa ser calculada, não presumida. O detalhamento está em [quanto custa comprar imóvel em leilão](/blog/quanto-custa-comprar-imovel-em-leilao/).
@@ -57,9 +67,9 @@ No extrajudicial, o caminho é outro: não há auto nem carta de arrematação j
 
 **Base legal.** CPC, art. 901, art. 903 e §§ 2º e 3º. Transmissão pelo registro: Código Civil, art. 1.245.
 
-## Vale a pena comprar imóvel em leilão?
+## Quando a compra de um imóvel em leilão pode fazer sentido?
 
-**Resposta direta.** Vale quando três condições se combinam: você entendeu exatamente qual é o tipo de leilão e o que o edital atribui a você, tem caixa para pagar o lance mais todos os custos adicionais sem apertar, e tem paciência para um prazo de desocupação que pode se estender por meses. Falhando qualquer uma das três, o desconto vira prejuízo.
+**Resposta direta.** A compra pode fazer sentido quando três condições se combinam: você entendeu exatamente qual é o tipo de leilão e o que o edital atribui a você, tem caixa para pagar o lance mais todos os custos adicionais sem apertar, e tem paciência para um prazo de desocupação que pode se estender por meses. Sem qualquer uma dessas condições, o desconto pode virar prejuízo.
 
 **O detalhe.** Leilão não é um atalho. É uma via de aquisição com custo de transação mais alto e prazo de maturação mais longo, compensados por preço de entrada menor. Para quem compra para morar e tem prazo apertado — contrato de aluguel vencendo, mudança marcada — costuma ser uma escolha ruim, porque o cronograma não é controlável por você. Para quem compra para investir e tem fôlego, é um mercado com margem real.
 
