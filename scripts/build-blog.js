@@ -382,7 +382,7 @@ function listingTemplate(posts) {
             <span class="modalidade-selo is-${p.modalidade}">${MODALIDADES[p.modalidade].selo}</span>
             <time datetime="${p.publishedAt}">${formatDate(p.publishedAt)}</time>
             <span class="meta-sep">·</span>
-            <span>${p.readTime} min</span>
+            <span>${p.readTime} min de leitura</span>
           </div>
           <h2 class="blog-card-title">${p.title}</h2>
           <p class="blog-card-desc">${p.description}</p>

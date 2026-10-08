@@ -506,8 +506,8 @@
 }
 
 /* ===== MODALIDADE DO LEILAO ===== */
-/* Judicial em violeta, extrajudicial em verde, os dois em cinza. O selo diz ao
-   leitor, antes de qualquer regra, para qual leilao o texto vale. */
+/* Um unico padrao visual para todas as modalidades: o que muda e o texto do
+   selo (judicial, extrajudicial, os dois), nunca a cor. */
 
 .modalidade-selo {
   display: inline-flex;
@@ -519,21 +519,9 @@
   font-weight: 600;
   line-height: 1.4;
   white-space: nowrap;
-  color: var(--text-2);
-  background: var(--bg-soft);
-  border: 1px solid var(--border);
-}
-
-.is-judicial > .modalidade-selo, .modalidade-selo.is-judicial {
   color: var(--violet-hover);
   background: var(--violet-bg);
-  border-color: var(--violet-border);
-}
-
-.is-extrajudicial > .modalidade-selo, .modalidade-selo.is-extrajudicial {
-  color: var(--green-text);
-  background: var(--green-bg);
-  border-color: transparent;
+  border: 1px solid var(--violet-border);
 }
 
 .blog-modalidade {
@@ -542,13 +530,11 @@
   margin-top: var(--sp-6);
   padding: var(--sp-4) var(--sp-5);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--line-strong);
+  border-left: 3px solid var(--violet);
   border-radius: var(--radius-medium);
   background: var(--white);
 }
 
-.blog-modalidade.is-judicial { border-left-color: var(--violet); }
-.blog-modalidade.is-extrajudicial { border-left-color: var(--green-text); }
 .blog-modalidade .modalidade-selo { justify-self: start; }
 
 .blog-modalidade p {
@@ -577,10 +563,10 @@
   font-size: 12px;
   font-weight: 600;
   text-align: left;
+  color: var(--violet-hover);
+  background: var(--violet-bg);
 }
 
-.blog-body .secao-tag.is-judicial { color: var(--violet-hover); background: var(--violet-bg); }
-.blog-body .secao-tag.is-extrajudicial { color: var(--green-text); background: var(--green-bg); }
 
 .toc-tag {
   margin-left: 6px;
@@ -597,7 +583,8 @@
   margin: var(--sp-8) 0;
   padding: var(--sp-5) var(--sp-6);
   border-radius: var(--radius-medium);
-  background: var(--green-bg);
+  background: var(--violet-wash);
+  border: 1px solid var(--violet-border);
 }
 
 .blog-callout-title {
