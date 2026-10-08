@@ -18,6 +18,10 @@ sources:
     url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm"
 cluster: "maior volume"
 modalidade: extrajudicial
+relacionados:
+  - leilao-de-imoveis-da-caixa-como-funciona
+  - imovel-de-leilao-ocupado-desocupacao
+  - leilao-judicial-e-extrajudicial-diferencas
 status: published
 tags: ["leilão extrajudicial", "Lei 9.514", "alienação fiduciária"]
 ---

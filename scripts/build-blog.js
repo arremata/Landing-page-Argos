@@ -93,6 +93,46 @@ function renderCallouts(markdown) {
     `<aside class="blog-callout">\n<p class="blog-callout-title">${escapeHtml(title.trim())}</p>\n\n${marked(body)}</aside>\n`);
 }
 
+// "Leia tambem": primeiro os slugs escolhidos em `relacionados` no frontmatter;
+// se faltarem, completa com os mais recentes de modalidade compativel (artigo
+// so judicial nao indica artigo so extrajudicial, e vice-versa).
+const RELACIONADOS_QTD = 3;
+
+function compativel(a, b) {
+  return a === 'ambos' || b === 'ambos' || a === b;
+}
+
+function pickRelated(post, posts, porSlug) {
+  const escolhidos = [];
+  for (const slug of post.relacionados) {
+    const alvo = porSlug.get(slug);
+    if (!alvo) throw new Error(`${post.slug}: relacionado inexistente ou nao publicado: ${slug}`);
+    if (alvo !== post && !escolhidos.includes(alvo)) escolhidos.push(alvo);
+  }
+  const resto = posts
+    .filter(p => p !== post && !escolhidos.includes(p) && compativel(post.modalidade, p.modalidade))
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+  return [...escolhidos, ...resto].slice(0, RELACIONADOS_QTD);
+}
+
+function buildRelated(relacionados) {
+  if (!relacionados.length) return '';
+  const cards = relacionados.map(p => `
+          <li>
+            <a href="/blog/${p.slug}/" class="blog-related-card">
+              <span class="modalidade-selo">${MODALIDADES[p.modalidade].selo}</span>
+              <span class="blog-related-title">${escapeHtml(p.title)}</span>
+              <span class="blog-related-meta">${p.readTime} min de leitura</span>
+            </a>
+          </li>`).join('');
+  return `
+      <nav class="blog-related" aria-labelledby="leia-tambem">
+        <h2 id="leia-tambem">Leia também</h2>
+        <ul>${cards}
+        </ul>
+      </nav>`;
+}
+
 function extractTOC(html) {
   const headings = [];
   const re = /<h([23])\s*(?:id="([^"]*)")?([^>]*)>(.*?)<\/h[23]>/gi;
@@ -336,6 +376,7 @@ ${buildModalidade(post)}
 ${faq.html}
 ${sourcesHtml}
 ${DISCLAIMER_OAB}
+${buildRelated(post.relacionadosPosts || [])}
 
       <div class="blog-cta-box">
         <h3>Quer entender o imóvel antes do lance?</h3>
@@ -617,6 +658,7 @@ function build() {
       sources: data.sources || [],
       modalidade: data.modalidade,
       modalidadeNota: data.modalidadeNota || '',
+      relacionados: data.relacionados || [],
       readTime,
     };
 
@@ -636,14 +678,20 @@ function build() {
       }
     }
 
-    const outDir = path.join(BLOG_OUT, slug);
-    fs.mkdirSync(outDir, { recursive: true });
-
-    const pageHtml = postTemplate(post, html, tocHtml);
-    fs.writeFileSync(path.join(outDir, 'index.html'), pageHtml, 'utf-8');
-
+    post.html = html;
+    post.tocHtml = tocHtml;
     posts.push(post);
-    console.log(`  ✓ ${slug}/index.html`);
+  }
+
+  // A pagina so e escrita depois de todos os artigos lidos, porque o "Leia
+  // tambem" precisa conhecer os outros publicados.
+  const porSlug = new Map(posts.map(p => [p.slug, p]));
+  for (const post of posts) {
+    post.relacionadosPosts = pickRelated(post, posts, porSlug);
+    const outDir = path.join(BLOG_OUT, post.slug);
+    fs.mkdirSync(outDir, { recursive: true });
+    fs.writeFileSync(path.join(outDir, 'index.html'), postTemplate(post, post.html, post.tocHtml), 'utf-8');
+    console.log(`  ✓ ${post.slug}/index.html`);
   }
 
   // Diretorio de artigo que deixou de existir (arquivo removido ou voltou para

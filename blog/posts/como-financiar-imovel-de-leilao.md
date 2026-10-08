@@ -18,6 +18,10 @@ sources:
     url: "https://www.fgts.gov.br/Paginas/trabalhador/fgts-na-moradia.aspx"
 cluster: "fundamentos e apoio"
 modalidade: ambos
+relacionados:
+  - leilao-de-imoveis-da-caixa-como-funciona
+  - quanto-custa-comprar-imovel-em-leilao
+  - como-funciona-leilao-de-imoveis
 status: published
 tags: ["financiamento", "FGTS", "crédito imobiliário"]
 ---

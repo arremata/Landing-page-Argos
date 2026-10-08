@@ -16,6 +16,10 @@ sources:
     url: "https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm"
 cluster: "constrói confiança"
 modalidade: judicial
+relacionados:
+  - leilao-de-imoveis-e-seguro
+  - como-ler-edital-de-leilao-e-matricula
+  - leilao-judicial-e-extrajudicial-diferencas
 status: published
 tags: ["anulação", "riscos", "arrematante"]
 ---

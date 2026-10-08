@@ -18,13 +18,17 @@ sources:
     url: "https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?novaConsulta=true&tipo_pesquisa=T&cod_tema_inicial=1134&cod_tema_final=1134"
 cluster: "maior dor"
 modalidade: ambos
+relacionados:
+  - quanto-custa-comprar-imovel-em-leilao
+  - como-ler-edital-de-leilao-e-matricula
+  - leilao-extrajudicial-de-imoveis
 status: published
 tags: ["IPTU", "condomínio", "dívidas", "Tema 1134"]
 ---
 
 ## Arrematei um imóvel: preciso pagar o IPTU atrasado?
 
-**Resposta direta.** Na arrematação em hasta pública, não. O STJ fixou, no Tema 1134, a tese de que, diante do art. 130, parágrafo único, do Código Tributário Nacional, **é inválida a previsão em edital de leilão atribuindo responsabilidade ao arrematante pelos débitos tributários que já incidiam sobre o imóvel na data de sua alienação**. Os débitos tributários anteriores sub-rogam-se no preço da arrematação.
+**Resposta direta.** No leilão judicial (a arrematação em hasta pública), não. No leilão extrajudicial, de imóveis retomados por bancos, a questão ainda não foi decidida pelo STJ, como explicamos no fim desta resposta. Para o leilão judicial, o STJ fixou, no Tema 1134, a tese de que, diante do art. 130, parágrafo único, do Código Tributário Nacional, **é inválida a previsão em edital de leilão atribuindo responsabilidade ao arrematante pelos débitos tributários que já incidiam sobre o imóvel na data de sua alienação**. Os débitos tributários anteriores sub-rogam-se no preço da arrematação.
 
 **O detalhe.** O raciocínio do STJ: o art. 130 do CTN distingue dois modos de aquisição. Na venda comum, a aquisição é derivada e o adquirente recebe o bem com os ônus que o acompanham. Na arrematação em hasta pública, a aquisição é **originária** — o bem chega ao arrematante livre dos vínculos anteriores, e o crédito tributário se transfere para o dinheiro pago no leilão. Como a responsabilidade tributária de terceiros é matéria reservada a lei complementar, um edital não pode dispor em sentido contrário.
 

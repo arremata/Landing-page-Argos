@@ -18,6 +18,10 @@ sources:
     url: "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm"
 cluster: "fundamentos e apoio"
 modalidade: ambos
+relacionados:
+  - leilao-extrajudicial-de-imoveis
+  - como-funciona-leilao-de-imoveis
+  - anulacao-de-arrematacao-riscos
 status: published
 tags: ["leilão judicial", "leilão extrajudicial", "tipos de leilão"]
 ---
@@ -64,7 +68,7 @@ tags: ["leilão judicial", "leilão extrajudicial", "tipos de leilão"]
 
 **Resposta direta.** Pode arrematar qualquer pessoa física ou jurídica que esteja na livre administração de seus bens. CPF basta para pessoa física; CNPJ para empresa. Não é preciso ser investidor, ter empresa, ter corretor ou ter advogado para participar.
 
-**O detalhe.** O CPC lista exceções — pessoas que **não** podem oferecer lance:
+**O detalhe.** No leilão judicial, o CPC lista exceções — pessoas que **não** podem oferecer lance:
 
 - tutores, curadores, testamenteiros, administradores e liquidantes, quanto aos bens confiados à sua guarda e responsabilidade;
 - mandatários, quanto aos bens de cuja administração ou alienação estejam encarregados;

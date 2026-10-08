@@ -20,6 +20,10 @@ sources:
     url: "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20CMN&numero=5255"
 cluster: "maior volume"
 modalidade: extrajudicial
+relacionados:
+  - leilao-extrajudicial-de-imoveis
+  - como-financiar-imovel-de-leilao
+  - imovel-de-leilao-ocupado-desocupacao
 status: published
 tags: ["leilão Caixa", "imóveis retomados", "FGTS"]
 ---

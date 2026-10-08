@@ -67,6 +67,9 @@ test('paginas geradas exibem sinais editoriais e schema de citacao', () => {
     assert.match(html, new RegExp(`class="blog-modalidade is-${data.modalidade}"`), data.slug);
     assert.doesNotMatch(html, /\{(judicial|extrajudicial)\}/, `${data.slug}: marca de secao nao convertida`);
     assert.doesNotMatch(html, /:::\s*nota/, `${data.slug}: quadro ::: nota nao convertido`);
+    const leiaTambem = html.match(/class="blog-related-card"/g) || [];
+    assert.equal(leiaTambem.length, 3, `${data.slug}: "Leia também" precisa de 3 artigos`);
+    assert.doesNotMatch(html, new RegExp(`class="blog-related"[\\s\\S]*href="/blog/${data.slug}/"`), `${data.slug}: indica a si mesmo`);
     assert.match(sitemap, new RegExp(`<loc>https://www\\.argosleiloes\\.com\\.br/blog/${data.slug}/</loc>`));
   }
 });

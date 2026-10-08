@@ -20,6 +20,10 @@ sources:
     url: "https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?novaConsulta=true&tipo_pesquisa=T&cod_tema_inicial=1113&cod_tema_final=1113"
 cluster: "fundamentos e apoio"
 modalidade: ambos
+relacionados:
+  - dividas-do-imovel-arrematado
+  - como-financiar-imovel-de-leilao
+  - como-ler-edital-de-leilao-e-matricula
 status: published
 tags: ["custos", "ITBI", "comissão do leiloeiro"]
 ---

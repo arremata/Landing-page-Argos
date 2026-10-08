@@ -18,6 +18,10 @@ sources:
     url: "https://atos.cnj.jus.br/atos/detalhar/2313"
 cluster: "maior dor"
 modalidade: ambos
+relacionados:
+  - leilao-extrajudicial-de-imoveis
+  - quanto-custa-comprar-imovel-em-leilao
+  - dividas-do-imovel-arrematado
 status: published
 tags: ["imóvel ocupado", "imissão na posse", "desocupação"]
 ---

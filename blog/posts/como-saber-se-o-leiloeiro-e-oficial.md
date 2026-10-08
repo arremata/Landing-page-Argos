@@ -18,6 +18,10 @@ sources:
     url: "https://atos.cnj.jus.br/atos/detalhar/2313"
 cluster: "constrói confiança"
 modalidade: ambos
+relacionados:
+  - leilao-de-imoveis-e-seguro
+  - como-ler-edital-de-leilao-e-matricula
+  - como-funciona-leilao-de-imoveis
 status: published
 tags: ["leiloeiro oficial", "Junta Comercial", "verificação"]
 ---

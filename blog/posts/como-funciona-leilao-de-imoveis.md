@@ -18,6 +18,10 @@ sources:
     url: "https://www.planalto.gov.br/ccivil_03/decreto/1930-1949/d21981.htm"
 cluster: "hub"
 modalidade: ambos
+relacionados:
+  - leilao-judicial-e-extrajudicial-diferencas
+  - quanto-custa-comprar-imovel-em-leilao
+  - leilao-de-imoveis-e-seguro
 status: published
 tags: ["leilão de imóveis", "guia", "como funciona"]
 ---
