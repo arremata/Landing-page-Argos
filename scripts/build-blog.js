@@ -36,15 +36,73 @@ function readingTime(text) {
   return Math.max(1, Math.ceil(words / 200));
 }
 
+// Modalidade do leilao. Todo artigo declara a quem se aplica, para o leitor de
+// imovel de banco nao ler regra do judicial como se valesse para ele (e
+// vice-versa). Secoes que valem so para uma modalidade levam `{judicial}` ou
+// `{extrajudicial}` no fim do titulo `##` e ganham uma etiqueta.
+const DIFERENCAS_URL = '/blog/leilao-judicial-e-extrajudicial-diferencas/';
+const MODALIDADES = {
+  judicial: {
+    selo: 'Leilão judicial',
+    filtro: 'Judicial',
+    texto: 'As regras deste artigo valem para o <strong>leilão judicial</strong>: imóvel penhorado em um processo e vendido por ordem do juiz. No leilão extrajudicial, de imóveis retomados por bancos, o caminho é outro.',
+  },
+  extrajudicial: {
+    selo: 'Leilão extrajudicial',
+    filtro: 'Extrajudicial',
+    texto: 'As regras deste artigo valem para o <strong>leilão extrajudicial</strong>: imóvel retomado pelo banco por falta de pagamento do financiamento e vendido sem processo judicial.',
+  },
+  ambos: {
+    selo: 'Judicial e extrajudicial',
+    filtro: 'Os dois',
+    texto: 'Este artigo trata das <strong>duas modalidades</strong>. Quando uma regra vale só para uma delas, o trecho está marcado.',
+  },
+};
+const ETIQUETA_SECAO = {
+  judicial: 'Só no leilão judicial',
+  extrajudicial: 'Só no leilão extrajudicial',
+};
+const SECAO_TAG_RE = /\s*\{(judicial|extrajudicial)\}\s*$/;
+
+function buildModalidade(post) {
+  const m = MODALIDADES[post.modalidade];
+  const link = post.slug === 'leilao-judicial-e-extrajudicial-diferencas'
+    ? ''
+    : ` <a href="${DIFERENCAS_URL}">Entenda a diferença →</a>`;
+  return `
+        <aside class="blog-modalidade is-${post.modalidade}" aria-label="Modalidade de leilão">
+          <span class="modalidade-selo">${m.selo}</span>
+          <p>${post.modalidadeNota ? marked.parseInline(post.modalidadeNota) : m.texto}${link}</p>
+        </aside>`;
+}
+
+// Titulo `## Pergunta? {judicial}` vira o h2 sem a marca, precedido da etiqueta.
+function tagSections(html) {
+  return html.replace(/<h2([^>]*)>(.*?)<\/h2>/gi, (full, attrs, text) => {
+    const m = text.match(SECAO_TAG_RE);
+    if (!m) return full;
+    const tipo = m[1];
+    return `<p class="secao-tag is-${tipo}">${ETIQUETA_SECAO[tipo]}</p>\n<h2${attrs} data-modalidade="${tipo}">${text.replace(SECAO_TAG_RE, '')}</h2>`;
+  });
+}
+
+// Quadro de destaque: `::: nota Titulo` ... `:::` no Markdown.
+function renderCallouts(markdown) {
+  // Aceita CRLF: os .md editados no Windows chegam com \r\n.
+  return markdown.replace(/^:::[ \t]*nota[ \t]+(.+?)\r?\n([\s\S]*?)^:::[ \t]*\r?$/gm, (full, title, body) =>
+    `<aside class="blog-callout">\n<p class="blog-callout-title">${escapeHtml(title.trim())}</p>\n\n${marked(body)}</aside>\n`);
+}
+
 function extractTOC(html) {
   const headings = [];
-  const re = /<h([23])\s*(?:id="([^"]*)")?[^>]*>(.*?)<\/h[23]>/gi;
+  const re = /<h([23])\s*(?:id="([^"]*)")?([^>]*)>(.*?)<\/h[23]>/gi;
   let match;
   while ((match = re.exec(html)) !== null) {
     const level = parseInt(match[1]);
-    const raw = match[3].replace(/<[^>]+>/g, '');
+    const raw = match[4].replace(/<[^>]+>/g, '');
     const id = match[2] || slugify(raw);
-    headings.push({ level, id, text: raw });
+    const modalidade = (match[3].match(/data-modalidade="(\w+)"/) || [])[1];
+    headings.push({ level, id, text: raw, modalidade });
   }
   return headings;
 }
@@ -63,7 +121,8 @@ function buildTOCHtml(headings) {
   let html = '<nav class="blog-toc" aria-label="Índice do artigo"><p class="toc-title">Neste artigo</p><ul>';
   for (const h of headings) {
     const indent = h.level === 3 ? ' class="toc-sub"' : '';
-    html += `<li${indent}><a href="#${h.id}">${h.text}</a></li>`;
+    const tag = h.modalidade ? ` <span class="toc-tag is-${h.modalidade}">${MODALIDADES[h.modalidade].filtro}</span>` : '';
+    html += `<li${indent}><a href="#${h.id}">${h.text}</a>${tag}</li>`;
   }
   html += '</ul></nav>';
   return html;
@@ -260,6 +319,7 @@ ${faq.schema}
         </div>
         <h1 class="blog-title">${post.title}</h1>
         <p class="blog-desc">${post.description}</p>
+${buildModalidade(post)}
         <div class="blog-byline">
           <p><strong>Por ${escapeHtml(post.author)}</strong></p>
           <p>Conteúdo educativo produzido a partir de legislação, decisões judiciais e fontes oficiais.</p>
@@ -316,9 +376,10 @@ function formatDate(dateStr) {
 
 function listingTemplate(posts) {
   const cards = posts.map(p => `
-      <a href="/blog/${p.slug}/" class="blog-card">
+      <a href="/blog/${p.slug}/" class="blog-card" data-modalidade="${p.modalidade}">
         <div class="blog-card-body">
           <div class="blog-card-meta">
+            <span class="modalidade-selo is-${p.modalidade}">${MODALIDADES[p.modalidade].selo}</span>
             <time datetime="${p.publishedAt}">${formatDate(p.publishedAt)}</time>
             <span class="meta-sep">·</span>
             <span>${p.readTime} min</span>
@@ -385,8 +446,16 @@ ${fontMarkup()}
       <p class="section-sub">Conteúdo prático para entender editais, custos, pagamento e ocupação antes do lance.</p>
     </header>
 
+${posts.length ? `
+    <div class="blog-filtros" role="group" aria-label="Filtrar por modalidade de leilão" hidden>
+      <button type="button" class="blog-filtro" data-filtro="todos" aria-pressed="true">Todos</button>
+      <button type="button" class="blog-filtro" data-filtro="judicial" aria-pressed="false">Leilão judicial</button>
+      <button type="button" class="blog-filtro" data-filtro="extrajudicial" aria-pressed="false">Leilão extrajudicial</button>
+      <a class="blog-filtro-ajuda" href="${DIFERENCAS_URL}">Qual é a diferença?</a>
+    </div>` : ''}
+
     <div class="blog-grid">
-${cards || '<div class="blog-empty"><p>Nenhum artigo publicado por enquanto.</p><a href="/dicionario">Consultar o Dicionário do leilão →</a></div>'}
+${cards ||'<div class="blog-empty"><p>Nenhum artigo publicado por enquanto.</p><a href="/dicionario">Consultar o Dicionário do leilão →</a></div>'}
     </div>
   </div>
 </main>
@@ -408,6 +477,27 @@ ${cards || '<div class="blog-empty"><p>Nenhum artigo publicado por enquanto.</p>
   </div>
 </footer>
 
+<script>
+// Filtro por modalidade. Sem JS os filtros ficam ocultos e todos os artigos
+// aparecem. Artigo que trata das duas modalidades entra nos dois filtros.
+(function () {
+  var grupo = document.querySelector('.blog-filtros');
+  if (!grupo) return;
+  grupo.hidden = false;
+  var botoes = grupo.querySelectorAll('.blog-filtro');
+  var cards = document.querySelectorAll('.blog-card[data-modalidade]');
+  grupo.addEventListener('click', function (e) {
+    var alvo = e.target.closest('.blog-filtro');
+    if (!alvo) return;
+    var filtro = alvo.getAttribute('data-filtro');
+    botoes.forEach(function (b) { b.setAttribute('aria-pressed', String(b === alvo)); });
+    cards.forEach(function (c) {
+      var m = c.getAttribute('data-modalidade');
+      c.hidden = !(filtro === 'todos' || m === filtro || m === 'ambos');
+    });
+  });
+})();
+</script>
 </body>
 </html>`;
 }
@@ -498,7 +588,8 @@ function build() {
     const plainText = content.replace(/[#*_`\[\]()>|-]/g, '');
     const readTime = readingTime(plainText);
 
-    let html = marked(content);
+    let html = marked(renderCallouts(content));
+    html = tagSections(html);
     html = addIdsToHeadings(html);
     const toc = extractTOC(html);
     const tocHtml = buildTOCHtml(toc);
@@ -524,8 +615,14 @@ function build() {
       reviewedAt: data.reviewedAt || '',
       reviewType: data.reviewType || 'Revisão editorial e checagem de fontes',
       sources: data.sources || [],
+      modalidade: data.modalidade,
+      modalidadeNota: data.modalidadeNota || '',
       readTime,
     };
+
+    if (!MODALIDADES[post.modalidade]) {
+      throw new Error(`${file}: informe modalidade (judicial, extrajudicial ou ambos) no frontmatter`);
+    }
 
     if (!post.reviewedBy || !post.reviewedAt) {
       throw new Error(`${file}: artigo publicado precisa de reviewedBy e reviewedAt`);

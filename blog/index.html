@@ -58,14 +58,23 @@
       <p class="section-sub">Conteúdo prático para entender editais, custos, pagamento e ocupação antes do lance.</p>
     </header>
 
+
+    <div class="blog-filtros" role="group" aria-label="Filtrar por modalidade de leilão" hidden>
+      <button type="button" class="blog-filtro" data-filtro="todos" aria-pressed="true">Todos</button>
+      <button type="button" class="blog-filtro" data-filtro="judicial" aria-pressed="false">Leilão judicial</button>
+      <button type="button" class="blog-filtro" data-filtro="extrajudicial" aria-pressed="false">Leilão extrajudicial</button>
+      <a class="blog-filtro-ajuda" href="/blog/leilao-judicial-e-extrajudicial-diferencas/">Qual é a diferença?</a>
+    </div>
+
     <div class="blog-grid">
 
-      <a href="/blog/anulacao-de-arrematacao-riscos/" class="blog-card">
+      <a href="/blog/anulacao-de-arrematacao-riscos/" class="blog-card" data-modalidade="judicial">
         <div class="blog-card-body">
           <div class="blog-card-meta">
+            <span class="modalidade-selo is-judicial">Leilão judicial</span>
             <time datetime="2026-10-06">6 out 2026</time>
             <span class="meta-sep">·</span>
-            <span>4 min</span>
+            <span>5 min</span>
           </div>
           <h2 class="blog-card-title">O antigo dono pode anular o leilão? O que a lei garante ao arrematante</h2>
           <p class="blog-card-desc">Prazos e hipóteses de anulação da arrematação, o que torna o negócio irretratável e quais proteções o arrematante tem se o leilão for questionado.</p>
@@ -73,10 +82,11 @@
         </div>
       </a>
 
-      <a href="/blog/como-financiar-imovel-de-leilao/" class="blog-card">
+      <a href="/blog/como-financiar-imovel-de-leilao/" class="blog-card" data-modalidade="ambos">
         <div class="blog-card-body">
           <div class="blog-card-meta">
-            <time datetime="2026-10-06">6 out 2026</time>
+            <span class="modalidade-selo is-ambos">Judicial e extrajudicial</span>
+            <time datetime="2026-10-01">1 out 2026</time>
             <span class="meta-sep">·</span>
             <span>4 min</span>
           </div>
@@ -86,36 +96,11 @@
         </div>
       </a>
 
-      <a href="/blog/como-funciona-leilao-de-imoveis/" class="blog-card">
+      <a href="/blog/como-saber-se-o-leiloeiro-e-oficial/" class="blog-card" data-modalidade="ambos">
         <div class="blog-card-body">
           <div class="blog-card-meta">
-            <time datetime="2026-10-06">6 out 2026</time>
-            <span class="meta-sep">·</span>
-            <span>6 min</span>
-          </div>
-          <h2 class="blog-card-title">Como funciona um leilão de imóveis: o guia completo para quem nunca participou</h2>
-          <p class="blog-card-desc">Entenda como funciona um leilão de imóvel do começo ao fim: tipos, praças, lance, custos e o que acontece depois da arrematação. Com a base legal de cada etapa.</p>
-          <span class="blog-card-link">Ler artigo →</span>
-        </div>
-      </a>
-
-      <a href="/blog/como-ler-edital-de-leilao-e-matricula/" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-card-meta">
-            <time datetime="2026-10-06">6 out 2026</time>
-            <span class="meta-sep">·</span>
-            <span>4 min</span>
-          </div>
-          <h2 class="blog-card-title">Como ler o edital de leilão e a matrícula do imóvel</h2>
-          <p class="blog-card-desc">Os dois documentos que decidem se o leilão é um bom negócio. O que procurar em cada um e o que fazer quando eles se contradizem.</p>
-          <span class="blog-card-link">Ler artigo →</span>
-        </div>
-      </a>
-
-      <a href="/blog/como-saber-se-o-leiloeiro-e-oficial/" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-card-meta">
-            <time datetime="2026-10-06">6 out 2026</time>
+            <span class="modalidade-selo is-ambos">Judicial e extrajudicial</span>
+            <time datetime="2026-09-28">28 set 2026</time>
             <span class="meta-sep">·</span>
             <span>3 min</span>
           </div>
@@ -125,23 +110,11 @@
         </div>
       </a>
 
-      <a href="/blog/dividas-do-imovel-arrematado/" class="blog-card">
+      <a href="/blog/imovel-de-leilao-ocupado-desocupacao/" class="blog-card" data-modalidade="ambos">
         <div class="blog-card-body">
           <div class="blog-card-meta">
-            <time datetime="2026-10-06">6 out 2026</time>
-            <span class="meta-sep">·</span>
-            <span>8 min</span>
-          </div>
-          <h2 class="blog-card-title">Arrematei o imóvel: eu pago as dívidas de IPTU e condomínio?</h2>
-          <p class="blog-card-desc">O que o STJ decidiu sobre IPTU e dívidas de condomínio do imóvel arrematado, o que muda conforme o edital e como calcular o risco antes do lance.</p>
-          <span class="blog-card-link">Ler artigo →</span>
-        </div>
-      </a>
-
-      <a href="/blog/imovel-de-leilao-ocupado-desocupacao/" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-card-meta">
-            <time datetime="2026-10-06">6 out 2026</time>
+            <span class="modalidade-selo is-ambos">Judicial e extrajudicial</span>
+            <time datetime="2026-09-23">23 set 2026</time>
             <span class="meta-sep">·</span>
             <span>6 min</span>
           </div>
@@ -151,36 +124,25 @@
         </div>
       </a>
 
-      <a href="/blog/leilao-de-imoveis-da-caixa-como-funciona/" class="blog-card">
+      <a href="/blog/dividas-do-imovel-arrematado/" class="blog-card" data-modalidade="ambos">
         <div class="blog-card-body">
           <div class="blog-card-meta">
-            <time datetime="2026-10-06">6 out 2026</time>
+            <span class="modalidade-selo is-ambos">Judicial e extrajudicial</span>
+            <time datetime="2026-09-17">17 set 2026</time>
             <span class="meta-sep">·</span>
-            <span>5 min</span>
+            <span>8 min</span>
           </div>
-          <h2 class="blog-card-title">Leilão de imóveis da Caixa: como funciona, modalidades e custos</h2>
-          <p class="blog-card-desc">Como funciona o leilão de imóveis da Caixa Econômica Federal: modalidades de venda, financiamento, uso do FGTS e quem paga as dívidas do imóvel.</p>
+          <h2 class="blog-card-title">Arrematei o imóvel: eu pago as dívidas de IPTU e condomínio?</h2>
+          <p class="blog-card-desc">O que o STJ decidiu sobre IPTU e dívidas de condomínio do imóvel arrematado, o que muda conforme o edital e como calcular o risco antes do lance.</p>
           <span class="blog-card-link">Ler artigo →</span>
         </div>
       </a>
 
-      <a href="/blog/leilao-de-imoveis-e-seguro/" class="blog-card">
+      <a href="/blog/leilao-extrajudicial-de-imoveis/" class="blog-card" data-modalidade="extrajudicial">
         <div class="blog-card-body">
           <div class="blog-card-meta">
-            <time datetime="2026-10-06">6 out 2026</time>
-            <span class="meta-sep">·</span>
-            <span>5 min</span>
-          </div>
-          <h2 class="blog-card-title">Leilão de imóveis é seguro? A resposta honesta, com os 7 pontos a verificar</h2>
-          <p class="blog-card-desc">Leilão de imóveis é seguro se você verificar sete coisas antes do lance. Veja quais são, o que a lei garante e onde estão os riscos reais.</p>
-          <span class="blog-card-link">Ler artigo →</span>
-        </div>
-      </a>
-
-      <a href="/blog/leilao-extrajudicial-de-imoveis/" class="blog-card">
-        <div class="blog-card-body">
-          <div class="blog-card-meta">
-            <time datetime="2026-10-06">6 out 2026</time>
+            <span class="modalidade-selo is-extrajudicial">Leilão extrajudicial</span>
+            <time datetime="2026-09-14">14 set 2026</time>
             <span class="meta-sep">·</span>
             <span>6 min</span>
           </div>
@@ -190,10 +152,67 @@
         </div>
       </a>
 
-      <a href="/blog/leilao-judicial-e-extrajudicial-diferencas/" class="blog-card">
+      <a href="/blog/como-ler-edital-de-leilao-e-matricula/" class="blog-card" data-modalidade="ambos">
         <div class="blog-card-body">
           <div class="blog-card-meta">
-            <time datetime="2026-10-06">6 out 2026</time>
+            <span class="modalidade-selo is-ambos">Judicial e extrajudicial</span>
+            <time datetime="2026-09-09">9 set 2026</time>
+            <span class="meta-sep">·</span>
+            <span>4 min</span>
+          </div>
+          <h2 class="blog-card-title">Como ler o edital de leilão e a matrícula do imóvel</h2>
+          <p class="blog-card-desc">Os dois documentos que decidem se o leilão é um bom negócio. O que procurar em cada um e o que fazer quando eles se contradizem.</p>
+          <span class="blog-card-link">Ler artigo →</span>
+        </div>
+      </a>
+
+      <a href="/blog/leilao-de-imoveis-da-caixa-como-funciona/" class="blog-card" data-modalidade="extrajudicial">
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="modalidade-selo is-extrajudicial">Leilão extrajudicial</span>
+            <time datetime="2026-09-04">4 set 2026</time>
+            <span class="meta-sep">·</span>
+            <span>5 min</span>
+          </div>
+          <h2 class="blog-card-title">Leilão de imóveis da Caixa: como funciona, modalidades e custos</h2>
+          <p class="blog-card-desc">Como funciona o leilão de imóveis da Caixa Econômica Federal: modalidades de venda, financiamento, uso do FGTS e quem paga as dívidas do imóvel.</p>
+          <span class="blog-card-link">Ler artigo →</span>
+        </div>
+      </a>
+
+      <a href="/blog/leilao-de-imoveis-e-seguro/" class="blog-card" data-modalidade="ambos">
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="modalidade-selo is-ambos">Judicial e extrajudicial</span>
+            <time datetime="2026-09-01">1 set 2026</time>
+            <span class="meta-sep">·</span>
+            <span>5 min</span>
+          </div>
+          <h2 class="blog-card-title">Leilão de imóveis é seguro? A resposta honesta, com os 7 pontos a verificar</h2>
+          <p class="blog-card-desc">Leilão de imóveis é seguro se você verificar sete coisas antes do lance. Veja quais são, o que a lei garante e onde estão os riscos reais.</p>
+          <span class="blog-card-link">Ler artigo →</span>
+        </div>
+      </a>
+
+      <a href="/blog/quanto-custa-comprar-imovel-em-leilao/" class="blog-card" data-modalidade="ambos">
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="modalidade-selo is-ambos">Judicial e extrajudicial</span>
+            <time datetime="2026-08-26">26 ago 2026</time>
+            <span class="meta-sep">·</span>
+            <span>7 min</span>
+          </div>
+          <h2 class="blog-card-title">Quanto custa comprar imóvel em leilão: todos os custos além do lance</h2>
+          <p class="blog-card-desc">Comissão do leiloeiro, ITBI, cartório, dívidas e desocupação. Veja a conta completa do que se paga além do lance em um leilão de imóvel.</p>
+          <span class="blog-card-link">Ler artigo →</span>
+        </div>
+      </a>
+
+      <a href="/blog/leilao-judicial-e-extrajudicial-diferencas/" class="blog-card" data-modalidade="ambos">
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="modalidade-selo is-ambos">Judicial e extrajudicial</span>
+            <time datetime="2026-08-21">21 ago 2026</time>
             <span class="meta-sep">·</span>
             <span>5 min</span>
           </div>
@@ -203,15 +222,16 @@
         </div>
       </a>
 
-      <a href="/blog/quanto-custa-comprar-imovel-em-leilao/" class="blog-card">
+      <a href="/blog/como-funciona-leilao-de-imoveis/" class="blog-card" data-modalidade="ambos">
         <div class="blog-card-body">
           <div class="blog-card-meta">
-            <time datetime="2026-10-06">6 out 2026</time>
+            <span class="modalidade-selo is-ambos">Judicial e extrajudicial</span>
+            <time datetime="2026-08-18">18 ago 2026</time>
             <span class="meta-sep">·</span>
-            <span>7 min</span>
+            <span>6 min</span>
           </div>
-          <h2 class="blog-card-title">Quanto custa comprar imóvel em leilão: todos os custos além do lance</h2>
-          <p class="blog-card-desc">Comissão do leiloeiro, ITBI, cartório, dívidas e desocupação. Veja a conta completa do que se paga além do lance em um leilão de imóvel.</p>
+          <h2 class="blog-card-title">Como funciona um leilão de imóveis: o guia completo para quem nunca participou</h2>
+          <p class="blog-card-desc">Entenda como funciona um leilão de imóvel do começo ao fim: tipos, praças, lance, custos e o que acontece depois da arrematação. Com a base legal de cada etapa.</p>
           <span class="blog-card-link">Ler artigo →</span>
         </div>
       </a>
@@ -236,5 +256,26 @@
   </div>
 </footer>
 
+<script>
+// Filtro por modalidade. Sem JS os filtros ficam ocultos e todos os artigos
+// aparecem. Artigo que trata das duas modalidades entra nos dois filtros.
+(function () {
+  var grupo = document.querySelector('.blog-filtros');
+  if (!grupo) return;
+  grupo.hidden = false;
+  var botoes = grupo.querySelectorAll('.blog-filtro');
+  var cards = document.querySelectorAll('.blog-card[data-modalidade]');
+  grupo.addEventListener('click', function (e) {
+    var alvo = e.target.closest('.blog-filtro');
+    if (!alvo) return;
+    var filtro = alvo.getAttribute('data-filtro');
+    botoes.forEach(function (b) { b.setAttribute('aria-pressed', String(b === alvo)); });
+    cards.forEach(function (c) {
+      var m = c.getAttribute('data-modalidade');
+      c.hidden = !(filtro === 'todos' || m === filtro || m === 'ambos');
+    });
+  });
+})();
+</script>
 </body>
 </html>

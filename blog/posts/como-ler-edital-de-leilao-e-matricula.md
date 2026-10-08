@@ -3,11 +3,11 @@ title: "Como ler o edital de leilão e a matrícula do imóvel"
 slug: "como-ler-edital-de-leilao-e-matricula"
 description: "Os dois documentos que decidem se o leilão é um bom negócio. O que procurar em cada um e o que fazer quando eles se contradizem."
 keywordPrincipal: "como ler edital de leilão"
-publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+publishedAt: "2026-09-09"
+updatedAt: "2026-09-09"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
-reviewedAt: "2026-10-06"
+reviewedAt: "2026-09-09"
 reviewType: "Revisão editorial e checagem de fontes"
 sources:
   - title: "Código de Processo Civil — Lei 13.105/2015"
@@ -17,6 +17,7 @@ sources:
   - title: "CNJ — Resolução 236/2016"
     url: "https://atos.cnj.jus.br/atos/detalhar/2313"
 cluster: "fundamentos e apoio"
+modalidade: ambos
 status: published
 tags: ["edital", "matrícula", "análise documental"]
 ---
@@ -53,7 +54,7 @@ tags: ["edital", "matrícula", "análise documental"]
 
 **Na prática.** Peça a matrícula **atualizada** — não a que está anexada ao edital, que pode ter meses. E se aparecer na matrícula um ônus que não estava no edital, isso não é só um problema: é uma hipótese legal expressa de desistência com devolução do depósito, no prazo de dez dias, no leilão judicial.
 
-## Posso visitar o imóvel antes de dar o lance?
+## Posso visitar o imóvel antes de dar o lance? {judicial}
 
 **Resposta direta.** Existe suporte normativo para a visitação, mas não um direito absoluto de entrar em imóvel ocupado. A Resolução CNJ nº 236/2016 determina que os bens sejam expostos para visitação em locais, dias e horários indicados, e que o leiloeiro possa fotografar e visitar o bem, acompanhado ou não de interessados. O que ela não faz é autorizar você a ingressar por conta própria em residência ocupada.
 

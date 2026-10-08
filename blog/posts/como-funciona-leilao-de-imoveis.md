@@ -3,11 +3,11 @@ title: "Como funciona um leilão de imóveis: o guia completo para quem nunca pa
 slug: "como-funciona-leilao-de-imoveis"
 description: "Entenda como funciona um leilão de imóvel do começo ao fim: tipos, praças, lance, custos e o que acontece depois da arrematação. Com a base legal de cada etapa."
 keywordPrincipal: "como funciona leilão de imóvel"
-publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+publishedAt: "2026-08-18"
+updatedAt: "2026-08-18"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
-reviewedAt: "2026-10-06"
+reviewedAt: "2026-08-18"
 reviewType: "Revisão editorial e checagem de fontes"
 sources:
   - title: "Código de Processo Civil — Lei 13.105/2015"
@@ -17,6 +17,7 @@ sources:
   - title: "Profissão de leiloeiro — Decreto 21.981/1932"
     url: "https://www.planalto.gov.br/ccivil_03/decreto/1930-1949/d21981.htm"
 cluster: "hub"
+modalidade: ambos
 status: published
 tags: ["leilão de imóveis", "guia", "como funciona"]
 ---

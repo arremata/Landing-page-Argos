@@ -3,11 +3,11 @@ title: "Leilão de imóveis da Caixa: como funciona, modalidades e custos"
 slug: "leilao-de-imoveis-da-caixa-como-funciona"
 description: "Como funciona o leilão de imóveis da Caixa Econômica Federal: modalidades de venda, financiamento, uso do FGTS e quem paga as dívidas do imóvel."
 keywordPrincipal: "como funciona o leilão de imóveis da caixa"
-publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+publishedAt: "2026-09-04"
+updatedAt: "2026-09-04"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
-reviewedAt: "2026-10-06"
+reviewedAt: "2026-09-04"
 reviewType: "Revisão editorial e checagem de fontes"
 sources:
   - title: "Portal de imóveis da Caixa"
@@ -19,6 +19,7 @@ sources:
   - title: "Banco Central — Resolução CMN 5.255/2025"
     url: "https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20CMN&numero=5255"
 cluster: "maior volume"
+modalidade: extrajudicial
 status: published
 tags: ["leilão Caixa", "imóveis retomados", "FGTS"]
 ---
