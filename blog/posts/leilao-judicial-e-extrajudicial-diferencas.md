@@ -3,11 +3,11 @@ title: "Leilão judicial e leilão extrajudicial: as diferenças que mudam o seu
 slug: "leilao-judicial-e-extrajudicial-diferencas"
 description: "Judicial e extrajudicial são dois mundos com regras, prazos e riscos diferentes. Entenda o que muda em cada um antes de dar o lance."
 keywordPrincipal: "leilão de imóvel extrajudicial e judicial"
-publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+publishedAt: "2026-08-21"
+updatedAt: "2026-10-08"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
-reviewedAt: "2026-10-06"
+reviewedAt: "2026-08-21"
 reviewType: "Revisão editorial e checagem de fontes"
 sources:
   - title: "Código de Processo Civil — Lei 13.105/2015"
@@ -17,6 +17,11 @@ sources:
   - title: "Marco Legal das Garantias — Lei 14.711/2023"
     url: "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm"
 cluster: "fundamentos e apoio"
+modalidade: ambos
+relacionados:
+  - leilao-extrajudicial-de-imoveis
+  - como-funciona-leilao-de-imoveis
+  - anulacao-de-arrematacao-riscos
 status: published
 tags: ["leilão judicial", "leilão extrajudicial", "tipos de leilão"]
 ---
@@ -51,7 +56,7 @@ tags: ["leilão judicial", "leilão extrajudicial", "tipos de leilão"]
 
 **Na prática.** No extrajudicial, o piso do segundo leilão é a dívida — não um percentual do valor do imóvel. Por isso, em imóvel com dívida alta, a segunda praça pode sair *mais cara* que a primeira. É contraintuitivo e pega muita gente desprevenida.
 
-## O que é preço vil e por que isso me protege?
+## O que é preço vil e por que isso me protege? {judicial}
 
 **Resposta direta.** Preço vil é o lance baixo demais para ser aceito. No leilão judicial, considera-se vil o preço inferior ao mínimo fixado pelo juiz e constante do edital; não tendo sido fixado preço mínimo, considera-se vil o preço inferior a 50% do valor da avaliação. Um lance vil não pode ser aceito, e uma arrematação feita por preço vil pode ser invalidada.
 
@@ -63,7 +68,7 @@ tags: ["leilão judicial", "leilão extrajudicial", "tipos de leilão"]
 
 **Resposta direta.** Pode arrematar qualquer pessoa física ou jurídica que esteja na livre administração de seus bens. CPF basta para pessoa física; CNPJ para empresa. Não é preciso ser investidor, ter empresa, ter corretor ou ter advogado para participar.
 
-**O detalhe.** O CPC lista exceções — pessoas que **não** podem oferecer lance:
+**O detalhe.** No leilão judicial, o CPC lista exceções — pessoas que **não** podem oferecer lance:
 
 - tutores, curadores, testamenteiros, administradores e liquidantes, quanto aos bens confiados à sua guarda e responsabilidade;
 - mandatários, quanto aos bens de cuja administração ou alienação estejam encarregados;

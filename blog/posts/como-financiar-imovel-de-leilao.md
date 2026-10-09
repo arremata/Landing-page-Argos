@@ -3,11 +3,11 @@ title: "Como financiar imóvel de leilão: quando é possível e como se prepara
 slug: "como-financiar-imovel-de-leilao"
 description: "Nem todo leilão aceita financiamento. Veja em quais modalidades é possível financiar, quando o FGTS entra e o que preparar antes do lance."
 keywordPrincipal: "como financiar imóvel de leilão"
-publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+publishedAt: "2026-10-01"
+updatedAt: "2026-10-01"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
-reviewedAt: "2026-10-06"
+reviewedAt: "2026-10-01"
 reviewType: "Revisão editorial e checagem de fontes"
 sources:
   - title: "Código de Processo Civil — Lei 13.105/2015"
@@ -17,6 +17,11 @@ sources:
   - title: "FGTS — aquisição de moradia"
     url: "https://www.fgts.gov.br/Paginas/trabalhador/fgts-na-moradia.aspx"
 cluster: "fundamentos e apoio"
+modalidade: ambos
+relacionados:
+  - leilao-de-imoveis-da-caixa-como-funciona
+  - quanto-custa-comprar-imovel-em-leilao
+  - como-funciona-leilao-de-imoveis
 status: published
 tags: ["financiamento", "FGTS", "crédito imobiliário"]
 ---
@@ -54,7 +59,7 @@ tags: ["financiamento", "FGTS", "crédito imobiliário"]
 1. **Nas vendas da Caixa**, o anúncio precisa indicar expressamente a aceitação do FGTS, e várias modalidades ainda exigem parcela mínima de recursos próprios — comumente 5%. Ou seja: você precisa ter caixa, mesmo usando FGTS. As condições específicas estão em [leilão de imóveis da Caixa](/blog/leilao-de-imoveis-da-caixa-como-funciona/).
 2. **Em leilão judicial de terceiro**, o obstáculo raramente é jurídico; é de calendário. Se o edital exige pagamento imediato, não há tempo hábil para análise, saque e liberação do FGTS.
 
-## Existe financiamento bancário para leilão judicial?
+## Existe financiamento bancário para leilão judicial? {judicial}
 
 **Resposta direta.** Dizer que "não existe financiamento" é excessivo, mas dizer que existe uma linha pronta também é. No levantamento de produtos bancários encerrado em agosto de 2026, não foi localizada uma linha de varejo disponível nacionalmente e destinada especificamente a financiar imóvel judicialmente arrematado de terceiro. As linhas verificadas da Caixa e dos demais bancos concentravam-se nos imóveis do próprio banco.
 

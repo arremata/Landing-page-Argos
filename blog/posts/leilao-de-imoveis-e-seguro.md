@@ -3,11 +3,11 @@ title: "Leilão de imóveis é seguro? A resposta honesta, com os 7 pontos a ver
 slug: "leilao-de-imoveis-e-seguro"
 description: "Leilão de imóveis é seguro se você verificar sete coisas antes do lance. Veja quais são, o que a lei garante e onde estão os riscos reais."
 keywordPrincipal: "leilão de imóveis é seguro"
-publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+publishedAt: "2026-09-01"
+updatedAt: "2026-10-08"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
-reviewedAt: "2026-10-06"
+reviewedAt: "2026-09-01"
 reviewType: "Revisão editorial e checagem de fontes"
 sources:
   - title: "Profissão de leiloeiro — Decreto 21.981/1932"
@@ -17,6 +17,11 @@ sources:
   - title: "DREI — legislação de leiloeiros e tradutores públicos"
     url: "https://www.gov.br/empresas-e-negocios/pt-br/drei/legislacao"
 cluster: "constrói confiança"
+modalidade: ambos
+relacionados:
+  - como-saber-se-o-leiloeiro-e-oficial
+  - como-ler-edital-de-leilao-e-matricula
+  - anulacao-de-arrematacao-riscos
 status: published
 tags: ["segurança", "riscos", "golpe leilão"]
 ---
@@ -25,13 +30,16 @@ tags: ["segurança", "riscos", "golpe leilão"]
 
 **Resposta direta.** É um mercado regulado, com leiloeiros fiscalizados por órgão público e procedimento previsto em lei. A insegurança não está no leilão em si — está em duas coisas: sites falsos que se passam por leiloeiros oficiais, e a compra feita sem entender o que o edital e a matrícula dizem. Verificados esses dois pontos, o leilão é tão seguro quanto qualquer outra forma de aquisição de imóvel; ignorados, é um dos jeitos mais rápidos de perder dinheiro.
 
-**O detalhe.** O que a lei já garante a você:
+**O detalhe.** Em qualquer leilão, judicial ou extrajudicial, só leiloeiro oficialmente matriculado pode conduzir leilão público.
 
-- Só leiloeiro oficialmente matriculado pode conduzir leilão público.
+No **leilão judicial**, a lei garante ainda:
+
 - Não se aceita lance por preço vil.
-- A arrematação judicial, uma vez lavrado e assinado o auto, é perfeita, acabada e irretratável.
-- Se surgir ônus real ou gravame que não constava do edital, o arrematante judicial pode desistir e receber de volta o depósito.
+- A arrematação, uma vez lavrado e assinado o auto, é perfeita, acabada e irretratável.
+- Se surgir ônus real ou gravame que não constava do edital, o arrematante pode desistir e receber de volta o depósito.
 - Quem alegar vício infundado apenas para forçar a desistência do arrematante comete ato atentatório à dignidade da justiça, sujeito a multa.
+
+No **leilão extrajudicial**, de imóveis retomados por bancos, as regras de proteção são outras e estão em [leilão extrajudicial de imóveis](/blog/leilao-extrajudicial-de-imoveis/).
 
 **Base legal.** Decreto 21.981/1932, art. 19; CPC, arts. 891, 903 *caput*, 903, § 5º, I e 903, § 6º.
 

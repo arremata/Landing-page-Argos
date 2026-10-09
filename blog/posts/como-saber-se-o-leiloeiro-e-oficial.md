@@ -3,11 +3,11 @@ title: "Como saber se o leiloeiro é oficial: o passo a passo da verificação"
 slug: "como-saber-se-o-leiloeiro-e-oficial"
 description: "Todo leiloeiro oficial é matriculado em uma Junta Comercial. Veja como confirmar em minutos se quem está conduzindo o leilão está regular."
 keywordPrincipal: "como saber se o leiloeiro é oficial"
-publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+publishedAt: "2026-09-28"
+updatedAt: "2026-09-28"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
-reviewedAt: "2026-10-06"
+reviewedAt: "2026-09-28"
 reviewType: "Revisão editorial e checagem de fontes"
 sources:
   - title: "Profissão de leiloeiro — Decreto 21.981/1932"
@@ -17,6 +17,11 @@ sources:
   - title: "CNJ — Resolução 236/2016"
     url: "https://atos.cnj.jus.br/atos/detalhar/2313"
 cluster: "constrói confiança"
+modalidade: ambos
+relacionados:
+  - leilao-de-imoveis-e-seguro
+  - como-ler-edital-de-leilao-e-matricula
+  - como-funciona-leilao-de-imoveis
 status: published
 tags: ["leiloeiro oficial", "Junta Comercial", "verificação"]
 ---

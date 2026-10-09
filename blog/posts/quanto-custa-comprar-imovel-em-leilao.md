@@ -3,11 +3,11 @@ title: "Quanto custa comprar imóvel em leilão: todos os custos além do lance"
 slug: "quanto-custa-comprar-imovel-em-leilao"
 description: "Comissão do leiloeiro, ITBI, cartório, dívidas e desocupação. Veja a conta completa do que se paga além do lance em um leilão de imóvel."
 keywordPrincipal: "custos leilão de imóveis"
-publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+publishedAt: "2026-08-26"
+updatedAt: "2026-08-26"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
-reviewedAt: "2026-10-06"
+reviewedAt: "2026-08-26"
 reviewType: "Revisão editorial e checagem de fontes"
 sources:
   - title: "Código de Processo Civil — Lei 13.105/2015"
@@ -19,6 +19,11 @@ sources:
   - title: "STJ — Tema Repetitivo 1.113"
     url: "https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?novaConsulta=true&tipo_pesquisa=T&cod_tema_inicial=1113&cod_tema_final=1113"
 cluster: "fundamentos e apoio"
+modalidade: ambos
+relacionados:
+  - dividas-do-imovel-arrematado
+  - como-financiar-imovel-de-leilao
+  - como-ler-edital-de-leilao-e-matricula
 status: published
 tags: ["custos", "ITBI", "comissão do leiloeiro"]
 ---
@@ -50,13 +55,13 @@ Os dois itens mais imprevisíveis dessa conta têm artigo próprio: [dívidas do
 
 **Base legal.** CPC, art. 884, parágrafo único; Decreto 21.981/1932, art. 24, parágrafo único; Resolução CNJ nº 236/2016, art. 7º; STJ, 4ª Turma, jul/2023.
 
-## Preciso ter o valor todo à vista?
+## Preciso ter o valor todo à vista? {judicial}
 
 **Resposta direta.** No leilão judicial, a regra é o pagamento imediato, por depósito judicial ou meio eletrônico, salvo pronunciamento judicial em sentido diverso. O próprio CPC prevê a possibilidade de o pagamento ser feito em até 15 dias mediante caução. E existe a via do parcelamento, com requisitos próprios.
 
 **Base legal.** CPC, art. 892.
 
-## Dá para parcelar a arrematação?
+## Dá para parcelar a arrematação? {judicial}
 
 **Resposta direta.** No leilão judicial, sim. O interessado apresenta proposta **por escrito** oferecendo pelo menos 25% do valor do lance à vista, e o restante parcelado em até 30 meses, garantido por caução idônea, hipoteca sobre o próprio bem ou outra modalidade de garantia. Mas atenção: a proposta de pagamento à vista **sempre prevalece** sobre a parcelada, independentemente do valor oferecido.
 
@@ -68,7 +73,7 @@ Os dois itens mais imprevisíveis dessa conta têm artigo próprio: [dívidas do
 
 **Base legal.** CPC, art. 895, *caput* e §§ 1º, 4º, 5º e 7º.
 
-## E se eu der o lance e desistir? Perco o dinheiro?
+## E se eu der o lance e desistir? Perco o dinheiro? {judicial}
 
 **Resposta direta.** Em regra, sim — a arrematação judicial é perfeita, acabada e irretratável a partir da assinatura do auto, e o não pagamento leva à resolução com perda da caução. Mas o CPC prevê hipóteses expressas em que o arrematante **pode desistir e receber de volta o depósito**.
 
@@ -110,7 +115,7 @@ Em Curitiba, por exemplo, a Lei Complementar municipal nº 108/2017, no art. 12,
 
 **Base.** CPC, art. 901, § 2º (prova do recolhimento para expedição da carta). STJ, AgInt no REsp 2.008.029/SP. Lei Complementar municipal de Curitiba nº 108/2017, art. 12, III.
 
-## No leilão extrajudicial o ITBI é cobrado duas vezes?
+## No leilão extrajudicial o ITBI é cobrado duas vezes? {extrajudicial}
 
 **Resposta direta.** Há dois recolhimentos, mas não é bitributação: são duas transmissões sucessivas e distintas. O primeiro incide quando o credor fiduciário consolida a propriedade em seu nome. O segundo, quando ele vende o imóvel ao arrematante.
 

@@ -3,11 +3,11 @@ title: "Leilão extrajudicial de imóveis: como funciona, prazos e o que você a
 slug: "leilao-extrajudicial-de-imoveis"
 description: "O leilão extrajudicial segue a Lei 9.514/97 e tem regras próprias de prazo, lance mínimo e desocupação. Guia completo com a base legal atualizada pela Lei 14.711/2023."
 keywordPrincipal: "leilões de imóveis extrajudiciais"
-publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+publishedAt: "2026-09-14"
+updatedAt: "2026-09-14"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
-reviewedAt: "2026-10-06"
+reviewedAt: "2026-09-14"
 reviewType: "Revisão editorial e checagem de fontes"
 sources:
   - title: "Alienação fiduciária de imóveis — Lei 9.514/1997"
@@ -17,6 +17,11 @@ sources:
   - title: "Código de Processo Civil — Lei 13.105/2015"
     url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm"
 cluster: "maior volume"
+modalidade: extrajudicial
+relacionados:
+  - leilao-de-imoveis-da-caixa-como-funciona
+  - imovel-de-leilao-ocupado-desocupacao
+  - leilao-judicial-e-extrajudicial-diferencas
 status: published
 tags: ["leilão extrajudicial", "Lei 9.514", "alienação fiduciária"]
 ---

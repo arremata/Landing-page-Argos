@@ -4,7 +4,7 @@ slug: "anulacao-de-arrematacao-riscos"
 description: "Prazos e hipóteses de anulação da arrematação, o que torna o negócio irretratável e quais proteções o arrematante tem se o leilão for questionado."
 keywordPrincipal: "anulação de arrematação"
 publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+updatedAt: "2026-10-08"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
 reviewedAt: "2026-10-06"
@@ -15,6 +15,11 @@ sources:
   - title: "Código Civil — Lei 10.406/2002"
     url: "https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm"
 cluster: "constrói confiança"
+modalidade: judicial
+relacionados:
+  - leilao-de-imoveis-e-seguro
+  - como-ler-edital-de-leilao-e-matricula
+  - leilao-judicial-e-extrajudicial-diferencas
 status: published
 tags: ["anulação", "riscos", "arrematante"]
 ---
@@ -26,6 +31,16 @@ tags: ["anulação", "riscos", "arrematante"]
 **O detalhe.** Fora dessa regra, o CPC prevê três situações específicas: a arrematação pode ser **invalidada** quando realizada por preço vil ou com outro vício; considerada **ineficaz**, se não observado o disposto no art. 804 (que trata da alienação sem intimação do credor com garantia real); ou **resolvida**, se não for pago o preço ou prestada a caução.
 
 **Base legal.** CPC, art. 903, *caput* e § 1º, I a III.
+
+::: nota Comprando imóvel de banco? A situação é outra
+Tudo o que este artigo descreve, inclusive os prazos para questionar a venda, vem das regras do **leilão judicial**. No **leilão extrajudicial**, o imóvel só vai a leilão depois que o banco **consolidou a propriedade** em seu nome, porque o antigo dono deixou de pagar o financiamento e não quitou a dívida no prazo que a lei lhe deu.
+
+Depois da consolidação, o antigo dono já não pode pagar as parcelas atrasadas para ficar com o imóvel. O que a lei lhe reserva é o direito de preferência: recomprar pelo valor da dívida e das despesas, e só até a data do segundo leilão. Feita a arrematação, desfazer a venda é muito difícil.
+
+A lei ainda protege quem arremata: as ações que discutem o contrato ou o procedimento de cobrança e do leilão não impedem a entrega do imóvel ao arrematante e, se o antigo dono tiver razão, se resolvem em indenização. A exceção é a falta de notificação do devedor. Por isso, muito difícil não é impossível: o ponto a conferir antes do lance é se o devedor foi regularmente intimado para pagar e comunicado das datas dos leilões.
+
+**Base legal.** Lei 9.514/1997, arts. 26, 27, § 2º-B, e 30, parágrafo único. O caminho completo está em [leilão extrajudicial de imóveis](/blog/leilao-extrajudicial-de-imoveis/).
+:::
 
 ## Quais são os prazos para questionar a arrematação?
 

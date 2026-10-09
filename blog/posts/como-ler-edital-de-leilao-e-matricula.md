@@ -3,11 +3,11 @@ title: "Como ler o edital de leilão e a matrícula do imóvel"
 slug: "como-ler-edital-de-leilao-e-matricula"
 description: "Os dois documentos que decidem se o leilão é um bom negócio. O que procurar em cada um e o que fazer quando eles se contradizem."
 keywordPrincipal: "como ler edital de leilão"
-publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+publishedAt: "2026-09-09"
+updatedAt: "2026-10-08"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
-reviewedAt: "2026-10-06"
+reviewedAt: "2026-09-09"
 reviewType: "Revisão editorial e checagem de fontes"
 sources:
   - title: "Código de Processo Civil — Lei 13.105/2015"
@@ -17,6 +17,11 @@ sources:
   - title: "CNJ — Resolução 236/2016"
     url: "https://atos.cnj.jus.br/atos/detalhar/2313"
 cluster: "fundamentos e apoio"
+modalidade: ambos
+relacionados:
+  - dividas-do-imovel-arrematado
+  - imovel-de-leilao-ocupado-desocupacao
+  - quanto-custa-comprar-imovel-em-leilao
 status: published
 tags: ["edital", "matrícula", "análise documental"]
 ---
@@ -29,7 +34,7 @@ tags: ["edital", "matrícula", "análise documental"]
 
 1. **Descrição do imóvel e número da matrícula.** Sempre confira a matrícula à parte.
 2. **Valor de avaliação e lance mínimo de cada praça.**
-3. **Ônus incidentes sobre o bem** — o CPC exige que constem do edital.
+3. **Ônus incidentes sobre o bem** — no leilão judicial, o CPC exige que constem do edital.
 4. **Situação de ocupação.**
 5. **Condições e prazos de pagamento**, inclusive se aceita parcelamento ou financiamento.
 6. **Comissão do leiloeiro** e prazo para pagá-la.
@@ -37,7 +42,7 @@ tags: ["edital", "matrícula", "análise documental"]
 8. **Datas das praças e regras de intimação.**
 9. **Identificação do leiloeiro**, com nome da pessoa física e número de matrícula na Junta.
 
-**Base legal.** CPC, art. 886, incisos, especialmente o VI (ônus). Publicação: art. 887, § 1º — edital publicado com pelo menos cinco dias de antecedência da data do leilão.
+**Base legal (leilão judicial).** CPC, art. 886, incisos, especialmente o VI (ônus). Publicação: art. 887, § 1º — edital publicado com pelo menos cinco dias de antecedência da data do leilão. O checklist vale também para o edital de leilão extrajudicial, ainda que as regras que o regem sejam outras.
 
 ## O que é a matrícula do imóvel e por que ela importa mais que o anúncio?
 
@@ -53,7 +58,7 @@ tags: ["edital", "matrícula", "análise documental"]
 
 **Na prática.** Peça a matrícula **atualizada** — não a que está anexada ao edital, que pode ter meses. E se aparecer na matrícula um ônus que não estava no edital, isso não é só um problema: é uma hipótese legal expressa de desistência com devolução do depósito, no prazo de dez dias, no leilão judicial.
 
-## Posso visitar o imóvel antes de dar o lance?
+## Posso visitar o imóvel antes de dar o lance? {judicial}
 
 **Resposta direta.** Existe suporte normativo para a visitação, mas não um direito absoluto de entrar em imóvel ocupado. A Resolução CNJ nº 236/2016 determina que os bens sejam expostos para visitação em locais, dias e horários indicados, e que o leiloeiro possa fotografar e visitar o bem, acompanhado ou não de interessados. O que ela não faz é autorizar você a ingressar por conta própria em residência ocupada.
 

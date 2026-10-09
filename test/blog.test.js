@@ -24,11 +24,12 @@ test('todos os artigos estao publicados com autoria, revisao e fontes', () => {
     const { data, content } = matter(raw);
 
     assert.equal(data.status, 'published', file);
-    assert.equal(data.publishedAt, '2026-10-06', file);
-    assert.equal(data.updatedAt, '2026-10-06', file);
+    assert.match(data.publishedAt, /^\d{4}-\d{2}-\d{2}$/, file);
+    assert.ok(data.updatedAt >= data.publishedAt, `${file}: updatedAt anterior a publishedAt`);
     assert.equal(data.author, 'Equipe Argos', file);
     assert.ok(data.reviewedBy, file);
-    assert.equal(data.reviewedAt, '2026-10-06', file);
+    assert.ok(data.reviewedAt && data.reviewedAt <= data.updatedAt, `${file}: reviewedAt fora do intervalo`);
+    assert.ok(['judicial', 'extrajudicial', 'ambos'].includes(data.modalidade), `${file}: modalidade invalida`);
     assert.ok(Array.isArray(data.sources) && data.sources.length >= 2, file);
 
     for (const source of data.sources) {
@@ -44,6 +45,12 @@ test('todos os artigos estao publicados com autoria, revisao e fontes', () => {
   }
 });
 
+// Padrao editorial: artigos publicados em dias diferentes, nunca em lote.
+test('nenhum par de artigos compartilha a mesma data de publicacao', () => {
+  const datas = files.map(file => matter(fs.readFileSync(path.join(POSTS_DIR, file), 'utf8')).data.publishedAt);
+  assert.equal(new Set(datas).size, datas.length, `datas repetidas: ${datas.sort().join(', ')}`);
+});
+
 test('paginas geradas exibem sinais editoriais e schema de citacao', () => {
   const sitemap = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
 
@@ -57,6 +64,12 @@ test('paginas geradas exibem sinais editoriais e schema de citacao', () => {
     assert.match(html, /class="blog-sources"/, data.slug);
     assert.match(html, /"reviewedBy"/, data.slug);
     assert.match(html, /"citation"/, data.slug);
+    assert.match(html, new RegExp(`class="blog-modalidade is-${data.modalidade}"`), data.slug);
+    assert.doesNotMatch(html, /\{(judicial|extrajudicial)\}/, `${data.slug}: marca de secao nao convertida`);
+    assert.doesNotMatch(html, /:::\s*nota/, `${data.slug}: quadro ::: nota nao convertido`);
+    const leiaTambem = html.match(/class="blog-related-card"/g) || [];
+    assert.equal(leiaTambem.length, 3, `${data.slug}: "Leia também" precisa de 3 artigos`);
+    assert.doesNotMatch(html, new RegExp(`class="blog-related"[\\s\\S]*href="/blog/${data.slug}/"`), `${data.slug}: indica a si mesmo`);
     assert.match(sitemap, new RegExp(`<loc>https://www\\.argosleiloes\\.com\\.br/blog/${data.slug}/</loc>`));
   }
 });

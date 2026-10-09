@@ -190,6 +190,22 @@
   margin-bottom: var(--sp-5);
 }
 
+/* Padrao editorial: texto corrido sempre justificado. A hifenizacao em
+   portugues (lang="pt-BR" no <html>) evita os vaos entre palavras que o
+   justificado abre em coluna estreita, principalmente no celular. */
+.blog-body p,
+.blog-body li,
+.blog-body blockquote,
+.blog-desc,
+.blog-callout p,
+.faq-answer,
+.blog-disclaimer p {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  hyphenate-limit-chars: 6 3 3;
+}
+
 .blog-body ul, .blog-body ol {
   margin-bottom: var(--sp-5);
   padding-left: var(--sp-6);
@@ -487,4 +503,209 @@
   font-size: 13px;
   line-height: 1.65;
   color: var(--text-3);
+}
+
+/* ===== MODALIDADE DO LEILAO ===== */
+/* Um unico padrao visual para todas as modalidades: o que muda e o texto do
+   selo (judicial, extrajudicial, os dois), nunca a cor. */
+
+.modalidade-selo {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: var(--radius-round);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+  color: var(--violet-hover);
+  background: var(--violet-bg);
+  border: 1px solid var(--violet-border);
+}
+
+.blog-modalidade {
+  display: grid;
+  gap: var(--sp-2);
+  margin-top: var(--sp-6);
+  padding: var(--sp-4) var(--sp-5);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--violet);
+  border-radius: var(--radius-medium);
+  background: var(--white);
+}
+
+.blog-modalidade .modalidade-selo { justify-self: start; }
+
+.blog-modalidade p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-2);
+}
+
+.blog-modalidade strong { color: var(--text); }
+
+.blog-modalidade a,
+.blog-callout a {
+  color: var(--violet);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Etiqueta de secao que vale so para uma modalidade */
+.blog-body .secao-tag {
+  display: flex;
+  width: fit-content;
+  margin: var(--sp-12) 0 calc(-1 * var(--sp-8));
+  padding: 2px 10px;
+  border-radius: var(--radius-round);
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+  color: var(--violet-hover);
+  background: var(--violet-bg);
+}
+
+
+.toc-tag {
+  margin-left: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+.toc-tag::before { content: '· '; }
+
+/* Quadro de destaque (`::: nota Titulo` no Markdown) */
+.blog-callout {
+  margin: var(--sp-8) 0;
+  padding: var(--sp-5) var(--sp-6);
+  border-radius: var(--radius-medium);
+  background: var(--violet-wash);
+  border: 1px solid var(--violet-border);
+}
+
+.blog-callout-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: var(--sp-2) !important;
+}
+
+.blog-callout p:last-child { margin-bottom: 0; }
+
+/* Filtros da listagem */
+.blog-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+  max-width: 740px;
+  margin: 0 auto var(--sp-8);
+}
+
+.blog-filtros[hidden] { display: none; }
+
+.blog-filtro {
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-round);
+  background: var(--white);
+  color: var(--text-2);
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color var(--dur-color) var(--ease-out), background-color var(--dur-color) var(--ease-out);
+}
+
+.blog-filtro[aria-pressed="true"] {
+  color: var(--white);
+  background: var(--text);
+  border-color: var(--text);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .blog-filtro[aria-pressed="false"]:hover { border-color: var(--line-strong); }
+  .blog-filtro-ajuda:hover { text-decoration: underline; }
+}
+
+.blog-filtro-ajuda {
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--violet);
+}
+
+.blog-card[hidden] { display: none; }
+.blog-card-meta .modalidade-selo { margin-right: var(--sp-1); }
+
+@media (max-width: 640px) {
+  .blog-filtro-ajuda { margin-left: 0; flex-basis: 100%; }
+  .blog-modalidade { padding: var(--sp-4); }
+  .blog-callout { padding: var(--sp-4); margin-inline: calc(-1 * var(--sp-2)); }
+}
+
+/* ===== LEIA TAMBEM ===== */
+
+.blog-related {
+  margin-top: var(--sp-12);
+  padding-top: var(--sp-8);
+  border-top: 1px solid var(--border);
+}
+
+.blog-related h2 {
+  margin-bottom: var(--sp-5);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.blog-related ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+  list-style: none;
+}
+
+.blog-related-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  height: 100%;
+  padding: var(--sp-5);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-medium);
+  background: var(--white);
+  transition: border-color var(--dur-color) var(--ease-out), box-shadow var(--dur-color) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .blog-related-card:hover {
+    border-color: var(--violet-border);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.blog-related-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.blog-related-meta {
+  margin-top: auto;
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+@media (max-width: 760px) {
+  .blog-related ul { grid-template-columns: 1fr; }
 }

@@ -3,11 +3,11 @@ title: "Imóvel de leilão ocupado: como funciona a desocupação, prazos e cust
 slug: "imovel-de-leilao-ocupado-desocupacao"
 description: "O que fazer quando o imóvel arrematado está ocupado: imissão na posse, reintegração, prazos legais, negociação amigável e custos reais."
 keywordPrincipal: "imóvel de leilão ocupado"
-publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+publishedAt: "2026-09-23"
+updatedAt: "2026-09-23"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
-reviewedAt: "2026-10-06"
+reviewedAt: "2026-09-23"
 reviewType: "Revisão editorial e checagem de fontes"
 sources:
   - title: "Código de Processo Civil — Lei 13.105/2015"
@@ -17,6 +17,11 @@ sources:
   - title: "CNJ — Resolução 236/2016"
     url: "https://atos.cnj.jus.br/atos/detalhar/2313"
 cluster: "maior dor"
+modalidade: ambos
+relacionados:
+  - leilao-extrajudicial-de-imoveis
+  - quanto-custa-comprar-imovel-em-leilao
+  - dividas-do-imovel-arrematado
 status: published
 tags: ["imóvel ocupado", "imissão na posse", "desocupação"]
 ---
@@ -25,13 +30,13 @@ tags: ["imóvel ocupado", "imissão na posse", "desocupação"]
 
 **Resposta direta.** É uma situação comum e não impede a compra — mas muda completamente o cálculo. A remoção da ocupação tem prazo e custo. O caminho muda conforme o tipo de leilão: no judicial, o mandado de imissão na posse; no extrajudicial de alienação fiduciária, a reintegração de posse com liminar prevista em lei.
 
-## Como funciona a imissão na posse no leilão judicial?
+## Como funciona a imissão na posse no leilão judicial? {judicial}
 
 **Resposta direta.** Passado o prazo de dez dias sem alegação de vício, é expedida a carta de arrematação e, conforme o caso, a ordem de entrega ou o **mandado de imissão na posse**. Com ele, o oficial de justiça é quem executa a entrega do imóvel.
 
 **Base legal.** CPC, art. 903, § 3º; art. 901, § 1º.
 
-## Como funciona a desocupação no leilão extrajudicial?
+## Como funciona a desocupação no leilão extrajudicial? {extrajudicial}
 
 **Resposta direta.** A lei é bem mais objetiva aqui. É assegurada ao credor fiduciário, ao seu cessionário, aos seus sucessores e **também ao adquirente do imóvel por força do leilão público** a reintegração na posse do imóvel, que **será concedida liminarmente**, para desocupação no prazo de 60 dias, desde que comprovada a consolidação da propriedade.
 
@@ -41,7 +46,7 @@ Traduzindo: o ex-proprietário pode processar o banco discutindo cláusulas ou o
 
 **Base legal.** Lei 9.514/1997, art. 30, *caput* e parágrafo único, com redação da Lei 14.711/2023.
 
-## Quanto tempo leva para desocupar na prática?
+## Quanto tempo leva para desocupar na prática? {extrajudicial}
 
 **Resposta direta.** A lei fixa 60 dias para a desocupação na reintegração do leilão extrajudicial, contados da decisão liminar. Mas o prazo real vai além disso: é preciso somar o tempo até a propositura da ação, a análise do pedido liminar pelo juízo, a expedição e o cumprimento do mandado pelo oficial de justiça — e eventuais incidentes.
 
@@ -57,7 +62,7 @@ O que se pode afirmar com segurança: o prazo legal é de 60 dias, enquanto o pr
 
 **Na prática.** Vale registrar o acordo por escrito, com prazo, condições de entrega do imóvel e quitação recíproca.
 
-## E se houver inquilino com contrato de locação?
+## E se houver inquilino com contrato de locação? {extrajudicial}
 
 **Resposta direta.** No regime da alienação fiduciária, se o imóvel estiver locado, a locação pode ser denunciada com prazo de 30 dias para desocupação, salvo se tiver havido concordância por escrito do credor fiduciário. A denúncia deve ser feita no prazo de 90 dias contados da consolidação da propriedade.
 
@@ -65,7 +70,7 @@ O que se pode afirmar com segurança: o prazo legal é de 60 dias, enquanto o pr
 
 **Base legal.** Lei 9.514/1997, art. 27, § 7º; art. 37-B.
 
-## Quem paga o condomínio e o IPTU enquanto o imóvel ainda está ocupado?
+## Quem paga o condomínio e o IPTU enquanto o imóvel ainda está ocupado? {extrajudicial}
 
 **Resposta direta.** No regime da alienação fiduciária, a lei é expressa: responde o **fiduciante** — o devedor — pelo pagamento dos impostos, taxas, contribuições condominiais e quaisquer outros encargos que recaiam ou venham a recair sobre o imóvel cuja posse tenha sido transferida ao fiduciário, **até a data em que o fiduciário vier a ser imitido na posse**.
 
@@ -73,13 +78,13 @@ O que se pode afirmar com segurança: o prazo legal é de 60 dias, enquanto o pr
 
 O regime dos débitos anteriores à arrematação é outro, e está em [dívidas do imóvel arrematado](/blog/dividas-do-imovel-arrematado/).
 
-## O que é taxa de ocupação?
+## O que é taxa de ocupação? {extrajudicial}
 
 **Resposta direta.** É o valor que o devedor fiduciante deve pagar ao credor fiduciário, ou a quem o suceder, pelo período em que continua ocupando o imóvel após a consolidação da propriedade. Corresponde a **1% ao mês, ou fração**, sobre o valor do imóvel estipulado no contrato para efeito de leilão, contado da consolidação da propriedade até a data da imissão na posse.
 
 **Base legal.** Lei 9.514/1997, art. 37-A, com redação da Lei 14.711/2023.
 
-## Eu, como arrematante, posso cobrar a taxa de ocupação?
+## Eu, como arrematante, posso cobrar a taxa de ocupação? {extrajudicial}
 
 **Resposta direta.** Sim. O art. 37-A dirige a obrigação ao credor fiduciário "ou a quem vier a sucedê-lo", e o STJ já reconheceu expressamente que o comprador do imóvel em leilão tem legitimidade para cobrar a taxa de ocupação.
 

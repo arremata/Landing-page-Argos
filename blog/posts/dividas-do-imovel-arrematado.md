@@ -3,11 +3,11 @@ title: "Arrematei o imóvel: eu pago as dívidas de IPTU e condomínio?"
 slug: "dividas-do-imovel-arrematado"
 description: "O que o STJ decidiu sobre IPTU e dívidas de condomínio do imóvel arrematado, o que muda conforme o edital e como calcular o risco antes do lance."
 keywordPrincipal: "dívida de condomínio imóvel arrematado"
-publishedAt: "2026-10-06"
-updatedAt: "2026-10-06"
+publishedAt: "2026-09-17"
+updatedAt: "2026-10-08"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
-reviewedAt: "2026-10-06"
+reviewedAt: "2026-09-17"
 reviewType: "Revisão editorial e checagem de fontes"
 sources:
   - title: "Código Tributário Nacional — Lei 5.172/1966"
@@ -17,13 +17,18 @@ sources:
   - title: "STJ — Tema Repetitivo 1.134"
     url: "https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?novaConsulta=true&tipo_pesquisa=T&cod_tema_inicial=1134&cod_tema_final=1134"
 cluster: "maior dor"
+modalidade: ambos
+relacionados:
+  - quanto-custa-comprar-imovel-em-leilao
+  - como-ler-edital-de-leilao-e-matricula
+  - leilao-extrajudicial-de-imoveis
 status: published
 tags: ["IPTU", "condomínio", "dívidas", "Tema 1134"]
 ---
 
 ## Arrematei um imóvel: preciso pagar o IPTU atrasado?
 
-**Resposta direta.** Na arrematação em hasta pública, não. O STJ fixou, no Tema 1134, a tese de que, diante do art. 130, parágrafo único, do Código Tributário Nacional, **é inválida a previsão em edital de leilão atribuindo responsabilidade ao arrematante pelos débitos tributários que já incidiam sobre o imóvel na data de sua alienação**. Os débitos tributários anteriores sub-rogam-se no preço da arrematação.
+**Resposta direta.** No leilão judicial (a arrematação em hasta pública), não. No leilão extrajudicial, de imóveis retomados por bancos, a questão ainda não foi decidida pelo STJ, como explicamos no fim desta resposta. Para o leilão judicial, o STJ fixou, no Tema 1134, a tese de que, diante do art. 130, parágrafo único, do Código Tributário Nacional, **é inválida a previsão em edital de leilão atribuindo responsabilidade ao arrematante pelos débitos tributários que já incidiam sobre o imóvel na data de sua alienação**. Os débitos tributários anteriores sub-rogam-se no preço da arrematação.
 
 **O detalhe.** O raciocínio do STJ: o art. 130 do CTN distingue dois modos de aquisição. Na venda comum, a aquisição é derivada e o adquirente recebe o bem com os ônus que o acompanham. Na arrematação em hasta pública, a aquisição é **originária** — o bem chega ao arrematante livre dos vínculos anteriores, e o crédito tributário se transfere para o dinheiro pago no leilão. Como a responsabilidade tributária de terceiros é matéria reservada a lei complementar, um edital não pode dispor em sentido contrário.
 
@@ -35,7 +40,7 @@ tags: ["IPTU", "condomínio", "dívidas", "Tema 1134"]
 
 Atenção a um limite importante: os recursos julgados no Tema 1134 tratam de alienação judicial em hasta pública. A extensão dessa tese ao [leilão extrajudicial](/blog/leilao-extrajudicial-de-imoveis/) da Lei 9.514/1997 ainda não foi decidida pelo STJ, e por isso o caminho seguro nesse caso é considerar o débito no cálculo do lance.
 
-## E a dívida de condomínio anterior? Também não é minha?
+## E a dívida de condomínio anterior? Também não é minha? {judicial}
 
 **Resposta direta.** Aqui a resposta é diferente, e é preciso honestidade. A dívida de condomínio **não é tributo**, e o Tema 1134 não a alcança. O entendimento predominante no STJ é que, **havendo previsão expressa no edital**, o arrematante responde pelos débitos condominiais anteriores, porque teve ciência inequívoca antes de dar o lance.
 
@@ -61,13 +66,13 @@ Ou seja: **a esperada uniformização de 2026 não veio.** A orientação contra
 
 **Na prática, e este é o conselho útil:** trate a dívida condominial prevista no edital como custo seu ao calcular o lance. Se depois for possível discutir, é ganho. O contrário é prejuízo — e é o erro mais caro do mercado.
 
-## O que significa "sub-rogação no preço"?
+## O que significa "sub-rogação no preço"? {judicial}
 
 **Resposta direta.** Significa que a dívida deixa de perseguir o imóvel e passa a perseguir o dinheiro pago no leilão. O valor arrecadado é usado para pagar os credores, na ordem de preferência da lei. O imóvel chega ao arrematante limpo daquele débito.
 
 **Base legal.** CTN, art. 130, parágrafo único (tributos, na arrematação em hasta pública). CPC, art. 908, § 1º (créditos que recaem sobre o bem, inclusive *propter rem*).
 
-## E se o valor da arrematação não for suficiente para pagar as dívidas?
+## E se o valor da arrematação não for suficiente para pagar as dívidas? {judicial}
 
 **Resposta direta.** Na lógica da sub-rogação, o arrematante não responde pelo saldo que sobrar. A sub-rogação transfere a dívida para o preço; se o preço não cobre tudo, o crédito remanescente continua sendo do credor contra o devedor original, não contra quem arrematou.
 
@@ -96,7 +101,7 @@ Ou seja: **a esperada uniformização de 2026 não veio.** A orientação contra
 
 **Na prática.** Se a concessionária se recusar a religar, o caminho é administrativo primeiro: registre o pedido por escrito, apresente o título de aquisição e invoque a natureza pessoal do débito anterior. É um problema que costuma se resolver sem litígio.
 
-## As hipotecas e penhoras anteriores continuam valendo?
+## As hipotecas e penhoras anteriores continuam valendo? {judicial}
 
 **Resposta direta.** Em regra, não — a arrematação judicial é forma originária de aquisição e os gravames anteriores são cancelados, desde que os respectivos credores tenham sido regularmente cientificados da alienação. É justamente por isso que a lei exige a intimação prévia do credor hipotecário e dos titulares de outros direitos sobre o bem.
 
