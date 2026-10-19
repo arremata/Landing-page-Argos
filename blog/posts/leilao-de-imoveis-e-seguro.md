@@ -4,7 +4,7 @@ slug: "leilao-de-imoveis-e-seguro"
 description: "Leilão de imóveis é seguro se você verificar sete coisas antes do lance. Veja quais são, o que a lei garante e onde estão os riscos reais."
 keywordPrincipal: "leilão de imóveis é seguro"
 publishedAt: "2026-09-01"
-updatedAt: "2026-10-08"
+updatedAt: "2026-10-19"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
 reviewedAt: "2026-09-01"
@@ -28,7 +28,7 @@ tags: ["segurança", "riscos", "golpe leilão"]
 
 ## Leilão de imóveis é seguro?
 
-**Resposta direta.** É um mercado regulado, com leiloeiros fiscalizados por órgão público e procedimento previsto em lei. A insegurança não está no leilão em si — está em duas coisas: sites falsos que se passam por leiloeiros oficiais, e a compra feita sem entender o que o edital e a matrícula dizem. Verificados esses dois pontos, o leilão é tão seguro quanto qualquer outra forma de aquisição de imóvel; ignorados, é um dos jeitos mais rápidos de perder dinheiro.
+**Resposta direta.** É um mercado regulado, com leiloeiros fiscalizados por órgão público e procedimento previsto em lei. A insegurança não está no leilão em si — está em duas coisas: sites falsos que se passam por leiloeiros oficiais, e a compra feita sem entender o que o [edital](/dicionario/edital) e a [matrícula](/dicionario/matricula) dizem. Verificados esses dois pontos, o leilão é tão seguro quanto qualquer outra forma de aquisição de imóvel; ignorados, é um dos jeitos mais rápidos de perder dinheiro.
 
 **O detalhe.** Em qualquer leilão, judicial ou extrajudicial, só leiloeiro oficialmente matriculado pode conduzir leilão público.
 
@@ -45,7 +45,7 @@ No **leilão extrajudicial**, de imóveis retomados por bancos, as regras de pro
 
 ## Qual é a "pegadinha" do leilão de imóveis?
 
-**Resposta direta.** Não existe uma pegadinha — existem quatro custos e riscos que não aparecem no valor do lance e que a maioria das pessoas não calcula: a comissão do leiloeiro, os tributos e custos de cartório, as dívidas que recaem sobre o imóvel e o tempo e o custo de desocupar um imóvel ocupado. É a soma disso que transforma um "desconto de 50%" em algo bem menor.
+**Resposta direta.** Não existe uma pegadinha — existem quatro custos e riscos que não aparecem no valor do lance e que a maioria das pessoas não calcula: a [comissão do leiloeiro](/dicionario/comissao-leiloeiro), os tributos e custos de cartório, as dívidas que recaem sobre o imóvel e o tempo e o custo de desocupar um imóvel ocupado. É a soma disso que transforma um "desconto de 50%" em algo bem menor.
 
 **O detalhe.** Some a isso um quinto item, menos falado: **o imóvel comprado sem visita**. Estado de conservação, vazamento, instalação elétrica, infiltração — nada disso está no edital, e a reforma pode consumir a margem inteira.
 

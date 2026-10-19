@@ -88,6 +88,31 @@ test('fontes são carregadas sem bloquear a primeira renderização', () => {
   assert.match(html, /display=optional/);
 });
 
+test('termos relacionados distribuem links por todo o grupo sem repetir nem indicar a própria página', () => {
+  for (const group of GLOSSARY_GROUPS) {
+    const keys = Object.keys(GLOSSARY).filter(key => GLOSSARY[key].group === group.id);
+    const incoming = new Map(keys.map(key => [termPath(key), 0]));
+    const expected = Math.min(6, keys.length - 1);
+
+    for (const key of keys) {
+      const html = fs.readFileSync(path.join(outputRoot, termPath(key), 'index.html'), 'utf8');
+      const related = html.match(/<section class="dictionary-related">([\s\S]*?)<\/section>/)?.[1] || '';
+      const paths = [...related.matchAll(/href="(\/dicionario\/[^"#]+)"/g)].map(match => match[1]);
+      assert.equal(paths.length, expected, key);
+      assert.equal(new Set(paths).size, paths.length, `${key}: links repetidos`);
+      assert.ok(!paths.includes(termPath(key)), `${key}: indica a própria página`);
+      for (const target of paths) {
+        assert.ok(incoming.has(target), `${key}: destino fora do grupo ${target}`);
+        incoming.set(target, incoming.get(target) + 1);
+      }
+    }
+
+    for (const [target, count] of incoming) {
+      assert.equal(count, expected, `${target}: distribuição desigual de links`);
+    }
+  }
+});
+
 test('metadados usam o endereço solicitado pelo ambiente de build', () => {
   const meta = dictionaryMeta(null, 'https://preview.example');
   assert.equal(meta.canonical, 'https://preview.example/dicionario');

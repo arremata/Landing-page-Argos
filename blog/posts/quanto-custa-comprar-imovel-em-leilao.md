@@ -4,7 +4,7 @@ slug: "quanto-custa-comprar-imovel-em-leilao"
 description: "Comissão do leiloeiro, ITBI, cartório, dívidas e desocupação. Veja a conta completa do que se paga além do lance em um leilão de imóvel."
 keywordPrincipal: "custos leilão de imóveis"
 publishedAt: "2026-08-26"
-updatedAt: "2026-08-26"
+updatedAt: "2026-10-19"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
 reviewedAt: "2026-08-26"
@@ -30,7 +30,7 @@ tags: ["custos", "ITBI", "comissão do leiloeiro"]
 
 ## Quanto custa além do lance?
 
-**Resposta direta.** Além do lance, entram na conta: a comissão do leiloeiro (mínimo de 5%), o ITBI, as custas de cartório e registro, eventuais débitos que recaiam sobre o imóvel, o custo da desocupação se o imóvel estiver ocupado e a reforma. Uma reserva realista para os custos de transmissão — ITBI, cartório e registro — costuma ficar na faixa de 4% a 6% do valor do imóvel, variando conforme o município.
+**Resposta direta.** Além do lance, entram na conta: a [comissão do leiloeiro](/dicionario/comissao-leiloeiro) (mínimo de 5%), o [ITBI](/dicionario/itbi), as custas de cartório e registro, eventuais débitos que recaiam sobre o imóvel, o custo da desocupação se o imóvel estiver ocupado e a [reforma](/dicionario/reforma). Uma reserva realista para os custos de transmissão — ITBI, cartório e registro — costuma ficar na faixa de 4% a 6% do valor do imóvel, variando conforme o município.
 
 **O detalhe — a estrutura da conta:**
 

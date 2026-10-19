@@ -4,7 +4,7 @@ slug: "dividas-do-imovel-arrematado"
 description: "O que o STJ decidiu sobre IPTU e dívidas de condomínio do imóvel arrematado, o que muda conforme o edital e como calcular o risco antes do lance."
 keywordPrincipal: "dívida de condomínio imóvel arrematado"
 publishedAt: "2026-09-17"
-updatedAt: "2026-10-08"
+updatedAt: "2026-10-19"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
 reviewedAt: "2026-09-17"
@@ -78,7 +78,7 @@ Ou seja: **a esperada uniformização de 2026 não veio.** A orientação contra
 
 ## Como descubro as dívidas antes de dar o lance?
 
-**Resposta direta.** Quatro documentos resolvem a maior parte: a certidão atualizada da matrícula no cartório de registro de imóveis, a certidão de débitos do imóvel na prefeitura, a declaração de débitos junto ao condomínio ou administradora, e o próprio edital, que deve informar os ônus incidentes sobre o bem.
+**Resposta direta.** Quatro documentos resolvem a maior parte: a certidão atualizada da [matrícula](/dicionario/matricula) no cartório de registro de imóveis, a certidão de débitos do imóvel na prefeitura, a declaração de débitos junto ao [condomínio](/dicionario/condominio) ou administradora, e o próprio [edital](/dicionario/edital), que deve informar os ônus incidentes sobre o bem.
 
 **Base legal.** O CPC determina que constem do edital os ônus incidentes sobre o imóvel — art. 886, VI.
 

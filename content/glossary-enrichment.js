@@ -19,9 +19,12 @@ const GLOSSARY_ENRICHMENT = {
     checks: ['Rodada em que o imóvel se encontra', 'Data e valor inicial de cada rodada', 'Responsabilidade por ocupação e despesas'],
   },
   licitacao_aberta: {
+    searchTitle: 'Licitação aberta da Caixa: o que é e como funciona | Argos',
     detail: [
       'A licitação aberta reúne propostas em um período definido e normalmente acontece pela internet. Os participantes acompanham a disputa conforme as regras publicadas para aquela venda.',
       'Como existe uma única rodada, não há uma segunda data com outro valor mínimo. Horário de encerramento, incremento de lance e critérios de desempate ficam no edital.',
+      'A diferença para a venda direta está na disputa: na licitação aberta, o resultado considera os lances recebidos na sessão; na venda direta, a compra segue o preço anunciado e a regra de aceitação da proposta. Licitação aberta também não é sinônimo de primeira ou segunda rodada do Leilão SFI.',
+      'O maior lance não inclui automaticamente comissão, ITBI, registro e gastos para receber as chaves. Financiamento e FGTS só entram na compra quando a ficha e o edital permitem, sujeitos às verificações do agente financeiro.',
     ],
     checks: ['Horário de início e encerramento', 'Incremento mínimo entre ofertas', 'Critério de desempate e confirmação do resultado'],
   },
@@ -150,6 +153,7 @@ const GLOSSARY_ENRICHMENT = {
     detail: [
       'O status ocupado indica que há informação de alguém no imóvel. A entrega das chaves pode exigir acordo com o ocupante ou medida judicial, o que acrescenta prazo e custo à compra.',
       'A ficha não identifica necessariamente quem ocupa o bem nem permite visita interna. O edital informa como a responsabilidade pela desocupação é distribuída entre vendedor e comprador.',
+      'Arrematar, registrar a propriedade e receber a posse são etapas diferentes. Até a entrega efetiva, o planejamento pode incluir moradia provisória, despesas do imóvel e custos do procedimento de desocupação. Um prazo legal não equivale ao tempo total até as chaves.',
     ],
     checks: ['Responsável pela desocupação', 'Possibilidade de visita ao imóvel', 'Reserva de prazo e custo até a posse'],
   },

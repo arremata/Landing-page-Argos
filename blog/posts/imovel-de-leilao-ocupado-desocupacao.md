@@ -4,7 +4,7 @@ slug: "imovel-de-leilao-ocupado-desocupacao"
 description: "O que fazer quando o imóvel arrematado está ocupado: imissão na posse, reintegração, prazos legais, negociação amigável e custos reais."
 keywordPrincipal: "imóvel de leilão ocupado"
 publishedAt: "2026-09-23"
-updatedAt: "2026-09-23"
+updatedAt: "2026-10-19"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
 reviewedAt: "2026-09-23"
@@ -26,9 +26,15 @@ status: published
 tags: ["imóvel ocupado", "imissão na posse", "desocupação"]
 ---
 
-## E se o imóvel estiver ocupado?
+## O que significa comprar um imóvel de leilão ocupado?
 
-**Resposta direta.** É uma situação comum e não impede a compra — mas muda completamente o cálculo. A remoção da ocupação tem prazo e custo. O caminho muda conforme o tipo de leilão: no judicial, o mandado de imissão na posse; no extrajudicial de alienação fiduciária, a reintegração de posse com liminar prevista em lei.
+**Resposta direta.** É uma situação comum e não impede a compra — mas muda completamente o cálculo. A [desocupação](/dicionario/desocupacao) tem prazo e custo. O caminho muda conforme o tipo de leilão: no judicial, o mandado de imissão na posse; no extrajudicial de alienação fiduciária, a reintegração de posse com liminar prevista em lei.
+
+O status [ocupado](/dicionario/ocupado) informa a situação descrita pelo vendedor. Antes do lance, a ficha e o [edital](/dicionario/edital) ajudam a identificar quem responde pela entrega da posse, se há visita interna e quais despesas entram no planejamento.
+
+## Comprar o imóvel garante receber as chaves imediatamente?
+
+Não. O lance vencedor, o pagamento, o [registro no cartório](/dicionario/registro-cartorio) e a posse efetiva são etapas distintas. A documentação da venda informa o fluxo da compra. Se a desocupação ficar com você, entram na conta o procedimento de entrega, o tempo de espera e eventuais gastos com moradia provisória.
 
 ## Como funciona a imissão na posse no leilão judicial? {judicial}
 

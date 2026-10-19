@@ -4,7 +4,7 @@ slug: "como-saber-se-o-leiloeiro-e-oficial"
 description: "Todo leiloeiro oficial é matriculado em uma Junta Comercial. Veja como confirmar em minutos se quem está conduzindo o leilão está regular."
 keywordPrincipal: "como saber se o leiloeiro é oficial"
 publishedAt: "2026-09-28"
-updatedAt: "2026-09-28"
+updatedAt: "2026-10-19"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
 reviewedAt: "2026-09-28"
@@ -28,9 +28,11 @@ tags: ["leiloeiro oficial", "Junta Comercial", "verificação"]
 
 ## Quem fiscaliza os leiloeiros no Brasil?
 
-**Resposta direta.** As Juntas Comerciais. Cada leiloeiro oficial é matriculado na Junta Comercial do estado onde atua, e é ela que registra, fiscaliza e publica a relação. A profissão é regulada pelo Decreto 21.981/1932, que estabelece que apenas leiloeiros oficialmente matriculados podem conduzir leilões públicos.
+**Resposta direta.** As Juntas Comerciais. Cada [leiloeiro oficial](/dicionario/leiloeiro) é matriculado na Junta Comercial do estado onde atua, e é ela que registra, fiscaliza e publica a relação. A profissão é regulada pelo Decreto 21.981/1932, que estabelece que apenas leiloeiros oficialmente matriculados podem conduzir leilões públicos.
 
 **O detalhe.** Existe ainda uma obrigação de transparência que a maioria das pessoas desconhece: a Instrução Normativa DREI nº 52/2022 determina, no art. 88, que toda Junta Comercial publique a relação de seus leiloeiros. É por isso que a lista existe e é pública em todos os 27 estados — ainda que com formatos, endereços e qualidade de dado muito desiguais.
+
+A identificação do profissional também aparece no [edital](/dicionario/edital), junto das instruções de participação e da [comissão do leiloeiro](/dicionario/comissao-leiloeiro). Os dados precisam corresponder ao cadastro oficial.
 
 ## Como faço a consulta na prática?
 

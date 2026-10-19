@@ -4,7 +4,7 @@ slug: "como-ler-edital-de-leilao-e-matricula"
 description: "Os dois documentos que decidem se o leilão é um bom negócio. O que procurar em cada um e o que fazer quando eles se contradizem."
 keywordPrincipal: "como ler edital de leilão"
 publishedAt: "2026-09-09"
-updatedAt: "2026-10-08"
+updatedAt: "2026-10-19"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
 reviewedAt: "2026-09-09"
@@ -28,7 +28,7 @@ tags: ["edital", "matrícula", "análise documental"]
 
 ## O que é o edital e o que preciso ler nele?
 
-**Resposta direta.** O edital é o documento que define as regras daquele leilão específico: o que está sendo vendido, por quanto, em que condições de pagamento e com quais ônus. Ele é a lei do certame — e o que estiver ali vincula quem dá o lance.
+**Resposta direta.** O [edital](/dicionario/edital) é o documento que define as regras daquele leilão específico: o que está sendo vendido, por quanto, em que condições de pagamento e com quais ônus. Ele é a lei do certame — e o que estiver ali vincula quem dá o lance.
 
 **O detalhe — o checklist:**
 
@@ -46,7 +46,7 @@ tags: ["edital", "matrícula", "análise documental"]
 
 ## O que é a matrícula do imóvel e por que ela importa mais que o anúncio?
 
-**Resposta direta.** A matrícula é a certidão do cartório de registro de imóveis que conta toda a história jurídica daquele imóvel: quem foi dono, o que foi registrado e quais ônus existem sobre ele. É a única fonte confiável sobre a situação jurídica do bem. O anúncio é marketing; o edital é a regra do certame; a matrícula é o fato.
+**Resposta direta.** A [matrícula](/dicionario/matricula) é a certidão do cartório de registro de imóveis que conta toda a história jurídica daquele imóvel: quem foi dono, o que foi registrado e quais ônus existem sobre ele. É a única fonte confiável sobre a situação jurídica do bem. O anúncio é marketing; o edital é a regra do certame; a matrícula é o fato.
 
 **O detalhe — o que procurar:**
 

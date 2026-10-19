@@ -4,7 +4,7 @@ slug: "leilao-judicial-e-extrajudicial-diferencas"
 description: "Judicial e extrajudicial são dois mundos com regras, prazos e riscos diferentes. Entenda o que muda em cada um antes de dar o lance."
 keywordPrincipal: "leilão de imóvel extrajudicial e judicial"
 publishedAt: "2026-08-21"
-updatedAt: "2026-10-08"
+updatedAt: "2026-10-19"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
 reviewedAt: "2026-08-21"
@@ -28,7 +28,7 @@ tags: ["leilão judicial", "leilão extrajudicial", "tipos de leilão"]
 
 ## Qual é a diferença entre leilão judicial e extrajudicial?
 
-**Resposta direta.** O leilão judicial acontece dentro de um processo, é conduzido sob a autoridade de um juiz e segue o Código de Processo Civil. O leilão extrajudicial acontece fora do Judiciário, é promovido diretamente pelo credor — quase sempre um banco — e segue a lei do contrato de garantia, na maioria dos casos a Lei 9.514/1997, da alienação fiduciária. A diferença não é burocrática: ela muda quem responde pelas dívidas, quanto tempo leva para desocupar e como o negócio pode ser questionado.
+**Resposta direta.** O leilão judicial acontece dentro de um processo, é conduzido sob a autoridade de um juiz e segue o Código de Processo Civil. O leilão extrajudicial acontece fora do Judiciário, é promovido diretamente pelo [credor](/dicionario/credor) — quase sempre um banco — e segue a lei do contrato de garantia, na maioria dos casos a Lei 9.514/1997, da alienação fiduciária. A diferença não é burocrática: ela muda quem responde pelas dívidas, quanto tempo leva para desocupar e como o negócio pode ser questionado.
 
 **O detalhe.** Quadro comparativo:
 
@@ -48,7 +48,7 @@ tags: ["leilão judicial", "leilão extrajudicial", "tipos de leilão"]
 
 **Resposta direta.** São as duas tentativas de venda. Na primeira, o valor mínimo é mais alto — em regra próximo da avaliação. Se ninguém arremata, ocorre a segunda, com valor mínimo menor. "Praça" é a nomenclatura tradicional do leilão judicial; "primeiro e segundo leilão" é a terminologia da Lei 9.514 no extrajudicial. Na prática do mercado os termos são usados como sinônimos.
 
-**O detalhe — judicial.** O juiz pode fixar preço mínimo no edital. Se não fixar, entra a regra do preço vil: não se aceita lance inferior a 50% do valor da avaliação.
+**O detalhe — judicial.** O juiz pode fixar preço mínimo no edital. Se não fixar, entra a regra do preço vil: não se aceita lance inferior a 50% do [valor da avaliação](/dicionario/valor-avaliacao).
 
 **O detalhe — extrajudicial.** No primeiro leilão, o mínimo é o valor do imóvel estipulado no contrato de alienação fiduciária. Se o maior lance for inferior a esse valor, realiza-se o segundo leilão nos quinze dias seguintes. No segundo, aceita-se o maior lance desde que igual ou superior ao valor integral da dívida garantida, das despesas — inclusive emolumentos cartorários —, dos prêmios de seguro, dos encargos legais, inclusive tributos, e das contribuições condominiais. E, se não houver lance que alcance esse valor, a Lei 14.711/2023 passou a permitir que o credor fiduciário aceite, **a seu exclusivo critério**, lance correspondente a pelo menos metade do valor de avaliação do bem.
 

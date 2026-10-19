@@ -4,7 +4,7 @@ slug: "leilao-de-imoveis-da-caixa-como-funciona"
 description: "Como funciona o leilão de imóveis da Caixa Econômica Federal: modalidades de venda, financiamento, uso do FGTS e quem paga as dívidas do imóvel."
 keywordPrincipal: "como funciona o leilão de imóveis da caixa"
 publishedAt: "2026-09-04"
-updatedAt: "2026-09-04"
+updatedAt: "2026-10-19"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
 reviewedAt: "2026-09-04"
@@ -35,6 +35,12 @@ tags: ["leilão Caixa", "imóveis retomados", "FGTS"]
 **O detalhe.** "Imóvel retomado" e "imóvel de leilão da Caixa" não são exatamente sinônimos, e essa confusão é comum. Todo imóvel de leilão da Caixa é um retomado, mas nem todo retomado vai a leilão — parte é vendida por outras modalidades, com regras e custos diferentes.
 
 O procedimento que sustenta essa retomada é o do [leilão extrajudicial](/blog/leilao-extrajudicial-de-imoveis/), regido pela Lei 9.514/1997.
+
+## Qual é a diferença entre licitação aberta e venda direta da Caixa?
+
+Na [licitação aberta](/dicionario/licitacao-aberta), os participantes disputam o imóvel por lances, em uma única rodada e na data do edital. Na [venda direta](/dicionario/venda-direta), a compra segue o preço anunciado e a regra de aceitação da proposta, sem disputa de lances. Já o [Leilão SFI](/dicionario/leilao-sfi) pode ter primeira e segunda rodadas.
+
+A modalidade identifica como a venda acontece; a ficha e o edital informam as condições do imóvel. Formas de pagamento, comissão, ocupação e despesas precisam ser conferidas em cada oferta.
 
 ## Dá para financiar um imóvel de leilão da Caixa?
 

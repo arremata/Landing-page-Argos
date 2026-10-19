@@ -4,7 +4,7 @@ slug: "como-financiar-imovel-de-leilao"
 description: "Nem todo leilão aceita financiamento. Veja em quais modalidades é possível financiar, quando o FGTS entra e o que preparar antes do lance."
 keywordPrincipal: "como financiar imóvel de leilão"
 publishedAt: "2026-10-01"
-updatedAt: "2026-10-01"
+updatedAt: "2026-10-19"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
 reviewedAt: "2026-10-01"
@@ -28,7 +28,7 @@ tags: ["financiamento", "FGTS", "crédito imobiliário"]
 
 ## Dá para financiar um imóvel arrematado em leilão?
 
-**Resposta direta.** É possível financiar quando o anúncio e o edital aceitam essa forma de pagamento. Nos leilões promovidos por bancos — em especial a Caixa, sobre imóveis próprios — essa condição aparece com frequência. Já no leilão judicial, a lógica é diferente: o CPC prevê pagamento imediato ou parcelamento nos moldes do art. 895, e não um financiamento bancário tradicional contratado depois do lance.
+**Resposta direta.** É possível financiar quando o anúncio e o edital aceitam essa forma de pagamento. Nos leilões promovidos por bancos — em especial a Caixa, sobre imóveis próprios — essa condição aparece com frequência. Já no leilão judicial, a lógica é diferente: o CPC prevê pagamento imediato ou parcelamento nos moldes do art. 895, e não um [financiamento bancário](/dicionario/financiamento) tradicional contratado depois do lance.
 
 **Na prática.** A regra de ouro é: **aprovação de crédito antes do lance, não depois.** O prazo de pagamento da arrematação não espera análise bancária. Quem dá lance contando com um financiamento que ainda não foi aprovado está apostando, não comprando.
 
@@ -42,7 +42,7 @@ tags: ["financiamento", "FGTS", "crédito imobiliário"]
 
 ## O FGTS paga o quê, exatamente?
 
-**Resposta direta.** O FGTS compõe o **preço de aquisição** — inclusive aquilo que comercialmente se chama de entrada. Ele não funciona como dinheiro livre: não paga sinal imediato, comissão do leiloeiro, ITBI, registro nem tarifas, e não é entregue ao comprador. A liberação é feita ao vendedor, pelo agente financeiro, normalmente após a formalização e o registro do título.
+**Resposta direta.** O [FGTS](/dicionario/fgts) compõe o **preço de aquisição** — inclusive aquilo que comercialmente se chama de entrada. Ele não funciona como dinheiro livre: não paga sinal imediato, comissão do leiloeiro, [ITBI](/dicionario/itbi), registro nem tarifas, e não é entregue ao comprador. A liberação é feita ao vendedor, pelo agente financeiro, normalmente após a formalização e o registro do título.
 
 **O detalhe — o que entra e o que não entra:**
 
