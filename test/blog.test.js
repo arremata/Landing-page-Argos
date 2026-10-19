@@ -3,6 +3,8 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const matter = require('gray-matter');
+const { GLOSSARY } = require('../content/glossary');
+const { termPath } = require('../scripts/build-dictionary');
 
 const ROOT = path.join(__dirname, '..');
 const POSTS_DIR = path.join(ROOT, 'blog', 'posts');
@@ -84,6 +86,22 @@ test('links entre artigos apontam para slugs existentes', () => {
     const { content } = matter(fs.readFileSync(path.join(POSTS_DIR, file), 'utf8'));
     for (const match of content.matchAll(/\]\(\/blog\/([^/)]+)\/\)/g)) {
       assert.ok(slugs.has(match[1]), `${file}: link para slug inexistente ${match[1]}`);
+    }
+  }
+});
+
+test('artigos conectam o conteúdo a verbetes públicos existentes e indexáveis', () => {
+  const termPaths = new Set(Object.keys(GLOSSARY).map(termPath));
+  for (const file of files) {
+    const { data, content } = matter(fs.readFileSync(path.join(POSTS_DIR, file), 'utf8'));
+    const paths = [...content.matchAll(/\]\((\/dicionario\/[^)#?]+)\)/g)].map(match => match[1]);
+    assert.ok(new Set(paths).size >= 2, `${file}: faltam definições relacionadas`);
+    const article = fs.readFileSync(path.join(ROOT, 'blog', data.slug, 'index.html'), 'utf8');
+    for (const target of paths) {
+      assert.ok(termPaths.has(target), `${file}: verbete inexistente ${target}`);
+      assert.ok(article.includes(`href="${target}"`), `${file}: link ausente no HTML`);
+      const term = fs.readFileSync(path.join(ROOT, target, 'index.html'), 'utf8');
+      assert.match(term, /<meta name="robots" content="index, follow">/, target);
     }
   }
 });

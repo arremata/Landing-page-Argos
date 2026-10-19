@@ -32,6 +32,6 @@ test('sitemap publica os 58 verbetes com data editorial real', () => {
   assert.equal(dictionaryUrls.length, 58);
   assert.match(
     sitemap,
-    /<loc>https:\/\/www\.argosleiloes\.com\.br\/dicionario\/itbi<\/loc>\s*<lastmod>2026-10-07<\/lastmod>/,
+    /<loc>https:\/\/www\.argosleiloes\.com\.br\/dicionario\/itbi<\/loc>\s*<lastmod>2026-10-19<\/lastmod>/,
   );
 });

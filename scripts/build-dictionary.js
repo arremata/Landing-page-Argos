@@ -9,7 +9,7 @@ const LEARN_URL = '/#leilao';
 const WAITLIST_URL = '/?cadastro=1';
 const DICTIONARY_TITLE = 'Dicionário do leilão de imóveis da Caixa';
 const DICTIONARY_DESCRIPTION = 'O que quer dizer cada palavra dos leilões e da venda direta da Caixa: rodadas, valor de avaliação, imóvel ocupado, ITBI, matrícula e outros termos, sem juridiquês.';
-const UPDATED_AT = '2026-10-07';
+const UPDATED_AT = '2026-10-19';
 const FONT_STYLESHEET = 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=optional';
 
 const OFFICIAL_SOURCES = {
@@ -139,8 +139,11 @@ function relatedEntries(key, limit = 6) {
   const entry = GLOSSARY[key];
   if (!entry) return [];
   const group = glossaryByGroup().find(item => item.id === entry.group);
-  return (group?.entries || [])
-    .filter(item => item.key !== key)
+  const entries = group?.entries || [];
+  const index = entries.findIndex(item => item.key === key);
+  // Percorre o grupo em círculo para todos os verbetes receberem links,
+  // inclusive os últimos da lista editorial. O resultado é estável por página.
+  return [...entries.slice(index + 1), ...entries.slice(0, index)]
     .slice(0, limit)
     .map(item => dictionaryEntry(item.key));
 }
@@ -174,9 +177,9 @@ function dictionaryMeta(key, siteUrl) {
     };
   }
   const entry = dictionaryEntry(key);
-  const title = entry.term.length > 30
+  const title = entry.searchTitle || (entry.term.length > 30
     ? `${entry.term} | Dicionário Argos`
-    : `${entry.term}: o que é no leilão da Caixa | Argos`;
+    : `${entry.term}: o que é no leilão da Caixa | Argos`);
   return {
     title,
     description: clip(`${entry.body} ${entry.detail[0]}`),
@@ -362,7 +365,7 @@ function termBody(key) {
       <header>
         <h1>${escapeHtml(entry.term)}</h1>
         <p class="dictionary-term-lead">${escapeHtml(entry.body)}</p>
-        <p class="dictionary-byline">Por Equipe Argos · Revisão editorial e checagem de fontes · <time datetime="${UPDATED_AT}">Atualizado em 7 out 2026</time></p>
+        <p class="dictionary-byline">Por Equipe Argos · Revisão editorial e checagem de fontes · <time datetime="${UPDATED_AT}">Atualizado em 19 out 2026</time></p>
       </header>
       <section aria-labelledby="entenda-o-termo">
         <h2 id="entenda-o-termo">Como esse termo funciona na compra</h2>

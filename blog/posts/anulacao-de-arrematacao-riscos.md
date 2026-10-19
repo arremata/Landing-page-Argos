@@ -4,7 +4,7 @@ slug: "anulacao-de-arrematacao-riscos"
 description: "Prazos e hipóteses de anulação da arrematação, o que torna o negócio irretratável e quais proteções o arrematante tem se o leilão for questionado."
 keywordPrincipal: "anulação de arrematação"
 publishedAt: "2026-10-06"
-updatedAt: "2026-10-08"
+updatedAt: "2026-10-19"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
 reviewedAt: "2026-10-06"
@@ -44,7 +44,7 @@ A lei ainda protege quem arremata: as ações que discutem o contrato ou o proce
 
 ## Quais são os prazos para questionar a arrematação?
 
-**Resposta direta.** O juiz decide sobre essas situações se for provocado em até **dez dias** após o aperfeiçoamento da arrematação. Passado esse prazo sem alegação, é expedida a carta de arrematação e, conforme o caso, a ordem de entrega ou o mandado de imissão na posse. Depois da expedição da carta, a invalidação só pode ser pleiteada por **ação autônoma**, na qual o arrematante figura como litisconsorte necessário.
+**Resposta direta.** O juiz decide sobre essas situações se for provocado em até **dez dias** após o aperfeiçoamento da arrematação. Passado esse prazo sem alegação, é expedida a carta de arrematação e, conforme o caso, a ordem de entrega ou o [mandado de imissão na posse](/dicionario/imissao-na-posse). Depois da expedição da carta, a invalidação só pode ser pleiteada por **ação autônoma**, na qual o arrematante figura como litisconsorte necessário.
 
 **Base legal.** CPC, art. 903, §§ 2º, 3º e 4º.
 
@@ -73,7 +73,7 @@ Duas ressalvas sobre o prazo de quatro anos. Ele não vem de tese repetitiva nem
 
 ## Quando o imóvel fica registrado no meu nome?
 
-**Resposta direta.** Quando você levar o título — a carta de arrematação, no judicial — ao cartório de registro de imóveis competente e o registro for efetivado. É o registro que transfere a propriedade. Antes disso você tem um direito, não a titularidade.
+**Resposta direta.** Quando você levar o título — a carta de arrematação, no judicial — ao [cartório de registro de imóveis](/dicionario/registro-cartorio) competente e o registro for efetivado. É o registro que transfere a propriedade. Antes disso você tem um direito, não a titularidade.
 
 **Base legal.** Código Civil, art. 1.245.
 

@@ -4,7 +4,7 @@ slug: "leilao-extrajudicial-de-imoveis"
 description: "O leilão extrajudicial segue a Lei 9.514/97 e tem regras próprias de prazo, lance mínimo e desocupação. Guia completo com a base legal atualizada pela Lei 14.711/2023."
 keywordPrincipal: "leilões de imóveis extrajudiciais"
 publishedAt: "2026-09-14"
-updatedAt: "2026-09-14"
+updatedAt: "2026-10-19"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
 reviewedAt: "2026-09-14"
@@ -28,7 +28,7 @@ tags: ["leilão extrajudicial", "Lei 9.514", "alienação fiduciária"]
 
 ## O que é um leilão extrajudicial de imóveis?
 
-**Resposta direta.** É a venda pública de um imóvel promovida diretamente pelo credor, sem processo judicial, quando o devedor deixa de pagar um financiamento garantido por alienação fiduciária. O credor consolida a propriedade em seu nome no cartório de registro de imóveis e, a partir daí, é obrigado por lei a levar o imóvel a leilão.
+**Resposta direta.** É a venda pública de um imóvel promovida diretamente pelo credor, sem processo judicial, quando o devedor deixa de pagar um financiamento garantido por [alienação fiduciária](/dicionario/alienacao-fiduciaria). O credor consolida a propriedade em seu nome no cartório de registro de imóveis e, a partir daí, é obrigado por lei a levar o imóvel a leilão.
 
 **O detalhe.** O ponto que quase ninguém explica: na alienação fiduciária, o banco **já é** o proprietário resolúvel do imóvel desde a assinatura do contrato. O comprador tem a posse direta e o direito de se tornar dono ao terminar de pagar. Quando ele não paga, o banco consolida a propriedade plena — e a lei o obriga a vender em leilão, não a ficar com o bem.
 
@@ -55,7 +55,7 @@ tags: ["leilão extrajudicial", "Lei 9.514", "alienação fiduciária"]
 
 ## O ex-dono ainda pode recuperar o imóvel depois da consolidação?
 
-**Resposta direta.** Depois da averbação da consolidação da propriedade, não cabe mais purgação da mora. O que resta ao devedor é o **direito de preferência**: até a data da realização do segundo leilão, ele pode adquirir o imóvel pelo preço correspondente ao valor da dívida somado às despesas, prêmios de seguro, encargos legais, contribuições condominiais e tributos — inclusive o ITBI e o laudêmio pagos para a consolidação —, arcando ainda com os encargos e despesas da nova aquisição.
+**Resposta direta.** Depois da averbação da consolidação da propriedade, não cabe mais purgação da mora. O que resta ao devedor é o **[direito de preferência](/dicionario/direito-preferencia)**: até a data da realização do segundo leilão, ele pode adquirir o imóvel pelo preço correspondente ao valor da dívida somado às despesas, prêmios de seguro, encargos legais, contribuições condominiais e tributos — inclusive o ITBI e o laudêmio pagos para a consolidação —, arcando ainda com os encargos e despesas da nova aquisição.
 
 **O detalhe.** Essa é uma das mudanças mais relevantes da Lei 14.711/2023 e ainda não chegou a boa parte do conteúdo publicado. Antes, discutia-se amplamente a possibilidade de purgar a mora até a arrematação. Hoje o marco é claro: averbou a consolidação, acabou a purgação.
 

@@ -4,7 +4,7 @@ slug: "como-funciona-leilao-de-imoveis"
 description: "Entenda como funciona um leilão de imóvel do começo ao fim: tipos, praças, lance, custos e o que acontece depois da arrematação. Com a base legal de cada etapa."
 keywordPrincipal: "como funciona leilão de imóvel"
 publishedAt: "2026-08-18"
-updatedAt: "2026-08-18"
+updatedAt: "2026-10-19"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
 reviewedAt: "2026-08-18"
@@ -28,7 +28,7 @@ tags: ["leilão de imóveis", "guia", "como funciona"]
 
 ## O que é um leilão de imóveis e como ele funciona?
 
-**Resposta direta.** Leilão de imóveis é a venda pública de um imóvel a quem oferecer o maior lance, conduzida por um leiloeiro oficial matriculado em Junta Comercial. O imóvel chega ao leilão porque foi dado em garantia de uma dívida que não foi paga, ou porque foi penhorado dentro de um processo judicial. Quem arremata adquire o imóvel por um valor normalmente abaixo do de mercado, mas assume um conjunto de riscos e custos que não existem na compra tradicional.
+**Resposta direta.** Leilão de imóveis é a venda pública de um imóvel a quem oferecer o maior [lance](/dicionario/lance), conduzida por um [leiloeiro oficial](/dicionario/leiloeiro) matriculado em Junta Comercial. O imóvel chega ao leilão porque foi dado em garantia de uma dívida que não foi paga, ou porque foi penhorado dentro de um processo judicial. Quem arremata adquire o imóvel por um valor normalmente abaixo do de mercado, mas assume um conjunto de riscos e custos que não existem na compra tradicional.
 
 **O detalhe.** O ciclo, simplificado, é este: dívida não paga → imóvel vai a leilão → publicação do edital → primeiro leilão → se não houver lance suficiente, segundo leilão → arrematação → pagamento → documento de transmissão → registro no cartório → posse.
 
@@ -38,7 +38,7 @@ Cada uma dessas etapas tem prazo, custo e regra própria — e elas mudam confor
 
 ## Por que o imóvel de leilão é tão barato?
 
-**Resposta direta.** Porque quem vende não está buscando o melhor preço — está buscando recuperar um crédito no menor tempo possível. O banco ou o credor quer o dinheiro de volta, não o imóvel. O desconto é o preço que o mercado cobra para aceitar três coisas: prazo curto de pagamento, imóvel comprado sem visita garantida e risco de o imóvel estar ocupado.
+**Resposta direta.** Porque quem vende não está buscando o melhor preço — está buscando recuperar um crédito no menor tempo possível. O banco ou o credor quer o dinheiro de volta, não o imóvel. O [desconto](/dicionario/desconto) é o preço que o mercado cobra para aceitar três coisas: prazo curto de pagamento, imóvel comprado sem visita garantida e risco de o imóvel estar ocupado.
 
 **O detalhe.** O desconto não é um presente. Ele é a contrapartida econômica de riscos reais e mensuráveis:
 
