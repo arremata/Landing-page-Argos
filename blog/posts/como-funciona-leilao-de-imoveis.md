@@ -28,13 +28,13 @@ tags: ["leilão de imóveis", "guia", "como funciona"]
 
 ## O que é um leilão de imóveis e como ele funciona?
 
-**Resposta direta.** Leilão de imóveis é a venda pública de um imóvel a quem oferecer o maior [lance](/dicionario/lance), conduzida por um [leiloeiro oficial](/dicionario/leiloeiro) matriculado em Junta Comercial. O imóvel chega ao leilão porque foi dado em garantia de uma dívida que não foi paga, ou porque foi penhorado dentro de um processo judicial. Quem arremata adquire o imóvel por um valor normalmente abaixo do de mercado, mas assume um conjunto de riscos e custos que não existem na compra tradicional.
+**Resposta direta.** Leilão de imóveis é a venda pública pela disputa de [lances](/dicionario/lance), conduzida por um [leiloeiro oficial](/dicionario/leiloeiro), conforme as condições do edital. Pode ocorrer em processo judicial ou após a retomada por um credor. O lance vencedor não encerra a compra: ainda há pagamento, documentação, registro e posse, com regras próprias em cada modalidade.
 
 **O detalhe.** O ciclo, simplificado, é este: dívida não paga → imóvel vai a leilão → publicação do edital → primeiro leilão → se não houver lance suficiente, segundo leilão → arrematação → pagamento → documento de transmissão → registro no cartório → posse.
 
 Cada uma dessas etapas tem prazo, custo e regra própria — e elas mudam conforme o leilão seja judicial ou extrajudicial. Essa distinção é a coisa mais importante a entender antes de dar qualquer lance, e está explicada em [as diferenças entre leilão judicial e extrajudicial](/blog/leilao-judicial-e-extrajudicial-diferencas/).
 
-**Base legal.** Leilão judicial: arts. 879 a 903 do Código de Processo Civil (Lei 13.105/2015). Leilão extrajudicial de imóvel em alienação fiduciária: arts. 26, 26-A, 27 e 27-A da Lei 9.514/1997, com a redação da Lei 14.711/2023. Profissão de leiloeiro: Decreto 21.981/1932.
+**Base legal.** Leilão judicial: arts. 879 a 903 do Código de Processo Civil (Lei 13.105/2015). Leilão extrajudicial de imóvel em alienação fiduciária: arts. 26, 26-A, 27 e 27-A da [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), com a redação da [Lei 14.711/2023](https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm). Profissão de leiloeiro: [Decreto 21.981/1932](https://www.planalto.gov.br/ccivil_03/decreto/1930-1949/d21981.htm).
 
 ## Por que o imóvel de leilão é tão barato?
 
@@ -48,7 +48,7 @@ Cada uma dessas etapas tem prazo, custo e regra própria — e elas mudam confor
 - Pode haver dívidas sobre o imóvel — e a regra de quem paga muda conforme o tipo de leilão. Isso está detalhado em [dívidas do imóvel arrematado](/blog/dividas-do-imovel-arrematado/).
 - O ex-proprietário pode questionar o leilão judicialmente. Veja [anulação da arrematação e os riscos do arrematante](/blog/anulacao-de-arrematacao-riscos/).
 
-Quando você soma esses custos e riscos ao lance, o "desconto de 50%" costuma virar algo entre 15% e 30% de vantagem real. Ainda é uma boa margem — mas é uma margem que precisa ser calculada, não presumida. O detalhamento está em [quanto custa comprar imóvel em leilão](/blog/quanto-custa-comprar-imovel-em-leilao/).
+O desconto anunciado não é a economia final. Compare o custo total com uma referência de mercado compatível com o imóvel, sem presumir uma margem de ganho. O detalhamento está em [quanto custa comprar imóvel em leilão](/blog/quanto-custa-comprar-imovel-em-leilao/) e no [exemplo ilustrativo de orçamento](/recursos/custo-total-imovel-leilao/).
 
 **Na prática.** Todo cálculo de leilão deveria começar por: valor de mercado real do imóvel (não o de avaliação do edital) menos lance, menos comissão, menos ITBI, menos cartório, menos dívidas assumíveis, menos custo estimado de desocupação, menos reforma. Se o resultado não for confortável, o desconto não era desconto.
 
@@ -60,7 +60,7 @@ Quando você soma esses custos e riscos ao lance, o "desconto de 50%" costuma vi
 
 Antes de se cadastrar em qualquer plataforma, confirme que o leiloeiro é oficial — o passo a passo está em [como saber se o leiloeiro é oficial](/blog/como-saber-se-o-leiloeiro-e-oficial/).
 
-**Base legal.** CPC, art. 879, II e art. 882. Lei 9.514/1997, art. 27, § 10 e art. 37-C, ambos incluídos pela Lei 14.620/2023.
+**Base legal.** [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm), art. 879, II e art. 882. [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), art. 27, § 10 e art. 37-C, ambos incluídos pela Lei 14.620/2023.
 
 ## O que acontece depois que eu dou o lance vencedor?
 
@@ -70,7 +70,7 @@ Antes de se cadastrar em qualquer plataforma, confirme que o leiloeiro é oficia
 
 No extrajudicial, o caminho é outro: não há auto nem carta de arrematação judicial. Há a escritura ou o instrumento de venda emitido pelo credor fiduciário, que também vai a registro. O procedimento completo está em [leilão extrajudicial de imóveis](/blog/leilao-extrajudicial-de-imoveis/).
 
-**Base legal.** CPC, art. 901, art. 903 e §§ 2º e 3º. Transmissão pelo registro: Código Civil, art. 1.245.
+**Base legal.** [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm), art. 901, art. 903 e §§ 2º e 3º. Transmissão pelo registro: [Código Civil](https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm), art. 1.245.
 
 ## Quando a compra de um imóvel em leilão pode fazer sentido?
 
@@ -80,4 +80,4 @@ No extrajudicial, o caminho é outro: não há auto nem carta de arrematação j
 
 Se a sua dúvida é sobre segurança e não sobre retorno, veja [leilão de imóveis é seguro?](/blog/leilao-de-imoveis-e-seguro/). E antes de qualquer lance, o documento que decide tudo é o edital — como lê-lo está em [como ler o edital e a matrícula](/blog/como-ler-edital-de-leilao-e-matricula/). Para saber onde o imóvel da Caixa se encaixa nesse desenho, veja [leilão de imóveis da Caixa](/blog/leilao-de-imoveis-da-caixa-como-funciona/).
 
-**Na prática.** O teste honesto: se o imóvel demorar oito meses para desocupar e precisar de R$ 40 mil de reforma, o negócio ainda fecha? Se a resposta for não, o lance está alto demais — não o negócio errado.
+**Exemplo ilustrativo.** Se o imóvel demorar oito meses para desocupar e precisar de R$ 40 mil de reforma, o orçamento ainda comporta a compra? Esses números não são estimativas para o seu imóvel; servem para testar se o cálculo suporta um cenário menos favorável.

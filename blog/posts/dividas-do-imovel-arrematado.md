@@ -28,7 +28,7 @@ tags: ["IPTU", "condomínio", "dívidas", "Tema 1134"]
 
 ## Arrematei um imóvel: preciso pagar o IPTU atrasado?
 
-**Resposta direta.** No leilão judicial (a arrematação em hasta pública), não. No leilão extrajudicial, de imóveis retomados por bancos, a questão ainda não foi decidida pelo STJ, como explicamos no fim desta resposta. Para o leilão judicial, o STJ fixou, no Tema 1134, a tese de que, diante do art. 130, parágrafo único, do Código Tributário Nacional, **é inválida a previsão em edital de leilão atribuindo responsabilidade ao arrematante pelos débitos tributários que já incidiam sobre o imóvel na data de sua alienação**. Os débitos tributários anteriores sub-rogam-se no preço da arrematação.
+**Resposta direta.** No leilão judicial, os débitos tributários anteriores sub-rogam-se no preço da arrematação. O [Tema 1134 do STJ](https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?novaConsulta=true&tipo_pesquisa=T&cod_tema_inicial=1134&cod_tema_final=1134) invalida a cláusula que os transfere ao arrematante, observada a modulação explicada abaixo. Não estenda automaticamente essa resposta ao leilão extrajudicial de imóveis retomados por bancos.
 
 **O detalhe.** O raciocínio do STJ: o art. 130 do CTN distingue dois modos de aquisição. Na venda comum, a aquisição é derivada e o adquirente recebe o bem com os ônus que o acompanham. Na arrematação em hasta pública, a aquisição é **originária** — o bem chega ao arrematante livre dos vínculos anteriores, e o crédito tributário se transfere para o dinheiro pago no leilão. Como a responsabilidade tributária de terceiros é matéria reservada a lei complementar, um edital não pode dispor em sentido contrário.
 
@@ -70,7 +70,7 @@ Ou seja: **a esperada uniformização de 2026 não veio.** A orientação contra
 
 **Resposta direta.** Significa que a dívida deixa de perseguir o imóvel e passa a perseguir o dinheiro pago no leilão. O valor arrecadado é usado para pagar os credores, na ordem de preferência da lei. O imóvel chega ao arrematante limpo daquele débito.
 
-**Base legal.** CTN, art. 130, parágrafo único (tributos, na arrematação em hasta pública). CPC, art. 908, § 1º (créditos que recaem sobre o bem, inclusive *propter rem*).
+**Base legal.** [CTN](https://www.planalto.gov.br/ccivil_03/leis/l5172compilado.htm), art. 130, parágrafo único (tributos, na arrematação em hasta pública). [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm), art. 908, § 1º (créditos que recaem sobre o bem, inclusive *propter rem*).
 
 ## E se o valor da arrematação não for suficiente para pagar as dívidas? {judicial}
 
@@ -80,7 +80,7 @@ Ou seja: **a esperada uniformização de 2026 não veio.** A orientação contra
 
 **Resposta direta.** Quatro documentos resolvem a maior parte: a certidão atualizada da [matrícula](/dicionario/matricula) no cartório de registro de imóveis, a certidão de débitos do imóvel na prefeitura, a declaração de débitos junto ao [condomínio](/dicionario/condominio) ou administradora, e o próprio [edital](/dicionario/edital), que deve informar os ônus incidentes sobre o bem.
 
-**Base legal.** O CPC determina que constem do edital os ônus incidentes sobre o imóvel — art. 886, VI.
+**Base legal.** O [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm) determina que constem do edital os ônus incidentes sobre o imóvel — art. 886, VI.
 
 **Na prática.** O edital é ponto de partida, não ponto final. Edital incompleto não te protege sozinho; a matrícula, sim, é onde estão os ônus reais registrados. E se aparecer ônus não mencionado no edital, você tem dez dias para desistir e recuperar o depósito no leilão judicial. Como ler os dois documentos está em [como ler o edital e a matrícula](/blog/como-ler-edital-de-leilao-e-matricula/).
 
@@ -107,6 +107,6 @@ Ou seja: **a esperada uniformização de 2026 não veio.** A orientação contra
 
 **O detalhe.** O CPC determina que sejam cientificados da alienação judicial, com pelo menos cinco dias de antecedência, o executado e um rol de terceiros com relação jurídica sobre o bem — entre eles o credor com garantia real ou penhora averbada. A falta dessa intimação é causa de **ineficácia** da arrematação em relação ao credor não intimado.
 
-**Base legal.** CPC, art. 889 e incisos; art. 903, § 1º, II, combinado com o art. 804.
+**Base legal.** [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm), art. 889 e incisos; art. 903, § 1º, II, combinado com o art. 804.
 
 **Na prática.** Verificar se todos os credores foram intimados é uma das checagens mais rentáveis antes do lance. Falha aqui é o vício mais comum em [anulação de arrematação](/blog/anulacao-de-arrematacao-riscos/). Se o imóvel estiver ocupado, o custo e o prazo dessa outra frente estão em [imóvel de leilão ocupado](/blog/imovel-de-leilao-ocupado-desocupacao/). E o panorama geral do processo está em [como funciona um leilão de imóveis](/blog/como-funciona-leilao-de-imoveis/).

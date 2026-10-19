@@ -34,13 +34,13 @@ O status [ocupado](/dicionario/ocupado) informa a situação descrita pelo vende
 
 ## Comprar o imóvel garante receber as chaves imediatamente?
 
-Não. O lance vencedor, o pagamento, o [registro no cartório](/dicionario/registro-cartorio) e a posse efetiva são etapas distintas. A documentação da venda informa o fluxo da compra. Se a desocupação ficar com você, entram na conta o procedimento de entrega, o tempo de espera e eventuais gastos com moradia provisória.
+**Resposta direta.** Não. O lance vencedor, o pagamento, o [registro no cartório](/dicionario/registro-cartorio) e a posse efetiva são etapas distintas. Se a desocupação ficar com você, considere o procedimento de entrega, o tempo de espera e eventuais gastos com moradia provisória.
 
 ## Como funciona a imissão na posse no leilão judicial? {judicial}
 
 **Resposta direta.** Passado o prazo de dez dias sem alegação de vício, é expedida a carta de arrematação e, conforme o caso, a ordem de entrega ou o **mandado de imissão na posse**. Com ele, o oficial de justiça é quem executa a entrega do imóvel.
 
-**Base legal.** CPC, art. 903, § 3º; art. 901, § 1º.
+**Base legal.** [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm), art. 903, § 3º; art. 901, § 1º.
 
 ## Como funciona a desocupação no leilão extrajudicial? {extrajudicial}
 
@@ -50,7 +50,7 @@ Não. O lance vencedor, o pagamento, o [registro no cartório](/dicionario/regis
 
 Traduzindo: o ex-proprietário pode processar o banco discutindo cláusulas ou o procedimento, e isso, em regra, não segura a sua reintegração. A exceção expressa é a notificação do devedor — o que confirma por que verificar as intimações antes do lance é tão importante.
 
-**Base legal.** Lei 9.514/1997, art. 30, *caput* e parágrafo único, com redação da Lei 14.711/2023.
+**Base legal.** [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), art. 30, *caput* e parágrafo único, com redação da [Lei 14.711/2023](https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm).
 
 ## Quanto tempo leva para desocupar na prática? {extrajudicial}
 
@@ -74,13 +74,13 @@ O que se pode afirmar com segurança: o prazo legal é de 60 dias, enquanto o pr
 
 **O detalhe.** Há uma regra adicional relevante: é ineficaz perante o credor fiduciário ou seus sucessores a contratação ou prorrogação de locação de imóvel alienado fiduciariamente por prazo superior a um ano sem concordância escrita do credor.
 
-**Base legal.** Lei 9.514/1997, art. 27, § 7º; art. 37-B.
+**Base legal.** [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), art. 27, § 7º; art. 37-B.
 
 ## Quem paga o condomínio e o IPTU enquanto o imóvel ainda está ocupado? {extrajudicial}
 
 **Resposta direta.** No regime da alienação fiduciária, a lei é expressa: responde o **fiduciante** — o devedor — pelo pagamento dos impostos, taxas, contribuições condominiais e quaisquer outros encargos que recaiam ou venham a recair sobre o imóvel cuja posse tenha sido transferida ao fiduciário, **até a data em que o fiduciário vier a ser imitido na posse**.
 
-**Base legal.** Lei 9.514/1997, art. 27, § 8º.
+**Base legal.** [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), art. 27, § 8º.
 
 O regime dos débitos anteriores à arrematação é outro, e está em [dívidas do imóvel arrematado](/blog/dividas-do-imovel-arrematado/).
 
@@ -88,7 +88,7 @@ O regime dos débitos anteriores à arrematação é outro, e está em [dívidas
 
 **Resposta direta.** É o valor que o devedor fiduciante deve pagar ao credor fiduciário, ou a quem o suceder, pelo período em que continua ocupando o imóvel após a consolidação da propriedade. Corresponde a **1% ao mês, ou fração**, sobre o valor do imóvel estipulado no contrato para efeito de leilão, contado da consolidação da propriedade até a data da imissão na posse.
 
-**Base legal.** Lei 9.514/1997, art. 37-A, com redação da Lei 14.711/2023.
+**Base legal.** [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), art. 37-A, com redação da [Lei 14.711/2023](https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm).
 
 ## Eu, como arrematante, posso cobrar a taxa de ocupação? {extrajudicial}
 

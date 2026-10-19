@@ -245,8 +245,9 @@ function dictionaryJsonLd(key, siteUrl) {
       mainEntity: { '@id': `${pageUrl}#termo` },
       author: {
         '@type': 'Organization',
-        '@id': `${siteUrl}/#organization`,
+        '@id': `${siteUrl}/editorial/#equipe-argos`,
         name: 'Equipe Argos',
+        url: `${siteUrl}/editorial/`,
       },
       reviewedBy: {
         '@type': 'Organization',
@@ -293,7 +294,7 @@ function footerMarkup() {
   <div class="container footer-inner">
     <a href="/" class="logo">${logoMarkup()}</a>
     <p class="footer-sub">Imóveis de leilão explicados em português claro.</p>
-    <nav class="footer-links"><a href="/">Início</a><a href="/blog/">Blog</a></nav>
+    <nav class="footer-links"><a href="/">Início</a><a href="/blog/">Blog</a><a href="/editorial/">Equipe e critérios</a><a href="/recursos/checklist-antes-do-lance/">Checklist antes do lance</a></nav>
     <p class="footer-copy">&copy; 2026 Argos. Todos os direitos reservados.</p>
   </div>
 </footer>`;
@@ -365,7 +366,7 @@ function termBody(key) {
       <header>
         <h1>${escapeHtml(entry.term)}</h1>
         <p class="dictionary-term-lead">${escapeHtml(entry.body)}</p>
-        <p class="dictionary-byline">Por Equipe Argos · Revisão editorial e checagem de fontes · <time datetime="${UPDATED_AT}">Atualizado em 19 out 2026</time></p>
+        <p class="dictionary-byline">Por <a href="/editorial/">Equipe Argos</a> · Revisão editorial e checagem de fontes · <time datetime="${UPDATED_AT}">Atualizado em 19 out 2026</time></p>
       </header>
       <section aria-labelledby="entenda-o-termo">
         <h2 id="entenda-o-termo">Como esse termo funciona na compra</h2>

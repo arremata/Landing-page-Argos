@@ -46,7 +46,7 @@ A identificação do profissional também aparece no [edital](/dicionario/edital
 - **Número de matrícula e Junta de origem**, que devem bater com o que o edital informa.
 - **E-mail e telefone oficiais.** Se não baterem com os do site que te procurou, você está diante de um clone da marca.
 
-**Base.** Decreto 21.981/1932, art. 19; IN DREI nº 52/2022, art. 88.
+**Base.** [Decreto 21.981/1932](https://www.planalto.gov.br/ccivil_03/decreto/1930-1949/d21981.htm), art. 19; IN DREI nº 52/2022, art. 88.
 
 ## O leiloeiro precisa ser do estado onde fica o imóvel?
 
@@ -60,7 +60,7 @@ A identificação do profissional também aparece no [edital](/dicionario/edital
 | **Atuação física ou híbrida** exercida no estado do imóvel | Matrícula válida naquela circunscrição |
 | **Leilão judicial** | Além da matrícula, credenciamento no tribunal e designação judicial |
 
-**Base.** IN DREI nº 52/2022, art. 46, § 1º (o leiloeiro pode obter matrículas em outras unidades da Federação) e art. 56 (exerce a atividade nas unidades em que estiver matriculado). Resolução CNJ nº 236/2016, arts. 2º a 4º (credenciamento e designação em leilão judicial). Orientação reiterada no Processo DREI 14021.012996/2025-29, decidido em março de 2026.
+**Base.** IN DREI nº 52/2022, art. 46, § 1º (o leiloeiro pode obter matrículas em outras unidades da Federação) e art. 56 (exerce a atividade nas unidades em que estiver matriculado). [Resolução CNJ nº 236/2016](https://atos.cnj.jus.br/atos/detalhar/2313), arts. 2º a 4º (credenciamento e designação em leilão judicial). Orientação reiterada no Processo DREI 14021.012996/2025-29, decidido em março de 2026.
 
 Uma ressalva sobre o peso dessa última fonte: naquele processo do DREI, o recurso não foi conhecido por questão de admissibilidade, e as considerações sobre o mérito foram qualificadas como subsidiárias. Trata-se de orientação administrativa relevante, não de decisão vinculante.
 
