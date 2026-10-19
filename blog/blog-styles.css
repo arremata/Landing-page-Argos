@@ -709,3 +709,53 @@
 @media (max-width: 760px) {
   .blog-related ul { grid-template-columns: 1fr; }
 }
+
+/* ===== REVISOR E NOTA ===== */
+
+.byline-revisor strong { color: var(--text); }
+
+.blog-nota-revisor {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-10);
+  padding: var(--sp-5) var(--sp-6);
+  border: 1px solid var(--violet-border);
+  border-radius: var(--radius-medium);
+  background: var(--violet-wash);
+}
+
+.nota-foto {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--violet);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.nota-titulo {
+  margin-bottom: var(--sp-2);
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.blog-nota-revisor p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text-2);
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.blog-nota-revisor p + p { margin-top: var(--sp-3); }
+
+@media (max-width: 640px) {
+  .blog-nota-revisor { grid-template-columns: 1fr; padding: var(--sp-4); }
+}

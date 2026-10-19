@@ -3,6 +3,7 @@ const path = require('path');
 const matter = require('gray-matter');
 const { marked } = require('marked');
 const { buildDictionary, DICTIONARY_UPDATED_AT } = require('./build-dictionary');
+const REVISORES = require('../content/revisores');
 
 const POSTS_DIR = path.join(__dirname, '..', 'blog', 'posts');
 const BLOG_OUT = path.join(__dirname, '..', 'blog');
@@ -74,6 +75,24 @@ function buildModalidade(post) {
           <span class="modalidade-selo">${m.selo}</span>
           <p>${post.modalidadeNota ? marked.parseInline(post.modalidadeNota) : m.texto}${link}</p>
         </aside>`;
+}
+
+// Nota com as palavras do revisor, logo abaixo do cabecalho. So existe se o
+// artigo tiver revisor e notaRevisor; o texto e da pessoa, nao da equipe.
+function buildNotaRevisor(post) {
+  if (!post.revisor || !post.notaRevisor) return '';
+  const iniciais = post.revisor.nome.split(/\s+/).filter(Boolean).map(p => p[0]).slice(0, 2).join('').toUpperCase();
+  const foto = post.revisor.foto
+    ? `<img class="nota-foto" src="${escapeHtml(post.revisor.foto)}" alt="" width="48" height="48">`
+    : `<span class="nota-foto" aria-hidden="true">${escapeHtml(iniciais)}</span>`;
+  return `
+      <aside class="blog-nota-revisor" aria-label="Nota de ${escapeHtml(post.revisor.nome)}">
+        ${foto}
+        <div>
+          <p class="nota-titulo">Uma palavra de ${escapeHtml(post.revisor.nome)}</p>
+          ${marked(post.notaRevisor)}
+        </div>
+      </aside>`;
 }
 
 // Titulo `## Pergunta? {judicial}` vira o h2 sem a marca, precedido da etiqueta.
@@ -265,11 +284,9 @@ function postTemplate(post, content, toc) {
       name: post.author,
       url: SITE_URL,
     },
-    reviewedBy: {
-      '@type': 'Organization',
-      name: post.reviewedBy,
-      url: SITE_URL,
-    },
+    reviewedBy: post.revisor
+      ? { '@type': 'Person', name: post.revisor.nome, description: post.revisor.bio }
+      : { '@type': 'Organization', name: post.reviewedBy, url: SITE_URL },
     publisher: {
       '@type': 'Organization',
       '@id': `${SITE_URL}/#organization`,
@@ -363,11 +380,12 @@ ${buildModalidade(post)}
         <div class="blog-byline">
           <p><strong>Por ${escapeHtml(post.author)}</strong></p>
           <p>Conteúdo educativo produzido a partir de legislação, decisões judiciais e fontes oficiais.</p>
-          <p>${escapeHtml(post.reviewType)} por ${escapeHtml(post.reviewedBy)} em <time datetime="${post.reviewedAt}">${formatDate(post.reviewedAt)}</time>.</p>
+${post.revisor ? `          <p class="byline-revisor">Revisado por <strong>${escapeHtml(post.revisor.nome)}</strong> em <time datetime="${post.reviewedAt}">${formatDate(post.reviewedAt)}</time>. ${escapeHtml(post.revisor.bio)}</p>` : `          <p>${escapeHtml(post.reviewType)} por ${escapeHtml(post.reviewedBy)} em <time datetime="${post.reviewedAt}">${formatDate(post.reviewedAt)}</time>.</p>`}
         </div>
         <p class="blog-updated">Publicado em <time datetime="${post.publishedAt}">${formatDate(post.publishedAt)}</time> · Atualizado em <time datetime="${post.updatedAt}">${formatDate(post.updatedAt)}</time></p>
       </header>
 
+${buildNotaRevisor(post)}
       ${toc}
 
       <div class="blog-body">
@@ -659,8 +677,22 @@ function build() {
       modalidade: data.modalidade,
       modalidadeNota: data.modalidadeNota || '',
       relacionados: data.relacionados || [],
+      notaRevisor: data.notaRevisor || '',
       readTime,
     };
+
+    if (data.revisor) {
+      const revisor = REVISORES[data.revisor];
+      if (!revisor) throw new Error(`${file}: revisor desconhecido: ${data.revisor} (veja content/revisores.js)`);
+      if (/PREENCHER/.test(`${revisor.nome} ${revisor.bio}`)) {
+        throw new Error(`${file}: revisor ${data.revisor} ainda com PREENCHER em content/revisores.js`);
+      }
+      post.revisor = revisor;
+      post.reviewedBy = revisor.nome;
+    }
+    if (post.notaRevisor && !post.revisor) {
+      throw new Error(`${file}: notaRevisor exige revisor no frontmatter`);
+    }
 
     if (!MODALIDADES[post.modalidade]) {
       throw new Error(`${file}: informe modalidade (judicial, extrajudicial ou ambos) no frontmatter`);
