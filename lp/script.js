@@ -157,23 +157,37 @@ form.addEventListener('submit', async (e) => {
   submitBtn.disabled = true;
   submitBtn.querySelector('.btn-label').textContent = 'Enviando...';
 
+  // De onde a pessoa veio (lp/medicao.js). Sem o script, segue sem origem.
+  const medicao = window.argosMedicao;
+  const origem = medicao ? medicao.origem() : {};
+
   try {
     const res = await fetch('/api/waitlist', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ fullName, phone, email, source: form.dataset.source || 'investir' }),
+      body: JSON.stringify({ fullName, phone, email, source: form.dataset.source || 'investir', origem }),
     });
 
     if (!res.ok) throw new Error('request_failed');
 
     modalBody.hidden = true;
     modalSuccess.hidden = false;
+    if (medicao) medicao.inscricao();
   } catch (err) {
     setError('Não foi possível concluir. Tente novamente em alguns instantes.');
     submitBtn.disabled = false;
     submitBtn.querySelector('.btn-label').textContent = submitBtn.dataset.label || submitLabel;
   }
 });
+
+// ===== Compartilhar depois do cadastro =====
+// Opcional: só existe no modal da home.
+const shareWhatsapp = document.getElementById('shareWhatsapp');
+if (shareWhatsapp) {
+  shareWhatsapp.addEventListener('click', () => {
+    if (window.argosMedicao) window.argosMedicao.compartilhou();
+  });
+}
 
 // ===== Live analysis animation =====
 const analysisSteps = document.querySelectorAll('.live-step');

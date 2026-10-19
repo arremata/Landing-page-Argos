@@ -397,9 +397,9 @@ ${DISCLAIMER_OAB}
 ${buildRelated(post.relacionadosPosts || [])}
 
       <div class="blog-cta-box">
-        <h3>Quer entender o imóvel antes do lance?</h3>
-        <p>O Argos reúne custo total, ocupação e formas de pagamento para explicar cada imóvel com clareza.</p>
-        <a href="${SITE_URL}/#leilao" class="btn-primary">Entender como funciona →</a>
+        <h3>Quer ser avisado quando o Argos for lançado?</h3>
+        <p>Para cada imóvel, o Argos vai mostrar o custo total até a entrega das chaves, a situação de ocupação e as formas de pagamento aceitas. Cadastre-se para receber o aviso de lançamento.</p>
+        <a href="${SITE_URL}/?cadastro=1" class="btn-primary">Quero ser avisado</a>
       </div>
 
     </div>
@@ -423,6 +423,7 @@ ${buildRelated(post.relacionadosPosts || [])}
   </div>
 </footer>
 
+<script src="/lp/medicao.js" defer></script>
 </body>
 </html>`;
 }
@@ -557,6 +558,7 @@ ${cards ||'<div class="blog-empty"><p>Nenhum artigo publicado por enquanto.</p><
   });
 })();
 </script>
+<script src="/lp/medicao.js" defer></script>
 </body>
 </html>`;
 }

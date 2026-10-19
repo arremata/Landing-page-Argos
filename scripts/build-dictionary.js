@@ -419,6 +419,7 @@ ${headerMarkup()}
 ${body}
 ${footerMarkup()}
 <script src="/lp/dictionary.js" defer></script>
+<script src="/lp/medicao.js" defer></script>
 </body>
 </html>`;
 }
