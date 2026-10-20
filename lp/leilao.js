@@ -140,6 +140,7 @@
   }
 
   function go(i, animate, reveal = false) {
+    stopHint();
     const next = Math.max(0, Math.min(total - 1, i));
     const changed = next !== index;
     index = next;
@@ -194,6 +195,7 @@
       drag.active = true;
       drag.x0 = e.clientX;
       drag.base = presentX(); // pega de onde o trilho está, mesmo no meio da transição
+      stopHint();
       track.style.transition = 'none';
       setPx(drag.base);
       try { viewport.setPointerCapture(e.pointerId); } catch (err) { /* ponteiro já solto */ }
@@ -257,6 +259,92 @@
   }, true);
 
   track.addEventListener('dragstart', (e) => e.preventDefault());
+
+  // ----- Dica de arraste -----
+  // Quando o carrossel aparece, o trilho desliza um pouco para a esquerda e
+  // volta, mostrando a ponta do slide 2; a seta do "Próximo" acompanha.
+  // Avisa que há mais conteúdo ao lado. Toca no máximo duas vezes, só no
+  // slide 1, e para de vez na primeira troca de slide ou arraste.
+  // Com "reduzir movimento", não toca.
+  const HINT_DELAY = 700;  // depois que a seção termina de entrar
+  const HINT_GAP = 4000;   // pausa até a segunda dica
+  const HINT_MAX = 2;
+  const HINT_OUT = 300;    // ida, --ease-out
+  const HINT_HOLD = 160;   // parada na ponta
+  const HINT_BACK = 300;   // volta, --ease-in-out
+  const nextIcon = nextBtn.querySelector('svg');
+  const cssVar = (name, fallback) => getComputedStyle(root).getPropertyValue(name).trim() || fallback;
+
+  let hintOff = typeof track.animate !== 'function';
+  let hintPlays = 0;
+  let hintInView = false;
+  let hintTimer = 0;
+  let hintAnims = [];
+
+  // Celular: ~50px; telas largas: até 96px (sem cortar demais o slide 1)
+  const hintDistance = () => Math.round(Math.min(96, Math.max(48, viewport.clientWidth * 0.14)));
+
+  function hintFrames(x) {
+    const total = HINT_OUT + HINT_HOLD + HINT_BACK;
+    const out = cssVar('--ease-out', 'cubic-bezier(0.23, 1, 0.32, 1)');
+    const back = cssVar('--ease-in-out', 'cubic-bezier(0.77, 0, 0.175, 1)');
+    return [
+      { transform: 'translate3d(0,0,0)', easing: out },
+      { transform: `translate3d(${x}px,0,0)`, offset: HINT_OUT / total },
+      { transform: `translate3d(${x}px,0,0)`, offset: (HINT_OUT + HINT_HOLD) / total, easing: back },
+      { transform: 'translate3d(0,0,0)' },
+    ];
+  }
+
+  function scheduleHint(delay) {
+    clearTimeout(hintTimer);
+    hintTimer = setTimeout(playHint, delay);
+  }
+
+  function playHint() {
+    hintTimer = 0;
+    if (hintOff || hintAnims.length || !hintInView || index !== 0 || reduced()) return;
+    if (drag || document.hidden) { scheduleHint(HINT_DELAY); return; }
+
+    hintPlays += 1;
+    const duration = HINT_OUT + HINT_HOLD + HINT_BACK;
+    hintAnims = [track.animate(hintFrames(-hintDistance()), { duration })];
+    if (nextIcon) hintAnims.push(nextIcon.animate(hintFrames(4), { duration }));
+
+    hintAnims[0].onfinish = () => {
+      hintAnims = [];
+      if (hintPlays >= HINT_MAX) hintObserver.disconnect();
+      else if (hintInView) scheduleHint(HINT_GAP);
+    };
+  }
+
+  // Troca de slide ou arraste: a dica sai de cena sem salto, e não volta
+  function stopHint() {
+    if (hintOff) return;
+    hintOff = true;
+    clearTimeout(hintTimer);
+    hintObserver.disconnect();
+    if (!hintAnims.length) return;
+    const x = presentX();
+    hintAnims.forEach((a) => a.cancel());
+    hintAnims = [];
+    track.style.transition = 'none';
+    setPx(x);
+    void track.offsetWidth;
+    track.style.transition = '';
+  }
+
+  // "Na tela" = 60% do carrossel visível, ou meia tela ocupada por ele
+  // (no celular o carrossel pode ser mais alto que a tela)
+  const hintObserver = new IntersectionObserver(([entry]) => {
+    const seen = entry.intersectionRect.height;
+    hintInView = entry.isIntersecting &&
+      seen >= Math.min(entry.boundingClientRect.height * 0.6, window.innerHeight * 0.5);
+    if (!hintInView) { clearTimeout(hintTimer); hintTimer = 0; return; }
+    if (!hintTimer && !hintAnims.length && hintPlays < HINT_MAX) scheduleHint(HINT_DELAY);
+  }, { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] });
+
+  if (!hintOff) hintObserver.observe(root);
 
   // ----- Início -----
   root.classList.add('is-ready');
