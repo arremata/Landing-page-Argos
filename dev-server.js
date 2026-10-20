@@ -19,6 +19,7 @@ const MIME = {
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
   '.mp4': 'video/mp4',
+  '.webp': 'image/webp',
 };
 
 function serveStatic(req, res) {

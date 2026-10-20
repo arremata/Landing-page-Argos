@@ -28,6 +28,8 @@ if (videoBtn) {
       player.title = 'Vídeo de demonstração do Argos';
     } else {
       player = document.createElement('video');
+      const poster = videoBtn.querySelector('img');
+      if (poster) player.poster = poster.currentSrc || poster.src;
       player.src = src;
       player.controls = true;
       player.autoplay = true;
