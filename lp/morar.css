@@ -383,6 +383,10 @@ body { font-size: 16px; }
 
 .modal-close { border-radius: var(--radius-round); }
 .modal-ok a { color: var(--violet); font-weight: 600; }
+/* Botão de compartilhar depois do cadastro */
+.modal-ok .modal-share { margin-top: var(--sp-5); }
+/* Link da política de privacidade abaixo do botão Cadastrar */
+.modal-form .text-size-small a { color: var(--violet); font-weight: 600; text-decoration: underline; }
 
 .form_field { display: flex; flex-direction: column; gap: 3px; }
 .form_field label { font-size: 13px; font-weight: 600; color: var(--text); }

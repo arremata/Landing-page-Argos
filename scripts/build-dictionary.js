@@ -294,7 +294,7 @@ function footerMarkup() {
   <div class="container footer-inner">
     <a href="/" class="logo">${logoMarkup()}</a>
     <p class="footer-sub">Imóveis de leilão explicados em português claro.</p>
-    <nav class="footer-links"><a href="/">Início</a><a href="/blog/">Blog</a><a href="/editorial/">Equipe e critérios</a><a href="/recursos/checklist-antes-do-lance/">Checklist antes do lance</a></nav>
+    <nav class="footer-links"><a href="/">Início</a><a href="/blog/">Blog</a><a href="/editorial/">Equipe e critérios</a><a href="/recursos/checklist-antes-do-lance/">Checklist antes do lance</a><a href="/privacidade/#preferencias">Privacidade e preferências</a></nav>
     <p class="footer-copy">&copy; 2026 Argos. Todos os direitos reservados.</p>
   </div>
 </footer>`;
@@ -420,6 +420,7 @@ ${headerMarkup()}
 ${body}
 ${footerMarkup()}
 <script src="/lp/dictionary.js" defer></script>
+<script src="/lp/medicao.js" defer></script>
 </body>
 </html>`;
 }

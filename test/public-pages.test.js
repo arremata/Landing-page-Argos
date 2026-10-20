@@ -35,6 +35,8 @@ test('materiais públicos têm canonical, schema fiel, autoria e sitemap', () =>
     assert.equal(schema.isAccessibleForFree, true);
     assert.ok(sitemap.includes(`<loc>${SITE}${data.path}</loc>\n    <lastmod>${data.updatedAt}</lastmod>`));
     assert.equal((html.match(/<h1\b/g) || []).length, 1);
+    assert.match(html, /<script src="\/lp\/medicao.js" defer><\/script>/);
+    assert.match(html, /href="\/privacidade\/#preferencias"/);
     const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
     assert.equal(ids.length, new Set(ids).size);
     assert.ok(ids.length >= 3, `${data.path}: faltam âncoras para seções`);
