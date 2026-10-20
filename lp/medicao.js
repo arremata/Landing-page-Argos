@@ -1,7 +1,7 @@
 // Opcionais desligados até uma escolha explícita. IDs vazios não carregam SDKs.
 (function () {
   'use strict';
-  var META_PIXEL_ID = '';
+  var META_PIXEL_ID = '2073101446679623'; // Pixel "Argos site", portfólio Argos
   var GA4_ID = '';
   var CHAVE = 'argos_origem';
   var CONSENTIMENTO = 'argos_consentimento';

@@ -32,7 +32,11 @@ function browser({ store = new Map(), search = '?utm_source=google&utm_campaign=
     },
     addEventListener(name, callback) { windowEvents[name] = callback; },
   };
-  const code = configured ? source.replace("var META_PIXEL_ID = '';", "var META_PIXEL_ID = '123';").replace("var GA4_ID = '';", "var GA4_ID = 'G-TEST';") : source;
+  // Os IDs reais ficam no arquivo; o teste troca por valores de teste (ou vazios),
+  // seja qual for o valor gravado.
+  const code = source
+    .replace(/var META_PIXEL_ID = '[^']*';/, configured ? "var META_PIXEL_ID = '123';" : "var META_PIXEL_ID = '';")
+    .replace(/var GA4_ID = '[^']*';/, configured ? "var GA4_ID = 'G-TEST';" : "var GA4_ID = '';");
   vm.runInNewContext(code, { window, document, URL, URLSearchParams, Date, Number });
   return {
     window, resources, store, elements, preferences, deletedCookies,
