@@ -418,6 +418,7 @@ ${buildRelated(post.relacionadosPosts || [])}
     <nav class="footer-links">
       <a href="/dicionario">Dicionário</a>
       <a href="/blog/">Blog</a>
+      <a href="/privacidade/#preferencias">Privacidade e preferências</a>
     </nav>
     <p class="footer-copy">&copy; 2026 Argos. Todos os direitos reservados.</p>
   </div>
@@ -532,6 +533,7 @@ ${cards ||'<div class="blog-empty"><p>Nenhum artigo publicado por enquanto.</p><
     <nav class="footer-links">
       <a href="/dicionario">Dicionário</a>
       <a href="/blog/">Blog</a>
+      <a href="/privacidade/#preferencias">Privacidade e preferências</a>
     </nav>
     <p class="footer-copy">&copy; 2026 Argos. Todos os direitos reservados.</p>
   </div>

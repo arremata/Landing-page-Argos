@@ -169,10 +169,12 @@ form.addEventListener('submit', async (e) => {
     });
 
     if (!res.ok) throw new Error('request_failed');
+    const result = await res.json();
+    if (result.ok !== true) throw new Error('request_failed');
 
     modalBody.hidden = true;
     modalSuccess.hidden = false;
-    if (medicao) medicao.inscricao();
+    if (medicao && result.created === true) medicao.inscricao();
   } catch (err) {
     setError('Não foi possível concluir. Tente novamente em alguns instantes.');
     submitBtn.disabled = false;

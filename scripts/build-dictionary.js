@@ -293,7 +293,7 @@ function footerMarkup() {
   <div class="container footer-inner">
     <a href="/" class="logo">${logoMarkup()}</a>
     <p class="footer-sub">Imóveis de leilão explicados em português claro.</p>
-    <nav class="footer-links"><a href="/">Início</a><a href="/blog/">Blog</a></nav>
+    <nav class="footer-links"><a href="/">Início</a><a href="/blog/">Blog</a><a href="/privacidade/#preferencias">Privacidade e preferências</a></nav>
     <p class="footer-copy">&copy; 2026 Argos. Todos os direitos reservados.</p>
   </div>
 </footer>`;

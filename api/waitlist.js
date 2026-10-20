@@ -54,7 +54,7 @@ const UNDEFINED_COLUMN = '42703';
 
 async function saveToDatabase({ fullName, phone, email, source, origem }) {
   try {
-    await getPool().query(
+    const result = await getPool().query(
       `insert into public.waitlist
          (full_name, phone, email, source,
           utm_source, utm_medium, utm_campaign, utm_content, landing_page, referrer)
@@ -70,16 +70,17 @@ async function saveToDatabase({ fullName, phone, email, source, origem }) {
         origem.referrer || null,
       ]
     );
+    return result.rowCount === 1;
   } catch (err) {
     if (err && err.code === UNDEFINED_COLUMN) {
       console.warn('[waitlist] colunas de origem ausentes; rode supabase/waitlist-origem.sql');
-      await getPool().query(
+      const result = await getPool().query(
         `insert into public.waitlist (full_name, phone, email, source)
          values ($1, $2, $3, $4)
          on conflict (email) do nothing`,
         [fullName, phone, email, source]
       );
-      return;
+      return result.rowCount === 1;
     }
     throw err;
   }
@@ -98,7 +99,9 @@ async function saveToFile({ fullName, phone, email, source, origem }) {
     entries.push({ fullName, phone, email, source, origem, ts: new Date().toISOString() });
     await fs.mkdir(path.dirname(DATA_FILE), { recursive: true });
     await fs.writeFile(DATA_FILE, JSON.stringify(entries, null, 2));
+    return true;
   }
+  return false;
 }
 
 async function saveSignup(signup) {
@@ -120,7 +123,7 @@ module.exports = async (req, res) => {
   const { fullName, phone, email, company, source, origem } = req.body || {};
 
   if (company) {
-    res.status(200).json({ ok: true });
+    res.status(200).json({ ok: true, created: false });
     return;
   }
 
@@ -140,14 +143,14 @@ module.exports = async (req, res) => {
   }
 
   try {
-    await saveSignup({
+    const created = await saveSignup({
       fullName: fullName.trim(),
       phone: phone.trim(),
       email: email.trim().toLowerCase(),
       source: SOURCES.includes(source) ? source : 'investir',
       origem: cleanOrigem(origem),
     });
-    res.status(200).json({ ok: true });
+    res.status(200).json({ ok: true, created });
   } catch (err) {
     console.error('[waitlist]', err);
     res.status(500).json({ ok: false, error: 'server_error' });

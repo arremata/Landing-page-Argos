@@ -58,7 +58,7 @@ test('grava o cadastro com SQL parametrizado', async () => {
   });
 
   assert.equal(response.statusCode, 200);
-  assert.deepEqual(response.body, { ok: true });
+  assert.deepEqual(response.body, { ok: true, created: true });
   assert.equal(queries.length, 1);
   assert.match(queries[0].text, /on conflict \(email\) do nothing/);
   assert.deepEqual(queries[0].values, [
@@ -125,6 +125,7 @@ test('sem as colunas de origem no banco, grava o cadastro mesmo assim', async ()
 
   assert.equal(response.statusCode, 200);
   assert.equal(queries.length, 2);
+  assert.equal(response.body.created, true);
   assert.deepEqual(queries[1].values, ['Maria Silva', '(11) 99999-9999', 'maria@example.com', 'morar']);
 });
 
@@ -138,7 +139,7 @@ test('mantém sucesso quando o e-mail já existe', async () => {
   });
 
   assert.equal(response.statusCode, 200);
-  assert.deepEqual(response.body, { ok: true });
+  assert.deepEqual(response.body, { ok: true, created: false });
 });
 
 test('devolve 500 quando o banco falha', async () => {
@@ -174,6 +175,6 @@ test('honeypot responde sucesso sem consultar o banco', async () => {
   const response = await invoke({ company: 'spam bot' });
 
   assert.equal(response.statusCode, 200);
-  assert.deepEqual(response.body, { ok: true });
+  assert.deepEqual(response.body, { ok: true, created: false });
   assert.equal(queries.length, 0);
 });
