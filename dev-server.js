@@ -18,6 +18,7 @@ const MIME = {
   '.json': 'application/json; charset=utf-8',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
+  '.mp4': 'video/mp4',
 };
 
 function serveStatic(req, res) {
