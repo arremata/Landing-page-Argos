@@ -28,16 +28,65 @@ function getPool() {
   return pool;
 }
 
-async function saveToDatabase({ fullName, phone, email, source }) {
-  await getPool().query(
-    `insert into public.waitlist (full_name, phone, email, source)
-     values ($1, $2, $3, $4)
-     on conflict (email) do nothing`,
-    [fullName, phone, email, source]
-  );
+// Origem da inscrição (lp/medicao.js). Cada campo é texto curto e opcional;
+// qualquer outra coisa vira string vazia.
+const ORIGEM_LIMITES = {
+  utm_source: 200,
+  utm_medium: 200,
+  utm_campaign: 200,
+  utm_content: 200,
+  landing_page: 300,
+  referrer: 200,
+};
+
+function cleanOrigem(origem) {
+  const limpo = {};
+  for (const [campo, limite] of Object.entries(ORIGEM_LIMITES)) {
+    const valor = origem && typeof origem[campo] === 'string' ? origem[campo].trim() : '';
+    limpo[campo] = valor.slice(0, limite);
+  }
+  return limpo;
 }
 
-async function saveToFile({ fullName, phone, email, source }) {
+// Postgres: coluna inexistente. Acontece se o deploy sair antes de rodar
+// supabase/waitlist-origem.sql; nesse caso o cadastro é gravado sem a origem.
+const UNDEFINED_COLUMN = '42703';
+
+async function saveToDatabase({ fullName, phone, email, source, origem }) {
+  try {
+    const result = await getPool().query(
+      `insert into public.waitlist
+         (full_name, phone, email, source,
+          utm_source, utm_medium, utm_campaign, utm_content, landing_page, referrer)
+       values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+       on conflict (email) do nothing`,
+      [
+        fullName, phone, email, source,
+        origem.utm_source || null,
+        origem.utm_medium || null,
+        origem.utm_campaign || null,
+        origem.utm_content || null,
+        origem.landing_page || null,
+        origem.referrer || null,
+      ]
+    );
+    return result.rowCount === 1;
+  } catch (err) {
+    if (err && err.code === UNDEFINED_COLUMN) {
+      console.warn('[waitlist] colunas de origem ausentes; rode supabase/waitlist-origem.sql');
+      const result = await getPool().query(
+        `insert into public.waitlist (full_name, phone, email, source)
+         values ($1, $2, $3, $4)
+         on conflict (email) do nothing`,
+        [fullName, phone, email, source]
+      );
+      return result.rowCount === 1;
+    }
+    throw err;
+  }
+}
+
+async function saveToFile({ fullName, phone, email, source, origem }) {
   let entries = [];
   try {
     const raw = await fs.readFile(DATA_FILE, 'utf-8');
@@ -47,10 +96,12 @@ async function saveToFile({ fullName, phone, email, source }) {
   }
 
   if (!entries.some((e) => e.email.toLowerCase() === email.toLowerCase())) {
-    entries.push({ fullName, phone, email, source, ts: new Date().toISOString() });
+    entries.push({ fullName, phone, email, source, origem, ts: new Date().toISOString() });
     await fs.mkdir(path.dirname(DATA_FILE), { recursive: true });
     await fs.writeFile(DATA_FILE, JSON.stringify(entries, null, 2));
+    return true;
   }
+  return false;
 }
 
 async function saveSignup(signup) {
@@ -69,10 +120,10 @@ module.exports = async (req, res) => {
     return;
   }
 
-  const { fullName, phone, email, company, source } = req.body || {};
+  const { fullName, phone, email, company, source, origem } = req.body || {};
 
   if (company) {
-    res.status(200).json({ ok: true });
+    res.status(200).json({ ok: true, created: false });
     return;
   }
 
@@ -92,13 +143,14 @@ module.exports = async (req, res) => {
   }
 
   try {
-    await saveSignup({
+    const created = await saveSignup({
       fullName: fullName.trim(),
       phone: phone.trim(),
       email: email.trim().toLowerCase(),
       source: SOURCES.includes(source) ? source : 'investir',
+      origem: cleanOrigem(origem),
     });
-    res.status(200).json({ ok: true });
+    res.status(200).json({ ok: true, created });
   } catch (err) {
     console.error('[waitlist]', err);
     res.status(500).json({ ok: false, error: 'server_error' });
