@@ -8,6 +8,9 @@
    - troca de slide: transform 300ms, ease-out forte, interrompível (transition);
    - arraste: segue o dedo 1:1, sem transition; ao soltar, a mesma curva;
    - explicação: só nos slides 2 e 4, uma vez, na primeira vez que aparecem;
+   - dica de arraste (leilao.js): ao aparecer, o trilho desliza 48–96px para
+     a esquerda e volta (300ms ida, 160ms parada, 300ms volta), no máximo 2×,
+     só no slide 1; para na primeira interação e não toca com movimento reduzido;
    - press: scale(0.97) em 160ms.
    Curvas e durações base vêm de styles.css (:root). */
 
