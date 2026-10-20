@@ -28,7 +28,7 @@ tags: ["leilão judicial", "leilão extrajudicial", "tipos de leilão"]
 
 ## Qual é a diferença entre leilão judicial e extrajudicial?
 
-**Resposta direta.** O leilão judicial acontece dentro de um processo, é conduzido sob a autoridade de um juiz e segue o Código de Processo Civil. O leilão extrajudicial acontece fora do Judiciário, é promovido diretamente pelo [credor](/dicionario/credor) — quase sempre um banco — e segue a lei do contrato de garantia, na maioria dos casos a Lei 9.514/1997, da alienação fiduciária. A diferença não é burocrática: ela muda quem responde pelas dívidas, quanto tempo leva para desocupar e como o negócio pode ser questionado.
+**Resposta direta.** O leilão judicial ocorre em um processo, sob autoridade do juiz, e segue o Código de Processo Civil. O extrajudicial por alienação fiduciária é promovido pelo [credor](/dicionario/credor), fora desse processo, conforme a Lei 9.514/1997. A modalidade muda regras de pagamento, dívidas, posse e questionamento da venda.
 
 **O detalhe.** Quadro comparativo:
 
@@ -52,7 +52,7 @@ tags: ["leilão judicial", "leilão extrajudicial", "tipos de leilão"]
 
 **O detalhe — extrajudicial.** No primeiro leilão, o mínimo é o valor do imóvel estipulado no contrato de alienação fiduciária. Se o maior lance for inferior a esse valor, realiza-se o segundo leilão nos quinze dias seguintes. No segundo, aceita-se o maior lance desde que igual ou superior ao valor integral da dívida garantida, das despesas — inclusive emolumentos cartorários —, dos prêmios de seguro, dos encargos legais, inclusive tributos, e das contribuições condominiais. E, se não houver lance que alcance esse valor, a Lei 14.711/2023 passou a permitir que o credor fiduciário aceite, **a seu exclusivo critério**, lance correspondente a pelo menos metade do valor de avaliação do bem.
 
-**Base legal.** CPC, art. 891 e parágrafo único. Lei 9.514/1997, art. 24, VI; art. 27, §§ 1º e 2º, com redação da Lei 14.711/2023.
+**Base legal.** [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm), art. 891 e parágrafo único. [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), art. 24, VI; art. 27, §§ 1º e 2º, com redação da [Lei 14.711/2023](https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm).
 
 **Na prática.** No extrajudicial, o piso do segundo leilão é a dívida — não um percentual do valor do imóvel. Por isso, em imóvel com dívida alta, a segunda praça pode sair *mais cara* que a primeira. É contraintuitivo e pega muita gente desprevenida.
 
@@ -62,7 +62,7 @@ tags: ["leilão judicial", "leilão extrajudicial", "tipos de leilão"]
 
 **O detalhe.** A regra protege o devedor, mas protege você também — indiretamente. Arrematação por preço muito baixo é o principal fundamento de pedido de anulação. Um negócio que parece bom demais é, na prática, um negócio com risco jurídico embutido.
 
-**Base legal.** CPC, art. 891, parágrafo único; art. 903, § 1º, I.
+**Base legal.** [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm), art. 891, parágrafo único; art. 903, § 1º, I.
 
 ## Quem pode dar lance? Precisa de CPF ou CNPJ?
 
@@ -77,7 +77,7 @@ tags: ["leilão judicial", "leilão extrajudicial", "tipos de leilão"]
 - leiloeiros e seus prepostos, quanto aos bens de cuja venda estejam encarregados;
 - advogados de qualquer das partes.
 
-**Base legal.** CPC, art. 890, I a VI.
+**Base legal.** [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm), art. 890, I a VI.
 
 ## Preciso de advogado para arrematar?
 

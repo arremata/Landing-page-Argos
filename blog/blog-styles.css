@@ -1,5 +1,19 @@
 /* ===== Blog — Argos ===== */
 
+.public-page-nav { padding: var(--sp-6) 0; border-bottom: 1px solid var(--border); }
+.public-page-nav > div { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-5); }
+.public-page-nav nav { display: flex; flex-wrap: wrap; gap: var(--sp-4); font-size: 14px; }
+.public-page-main { padding: var(--sp-12) 0; }
+.blog-answer { padding: var(--sp-5); border-left: 3px solid var(--violet); background: var(--bg-soft); border-radius: var(--radius-medium); }
+
+@media print {
+  .public-page-nav, .public-page-main .blog-cta-box, .public-page-main + .footer { display: none; }
+  .public-page-main { padding: 0; }
+  .public-page-main .blog-body a { color: var(--text); }
+  .public-page-main .blog-body table { font-size: 11pt; }
+  .public-page-main .blog-body tr { break-inside: avoid; }
+}
+
 .blog-main {
   padding-top: 120px;
   padding-bottom: var(--sp-24);
@@ -309,6 +323,7 @@
   text-align: center;
 }
 
+.blog-cta-box h2,
 .blog-cta-box h3 {
   font-family: var(--font-display);
   font-size: 22px;

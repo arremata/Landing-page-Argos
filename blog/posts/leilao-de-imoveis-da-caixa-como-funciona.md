@@ -38,9 +38,9 @@ O procedimento que sustenta essa retomada é o do [leilão extrajudicial](/blog/
 
 ## Qual é a diferença entre licitação aberta e venda direta da Caixa?
 
-Na [licitação aberta](/dicionario/licitacao-aberta), os participantes disputam o imóvel por lances, em uma única rodada e na data do edital. Na [venda direta](/dicionario/venda-direta), a compra segue o preço anunciado e a regra de aceitação da proposta, sem disputa de lances. Já o [Leilão SFI](/dicionario/leilao-sfi) pode ter primeira e segunda rodadas.
+**Resposta direta.** Na [licitação aberta](/dicionario/licitacao-aberta), os participantes disputam o imóvel por lances na data do edital. Na [venda direta](/dicionario/venda-direta), a compra segue o preço anunciado e a regra de aceitação da proposta, sem disputa de lances. Já o [Leilão SFI](/dicionario/leilao-sfi) pode ter primeira e segunda rodadas.
 
-A modalidade identifica como a venda acontece; a ficha e o edital informam as condições do imóvel. Formas de pagamento, comissão, ocupação e despesas precisam ser conferidas em cada oferta.
+A modalidade identifica como a venda acontece; a ficha e o edital informam as condições do imóvel. Formas de pagamento, comissão, ocupação e despesas precisam ser conferidas em cada oferta no [portal oficial de imóveis da Caixa](https://venda-imoveis.caixa.gov.br/sistema/busca-imovel.asp).
 
 ## Dá para financiar um imóvel de leilão da Caixa?
 

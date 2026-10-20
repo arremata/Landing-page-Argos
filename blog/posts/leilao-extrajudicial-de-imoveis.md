@@ -32,7 +32,7 @@ tags: ["leilão extrajudicial", "Lei 9.514", "alienação fiduciária"]
 
 **O detalhe.** O ponto que quase ninguém explica: na alienação fiduciária, o banco **já é** o proprietário resolúvel do imóvel desde a assinatura do contrato. O comprador tem a posse direta e o direito de se tornar dono ao terminar de pagar. Quando ele não paga, o banco consolida a propriedade plena — e a lei o obriga a vender em leilão, não a ficar com o bem.
 
-**Base legal.** Lei 9.514/1997, arts. 22 a 27-A.
+**Base legal.** [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), arts. 22 a 27-A.
 
 ## Qual é o passo a passo e os prazos do leilão extrajudicial?
 
@@ -49,7 +49,7 @@ tags: ["leilão extrajudicial", "Lei 9.514", "alienação fiduciária"]
 | Segundo leilão | nos 15 dias seguintes ao primeiro | art. 27, § 1º |
 | Entrega do saldo que sobejar ao devedor | 5 dias da venda | art. 27, § 4º |
 
-**Base legal.** Lei 9.514/1997, arts. 26, 26-A e 27, com as alterações da Lei 14.711/2023.
+**Base legal.** [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), arts. 26, 26-A e 27, com as alterações da [Lei 14.711/2023](https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm).
 
 **Na prática.** O prazo do primeiro leilão passou de 30 para 60 dias com a Lei 14.711/2023. Textos publicados antes de outubro de 2023 ainda repetem o prazo antigo — inclusive artigos que aparecem bem posicionados hoje.
 
@@ -59,7 +59,7 @@ tags: ["leilão extrajudicial", "Lei 9.514", "alienação fiduciária"]
 
 **O detalhe.** Essa é uma das mudanças mais relevantes da Lei 14.711/2023 e ainda não chegou a boa parte do conteúdo publicado. Antes, discutia-se amplamente a possibilidade de purgar a mora até a arrematação. Hoje o marco é claro: averbou a consolidação, acabou a purgação.
 
-**Base legal.** Lei 9.514/1997, art. 27, § 2º-B, com redação da Lei 14.711/2023; art. 26-A, § 2º.
+**Base legal.** [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), art. 27, § 2º-B, com redação da [Lei 14.711/2023](https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm); art. 26-A, § 2º.
 
 **Na prática, para você que quer arrematar:** existe uma janela real em que o negócio pode não se concretizar. Entre a consolidação e o segundo leilão, o ex-proprietário pode exercer a preferência e o imóvel sai do leilão. Não conte com o imóvel antes da arrematação estar formalizada.
 
@@ -71,7 +71,7 @@ tags: ["leilão extrajudicial", "Lei 9.514", "alienação fiduciária"]
 
 Sobre as consequências dessa falha, porém, os tribunais divergem — e é importante não simplificar. Não é correto dizer que a falta de intimação anula o leilão automaticamente: há decisões que exigem, para anular, a prova de que o devedor teve efetivamente frustrado o direito de purgar a mora ou o de preferência. Trate o item como risco a verificar e dimensionar, não como nulidade certa nem como formalidade irrelevante.
 
-**Base legal.** Lei 9.514/1997, art. 27, § 2º-A.
+**Base legal.** [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), art. 27, § 2º-A.
 
 ## Quem paga o IPTU e o condomínio se o imóvel for arrematado na primeira praça?
 
@@ -94,6 +94,6 @@ Essa lacuna é real. No levantamento jurisprudencial encerrado em agosto de 2026
 
 **Resposta direta.** A consequência muda conforme o tipo de operação. Na regra geral, se o produto do leilão não for suficiente para pagar a dívida, as despesas e os encargos, o devedor continua obrigado pelo saldo remanescente. Nos financiamentos para aquisição ou construção de imóvel residencial do devedor, se no segundo leilão não houver lance que atinja o mínimo legal, a dívida é considerada extinta, com recíproca quitação.
 
-**Base legal.** Lei 9.514/1997, art. 27, § 5º-A e art. 26-A, §§ 3º e 4º, incluídos pela Lei 14.711/2023.
+**Base legal.** [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), art. 27, § 5º-A e art. 26-A, §§ 3º e 4º, incluídos pela [Lei 14.711/2023](https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm).
 
 Para entender onde essa modalidade se encaixa no desenho geral, veja [como funciona um leilão de imóveis](/blog/como-funciona-leilao-de-imoveis/).

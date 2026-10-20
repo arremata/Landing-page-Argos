@@ -105,3 +105,22 @@ test('artigos conectam o conteúdo a verbetes públicos existentes e indexáveis
     }
   }
 });
+
+test('perguntas têm resposta imediata, fontes contextuais e materiais públicos', () => {
+  for (const file of files) {
+    const { data, content } = matter(fs.readFileSync(path.join(POSTS_DIR, file), 'utf8'));
+    for (const [, question, answer] of content.matchAll(/^## (.+\?)(?: \{\w+\})?\n\n([^\n]+)/gm)) {
+      assert.ok(answer.startsWith('**Resposta direta.**'), `${file}: ${question}`);
+    }
+    assert.match(content, /\]\(https:\/\/(www\.planalto\.gov\.br|atos\.cnj\.jus\.br|venda-imoveis\.caixa\.gov\.br)/, file);
+    const html = fs.readFileSync(path.join(ROOT, 'blog', data.slug, 'index.html'), 'utf8');
+    assert.equal((html.match(/class="blog-answer"/g) || []).length, 1, file);
+    assert.match(html, /href="\/editorial\/">Equipe Argos/);
+    assert.match(html, /href="\/recursos\/checklist-antes-do-lance\/"/);
+    assert.match(html, /href="\/recursos\/custo-total-imovel-leilao\/"/);
+    assert.doesNotMatch(html, /PREENCHER/);
+    const schema = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
+    assert.equal(schema.author['@id'], 'https://www.argosleiloes.com.br/editorial/#equipe-argos');
+    assert.equal(schema.publisher['@id'], 'https://www.argosleiloes.com.br/#organization');
+  }
+});

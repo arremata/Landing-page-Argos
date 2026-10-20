@@ -28,7 +28,7 @@ tags: ["segurança", "riscos", "golpe leilão"]
 
 ## Leilão de imóveis é seguro?
 
-**Resposta direta.** É um mercado regulado, com leiloeiros fiscalizados por órgão público e procedimento previsto em lei. A insegurança não está no leilão em si — está em duas coisas: sites falsos que se passam por leiloeiros oficiais, e a compra feita sem entender o que o [edital](/dicionario/edital) e a [matrícula](/dicionario/matricula) dizem. Verificados esses dois pontos, o leilão é tão seguro quanto qualquer outra forma de aquisição de imóvel; ignorados, é um dos jeitos mais rápidos de perder dinheiro.
+**Resposta direta.** Leilão de imóveis é uma forma regulada de compra, mas não é livre de riscos. Confira a autenticidade da oferta, o leiloeiro, o [edital](/dicionario/edital), a [matrícula](/dicionario/matricula), as dívidas e a ocupação. Essas verificações ajudam a identificar problemas; não garantem a validade da venda, a entrega das chaves ou uma economia na compra.
 
 **O detalhe.** Em qualquer leilão, judicial ou extrajudicial, só leiloeiro oficialmente matriculado pode conduzir leilão público.
 
@@ -41,7 +41,7 @@ No **leilão judicial**, a lei garante ainda:
 
 No **leilão extrajudicial**, de imóveis retomados por bancos, as regras de proteção são outras e estão em [leilão extrajudicial de imóveis](/blog/leilao-extrajudicial-de-imoveis/).
 
-**Base legal.** Decreto 21.981/1932, art. 19; CPC, arts. 891, 903 *caput*, 903, § 5º, I e 903, § 6º.
+**Base legal.** [Decreto 21.981/1932](https://www.planalto.gov.br/ccivil_03/decreto/1930-1949/d21981.htm), art. 19; [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm), arts. 891, 903 *caput*, 903, § 5º, I e 903, § 6º.
 
 ## Qual é a "pegadinha" do leilão de imóveis?
 
@@ -65,7 +65,7 @@ No **leilão extrajudicial**, de imóveis retomados por bancos, as regras de pro
 | **Anulação da arrematação** | Verificar regularidade das intimações e do procedimento | Ver [anulação da arrematação e riscos](/blog/anulacao-de-arrematacao-riscos/) |
 | **Estado físico** | Visita quando possível; fotos; Street View; idade do prédio | Reserva de reforma no orçamento |
 
-**Base legal para a desistência por ônus não informado.** CPC, art. 903, § 5º, I: o arrematante pode desistir se provar, nos dez dias seguintes, a existência de ônus real ou gravame não mencionado no edital.
+**Base legal para a desistência por ônus não informado.** [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm), art. 903, § 5º, I: o arrematante pode desistir se provar, nos dez dias seguintes, a existência de ônus real ou gravame não mencionado no edital.
 
 ## Como identifico um site de leilão falso?
 

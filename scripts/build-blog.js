@@ -4,6 +4,7 @@ const matter = require('gray-matter');
 const { marked } = require('marked');
 const { buildDictionary, DICTIONARY_UPDATED_AT } = require('./build-dictionary');
 const REVISORES = require('../content/revisores');
+const { buildPublicPages } = require('./build-public-pages');
 
 const POSTS_DIR = path.join(__dirname, '..', 'blog', 'posts');
 const BLOG_OUT = path.join(__dirname, '..', 'blog');
@@ -280,9 +281,9 @@ function postTemplate(post, content, toc) {
     keywords: [post.keywordPrincipal, ...post.tags].filter(Boolean).join(', '),
     author: {
       '@type': 'Organization',
-      '@id': `${SITE_URL}/#organization`,
+      '@id': `${SITE_URL}/editorial/#equipe-argos`,
       name: post.author,
-      url: SITE_URL,
+      url: `${SITE_URL}/editorial/`,
     },
     reviewedBy: post.revisor
       ? { '@type': 'Person', name: post.revisor.nome, description: post.revisor.bio }
@@ -378,8 +379,9 @@ ${faq.schema}
         <p class="blog-desc">${post.description}</p>
 ${buildModalidade(post)}
         <div class="blog-byline">
-          <p><strong>Por ${escapeHtml(post.author)}</strong></p>
+          <p><strong>Por <a href="/editorial/">${escapeHtml(post.author)}</a></strong></p>
           <p>Conteúdo educativo produzido a partir de legislação, decisões judiciais e fontes oficiais.</p>
+          <p><a href="/editorial/">Conheça a equipe e os critérios editoriais</a>.</p>
 ${post.revisor ? `          <p class="byline-revisor">Revisado por <strong>${escapeHtml(post.revisor.nome)}</strong> em <time datetime="${post.reviewedAt}">${formatDate(post.reviewedAt)}</time>. ${escapeHtml(post.revisor.bio)}</p>` : `          <p>${escapeHtml(post.reviewType)} por ${escapeHtml(post.reviewedBy)} em <time datetime="${post.reviewedAt}">${formatDate(post.reviewedAt)}</time>.</p>`}
         </div>
         <p class="blog-updated">Publicado em <time datetime="${post.publishedAt}">${formatDate(post.publishedAt)}</time> · Atualizado em <time datetime="${post.updatedAt}">${formatDate(post.updatedAt)}</time></p>
@@ -391,6 +393,10 @@ ${buildNotaRevisor(post)}
       <div class="blog-body">
         ${content}
       </div>
+      <aside class="blog-callout" aria-label="Materiais de apoio">
+        <p class="blog-callout-title">Antes do lance</p>
+        <p>Use o <a href="/recursos/checklist-antes-do-lance/">checklist de documentos e condições</a> e o <a href="/recursos/custo-total-imovel-leilao/">exemplo ilustrativo de custo total</a>. Acesso público, sem cadastro.</p>
+      </aside>
 ${faq.html}
 ${sourcesHtml}
 ${DISCLAIMER_OAB}
@@ -518,6 +524,10 @@ ${posts.length ? `
     <div class="blog-grid">
 ${cards ||'<div class="blog-empty"><p>Nenhum artigo publicado por enquanto.</p><a href="/dicionario">Consultar o Dicionário do leilão →</a></div>'}
     </div>
+    <aside class="blog-cta-box">
+      <h2>Materiais para preparar sua pesquisa</h2>
+      <p><a href="/recursos/checklist-antes-do-lance/">Checklist antes do lance</a> · <a href="/recursos/custo-total-imovel-leilao/">Exemplo de custo total</a> · <a href="/editorial/">Equipe e critérios editoriais</a></p>
+    </aside>
   </div>
 </main>
 
@@ -565,7 +575,7 @@ ${cards ||'<div class="blog-empty"><p>Nenhum artigo publicado por enquanto.</p><
 </html>`;
 }
 
-function generateSitemap(posts, dictionaryPaths = []) {
+function generateSitemap(posts, dictionaryPaths = [], publicPages = []) {
   const now = new Date().toISOString().split('T')[0];
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -608,6 +618,9 @@ function generateSitemap(posts, dictionaryPaths = []) {
   </url>`;
   }
 
+  for (const page of publicPages) {
+    xml += `\n  <url>\n    <loc>${SITE_URL}${page.path}</loc>\n    <lastmod>${page.updatedAt}</lastmod>\n  </url>`;
+  }
   xml += '\n</urlset>\n';
   return xml;
 }
@@ -652,6 +665,8 @@ function build() {
     const readTime = readingTime(plainText);
 
     let html = marked(renderCallouts(content));
+    // Destaque apenas da primeira resposta, sem duplicar texto ou gerar FAQ oculto.
+    html = html.replace('<p><strong>Resposta direta.</strong>', '<p class="blog-answer"><strong>Resposta direta.</strong>');
     html = tagSections(html);
     html = addIdsToHeadings(html);
     const toc = extractTOC(html);
@@ -750,7 +765,8 @@ function build() {
 
   const dictionaryPaths = buildDictionary({ root: ROOT, siteUrl: SITE_URL });
 
-  const sitemap = generateSitemap(posts, dictionaryPaths);
+  const publicPages = buildPublicPages({ root: ROOT, siteUrl: SITE_URL, fonts: fontMarkup() });
+  const sitemap = generateSitemap(posts, dictionaryPaths, publicPages);
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap, 'utf-8');
   console.log('  ✓ sitemap.xml');
 

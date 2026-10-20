@@ -71,6 +71,6 @@ tags: ["financiamento", "FGTS", "crédito imobiliário"]
 
 **A regra que não muda em nenhuma das três:** o crédito precisa estar pronto **antes** do lance. O prazo do edital não espera análise bancária.
 
-**Base.** CPC, arts. 892 e 895. Sobre a rigidez do prazo, vale registrar que o REsp 2.196.945, julgado em 2026, tolerou atraso de poucas horas em circunstância excepcional — o que não cria margem para aguardar aprovação de crédito.
+**Base.** [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm), arts. 892 e 895. Sobre a rigidez do prazo, vale registrar que o REsp 2.196.945, julgado em 2026, tolerou atraso de poucas horas em circunstância excepcional — o que não cria margem para aguardar aprovação de crédito.
 
 O quadro completo de desembolsos está em [quanto custa comprar imóvel em leilão](/blog/quanto-custa-comprar-imovel-em-leilao/), e o desenho geral do processo em [como funciona um leilão de imóveis](/blog/como-funciona-leilao-de-imoveis/).
