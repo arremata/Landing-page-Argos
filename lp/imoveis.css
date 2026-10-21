@@ -64,7 +64,7 @@ body { background: var(--white); color: var(--text); }
 }
 /* O link cobre o card inteiro: card is-hoverable só onde tudo é clicável. */
 .imoveis_card { position: relative; display: flex; flex-direction: column; gap: var(--sp-3); padding: var(--sp-5); }
-.imoveis_card-link::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
+.imoveis_card-link::after { content: ''; position: absolute; inset: 0; border-radius: var(--radius-large); }
 .imoveis_card-link { display: flex; flex-direction: column; gap: var(--sp-1); color: var(--text); }
 .imoveis_card-link:focus-visible { outline: none; }
 .imoveis_card-link:focus-visible::after { outline: 2px solid var(--violet); outline-offset: 3px; }
@@ -113,10 +113,9 @@ body { background: var(--white); color: var(--text); }
   align-items: start;
   gap: var(--sp-8) var(--sp-10);
 }
-.imovel_main { grid-area: main; }
 .imovel_price { grid-area: price; }
 .imovel_details { grid-area: details; display: flex; flex-direction: column; gap: var(--sp-4); }
-.imovel_main { display: flex; flex-direction: column; align-items: flex-start; gap: var(--sp-4); }
+.imovel_main { grid-area: main; display: flex; flex-direction: column; align-items: flex-start; gap: var(--sp-4); }
 .imovel_title { margin-top: var(--sp-1); }
 .imovel_photo {
   width: 100%;

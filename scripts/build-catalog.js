@@ -286,7 +286,7 @@ ${extraHead}${schema ? jsonLd(schema) : ''}
     <div class="container-large imoveis_nav-inner">
       <a href="/" class="logo"><span class="logo-mark" aria-hidden="true"><img src="/brand/argos-mark.svg" alt="" width="32" height="32"></span><span class="logo-word">Argos</span></a>
       <nav class="imoveis_nav-links" aria-label="Navegação principal">
-        <a href="${BASE_PATH}">Imóveis da Caixa</a>
+        <a href="${BASE_PATH}">Imóveis</a>
         <a href="/como-funciona/">Como funciona</a>
         <a href="/blog/" class="is-desktop">Guias</a>
         <a href="/contato/" class="is-desktop" data-evento-clique="click_assistance">Assistência</a>
