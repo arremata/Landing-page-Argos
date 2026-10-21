@@ -5,7 +5,7 @@ const { GLOSSARY, GLOSSARY_GROUPS, glossaryByGroup } = require('../content/gloss
 const ROOT = path.join(__dirname, '..');
 const DEFAULT_SITE_URL = 'https://www.argosleiloes.com.br';
 const DICTIONARY_PATH = '/dicionario';
-const LEARN_URL = '/#leilao';
+const LEARN_URL = '/como-funciona/';
 const WAITLIST_URL = '/?cadastro=1';
 const DICTIONARY_TITLE = 'Dicionário do leilão de imóveis da Caixa';
 const DICTIONARY_DESCRIPTION = 'O que quer dizer cada palavra dos leilões e da venda direta da Caixa: rodadas, valor de avaliação, imóvel ocupado, ITBI, matrícula e outros termos, sem juridiquês.';
@@ -294,7 +294,7 @@ function footerMarkup() {
   <div class="container footer-inner">
     <a href="/" class="logo">${logoMarkup()}</a>
     <p class="footer-sub">Imóveis de leilão explicados em português claro.</p>
-    <nav class="footer-links"><a href="/">Início</a><a href="/blog/">Blog</a><a href="/editorial/">Equipe e critérios</a><a href="/recursos/checklist-antes-do-lance/">Checklist antes do lance</a><a href="/privacidade/#preferencias">Privacidade e preferências</a></nav>
+    <nav class="footer-links"><a href="/">Início</a><a href="/imoveis/caixa/">Imóveis da Caixa</a><a href="/como-funciona/">Como funciona</a><a href="/blog/">Blog</a><a href="/editorial/">Equipe e critérios</a><a href="/recursos/checklist-antes-do-lance/">Checklist antes do lance</a><a href="/privacidade/#preferencias">Privacidade e preferências</a></nav>
     <p class="footer-copy">&copy; 2026 Argos. Todos os direitos reservados.</p>
   </div>
 </footer>`;

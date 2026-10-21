@@ -1,9 +1,38 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npm run blog",
+  "buildCommand": "npm run build",
   "outputDirectory": ".",
   "redirects": [
-    { "source": "/morar", "destination": "/", "permanent": true },
-    { "source": "/morar/", "destination": "/", "permanent": true }
+    {
+      "source": "/morar",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/morar/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/imoveis",
+      "destination": "/imoveis/caixa/",
+      "permanent": true
+    },
+    {
+      "source": "/imoveis/",
+      "destination": "/imoveis/caixa/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    }
   ]
 }

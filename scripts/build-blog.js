@@ -395,7 +395,7 @@ ${buildNotaRevisor(post)}
       </div>
       <aside class="blog-callout" aria-label="Materiais de apoio">
         <p class="blog-callout-title">Antes do lance</p>
-        <p>Use o <a href="/recursos/checklist-antes-do-lance/">checklist de documentos e condições</a> e o <a href="/recursos/custo-total-imovel-leilao/">exemplo ilustrativo de custo total</a>. Acesso público, sem cadastro.</p>
+        <p>Use o <a href="/recursos/checklist-antes-do-lance/">checklist de documentos e condições</a> e o <a href="/recursos/custo-total-imovel-leilao/">exemplo ilustrativo de custo total</a>. Acesso público, sem cadastro. Para comparar imóveis reais, veja os <a href="/imoveis/caixa/">imóveis da Caixa à venda por cidade</a>.</p>
       </aside>
 ${faq.html}
 ${sourcesHtml}
@@ -422,8 +422,12 @@ ${buildRelated(post.relacionadosPosts || [])}
     </div>
     <p class="footer-sub">Inteligência em leilões imobiliários.</p>
     <nav class="footer-links">
+      <a href="/imoveis/caixa/">Imóveis da Caixa</a>
+      <a href="/como-funciona/">Como funciona</a>
       <a href="/dicionario">Dicionário</a>
       <a href="/blog/">Blog</a>
+      <a href="/sobre/">Sobre</a>
+      <a href="/contato/">Contato</a>
       <a href="/privacidade/#preferencias">Privacidade e preferências</a>
     </nav>
     <p class="footer-copy">&copy; 2026 Argos. Todos os direitos reservados.</p>
@@ -541,8 +545,12 @@ ${cards ||'<div class="blog-empty"><p>Nenhum artigo publicado por enquanto.</p><
     </div>
     <p class="footer-sub">Inteligência em leilões imobiliários.</p>
     <nav class="footer-links">
+      <a href="/imoveis/caixa/">Imóveis da Caixa</a>
+      <a href="/como-funciona/">Como funciona</a>
       <a href="/dicionario">Dicionário</a>
       <a href="/blog/">Blog</a>
+      <a href="/sobre/">Sobre</a>
+      <a href="/contato/">Contato</a>
       <a href="/privacidade/#preferencias">Privacidade e preferências</a>
     </nav>
     <p class="footer-copy">&copy; 2026 Argos. Todos os direitos reservados.</p>
@@ -625,11 +633,16 @@ function generateSitemap(posts, dictionaryPaths = [], publicPages = []) {
   return xml;
 }
 
+// Páginas públicas liberadas para todos os robôs, inclusive buscadores de IA.
+// Só a API (formulários) fica de fora. Os imóveis têm sitemap próprio, gerado
+// por scripts/build-catalog.js a partir do catálogo do dia.
 function generateRobots() {
   return `User-agent: *
 Allow: /
+Disallow: /api/
 
 Sitemap: ${SITE_URL}/sitemap.xml
+Sitemap: ${SITE_URL}/sitemap-imoveis.xml
 `;
 }
 

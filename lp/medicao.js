@@ -9,6 +9,11 @@
   var CAMPOS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
   var gaIniciado = false;
   var metaIniciado = false;
+  // Eventos de visualização valem uma vez por página. Antes de qualquer
+  // escolha ficam na fila; só seguem para o GA se a pessoa aceitar aqui.
+  var DE_PAGINA = { view_home: true, view_search_results: true, view_property: true };
+  var registrados = {};
+  var pendentes = [];
 
   function ler(chave, dias) {
     try {
@@ -80,7 +85,33 @@
       tag.async = true;
       tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA4_ID);
       document.head.appendChild(tag);
+      pendentes.splice(0).forEach(function (item) { enviar(item[0], item[1]); });
     }
+  }
+
+  function enviar(nome, params) {
+    try {
+      if (escolha && escolha.analytics && gaIniciado) window.gtag('event', nome, params || {});
+    } catch (e) { /* falha de medição não altera a navegação */ }
+  }
+
+  // Funil: view_home, start_search, view_search_results, view_property,
+  // click_official_listing, click_assistance e lead_submit.
+  function evento(nome, params) {
+    if (DE_PAGINA[nome]) {
+      if (registrados[nome]) return;
+      registrados[nome] = true;
+      if (!escolha) { pendentes.push([nome, params]); return; }
+    }
+    enviar(nome, params);
+  }
+
+  // Cliques marcados com data-evento-clique; contato e e-mail contam como
+  // interesse na assistência. Um clique gera no máximo um evento.
+  function registrarClique(alvo) {
+    var el = alvo && alvo.closest ? alvo.closest('[data-evento-clique], [data-open-contact], a[href^="mailto:"]') : null;
+    if (!el) return;
+    evento(el.getAttribute('data-evento-clique') || 'click_assistance');
   }
 
   function limparCookies(analytics, marketing) {
@@ -101,7 +132,7 @@
     var revogaMeta = metaIniciado && !marketing;
     escolha = { version: 1, analytics: analytics === true, marketing: marketing === true, ts: Date.now() };
     gravar(CONSENTIMENTO, escolha);
-    if (!escolha.analytics) { remover(CHAVE); origemMemoria = null; }
+    if (!escolha.analytics) { remover(CHAVE); origemMemoria = null; pendentes = []; }
     if (revogaGa) window['ga-disable-' + GA4_ID] = true;
     if (revogaMeta && window.fbq) window.fbq('consent', 'revoke');
     limparCookies(!escolha.analytics, !escolha.marketing);
@@ -137,9 +168,11 @@
     }
     document.addEventListener('click', function (event) {
       var alvo = event.target.closest('[data-medicao]');
-      if (!alvo) return;
+      if (!alvo) { registrarClique(event.target); return; }
       aplicar(alvo.dataset.medicao === 'accept', alvo.dataset.medicao === 'accept');
     });
+    var pagina = document.body && document.body.getAttribute ? document.body.getAttribute('data-evento') : '';
+    if (pagina && DE_PAGINA[pagina]) evento(pagina);
     var form = document.getElementById('medicao-preferencias');
     if (form) form.addEventListener('submit', function (event) {
       event.preventDefault();
@@ -151,6 +184,7 @@
   capturarOrigem();
   iniciarFerramentas();
   window.argosMedicao = {
+    evento: evento,
     origem: function () {
       var dado = escolha && escolha.analytics ? (ler(CHAVE, 30) || origemMemoria || {}) : {};
       var limpo = {};
@@ -160,7 +194,7 @@
     inscricao: function () {
       try {
         if (escolha && escolha.marketing && metaIniciado) window.fbq('track', 'Lead');
-        if (escolha && escolha.analytics && gaIniciado) window.gtag('event', 'generate_lead');
+        evento('lead_submit');
       } catch (e) { /* falha de medição não altera o cadastro */ }
     },
     compartilhou: function () {

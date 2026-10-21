@@ -1,0 +1,32 @@
+# Republica o site uma vez por dia para que as páginas /imoveis/caixa/ reflitam
+# o catálogo atualizado pela ingestão diária da Caixa (repo leilao-br, 08:50 UTC).
+# O build da Vercel lê a API pública do catálogo e regenera imóveis, cidades,
+# estados e sitemap-imoveis.xml; imóveis retirados passam a responder 404.
+#
+# Configuração externa: criar um Deploy Hook da branch main na Vercel
+# (Project → Settings → Git → Deploy Hooks) e salvar a URL no secret
+# VERCEL_DEPLOY_HOOK_URL deste repositório.
+name: Catálogo diário
+
+on:
+  schedule:
+    - cron: "17 12 * * *" # 09:17 em Brasília, depois da ingestão da Caixa
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  republicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Disparar build de produção na Vercel
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "::error::Secret VERCEL_DEPLOY_HOOK_URL não configurado; o catálogo só atualiza a cada push."
+            exit 1
+          fi
+          curl --fail --silent --show-error --retry 3 --max-time 30 -X POST "$HOOK" > /dev/null
+          echo "Build solicitado. Se a API do catálogo falhar, a Vercel mantém o deploy anterior no ar."

@@ -142,6 +142,7 @@ body { font-size: 16px; }
 .hero_myths li:nth-child(1) { animation-delay: 640ms; }
 .hero_myths li:nth-child(2) { animation-delay: 720ms; }
 .hero_myths li:nth-child(3) { animation-delay: 800ms; }
+.hero_myths li:nth-child(4) { animation-delay: 880ms; }
 
 /* ----- Card do imóvel ----- */
 
@@ -274,6 +275,7 @@ body { font-size: 16px; }
 .ajuda_title { margin-bottom: var(--sp-5); }
 
 .ajuda_list { display: flex; flex-direction: column; gap: 10px; margin-bottom: var(--sp-8); }
+.ajuda_note { max-width: 440px; margin-top: calc(var(--sp-8) * -0.5); margin-bottom: var(--sp-6); }
 .ajuda_list li { position: relative; padding-left: 28px; font-size: 16px; color: var(--text); }
 .ajuda_list li::before {
   content: '✓';

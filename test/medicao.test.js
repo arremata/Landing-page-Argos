@@ -5,7 +5,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const source = fs.readFileSync(path.join(__dirname, '../lp/medicao.js'), 'utf8');
 
-function browser({ store = new Map(), search = '?utm_source=google&utm_campaign=guia', pathname = '/recursos/checklist-antes-do-lance/', form = false, blocked = false, configured = true } = {}) {
+function browser({ pageEvent = '', store = new Map(), search = '?utm_source=google&utm_campaign=guia', pathname = '/recursos/checklist-antes-do-lance/', form = false, blocked = false, configured = true } = {}) {
   const elements = new Map();
   const events = {};
   const windowEvents = {};
@@ -17,7 +17,7 @@ function browser({ store = new Map(), search = '?utm_source=google&utm_campaign=
   const document = {
     readyState: 'complete', referrer: 'https://www.google.com/search?q=privado',
     head: { appendChild(element) { resources.push(element); } },
-    body: { appendChild(element) { elements.set(element.id, element); } },
+    body: { appendChild(element) { elements.set(element.id, element); }, getAttribute: name => (name === 'data-evento' ? pageEvent : null) },
     createElement(tag) { return { tag, setAttribute() {}, remove() { elements.delete(this.id); } }; },
     getElementById(id) { return elements.get(id); },
     addEventListener(name, callback) { events[name] = callback; },
@@ -41,6 +41,8 @@ function browser({ store = new Map(), search = '?utm_source=google&utm_campaign=
   return {
     window, resources, store, elements, preferences, deletedCookies,
     get reloads() { return reloads; },
+    click(target) { events.click({ target: { closest: selector => (selector === '[data-medicao]' ? null : target), ...target } }); },
+    sent(name) { return (this.window.dataLayer || []).filter(args => args[0] === 'event' && args[1] === name).length; },
     choose(value) { events.click({ target: { dataset: { medicao: value }, closest() { return this; } } }); },
     save(analytics, marketing) { preferences.elements.analytics.checked = analytics; preferences.elements.marketing.checked = marketing; events['form:submit']({ preventDefault() {} }); },
     storage(event) { windowEvents.storage(event); },
@@ -83,7 +85,7 @@ test('preferências são separadas por finalidade e IDs vazios não carregam SDK
   assert.equal(analytics.resources.filter(item => item.tag === 'script').length, 1);
   assert.match(analytics.resources.find(item => item.tag === 'script').src, /googletagmanager/);
   analytics.window.argosMedicao.inscricao();
-  assert.ok(analytics.window.dataLayer.some(args => args[1] === 'generate_lead'));
+  assert.ok(analytics.window.dataLayer.some(args => args[1] === 'lead_submit'));
   const marketing = browser({ form: true }); marketing.save(false, true);
   assert.equal(marketing.window.argosMedicao.origem().utm_source, '');
   assert.match(marketing.resources.find(item => item.tag === 'script').src, /facebook/);
@@ -115,4 +117,30 @@ test('consentimento vencido e origem inválida não são reutilizados', () => {
   assert.equal(b.resources.filter(item => item.tag === 'script').length, 0);
   const blocked = browser({ blocked: true }); blocked.choose('accept');
   assert.equal(blocked.window.argosMedicao.origem().utm_source, 'google');
+});
+
+test('eventos do funil só seguem com consentimento e não se repetem na mesma página', () => {
+  const store = new Map([['argos_consentimento', JSON.stringify({ version: 1, analytics: true, marketing: false, ts: Date.now() })]]);
+  const b = browser({ store, pageEvent: 'view_property' });
+  assert.equal(b.sent('view_property'), 1);
+  b.window.argosMedicao.evento('view_property');
+  assert.equal(b.sent('view_property'), 1);
+  b.click({ getAttribute: name => (name === 'data-evento-clique' ? 'click_official_listing' : null) });
+  b.click({ getAttribute: () => null });
+  assert.equal(b.sent('click_official_listing'), 1);
+  assert.equal(b.sent('click_assistance'), 1);
+  b.window.argosMedicao.inscricao();
+  assert.equal(b.sent('lead_submit'), 1);
+  assert.equal(b.sent('generate_lead'), 0);
+});
+
+test('visualização antes da escolha espera o aceite e some na recusa', () => {
+  const accepted = browser({ pageEvent: 'view_home', configured: true });
+  assert.equal(accepted.window.dataLayer, undefined);
+  accepted.choose('accept');
+  assert.equal(accepted.sent('view_home'), 1);
+  const rejected = browser({ pageEvent: 'view_home' });
+  rejected.choose('reject');
+  rejected.window.argosMedicao.evento('start_search');
+  assert.equal(rejected.window.dataLayer, undefined);
 });

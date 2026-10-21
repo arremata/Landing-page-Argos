@@ -14,6 +14,8 @@ Páginas:
 | Home "Quero morar" (`/`) | `index.html`, `lp/client-first.css`, `lp/morar.css`, `lp/leilao.css`, `lp/morar.js`, `lp/leilao.js` |
 | Investidor (`/investidor/`) | `investidor/index.html` |
 | Blog (`/blog/`) | `blog/posts/*.md` → gerado; `blog/blog-styles.css` |
+| Imóveis da Caixa (`/imoveis/caixa/...`) | gerados no build por `scripts/build-catalog.js` a partir da API pública do catálogo do app; `lp/imoveis.css`. Não versionados (`.gitignore`) |
+| Como funciona, Sobre, Contato, Metodologia | `content/pages/*.md` → `scripts/build-public-pages.js` |
 | Compartilhados | `lp/styles.css` (tokens + base), `lp/script.js` (menu, modal, formulário, reveal) |
 
 ## Regra principal: a home segue o DESIGN-SYSTEM.md
@@ -54,7 +56,18 @@ npm run dev          # http://localhost:3000 (PORT=3400 npm run dev para outra p
 npm test             # testes da API da lista de espera
 npm run lint:design  # validador do DESIGN-SYSTEM.md
 npm run blog         # regenera o blog a partir de blog/posts/
+npm run catalog:local  # gera /imoveis/caixa/ com o catálogo fictício de test/fixtures
+npm run build        # o que a Vercel roda: blog + catálogo real (API do app)
 ```
+
+Páginas de imóveis: só imóveis ativos da Caixa; URL estável
+`/imoveis/caixa/<cidade-uf>/<tipo>-<id>/`; cidade com menos de 3 imóveis fica
+`noindex` e fora do `sitemap-imoveis.xml`. Em produção, falha na leitura do
+catálogo derruba o build (a Vercel mantém o deploy anterior). A atualização
+diária depende do secret `VERCEL_DEPLOY_HOOK_URL`
+(`.github/workflows/catalogo-diario.yml`). Eventos de medição ficam em
+`lp/medicao.js` (`data-evento` no `<body>`, `data-evento-clique` nos links) e
+só seguem para o GA4 com consentimento.
 
 ## Fluxo de validação (antes de entregar qualquer mudança visual)
 

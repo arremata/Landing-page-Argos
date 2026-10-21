@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "node dev-server.js",
     "blog": "node scripts/build-blog.js",
-    "build": "node scripts/build-blog.js",
+    "build": "node scripts/build-blog.js && node scripts/build-catalog.js",
     "test": "node --test",
-    "lint:design": "node scripts/check-design.js"
+    "lint:design": "node scripts/check-design.js",
+    "catalog": "node scripts/build-catalog.js",
+    "catalog:local": "CATALOG_FIXTURE=test/fixtures/catalogo.json node scripts/build-catalog.js"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
