@@ -92,6 +92,8 @@ body { font-size: 16px; }
   gap: var(--sp-4);
 }
 
+.hero_note { max-width: 520px; margin-top: var(--sp-6); }
+
 .hero_myths {
   display: flex;
   flex-direction: column;
@@ -132,7 +134,7 @@ body { font-size: 16px; }
   from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: none; }
 }
-.hero_tagline, .hero_title, .hero_sub, .hero_buttons, .hero_myths li {
+.hero_tagline, .hero_title, .hero_sub, .hero_buttons, .hero_myths li, .hero_note {
   animation: hero-in 600ms var(--ease-out) both;
 }
 .hero_tagline { animation-delay: 80ms; }
@@ -142,7 +144,7 @@ body { font-size: 16px; }
 .hero_myths li:nth-child(1) { animation-delay: 640ms; }
 .hero_myths li:nth-child(2) { animation-delay: 720ms; }
 .hero_myths li:nth-child(3) { animation-delay: 800ms; }
-.hero_myths li:nth-child(4) { animation-delay: 880ms; }
+.hero_note { animation-delay: 880ms; }
 
 /* ----- Card do imóvel ----- */
 
@@ -274,8 +276,8 @@ body { font-size: 16px; }
 
 .ajuda_title { margin-bottom: var(--sp-5); }
 
-.ajuda_list { display: flex; flex-direction: column; gap: 10px; margin-bottom: var(--sp-8); }
-.ajuda_note { max-width: 440px; margin-top: calc(var(--sp-8) * -0.5); margin-bottom: var(--sp-6); }
+.ajuda_list { display: flex; flex-direction: column; gap: 10px; margin-bottom: var(--sp-4); }
+.ajuda_note { max-width: 440px; margin-bottom: var(--sp-6); }
 .ajuda_list li { position: relative; padding-left: 28px; font-size: 16px; color: var(--text); }
 .ajuda_list li::before {
   content: '✓';
@@ -479,7 +481,7 @@ body { font-size: 16px; }
   .section_header { margin-bottom: var(--sp-8); text-align: left; }
 
   .ajuda_component { padding: var(--sp-5); gap: var(--sp-6); }
-  .ajuda_list { margin-bottom: var(--sp-6); gap: 14px; }
+  .ajuda_list { margin-bottom: var(--sp-4); gap: 14px; }
   .ajuda_component .button { width: 100%; }
   .ajuda_chat { padding: var(--sp-4); }
   .ajuda_bubble { max-width: 95%; font-size: 15px; line-height: 1.55; }
@@ -520,7 +522,7 @@ body { font-size: 16px; }
   .signup-fab.button:not(.is-visible) { transform: none; transition: opacity 200ms ease; }
 
   @keyframes hero-in { from { opacity: 0; } to { opacity: 1; } }
-  .hero_tagline, .hero_title, .hero_sub, .hero_buttons, .hero_myths li {
+  .hero_tagline, .hero_title, .hero_sub, .hero_buttons, .hero_myths li, .hero_note {
     animation-duration: 250ms;
     animation-delay: 0ms;
   }

@@ -288,13 +288,13 @@ ${extraHead}${schema ? jsonLd(schema) : ''}
       <nav class="imoveis_nav-links" aria-label="Navegação principal">
         <a href="${BASE_PATH}">Imóveis da Caixa</a>
         <a href="/como-funciona/">Como funciona</a>
-        <a href="/blog/">Guias</a>
-        <a href="/contato/" data-evento-clique="click_assistance">Assistência</a>
+        <a href="/blog/" class="is-desktop">Guias</a>
+        <a href="/contato/" class="is-desktop" data-evento-clique="click_assistance">Assistência</a>
       </nav>
     </div>
   </div>
 </header>
-<main>
+<main class="imoveis_page">
 ${body}
 </main>
 <footer class="imoveis_footer">
@@ -346,27 +346,31 @@ function propertyCard(p) {
   <a class="imoveis_card-link" href="${p.path}">
     <span class="imoveis_card-kind">${escapeHtml(p.type)}${size ? ` · ${escapeHtml(size)}` : ''}</span>
     <span class="imoveis_card-place">${escapeHtml(placeOf(p))}</span>
-    <span class="imoveis_card-price">${p.price ? money(p.price) : 'Valor não informado'}</span>
+    <span class="imoveis_card-price heading-style-h4">${p.price ? money(p.price) : 'Valor não informado'}</span>
     ${p.appraisal ? `<span class="imoveis_card-note">Avaliação ${money(p.appraisal)}${discount > 0 ? ` · ${discount}% abaixo` : ''}</span>` : ''}
   </a>
   <div class="imoveis_card-tags">${tags.join('')}</div>
 </li>`;
 }
 
+const ARROW = d => `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>`;
+const ARROW_LEFT = ARROW('m15 6-6 6 6 6');
+const ARROW_RIGHT = ARROW('m9 6 6 6-6 6');
+
 function pagination(basePath, page, pages) {
   if (pages <= 1) return '';
   const href = n => (n === 1 ? basePath : `${basePath}pagina/${n}/`);
   const links = [];
-  if (page > 1) links.push(`<a class="button is-secondary is-small" href="${href(page - 1)}" rel="prev">← Anterior</a>`);
+  if (page > 1) links.push(`<a class="button is-secondary is-small" href="${href(page - 1)}" rel="prev">${ARROW_LEFT}Anterior</a>`);
   links.push(`<span class="text-size-small text-color-muted">Página ${page} de ${pages}</span>`);
-  if (page < pages) links.push(`<a class="button is-secondary is-small" href="${href(page + 1)}" rel="next">Próxima →</a>`);
+  if (page < pages) links.push(`<a class="button is-secondary is-small" href="${href(page + 1)}" rel="next">Próxima${ARROW_RIGHT}</a>`);
   const all = Array.from({ length: pages }, (_, i) => i + 1)
     .map(n => (n === page ? `<li><span aria-current="page">${n}</span></li>` : `<li><a href="${href(n)}">${n}</a></li>`)).join('');
   return `<nav class="imoveis_pagination" aria-label="Páginas da lista"><div class="imoveis_pagination-steps">${links.join('')}</div><ol class="imoveis_pagination-all">${all}</ol></nav>`;
 }
 
-function section(content, background = 'primary', size = 'small') {
-  return `<section class="section_imoveis background-color-${background}">
+function section(name, content, background = 'primary', size = 'medium') {
+  return `<section class="section_${name} background-color-${background}">
   <div class="padding-global">
     <div class="container-large">
       <div class="padding-section-${size}">
@@ -440,7 +444,7 @@ function renderProperty(p, ctx) {
     ? `<a class="button" href="${escapeHtml(p.officialUrl)}" target="_blank" rel="noopener" data-evento-clique="click_official_listing">Ver anúncio oficial na Caixa</a>`
     : `<a class="button" href="${OFFICIAL_SITE}" target="_blank" rel="noopener" data-evento-clique="click_official_listing">Buscar no site da Caixa</a>`;
 
-  const body = section(`
+  const body = section('imovel', `
         ${crumbs.html}
         <div class="imovel_component">
           <div class="imovel_main">
@@ -448,12 +452,10 @@ function renderProperty(p, ctx) {
             <h1 class="heading-style-h2 imovel_title">${escapeHtml(heading)}</h1>
             <p class="text-size-medium text-color-secondary">${escapeHtml(summaryOf(p))}</p>
             ${photo}
-            <h2 class="heading-style-h4 imovel_subtitle">Ficha do imóvel</h2>
-            <dl class="imovel_facts">${facts.map(([k, v]) => `<div><dt>${escapeHtml(k)}</dt><dd>${escapeHtml(v)}</dd></div>`).join('')}</dl>
           </div>
           <aside class="card imovel_price" aria-label="Valores">
             <p class="text-size-small text-color-muted">${p.rounds.length ? 'Valor mínimo da rodada vigente' : 'Valor mínimo de venda'}</p>
-            <p class="imovel_price-value">${p.price ? money(p.price) : 'Não informado'}</p>
+            <p class="imovel_price-value heading-style-h3">${p.price ? money(p.price) : 'Não informado'}</p>
             ${p.appraisal ? `<p class="text-size-small text-color-secondary">Valor de avaliação da Caixa: <strong>${money(p.appraisal)}</strong></p>` : ''}
             ${discount !== null ? `<p class="text-size-small text-color-secondary">${discount > 0 ? `${discount}% abaixo do valor de avaliação` : discount < 0 ? `${Math.abs(discount)}% acima do valor de avaliação` : 'Igual ao valor de avaliação'}</p>` : ''}
             ${roundRows ? `<ul class="imovel_rounds">${roundRows}</ul>` : ''}
@@ -464,9 +466,13 @@ function renderProperty(p, ctx) {
               <a class="button is-text" href="/contato/" data-evento-clique="click_assistance">Quero assistência para este imóvel</a>
             </div>
           </aside>
+          <div class="imovel_details">
+            <h2 class="heading-style-h4">Ficha do imóvel</h2>
+            <dl class="imovel_facts">${facts.map(([k, v]) => `<div><dt>${escapeHtml(k)}</dt><dd>${escapeHtml(v)}</dd></div>`).join('')}</dl>
+          </div>
         </div>`);
 
-  const costs = section(`
+  const costs = section('custos', `
         <div class="max-width-small">
           <h2 class="heading-style-h3">Custos além do valor do imóvel</h2>
           <p class="text-size-regular text-color-secondary">O valor mínimo não é o preço final. A compra também envolve imposto de transmissão (ITBI), registro em cartório e, conforme o caso, comissão, desocupação e reforma.</p>
@@ -532,7 +538,7 @@ function renderList({ heading, intro, basePath, items, page, pages, crumbs, robo
   const slice = items.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
   const crumbHtml = breadcrumbs(crumbs);
   const titleSuffix = page > 1 ? ` (página ${page})` : '';
-  const body = section(`
+  const body = section('lista', `
         ${crumbHtml.html}
         <div class="section_header max-width-small">
           <h1 class="heading-style-h2">${escapeHtml(heading)}${titleSuffix}</h1>
@@ -617,7 +623,7 @@ function renderState(stateItems, cities, ctx) {
   const heading = `Imóveis da Caixa ${inState(first.uf)}`;
   const intro = `${plural(stateItems.length, 'imóvel da Caixa à venda', 'imóveis da Caixa à venda')} em ${plural(cities.length, 'cidade', 'cidades')} do estado. ${escapeHtml(modalitySummary(stateItems))}.`;
   const highlights = [...stateItems].sort(sortProperties).slice(0, 12);
-  const body = section(`
+  const body = section('estado', `
         ${crumbs.html}
         <div class="section_header max-width-small">
           <h1 class="heading-style-h2">${escapeHtml(heading)}</h1>
@@ -642,7 +648,7 @@ function renderRoot(states, topCities, total, ctx) {
   const url = `${SITE_URL}${BASE_PATH}`;
   const crumbs = breadcrumbs([{ name: 'Início', path: '/' }, { name: 'Imóveis da Caixa', path: BASE_PATH }]);
   const empty = total === 0;
-  const body = section(`
+  const body = section('catalogo', `
         ${crumbs.html}
         <div class="section_header max-width-small">
           <h1 class="heading-style-h2">Imóveis da Caixa à venda</h1>
@@ -657,7 +663,7 @@ function renderRoot(states, topCities, total, ctx) {
         <h2 class="heading-style-h4 imoveis_list-title">Cidades com mais imóveis</h2>
         ${cityLinks(topCities)}`}
         ${sourceNote(ctx.updatedLabel)}`);
-  const howTo = section(`
+  const howTo = section('antes', `
         <div class="max-width-small">
           <h2 class="heading-style-h3">Antes de fazer uma proposta</h2>
           <p class="text-size-regular text-color-secondary">Confira a modalidade de venda, a situação de ocupação, as formas de pagamento e os custos além do valor do imóvel. O <a href="/como-funciona/">guia Como funciona</a> explica cada etapa, e a <a href="/recursos/checklist-antes-do-lance/">lista de verificação antes do lance</a> pode ser impressa.</p>

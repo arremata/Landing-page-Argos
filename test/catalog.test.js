@@ -71,7 +71,7 @@ test('dados estruturados são fiéis: listing, oferta da Caixa e breadcrumb, sem
 
 test('valores ausentes ou inseguros não viram oferta nem link', () => {
   const html = page('/imoveis/caixa/curitiba-pr/loja-404/');
-  assert.match(html, /Valor mínimo de venda<\/p>\s*<p class="imovel_price-value">Não informado/);
+  assert.match(html, /Valor mínimo de venda<\/p>\s*<p class="imovel_price-value heading-style-h3">Não informado/);
   assert.doesNotMatch(html, /javascript:/);
   assert.doesNotMatch(html, /http:\/\/inseguro/);
   const [graph] = schemaOf(html);
