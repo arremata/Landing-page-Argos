@@ -96,7 +96,8 @@
   }
 
   // Funil: view_home, start_search, view_search_results, view_property,
-  // click_official_listing, click_assistance e lead_submit.
+  // click_argos_app (página do imóvel → análise no Argos), click_assistance e
+  // lead_submit.
   function evento(nome, params) {
     if (DE_PAGINA[nome]) {
       if (registrados[nome]) return;

@@ -27,7 +27,7 @@ test('URL do imóvel é estável: cidade-uf, tipo e id, sem parâmetros', () => 
   for (const route of files.keys()) assert.match(route, /^\/imoveis\/caixa\/([a-z0-9-]+\/)*$/);
 });
 
-test('HTML inicial do imóvel traz título, local, tipo, preço, modalidade, foto, fonte e aviso', () => {
+test('HTML inicial do imóvel traz título, local, tipo, preço, modalidade, foto, fonte e aviso, sem levar à Caixa', () => {
   const html = page('/imoveis/caixa/curitiba-pr/apartamento-101/');
   assert.match(html, /<title>Apartamento 52 m² em Portao, Curitiba\/PR por R\$ 180\.000 \| Imóvel Caixa \| Argos<\/title>/);
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
@@ -42,11 +42,20 @@ test('HTML inicial do imóvel traz título, local, tipo, preço, modalidade, fot
   assert.match(html, /1ª rodada · 01\/10\/2026, 10:00 \(encerrada\)/);
   assert.match(html, /2ª rodada · 05\/11\/2026, 10:00/);
   assert.match(html, /A Caixa informa que o imóvel está ocupado\./);
-  assert.match(html, /href="https:\/\/venda-imoveis\.caixa\.gov\.br\/sistema\/detalhe-imovel\.asp\?hdnimovel=8787708753594"[^>]*data-evento-clique="click_official_listing"/);
-  assert.match(html, /consultado pelo Argos em 21\/10\/2026/);
-  assert.match(html, /confirme no canal oficial da Caixa/);
+  // Toda ação leva à análise do imóvel no Argos; nenhum link sai para a Caixa.
+  assert.doesNotMatch(html, /href="https:\/\/venda-imoveis\.caixa\.gov\.br/);
+  assert.doesNotMatch(html, /Custos além do valor do imóvel|ITBI estimado/);
+  const appLinks = html.match(/href="https:\/\/app\.argosleiloes\.com\.br\/imovel\/101" data-evento-clique="click_argos_app"/g) || [];
+  assert.equal(appLinks.length, 4, 'quadro de valores, bloco da análise, barra do celular e cartão lateral');
+  assert.match(html, /<h2[^>]*>O que você vê deste imóvel no Argos<\/h2>/);
+  assert.match(html, /<div class="imovel_bar"/);
+  assert.match(html, /<aside class="card imovel_popup" id="imovelPopup"[^>]* hidden>/);
+  assert.match(html, /<script src="\/lp\/imoveis\.js" defer><\/script>/);
+  // A foto vem antes do título.
+  assert.ok(html.indexOf('class="imovel_photo"') < html.indexOf('<h1'));
+  assert.match(html, /consultados pelo Argos em 21\/10\/2026/);
+  assert.match(html, /confirmados nas condições oficiais da venda/);
   assert.match(html, /não tem vínculo com a Caixa Econômica Federal/);
-  assert.match(html, /ITBI estimado \(2,7% sobre R\$ 180\.000\)/);
   assert.match(html, /data-evento="view_property"/);
   // Rua e número não são publicados: o anúncio oficial tem o endereço completo.
   assert.doesNotMatch(html, /RUA EXEMPLO/i);
@@ -66,7 +75,7 @@ test('dados estruturados são fiéis: listing, oferta da Caixa e breadcrumb, sem
   assert.equal(listing.breadcrumb['@type'], 'BreadcrumbList');
   assert.deepEqual(listing.breadcrumb.itemListElement.map(i => i.name), ['Início', 'Imóveis da Caixa', 'Paraná', 'Curitiba/PR', 'Apartamento 101']);
   const text = JSON.stringify(graph);
-  assert.doesNotMatch(text, /aggregateRating|review|availability|priceValidUntil|dateModified/);
+  assert.doesNotMatch(text, /aggregateRating|review|availability|priceValidUntil|dateModified|venda-imoveis\.caixa\.gov\.br\/sistema/);
 });
 
 test('valores ausentes ou inseguros não viram oferta nem link', () => {
@@ -76,14 +85,13 @@ test('valores ausentes ou inseguros não viram oferta nem link', () => {
   assert.doesNotMatch(html, /http:\/\/inseguro/);
   const [graph] = schemaOf(html);
   assert.equal(graph['@graph'][0].offers, undefined);
-  assert.match(html, /href="https:\/\/venda-imoveis\.caixa\.gov\.br\/"[^>]*>Buscar no site da Caixa/);
+  assert.match(html, /href="https:\/\/app\.argosleiloes\.com\.br\/imovel\/404"/);
 });
 
 test('avaliação abaixo do preço aparece como acima, sem desconto falso', () => {
   const html = page('/imoveis/caixa/sao-jose-dos-campos-sp/terreno-301/');
   assert.match(html, /6% acima do valor de avaliação/);
   assert.doesNotMatch(html, /abaixo do valor de avaliação/);
-  assert.match(html, /Estimativa inicial de planejamento/);
 });
 
 test('títulos de imóveis são únicos mesmo com anúncios idênticos', () => {
@@ -177,4 +185,10 @@ test('robots libera páginas públicas e aponta os dois sitemaps; 404 orienta se
   const vercel = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'vercel.json'), 'utf8'));
   assert.equal(vercel.buildCommand, 'npm run build');
   assert.ok(vercel.redirects.some(r => r.source === '/imoveis' && r.destination === '/imoveis/caixa/' && r.permanent));
+});
+
+test('nenhuma página do catálogo leva o visitante para o site da Caixa', () => {
+  for (const [route, html] of files) {
+    assert.doesNotMatch(html, /<a [^>]*href="https:\/\/venda-imoveis\.caixa\.gov\.br/, route);
+  }
 });

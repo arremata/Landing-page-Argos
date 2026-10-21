@@ -10,7 +10,7 @@ faq:
   - q: "O Argos é da Caixa ou fala em nome dela?"
     a: "Não. O Argos é independente e não tem vínculo com a Caixa Econômica Federal. Reunimos dados que a própria Caixa publica no site oficial de venda de imóveis e os organizamos para facilitar a comparação."
   - q: "De onde vêm os dados e quando foram atualizados?"
-    a: "Do [site de venda de imóveis da Caixa](https://venda-imoveis.caixa.gov.br/). Cada página informa a data em que os dados foram consultados. Preço, disponibilidade e condições podem mudar a qualquer momento: confirme no anúncio oficial antes de uma proposta."
+    a: "Do site oficial de venda de imóveis da Caixa. Cada página informa a data em que os dados foram consultados. Preço, disponibilidade e condições podem mudar a qualquer momento: confirme no anúncio oficial antes de uma proposta."
   - q: "O valor mostrado é o preço final do imóvel?"
     a: "Não. O valor mínimo é o ponto de partida. A compra também envolve ITBI, registro em cartório e, conforme o caso, comissão do leiloeiro, desocupação e reforma. A [metodologia de custos](/metodologia/) explica cada estimativa."
   - q: "O Argos garante financiamento, desocupação ou lucro?"
@@ -34,7 +34,7 @@ Comece pela [lista de imóveis da Caixa](/imoveis/caixa/), organizada por estado
 - **Situação de ocupação**: ocupado, desocupado ou não informado.
 - **Formas de pagamento** que a Caixa informa: financiamento e uso do FGTS.
 - **Estimativa de ITBI** e o caminho para a conta completa até a chave.
-- **Link para o anúncio oficial** da Caixa, onde preço e condições devem ser confirmados.
+- **Acesso à análise completa no Argos**: a conta até a chave, o preço de imóveis parecidos, os documentos e o roteiro do que fazer agora.
 
 ## Como estimamos os custos {#custos}
 

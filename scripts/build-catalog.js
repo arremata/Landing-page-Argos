@@ -38,7 +38,6 @@ const PAGE_SIZE = 24;
 const MIN_INDEXABLE_CITY = 3;
 const MIN_PRODUCTION_ITEMS = Number(process.env.CATALOG_MIN_ITEMS || 50);
 const FONT_STYLESHEET = 'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=optional';
-const OFFICIAL_SITE = 'https://venda-imoveis.caixa.gov.br/';
 
 const UF_NAMES = {
   AC: 'Acre', AL: 'Alagoas', AP: 'Amapá', AM: 'Amazonas', BA: 'Bahia', CE: 'Ceará',
@@ -173,10 +172,6 @@ function normalizeProperty(raw) {
     acceptsFgts: typeof raw.acceptsFgts === 'boolean' ? raw.acceptsFgts : null,
     acceptsFinancing: typeof raw.acceptsFinancing === 'boolean' ? raw.acceptsFinancing : null,
     photoUrl: isHttps(raw.photoUrl) ? raw.photoUrl : null,
-    officialUrl: isHttps(raw.auctionUrl) ? raw.auctionUrl : null,
-    itbiRate: positive(raw.itbiRate),
-    itbiSource: raw.itbiSource ? String(raw.itbiSource) : '',
-    itbiEstimated: raw.itbiEstimated !== false,
     path: `${BASE_PATH}${citySlug}/${slugify(type) || 'imovel'}-${id}/`,
   };
 }
@@ -253,7 +248,7 @@ function summaryOf(p) {
 // Layout comum
 // ---------------------------------------------------------------------------
 
-function layout({ title, description, canonical, robots = 'index, follow', body, schema, ogImage, ogType = 'website', pageView, extraHead = '' }) {
+function layout({ title, description, canonical, robots = 'index, follow', body, schema, ogImage, ogType = 'website', pageView, extraHead = '', extraScript = '' }) {
   return `<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -300,7 +295,7 @@ ${body}
 <footer class="imoveis_footer">
   <div class="padding-global">
     <div class="container-large">
-      <p class="text-size-small text-color-muted">O Argos é independente e não tem vínculo com a Caixa Econômica Federal. Os dados dos imóveis vêm do <a href="${OFFICIAL_SITE}" rel="noopener" target="_blank">site oficial de venda de imóveis da Caixa</a>; preço, disponibilidade e condições devem ser confirmados no canal oficial antes de qualquer proposta.</p>
+      <p class="text-size-small text-color-muted">O Argos é independente e não tem vínculo com a Caixa Econômica Federal. Os dados dos imóveis são publicados pela Caixa; preço, disponibilidade e condições devem ser confirmados nas condições oficiais da venda antes de qualquer proposta.</p>
       <nav class="imoveis_footer-links" aria-label="Institucional">
         <a href="/sobre/">Sobre</a>
         <a href="/como-funciona/">Como funciona</a>
@@ -314,7 +309,7 @@ ${body}
   </div>
 </footer>
 <script src="/lp/medicao.js" defer></script>
-</body>
+${extraScript}</body>
 </html>
 `;
 }
@@ -332,7 +327,7 @@ function breadcrumbs(items) {
 }
 
 function sourceNote(updatedLabel) {
-  return `<p class="text-size-small text-color-muted imoveis_source">Fonte: <a href="${OFFICIAL_SITE}" rel="noopener" target="_blank">site de venda de imóveis da Caixa</a>, consultado pelo Argos em ${escapeHtml(updatedLabel)}. Preço, disponibilidade e condições podem mudar: confirme no canal oficial da Caixa.</p>`;
+  return `<p class="text-size-small text-color-muted imoveis_source">Fonte: dados publicados pela Caixa Econômica Federal, consultados pelo Argos em ${escapeHtml(updatedLabel)}. Preço, disponibilidade e condições podem mudar e devem ser confirmados nas condições oficiais da venda.</p>`;
 }
 
 function propertyCard(p) {
@@ -431,29 +426,23 @@ function renderProperty(p, ctx) {
     ? `<p class="text-size-small text-color-secondary">Data informada pela Caixa: ${brDateTime(p.endsAt)}${new Date(p.endsAt).getTime() < ctx.now.getTime() ? ' (já passou)' : ''}.</p>`
     : '';
 
-  const itbi = p.price && p.itbiRate ? Math.round(p.price * p.itbiRate) : null;
-  const itbiNote = p.itbiEstimated
-    ? 'Estimativa inicial de planejamento. A alíquota e a base de cálculo variam por município: confirme na prefeitura.'
-    : p.itbiSource;
-
   const photo = p.photoUrl
     ? `<img class="imovel_photo" src="${escapeHtml(p.photoUrl)}" alt="Foto do imóvel publicada pela Caixa: ${escapeHtml(p.type.toLowerCase())} em ${escapeHtml(placeOf(p))}" width="640" height="480" loading="eager" decoding="async" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">`
     : '';
-
-  const official = p.officialUrl
-    ? `<a class="button" href="${escapeHtml(p.officialUrl)}" target="_blank" rel="noopener" data-evento-clique="click_official_listing">Ver anúncio oficial na Caixa</a>`
-    : `<a class="button" href="${OFFICIAL_SITE}" target="_blank" rel="noopener" data-evento-clique="click_official_listing">Buscar no site da Caixa</a>`;
+  // Toda ação leva à análise deste imóvel na plataforma Argos.
+  const appUrl = `${APP_URL}/imovel/${p.id}`;
+  const appButton = (label, extra = '') => `<a class="button${extra}" href="${appUrl}" data-evento-clique="click_argos_app">${label}</a>`;
 
   const body = section('imovel', `
         ${crumbs.html}
         <div class="imovel_component">
           <div class="imovel_main">
+            ${photo}
             <span class="tag is-brand">${escapeHtml(p.modality.label)} · Imóvel da Caixa</span>
             <h1 class="heading-style-h2 imovel_title">${escapeHtml(heading)}</h1>
             <p class="text-size-medium text-color-secondary">${escapeHtml(summaryOf(p))}</p>
-            ${photo}
           </div>
-          <aside class="card imovel_price" aria-label="Valores">
+          <aside class="card imovel_price" id="imovelPreco" aria-label="Valores">
             <p class="text-size-small text-color-muted">${p.rounds.length ? 'Valor mínimo da rodada vigente' : 'Valor mínimo de venda'}</p>
             <p class="imovel_price-value heading-style-h3">${p.price ? money(p.price) : 'Não informado'}</p>
             ${p.appraisal ? `<p class="text-size-small text-color-secondary">Valor de avaliação da Caixa: <strong>${money(p.appraisal)}</strong></p>` : ''}
@@ -461,26 +450,48 @@ function renderProperty(p, ctx) {
             ${roundRows ? `<ul class="imovel_rounds">${roundRows}</ul>` : ''}
             ${singleDate}
             <div class="imovel_actions">
-              ${official}
-              <a class="button is-secondary" href="${APP_URL}/imovel/${p.id}">Ver a conta completa no Argos</a>
+              ${appButton('Ver análise completa no Argos')}
               <a class="button is-text" href="/contato/" data-evento-clique="click_assistance">Quero assistência para este imóvel</a>
             </div>
           </aside>
           <div class="imovel_details">
             <h2 class="heading-style-h4">Ficha do imóvel</h2>
             <dl class="imovel_facts">${facts.map(([k, v]) => `<div><dt>${escapeHtml(k)}</dt><dd>${escapeHtml(v)}</dd></div>`).join('')}</dl>
+            ${sourceNote(ctx.updatedLabel)}
           </div>
         </div>`);
 
-  const costs = section('custos', `
-        <div class="max-width-small">
-          <h2 class="heading-style-h3">Custos além do valor do imóvel</h2>
-          <p class="text-size-regular text-color-secondary">O valor mínimo não é o preço final. A compra também envolve imposto de transmissão (ITBI), registro em cartório e, conforme o caso, comissão, desocupação e reforma.</p>
-          ${itbi ? `<div class="card imovel_cost"><p><span>ITBI estimado (${(p.itbiRate * 100).toLocaleString('pt-BR', { maximumFractionDigits: 2 })}% sobre ${money(p.price)})</span><strong>${money(itbi)}</strong></p><p class="text-size-small text-color-muted">${escapeHtml(itbiNote)}</p></div>` : ''}
-          <p class="text-size-regular text-color-secondary">A conta completa até a entrega das chaves fica na análise do Argos. Veja como cada valor é estimado na <a href="/metodologia/">metodologia de custos</a>. Estimativa não é cotação.</p>
-          ${sourceNote(ctx.updatedLabel)}
-          <p class="text-size-small text-color-muted">Veja outros <a href="${BASE_PATH}${p.citySlug}/">imóveis da Caixa em ${escapeHtml(p.city)}/${p.uf}</a> ou entenda as <a href="/como-funciona/#modalidades">diferenças entre leilão, licitação aberta e venda direta</a>.</p>
-        </div>`, 'secondary');
+  const analysis = section('analise', `
+        <div class="section_header max-width-small">
+          <span class="text-style-tagline">Análise completa no Argos</span>
+          <h2 class="heading-style-h3">O que você vê deste imóvel no Argos</h2>
+          <p class="text-size-regular text-color-secondary">A página acima resume os dados publicados. Na plataforma, o mesmo imóvel ganha a conta da compra e o passo a passo até a chave, sem pagar assinatura.</p>
+        </div>
+        <ul class="imovel_benefits">
+          <li class="card"><h3 class="heading-style-h4">Quanto você paga até a chave</h3><p class="text-size-regular text-color-secondary">O valor do imóvel somado a ITBI, registro em cartório, comissão quando houver, desocupação e reforma, em reais.</p></li>
+          <li class="card"><h3 class="heading-style-h4">Preço de imóveis parecidos</h3><p class="text-size-regular text-color-secondary">A comparação com anúncios de imóveis semelhantes na região, com o nível de confiança da estimativa.</p></li>
+          <li class="card"><h3 class="heading-style-h4">Documentos do imóvel</h3><p class="text-size-regular text-color-secondary">Edital e matrícula reunidos na página do imóvel, quando a Caixa publica os arquivos.</p></li>
+          <li class="card"><h3 class="heading-style-h4">O que fazer agora</h3><p class="text-size-regular text-color-secondary">Um roteiro com as etapas da compra para você marcar o que já fez e salvar o imóvel.</p></li>
+        </ul>
+        <div class="imovel_actions is-row">
+          ${appButton('Ver análise completa no Argos', ' is-large')}
+          <a class="button is-text" href="/contato/" data-evento-clique="click_assistance">Prefiro falar com a equipe</a>
+        </div>
+        <p class="text-size-small text-color-muted imoveis_more">Veja outros <a href="${BASE_PATH}${p.citySlug}/">imóveis da Caixa em ${escapeHtml(p.city)}/${p.uf}</a> ou entenda as <a href="/como-funciona/#modalidades">diferenças entre leilão, licitação aberta e venda direta</a>.</p>`, 'secondary');
+
+  // Chamadas que não bloqueiam a leitura: barra fixa no celular e cartão
+  // lateral no computador (lp/imoveis.js), nunca uma janela sobre o conteúdo.
+  const nudges = `
+<div class="imovel_bar" aria-label="Análise completa">
+  <div class="imovel_bar-text"><span class="text-size-small text-color-muted">${p.price ? 'A partir de' : 'Imóvel da Caixa'}</span><strong>${p.price ? money(p.price) : escapeHtml(p.type)}</strong></div>
+  ${appButton('Ver análise completa', ' is-small')}
+</div>
+<aside class="card imovel_popup" id="imovelPopup" aria-labelledby="imovelPopupTitulo" hidden>
+  <button type="button" class="imovel_popup-close" data-popup-fechar aria-label="Fechar"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <p class="heading-style-h4" id="imovelPopupTitulo">Quanto este imóvel custa até a chave?</p>
+  <p class="text-size-small text-color-secondary">O Argos soma ITBI, registro e as demais despesas deste imóvel e compara o preço com imóveis parecidos na região.</p>
+  ${appButton('Ver a conta deste imóvel', ' is-small')}
+</aside>`;
 
   const place = {
     '@type': 'Place',
@@ -518,14 +529,14 @@ function renderProperty(p, ctx) {
       priceCurrency: 'BRL',
       seller: { '@type': 'Organization', name: 'Caixa Econômica Federal' },
     };
-    if (p.officialUrl) listing.offers.url = p.officialUrl;
   }
 
   return layout({
     title,
     description,
     canonical: url,
-    body: body + costs,
+    body: body + analysis + nudges,
+    extraScript: '<script src="/lp/imoveis.js" defer></script>\n',
     schema: { '@context': 'https://schema.org', '@graph': [listing] },
     ogImage: p.photoUrl,
     pageView: 'view_property',
@@ -653,11 +664,11 @@ function renderRoot(states, topCities, total, ctx) {
         <div class="section_header max-width-small">
           <h1 class="heading-style-h2">Imóveis da Caixa à venda</h1>
           <p class="text-size-medium text-color-secondary">${empty
-            ? 'O catálogo está sendo atualizado. Enquanto isso, consulte os imóveis diretamente no site oficial da Caixa.'
+            ? 'O catálogo está sendo atualizado. Enquanto isso, consulte os imóveis direto na plataforma Argos.'
             : `Busque, de graça, ${plural(total, 'imóvel', 'imóveis')} vendidos pela Caixa em leilão, licitação aberta e venda direta. Para cada um: valor mínimo, valor de avaliação, ocupação, FGTS, financiamento e estimativa de custos.`}</p>
           <p class="text-size-small text-color-muted">O Argos não é a Caixa. Os dados vêm do site oficial de venda de imóveis da Caixa e devem ser confirmados lá.</p>
         </div>
-        ${empty ? `<a class="button" href="${OFFICIAL_SITE}" target="_blank" rel="noopener" data-evento-clique="click_official_listing">Abrir o site da Caixa</a>` : `
+        ${empty ? `<a class="button" href="${APP_URL}/" data-evento-clique="click_argos_app">Abrir o Argos</a>` : `
         <h2 class="heading-style-h4">Estados</h2>
         ${cityLinks(states)}
         <h2 class="heading-style-h4 imoveis_list-title">Cidades com mais imóveis</h2>

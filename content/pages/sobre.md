@@ -20,7 +20,7 @@ O Argos é uma plataforma independente que organiza os imóveis à venda pela Ca
 
 ## De onde vêm os dados {#dados}
 
-Os dados dos imóveis vêm do [site oficial de venda de imóveis da Caixa](https://venda-imoveis.caixa.gov.br/). O Argos não tem vínculo com a Caixa e não fala em nome dela. Cada página de imóvel informa a data da consulta e leva ao anúncio oficial, onde preço, disponibilidade e condições devem ser confirmados.
+Os dados dos imóveis vêm do site oficial de venda de imóveis da Caixa. O Argos não tem vínculo com a Caixa e não fala em nome dela. Cada página de imóvel informa a data da consulta, e preço, disponibilidade e condições devem ser confirmados nas condições oficiais da venda antes de qualquer proposta.
 
 ## Conteúdo e correções {#conteudo}
 
