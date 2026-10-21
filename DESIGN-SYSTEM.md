@@ -32,7 +32,7 @@ global, utilitários globais e componentes com nome da seção.
   `section_leilao`, `section_faq`). O `id` da âncora fica na section.
 - Classes de componente usam o prefixo da seção: `faq_item`, `faq_question`,
   `leilao_slide`, `hero_myths`.
-- Variações usam combo class `is-*`: `button is-secondary`, `card is-hoverable`.
+- Variações usam combo class `is-*`: `button is-secondary`, `card is-hoverable`, `card is-brand`.
 - Não crie classe nova se já existe uma global que resolve.
 
 ### Fundos alternados (fixo)
@@ -55,8 +55,8 @@ Seção nova entra mantendo a alternância.
 | --- | --- |
 | `--violet` #7C3AED | marca, botão principal, destaques |
 | `--violet-hover` #6D28D9 | hover do botão principal |
-| `--violet-bg` | fundo de selo/ícone roxo claro |
-| `--violet-border` | borda roxa suave (hover de card) |
+| `--violet-bg` | fundo de selo/ícone roxo claro e do `card is-brand` |
+| `--violet-border` | borda roxa suave (hover de card e borda do `card is-brand`) |
 | `--text` / `--text-2` / `--text-3` | título / corpo / apoio (todos AA) |
 | `--bg-soft` | fundo das seções cinza e campos |
 | `--border` | bordas neutras |
@@ -82,7 +82,7 @@ Nada de 4/6/8/10/14/28px soltos.
 | `container-large` | 1120px | chamada final, menu |
 | `max-width-small` | 640px | títulos e textos de seção centralizados |
 
-`padding-global`: 24px nas laterais (16px abaixo de 640px).
+`padding-global`: 24px nas laterais (20px abaixo de 640px, para o texto não encostar na borda do celular).
 
 ### Espaço vertical das seções
 | Classe | Desktop | Celular |
@@ -146,6 +146,10 @@ Regras:
   - `card is-hoverable` só quando **clicável**: hover com borda `--violet-border`
     e sombra `--shadow-md`. Card que não é clicável não reage ao mouse, exceto os
     cartões didáticos do carrossel, que só realçam a borda.
+  - `card is-brand`: bloco de destaque **não clicável** (ex.: "Ainda tem dúvidas?"
+    no FAQ). Fundo `--violet-bg`, borda `--violet-border`, sem sombra e sem hover.
+    O ícone quadrado dentro dele é roxo cheio (`--violet`) com glifo branco, porque
+    um ícone em `--violet-bg` sumiria nesse fundo.
 - `tag`: selo pílula, 13px/600 (mínimo de texto da página: 13px). Variações `is-brand`, `is-success`, `is-warning`,
   `is-neutral`.
 - Campos (`form_input`, `form_textarea`): `--radius-medium`, fundo `--bg-soft`,

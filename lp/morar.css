@@ -141,7 +141,6 @@ body { font-size: 16px; }
 .hero_buttons { animation-delay: 500ms; }
 .hero_myths li:nth-child(1) { animation-delay: 640ms; }
 .hero_myths li:nth-child(2) { animation-delay: 720ms; }
-.hero_myths li:nth-child(3) { animation-delay: 800ms; }
 
 /* ----- Card do imóvel ----- */
 
@@ -352,13 +351,22 @@ body { font-size: 16px; }
 .faq_contact {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   flex-wrap: wrap;
-  gap: var(--sp-4);
-  margin-top: var(--sp-8);
-  padding: var(--sp-5) var(--sp-6);
-  box-shadow: none;
+  gap: var(--sp-5);
+  margin-top: var(--sp-10);
+  padding: var(--sp-6) var(--sp-8);
 }
+.faq_contact-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 48px; height: 48px;
+  border-radius: var(--radius-medium);
+  background-color: var(--violet);
+  color: var(--white);
+}
+.faq_contact-text { flex: 1; min-width: 200px; }
+.faq_contact-text .heading-style-h4 { margin-bottom: var(--sp-1); }
 
 /* =========================================================
    Chamada final
@@ -450,19 +458,19 @@ body { font-size: 16px; }
 }
 
 @media (max-width: 640px) {
-  .mobile-menu { padding-left: 16px; padding-right: 16px; }
-  .signup-fab.button { right: 16px; bottom: 16px; }
+  .mobile-menu { padding-left: 20px; padding-right: 20px; }
+  .signup-fab.button { right: 20px; bottom: 16px; }
 
   .demo_video .play-btn { width: 40px; height: 40px; left: calc(53.5% - 20px); top: calc(50% - 20px); }
   .demo_video .play-btn svg { width: 16px; height: 16px; }
 
   .hero_content { align-items: flex-start; text-align: left; padding-block: var(--sp-6); }
-  .hero_tagline { margin-bottom: var(--sp-5); }
-  .hero_title { margin-bottom: var(--sp-5); }
-  .hero_sub { margin-bottom: var(--sp-6); line-height: 1.6; }
+  .hero_tagline { margin-bottom: var(--sp-6); }
+  .hero_title { margin-bottom: var(--sp-6); }
+  .hero_sub { margin-bottom: var(--sp-8); line-height: 1.65; }
   .hero_buttons { flex-direction: column; width: 100%; gap: 12px; }
   .hero_buttons .button { width: 100%; }
-  .hero_myths { width: 100%; align-items: flex-start; gap: 14px; margin-top: var(--sp-6); }
+  .hero_myths { width: 100%; align-items: flex-start; gap: var(--sp-4); margin-top: var(--sp-10); }
   .hero_myths li { align-items: flex-start; text-align: left; }
   .hero_myth-icon { margin-top: 1px; }
   .hero_card-body { padding: var(--sp-5); }
@@ -486,8 +494,10 @@ body { font-size: 16px; }
   .faq-item { margin: 0; padding: 0; }
   .faq-question { margin: 0; padding-inline: 0; gap: 16px; align-items: flex-start; }
   .faq-chevron { margin-top: 4px; }
-  .faq_contact { flex-direction: column; align-items: flex-start; }
-  .faq_contact-button { width: 100%; }
+  .faq_contact { display: grid; grid-template-columns: auto 1fr; gap: var(--sp-5) var(--sp-4); padding: var(--sp-6) var(--sp-5); }
+  .faq_contact-icon { width: 44px; height: 44px; }
+  .faq_contact-text { min-width: 0; }
+  .faq_contact-button { grid-column: 1 / -1; width: 100%; }
   .cadastro_component { text-align: left; padding: var(--sp-6) var(--sp-5); }
   .cadastro_sub { line-height: 1.6; }
   .signup-fab.button { bottom: calc(16px + env(safe-area-inset-bottom)); }
@@ -518,7 +528,8 @@ body { font-size: 16px; }
   .signup-fab.button:not(.is-visible) { transform: none; transition: opacity 200ms ease; }
 
   @keyframes hero-in { from { opacity: 0; } to { opacity: 1; } }
-  .hero_tagline, .hero_title, .hero_sub, .hero_buttons, .hero_myths li {
+  .hero_tagline, .hero_title, .hero_sub, .hero_buttons, .hero_myths li,
+  .hero_myths li:nth-child(n) {
     animation-duration: 250ms;
     animation-delay: 0ms;
   }
