@@ -82,7 +82,7 @@ Nada de 4/6/8/10/14/28px soltos.
 | `container-large` | 1120px | chamada final, menu |
 | `max-width-small` | 640px | títulos e textos de seção centralizados |
 
-`padding-global`: 24px nas laterais (16px abaixo de 640px).
+`padding-global`: 24px nas laterais (20px abaixo de 640px, para o texto não encostar na borda do celular).
 
 ### Espaço vertical das seções
 | Classe | Desktop | Celular |
