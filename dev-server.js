@@ -20,6 +20,8 @@ const MIME = {
   '.ico': 'image/x-icon',
   '.mp4': 'video/mp4',
   '.webp': 'image/webp',
+  '.xml': 'application/xml; charset=utf-8',
+  '.txt': 'text/plain; charset=utf-8',
 };
 
 function serveStatic(req, res) {
@@ -45,8 +47,11 @@ function serveStatic(req, res) {
 
   fs.readFile(filePath, (err, data) => {
     if (err) {
-      res.writeHead(404, { 'Content-Type': 'text/plain' });
-      res.end('Not found');
+      // Como a Vercel: rota inexistente recebe a 404.html com status 404.
+      fs.readFile(path.join(ROOT, '404.html'), (notFoundErr, page) => {
+        res.writeHead(404, { 'Content-Type': notFoundErr ? 'text/plain' : MIME['.html'] });
+        res.end(notFoundErr ? 'Not found' : page);
+      });
       return;
     }
     const ext = path.extname(filePath);
@@ -65,7 +70,7 @@ function withVercelStyleRes(res) {
 }
 
 // Espelha os "redirects" do vercel.json: a LP de morar virou a raiz.
-const REDIRECTS = { '/morar': '/', '/morar/': '/' };
+const REDIRECTS = { '/morar': '/', '/morar/': '/', '/imoveis': '/imoveis/caixa/', '/imoveis/': '/imoveis/caixa/' };
 
 const server = http.createServer((req, res) => {
   const redirectTo = REDIRECTS[req.url.split('?')[0]];

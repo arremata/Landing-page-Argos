@@ -23,7 +23,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const CSS_FILES = ['lp/client-first.css', 'lp/morar.css', 'lp/leilao.css'];
+const CSS_FILES = ['lp/client-first.css', 'lp/morar.css', 'lp/leilao.css', 'lp/imoveis.css'];
 const HTML_FILE = 'index.html';
 
 // ---------------------------------------------------------------------------

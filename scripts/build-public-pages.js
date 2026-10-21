@@ -11,10 +11,14 @@ function buildPublicPages({ root, siteUrl, fonts = '' }) {
   const sourceDir = path.join(root, 'content', 'pages');
   const pages = fs.readdirSync(sourceDir).filter(file => file.endsWith('.md')).sort().map(file => {
     const { data, content } = matter(fs.readFileSync(path.join(sourceDir, file), 'utf8'));
-    if (!/^\/(editorial|recursos\/[a-z0-9-]+)\/$/.test(data.path) ||
+    if (!/^\/(editorial|como-funciona|sobre|contato|metodologia|recursos\/[a-z0-9-]+)\/$/.test(data.path) ||
         !data.title || !data.description || !/^\d{4}-\d{2}-\d{2}$/.test(data.updatedAt) ||
-        !['WebPage', 'AboutPage'].includes(data.type)) {
+        !['WebPage', 'AboutPage', 'ContactPage'].includes(data.type)) {
       throw new Error(`${file}: metadados de página pública inválidos`);
+    }
+    // Perguntas frequentes visíveis na página e, só por isso, também no FAQPage.
+    if (data.faq !== undefined && (!Array.isArray(data.faq) || !data.faq.every(item => item && item.q && item.a))) {
+      throw new Error(`${file}: faq precisa de itens com q e a`);
     }
     return { ...data, content };
   });
@@ -29,7 +33,9 @@ function buildPublicPages({ root, siteUrl, fonts = '' }) {
       author: { '@type': 'Organization', '@id': `${siteUrl}/editorial/#equipe-argos`, name: 'Equipe Argos', url: `${siteUrl}/editorial/` },
       isPartOf: { '@type': 'WebSite', '@id': `${siteUrl}/#website` },
     };
-    if (page.type === 'AboutPage') {
+    if (page.mainEntity === 'organization') {
+      schema.mainEntity = { '@type': 'Organization', '@id': `${siteUrl}/#organization`, name: 'Argos', url: `${siteUrl}/` };
+    } else if (page.type === 'AboutPage') {
       schema.mainEntity = {
         ...schema.author,
         parentOrganization: { '@type': 'Organization', '@id': `${siteUrl}/#organization`, name: 'Argos', url: `${siteUrl}/` },
@@ -40,12 +46,25 @@ function buildPublicPages({ root, siteUrl, fonts = '' }) {
     const body = marked(page.content)
       // Roteiro de impressão, não um formulário desabilitado sem rótulos.
       .replace(/<input disabled="" type="checkbox">/g, '<span aria-hidden="true">☐</span>')
-      .replace(/<h2>(.*?)<\/h2>/g, (_, title) => {
-        const id = title.replace(/<[^>]*>/g, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      .replace(/<h2>(.*?)<\/h2>/g, (_, rawTitle) => {
+        // "## Título {#ancora}" fixa a âncora usada por links de outras páginas.
+        const fixed = rawTitle.match(/\s*\{#([a-z0-9-]+)\}$/);
+        const title = fixed ? rawTitle.slice(0, fixed.index) : rawTitle;
+        const id = fixed ? fixed[1] : title.replace(/<[^>]*>/g, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
         if (ids.has(id)) throw new Error(`${page.path}: título de seção duplicado`);
         ids.add(id);
         return `<h2 id="${id}">${title}</h2>`;
       });
+    const faq = page.faq || [];
+    const faqHtml = faq.length ? `<section class="blog-faq" aria-labelledby="perguntas-frequentes"><h2 id="perguntas-frequentes">Perguntas frequentes</h2>${faq.map(item =>
+      `<details class="faq-item"><summary>${escapeHtml(item.q)}</summary><div class="faq-answer"><p>${marked.parseInline(item.a)}</p></div></details>`).join('')}</section>` : '';
+    const faqSchema = faq.length ? {
+      '@context': 'https://schema.org', '@type': 'FAQPage', '@id': `${url}#faq`,
+      mainEntity: faq.map(item => ({
+        '@type': 'Question', name: item.q,
+        acceptedAnswer: { '@type': 'Answer', text: item.a.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/\*\*/g, '') },
+      })),
+    } : null;
     const html = `<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -64,11 +83,11 @@ ${fonts}
 <link rel="stylesheet" href="/lp/styles.css">
 <link rel="stylesheet" href="/blog/blog-styles.css">
 <script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>
-</head>
+${faqSchema ? `<script type="application/ld+json">${JSON.stringify(faqSchema).replace(/</g, '\\u003c')}</script>\n` : ''}</head>
 <body>
 <header class="public-page-nav"><div class="container blog-container">
   <a href="/" class="logo"><span class="logo-mark" aria-hidden="true"><img src="/brand/argos-mark.svg" alt=""></span><span class="logo-word">Argos</span></a>
-  <nav aria-label="Navegação"><a href="/blog/">Blog</a> <a href="/dicionario">Dicionário</a> <a href="/editorial/">Equipe e critérios</a></nav>
+  <nav aria-label="Navegação"><a href="/imoveis/caixa/">Imóveis da Caixa</a> <a href="/como-funciona/">Como funciona</a> <a href="/blog/">Blog</a> <a href="/dicionario">Dicionário</a> <a href="/contato/">Contato</a></nav>
 </div></header>
 <main class="public-page-main"><article class="container blog-container">
   <header class="blog-header"><h1 class="blog-title">${escapeHtml(page.title)}</h1>
@@ -76,9 +95,10 @@ ${fonts}
     <p class="blog-updated">Por <a href="/editorial/">Equipe Argos</a> · Atualizado em <time datetime="${page.updatedAt}">${page.updatedAt.split('-').reverse().join('/')}</time></p>
   </header>
   <div class="blog-body">${body}</div>
-  <aside class="blog-cta-box"><h2>Quer entender o imóvel antes do lance?</h2><p>Conheça a proposta do Argos para organizar custos, ocupação e pagamento.</p><a href="/#leilao" class="btn-primary">Entender como funciona →</a></aside>
+  ${faqHtml}
+  <aside class="blog-cta-box"><h2>Encontre imóveis da Caixa sem pagar assinatura</h2><p>Compare valor mínimo, avaliação, ocupação e custos estimados de cada imóvel, por cidade.</p><a href="/imoveis/caixa/" class="btn-primary" data-evento-clique="start_search">Buscar imóveis da Caixa →</a></aside>
 </article></main>
-<footer class="footer"><div class="container blog-container"><nav class="footer-links" aria-label="Materiais públicos"><a href="/editorial/">Política editorial</a><a href="/recursos/checklist-antes-do-lance/">Checklist</a><a href="/recursos/custo-total-imovel-leilao/">Exemplo de custos</a><a href="/privacidade/#preferencias">Privacidade e preferências</a><a href="/termos/">Termos de uso</a></nav><p class="footer-copy">&copy; 2026 Argos.</p></div></footer>
+<footer class="footer"><div class="container blog-container"><nav class="footer-links" aria-label="Materiais públicos"><a href="/sobre/">Sobre</a><a href="/contato/">Contato</a><a href="/metodologia/">Metodologia</a><a href="/editorial/">Política editorial</a><a href="/recursos/checklist-antes-do-lance/">Checklist</a><a href="/recursos/custo-total-imovel-leilao/">Exemplo de custos</a><a href="/privacidade/#preferencias">Privacidade e preferências</a><a href="/termos/">Termos de uso</a></nav><p class="footer-copy">O Argos é independente e não tem vínculo com a Caixa Econômica Federal.</p><p class="footer-copy">&copy; 2026 Argos.</p></div></footer>
 <script src="/lp/medicao.js" defer></script>
 </body></html>`;
     const outputDir = path.join(root, page.path);

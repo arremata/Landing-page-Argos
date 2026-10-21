@@ -138,7 +138,9 @@ Regras:
 - Hover nunca move o botão para cima.
 - Um botão principal por bloco. Os outros são `is-secondary` ou `is-text`.
 - Textos de ação: "Quero ser avisado", "Quero me inscrever", "Falar com a equipe",
-  "Entrar em contato", "Entender o leilão em 1 minuto".
+  "Entrar em contato", "Entender o leilão em 1 minuto", "Buscar imóveis da Caixa",
+  "Conhecer a assistência opcional" (os dois últimos pedidos pelo dono em
+  21/10/2026 para a primeira dobra de SEO).
 
 ## 5. Cards, selos e campos
 

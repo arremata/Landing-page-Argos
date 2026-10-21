@@ -774,3 +774,7 @@
 @media (max-width: 640px) {
   .blog-nota-revisor { grid-template-columns: 1fr; padding: var(--sp-4); }
 }
+
+/* Rodapé dos materiais públicos: mais links institucionais, quebram em linhas. */
+.blog-container .footer-links { flex-wrap: wrap; gap: var(--sp-1) var(--sp-5); }
+.blog-container .footer-links a { white-space: nowrap; }

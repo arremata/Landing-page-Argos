@@ -11,3 +11,7 @@ data/signups.json
 .claude/*
 !.claude/agents/
 !.claude/skills/
+
+# Gerados no build a partir do catálogo (scripts/build-catalog.js)
+/imoveis/
+/sitemap-imoveis.xml

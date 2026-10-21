@@ -4,10 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>document.documentElement.classList.add('js')</script>
-<title>Argos — Imóvel de leilão para morar, com a conta inteira</title>
-<meta name="description" content="Quanto você paga até pegar a chave, quem mora lá e se dá para usar o FGTS. Imóveis de leilão explicados em reais, antes do lance.">
-<meta property="og:title" content="Argos — Imóvel de leilão para morar, sem letra miúda">
-<meta property="og:description" content="Quanto você paga até a chave, quem mora lá e se aceita FGTS. Tudo em reais, antes do lance.">
+<title>Argos — Encontre imóveis da Caixa sem pagar assinatura</title>
+<meta name="description" content="Busque e compare imóveis da Caixa por cidade: valor mínimo, avaliação, ocupação, FGTS e custos estimados até a chave. O Argos não é a Caixa: confirme no site oficial.">
+<meta property="og:title" content="Argos — Encontre imóveis da Caixa sem pagar assinatura">
+<meta property="og:description" content="Compare imóveis da Caixa por cidade e entenda quanto a compra custa até a chave. Assistência opcional.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Argos">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.argosleiloes.com.br/">
 <link rel="canonical" href="https://www.argosleiloes.com.br/">
@@ -24,7 +26,9 @@
       "logo": {
         "@type": "ImageObject",
         "url": "https://www.argosleiloes.com.br/brand/argos-mark.svg"
-      }
+      },
+      "email": "argosleiloes@gmail.com",
+      "description": "Plataforma independente para buscar e comparar imóveis à venda pela Caixa. Não tem vínculo com a Caixa Econômica Federal."
     },
     {
       "@type": "WebSite",
@@ -39,8 +43,8 @@
     {
       "@type": "WebPage",
       "@id": "https://www.argosleiloes.com.br/#webpage",
-      "name": "Argos — Imóvel de leilão para morar, com a conta inteira",
-      "description": "Quanto você paga até pegar a chave, quem mora lá e se dá para usar o FGTS. Imóveis de leilão explicados em reais, antes do lance.",
+      "name": "Argos — Encontre imóveis da Caixa sem pagar assinatura",
+      "description": "Busque e compare imóveis da Caixa por cidade: valor mínimo, avaliação, ocupação, FGTS e custos estimados até a chave. O Argos não é a Caixa: confirme no site oficial.",
       "url": "https://www.argosleiloes.com.br/",
       "inLanguage": "pt-BR",
       "isPartOf": {
@@ -58,9 +62,16 @@
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web",
       "inLanguage": "pt-BR",
-      "description": "Plataforma que reúne imóveis de leilão e apresenta custo total até a entrega das chaves, situação de ocupação e formas de pagamento.",
+      "description": "Plataforma gratuita que reúne imóveis à venda pela Caixa e apresenta valor de avaliação, situação de ocupação, formas de pagamento e custo estimado até a entrega das chaves.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL",
+        "description": "Busca e comparação de imóveis sem assinatura."
+      },
       "featureList": [
-        "Custo total até a entrega das chaves",
+        "Busca de imóveis da Caixa por estado e cidade",
+        "Custo total estimado até a entrega das chaves",
         "Situação de ocupação do imóvel",
         "Formas de pagamento aceitas",
         "Comparação com o valor de avaliação"
@@ -85,7 +96,7 @@
 <link rel="stylesheet" href="/lp/leilao.css" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="/lp/leilao.css"></noscript>
 </head>
-<body>
+<body data-evento="view_home">
 
 <header class="nav" id="nav">
   <div class="padding-global">
@@ -98,8 +109,8 @@
     </a>
 
     <nav class="nav-links" aria-label="Navegação principal">
-      <a href="#leilao">Como funciona</a>
-      <a href="#ajuda">Atendimento</a>
+      <a href="/imoveis/caixa/">Imóveis</a>
+      <a href="/como-funciona/">Como funciona</a>
       <a href="#faq">Dúvidas</a>
       <a href="/dicionario">Dicionário</a>
       <a href="/blog/">Blog</a>
@@ -115,7 +126,8 @@
   </div>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#leilao">Como funciona</a>
+    <a href="/imoveis/caixa/">Imóveis</a>
+    <a href="/como-funciona/">Como funciona</a>
     <a href="#ajuda">Atendimento</a>
     <a href="#faq">Dúvidas</a>
     <a href="/dicionario">Dicionário</a>
@@ -133,24 +145,25 @@
       <div class="container-small">
         <div class="padding-section-medium">
           <div class="hero_content text-align-center">
-            <span class="tag is-brand hero_tagline"><span class="dot" aria-hidden="true"></span>Leilão de imóveis, sem mistério</span>
+            <span class="tag is-brand hero_tagline"><span class="dot" aria-hidden="true"></span>Imóveis da Caixa, sem mistério</span>
 
-            <h1 class="heading-style-h1 hero_title">Sua casa própria pode sair mais barata num leilão. <span class="text-color-brand">E é mais simples do que parece.</span></h1>
+            <h1 class="heading-style-h1 hero_title">Encontre imóveis da Caixa <span class="text-color-brand">sem pagar assinatura.</span></h1>
 
-            <p class="text-size-large text-color-secondary hero_sub">Imóveis retomados por bancos vão a leilão, em geral <strong>abaixo do valor de avaliação</strong>. O Argos mostra <strong>o custo total até a entrega das chaves</strong>, a ocupação e as formas de pagamento.</p>
+            <p class="text-size-large text-color-secondary hero_sub">Compare os imóveis da Caixa na sua cidade e veja <strong>o custo total até a entrega das chaves</strong>, a ocupação e as formas de pagamento. A assistência da equipe é <strong>opcional</strong>.</p>
 
             <div class="hero_buttons">
-              <button class="button is-large" data-open-modal>Quero ser avisado</button>
-              <a href="#leilao" class="button is-secondary is-large">
-                Entender o leilão em 1 minuto
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              <a href="/imoveis/caixa/" class="button is-large" data-evento-clique="start_search">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                Buscar imóveis da Caixa
               </a>
+              <a href="#ajuda" class="button is-secondary is-large" data-evento-clique="click_assistance">Conhecer a assistência opcional</a>
             </div>
 
             <ul class="hero_myths" aria-label="O que pouca gente sabe sobre leilão">
               <li><span class="hero_myth-icon" aria-hidden="true"></span><span>Não é preciso ser <strong>investidor</strong> nem ter <strong>experiência</strong>.</span></li>
               <li><span class="hero_myth-icon" aria-hidden="true"></span><span>Muitos imóveis aceitam <strong>financiamento e FGTS</strong>.</span></li>
             </ul>
+            <p class="text-size-small text-color-muted hero_note">O Argos é independente e não tem vínculo com a Caixa. Confirme preço e condições no site oficial.</p>
           </div>
 
           <!-- Card do imóvel — os 7 elementos do modo Morar -->
@@ -478,13 +491,14 @@
     <div class="padding-section-medium">
       <div class="ajuda_component">
         <div class="ajuda_text">
-          <span class="text-style-tagline">Atendimento</span>
+          <span class="text-style-tagline">Assistência opcional</span>
           <h2 class="heading-style-h2 ajuda_title">Conte com a nossa equipe do início ao fim.</h2>
           <ul class="ajuda_list">
             <li>Esclarecimento de dúvidas com quem conhece leilões</li>
             <li>Orientação sobre crédito e documentação</li>
             <li>Acompanhamento até a entrega das chaves</li>
           </ul>
+          <p class="text-size-small text-color-muted ajuda_note">Buscar e comparar imóveis é gratuito. O acompanhamento da equipe é opcional e pago, com condições informadas antes da contratação.</p>
           <button class="button" data-open-contact>Falar com a equipe</button>
         </div>
         <div class="card ajuda_chat" aria-hidden="true">
@@ -510,6 +524,26 @@
       </div>
 
       <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>O Argos cobra para buscar imóveis da Caixa?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Não. A busca e as páginas dos imóveis são gratuitas e não exigem assinatura. Só a assistência da equipe é paga, e ela é opcional. <a href="/como-funciona/">Veja como funciona</a>.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>O Argos é da Caixa?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </summary>
+          <div class="faq-answer">
+            <p>Não. O Argos é independente e não tem vínculo com a Caixa Econômica Federal. Os dados vêm do site oficial de venda de imóveis da Caixa, onde preço, disponibilidade e condições devem ser confirmados antes de qualquer proposta.</p>
+          </div>
+        </details>
+
         <details class="faq-item">
           <summary class="faq-question">
             <span>Nunca participei de um leilão. O Argos é para mim?</span>
@@ -657,13 +691,18 @@
     </div>
     <p class="footer-sub">Imóveis de leilão explicados em português claro.</p>
     <nav class="footer-links">
+      <a href="/imoveis/caixa/">Imóveis da Caixa</a>
+      <a href="/como-funciona/">Como funciona</a>
+      <a href="/metodologia/">Metodologia</a>
       <a href="/dicionario">Dicionário</a>
       <a href="/blog/">Blog</a>
+      <a href="/sobre/">Sobre</a>
+      <a href="/contato/">Contato</a>
       <a href="/investidor/">Para investidores</a>
       <a href="/privacidade/">Privacidade</a>
       <a href="/termos/">Termos de uso</a>
     </nav>
-    <p class="footer-legal">O Argos lê documentos e organiza informações. Não presta serviço de advocacia e não faz recomendação de compra.</p>
+    <p class="footer-legal">O Argos é independente e não tem vínculo com a Caixa Econômica Federal. Os dados dos imóveis vêm do site oficial de venda de imóveis da Caixa. O Argos lê documentos e organiza informações. Não presta serviço de advocacia e não faz recomendação de compra.</p>
     <p class="footer-copy">&copy; 2026 Argos. Todos os direitos reservados.</p>
   </div>
   </div>

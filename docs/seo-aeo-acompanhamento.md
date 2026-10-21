@@ -48,3 +48,26 @@ mas não garantem citações por assistentes, indexação ou posições na busca
 Não existe um schema que assegure presença em respostas de IA. Manter os dados
 estruturados coerentes com o conteúdo visível; não atribuir revisão a uma pessoa
 sem confirmação de identidade e da participação dela no artigo.
+
+## Catálogo público de imóveis da Caixa (21/10/2026)
+
+Mudança: páginas indexáveis por imóvel, cidade e estado em `/imoveis/caixa/`,
+geradas no build a partir do catálogo público do app, com `RealEstateListing`,
+`BreadcrumbList`, canonical, Open Graph, data da consulta, fonte e aviso de
+confirmação no canal oficial. Novas páginas institucionais: `/como-funciona/`
+(com FAQ), `/sobre/`, `/contato/` e `/metodologia/`. A home passou a abrir com
+"Encontre imóveis da Caixa sem pagar assinatura" e busca pública.
+
+Hipótese: consultas de cauda longa com cidade e tipo ("apartamento Caixa
+Curitiba", "imóveis da Caixa em Londrina") passam a ter páginas que respondem
+diretamente. Medir por 28 dias após a indexação, separando `/imoveis/caixa/`
+das demais páginas no Search Console.
+
+Pendências externas:
+
+- Enviar `https://www.argosleiloes.com.br/sitemap-imoveis.xml` no Search
+  Console e no Bing Webmaster Tools (o robots.txt já aponta os dois sitemaps).
+- Criar o Deploy Hook da `main` na Vercel e salvar em `VERCEL_DEPLOY_HOOK_URL`.
+- Preencher `GA4_ID` em `lp/medicao.js` e marcar `lead_submit` como evento-chave.
+- Quando o app abrir sem login, evitar conteúdo duplicado: as páginas do app
+  devem apontar canonical para a página pública equivalente ou ficar `noindex`.

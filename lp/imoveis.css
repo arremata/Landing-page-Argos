@@ -1,0 +1,238 @@
+/* Páginas públicas dos imóveis da Caixa (/imoveis/caixa/...), geradas por
+   scripts/build-catalog.js. Usam os globais de lp/client-first.css e seguem
+   DESIGN-SYSTEM.md: só tokens, só os quatro raios, hover só com mouse. */
+
+body { background: var(--white); color: var(--text); }
+
+/* ---------- Menu e rodapé ---------- */
+
+.imoveis_nav { border-bottom: 1px solid var(--border); background: var(--white); }
+.imoveis_nav-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3) var(--sp-6);
+  min-height: 60px;
+  padding-block: var(--sp-2);
+}
+.imoveis_nav-links { display: flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-5); font-size: 15px; font-weight: 500; }
+.imoveis_nav-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--text-2);
+  transition: color var(--dur-color) ease;
+}
+
+.imoveis_footer { border-top: 1px solid var(--border); padding-block: var(--sp-10); }
+.imoveis_footer .container-large { display: flex; flex-direction: column; gap: var(--sp-4); }
+.imoveis_footer-links { display: flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-5); font-size: 15px; }
+.imoveis_footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--text-2);
+  transition: color var(--dur-color) ease;
+}
+
+.imoveis_page a:not(.button):not(.imoveis_card-link):not(.imoveis_breadcrumb a),
+.imoveis_footer p a { color: var(--violet); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ---------- Trilha ---------- */
+
+.imoveis_breadcrumb { margin-bottom: var(--sp-6); font-size: 13px; color: var(--text-3); }
+.imoveis_breadcrumb ol { display: flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-2); list-style: none; }
+.imoveis_breadcrumb li { display: inline-flex; align-items: center; gap: var(--sp-2); }
+.imoveis_breadcrumb li + li::before { content: '›'; color: var(--line-strong); }
+.imoveis_breadcrumb a { color: var(--text-3); }
+.imoveis_breadcrumb [aria-current] { color: var(--text-2); }
+
+.imoveis_page .section_header { display: flex; flex-direction: column; gap: var(--sp-3); margin-bottom: var(--sp-8); }
+.imoveis_list-title { margin-top: var(--sp-10); }
+.imoveis_facets { margin-bottom: var(--sp-6); }
+.imoveis_source { margin-top: var(--sp-8); }
+
+/* ---------- Lista de imóveis ---------- */
+
+.imoveis_list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: var(--sp-4);
+  margin-top: var(--sp-4);
+  list-style: none;
+}
+/* O link cobre o card inteiro: card is-hoverable só onde tudo é clicável. */
+.imoveis_card { position: relative; display: flex; flex-direction: column; gap: var(--sp-3); padding: var(--sp-5); }
+.imoveis_card-link::after { content: ''; position: absolute; inset: 0; border-radius: var(--radius-large); }
+.imoveis_card-link { display: flex; flex-direction: column; gap: var(--sp-1); color: var(--text); }
+.imoveis_card-link:focus-visible { outline: none; }
+.imoveis_card-link:focus-visible::after { outline: 2px solid var(--violet); outline-offset: 3px; }
+.imoveis_card-kind { font-family: var(--font-display); font-size: 16px; font-weight: 700; }
+.imoveis_card-place { font-size: 15px; color: var(--text-2); }
+.imoveis_card-price { margin-top: var(--sp-2); }
+.imoveis_card-note { font-size: 13px; color: var(--text-3); }
+.imoveis_card-tags { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+
+.imoveis_places {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  gap: var(--sp-2) var(--sp-6);
+  margin-top: var(--sp-3);
+  list-style: none;
+}
+.imoveis_places li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  min-height: 44px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.imoveis_pagination { display: flex; flex-direction: column; align-items: center; gap: var(--sp-3); margin-top: var(--sp-8); }
+.imoveis_pagination-steps { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--sp-3); }
+.imoveis_pagination-all { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-1); list-style: none; font-size: 15px; }
+.imoveis_pagination-all a,
+.imoveis_pagination-all span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: var(--radius-round);
+}
+.imoveis_pagination-all [aria-current] { background: var(--violet-bg); color: var(--violet); font-weight: 700; }
+
+/* ---------- Página do imóvel ---------- */
+
+.imovel_component {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  grid-template-areas: "main price" "details price";
+  align-items: start;
+  gap: var(--sp-8) var(--sp-10);
+}
+.imovel_price { grid-area: price; }
+.imovel_details { grid-area: details; display: flex; flex-direction: column; gap: var(--sp-4); }
+.imovel_main { grid-area: main; display: flex; flex-direction: column; align-items: flex-start; gap: var(--sp-4); }
+.imovel_title { margin-top: var(--sp-1); }
+.imovel_photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-large);
+  background: var(--bg-soft);
+}
+.imovel_facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+  gap: var(--sp-3) var(--sp-6);
+  width: 100%;
+}
+.imovel_facts div { padding-bottom: var(--sp-3); border-bottom: 1px solid var(--border-light); }
+.imovel_facts dt { font-size: 13px; color: var(--text-3); }
+.imovel_facts dd { font-size: 15px; font-weight: 600; color: var(--text); }
+
+.imovel_price { position: sticky; top: var(--sp-6); display: flex; flex-direction: column; gap: var(--sp-2); padding: var(--sp-6); }
+.imovel_rounds { display: flex; flex-direction: column; gap: var(--sp-2); margin-top: var(--sp-2); list-style: none; font-size: 15px; }
+.imovel_rounds li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sp-2); padding-top: var(--sp-2); border-top: 1px solid var(--border-light); }
+.imovel_actions { display: flex; flex-direction: column; align-items: stretch; gap: var(--sp-3); margin-top: var(--sp-4); }
+.imoveis_page .max-width-small .imovel_actions,
+.imovel_actions.is-row { flex-direction: row; flex-wrap: wrap; align-items: center; }
+
+.imoveis_page .max-width-small { display: flex; flex-direction: column; gap: var(--sp-4); }
+/* O que a análise do Argos acrescenta ao imóvel */
+.imovel_benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: var(--sp-4);
+  list-style: none;
+}
+.imovel_benefits .card { display: flex; flex-direction: column; gap: var(--sp-2); padding: var(--sp-6); }
+.imoveis_more { margin-top: var(--sp-6); }
+
+/* Barra fixa do celular: o caminho para o Argos fica sempre à mão, sem cobrir
+   o conteúdo (o corpo ganha o espaço dela embaixo). */
+.imovel_bar { display: none; }
+
+/* Cartão lateral do computador: aparece depois de rolar, pode ser fechado e
+   não volta na mesma sessão (lp/imoveis.js). */
+.imovel_popup {
+  position: fixed;
+  z-index: 80;
+  right: var(--sp-6);
+  bottom: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  width: min(340px, calc(100vw - 48px));
+  padding: var(--sp-6);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--dur-modal) var(--ease-out), transform var(--dur-modal) var(--ease-out);
+}
+.imovel_popup[hidden] { display: none; }
+.imovel_popup.is-visible { opacity: 1; transform: none; }
+.imovel_popup .heading-style-h4 { padding-right: var(--sp-8); }
+.imovel_popup-close {
+  position: absolute;
+  top: var(--sp-3);
+  right: var(--sp-3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-3);
+  cursor: pointer;
+  transition: background-color var(--dur-color) ease;
+}
+.imovel_popup-close:focus-visible { outline: 2px solid var(--violet); outline-offset: 2px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .imovel_popup-close:hover { background: var(--bg-soft); }
+  .imoveis_nav-links a:hover,
+  .imoveis_footer-links a:hover { color: var(--violet); }
+  .imoveis_pagination-all a:hover { background: var(--bg-soft); }
+}
+
+@media (max-width: 880px) {
+  .imovel_popup { display: none; }
+  .imovel_bar {
+    position: fixed;
+    z-index: 80;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    padding: var(--sp-3) var(--sp-4) calc(var(--sp-3) + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--border);
+    background: var(--white);
+    box-shadow: var(--shadow-lg);
+  }
+  .imovel_bar-text { display: flex; flex-direction: column; }
+  .imovel_bar-text strong { font-family: var(--font-display); font-size: 18px; }
+  body:has(.imovel_bar) { padding-bottom: 88px; }
+  .imovel_component { grid-template-columns: minmax(0, 1fr); grid-template-areas: "main" "price" "details"; gap: var(--sp-6); }
+  .imovel_price { position: static; }
+}
+
+/* No celular, Guias e Assistência ficam no rodapé: o menu cabe numa linha. */
+@media (max-width: 640px) {
+  .imoveis_nav-links .is-desktop { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imovel_popup { transform: none; transition: opacity 200ms ease; }
+}

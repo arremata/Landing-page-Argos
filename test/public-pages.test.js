@@ -12,7 +12,7 @@ const pages = fs.readdirSync(path.join(ROOT, 'content/pages')).map(file =>
   matter(fs.readFileSync(path.join(ROOT, 'content/pages', file), 'utf8')));
 
 test('materiais públicos têm canonical, schema fiel, autoria e sitemap', () => {
-  assert.equal(pages.length, 3);
+  assert.equal(pages.length, 7);
   const sitemap = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
   for (const { data } of pages) {
     const html = fs.readFileSync(path.join(ROOT, data.path, 'index.html'), 'utf8');
@@ -28,7 +28,9 @@ test('materiais públicos têm canonical, schema fiel, autoria e sitemap', () =>
     assert.equal(schema['@type'], data.type);
     assert.equal(schema.author.url, `${SITE}/editorial/`);
     assert.equal(schema.author['@id'], `${SITE}/editorial/#equipe-argos`);
-    if (data.type === 'AboutPage') {
+    if (data.mainEntity === 'organization') {
+      assert.equal(schema.mainEntity['@id'], `${SITE}/#organization`);
+    } else if (data.type === 'AboutPage') {
       assert.equal(schema.mainEntity['@id'], schema.author['@id']);
       assert.equal(schema.mainEntity.parentOrganization['@id'], `${SITE}/#organization`);
     }
@@ -55,6 +57,8 @@ test('links locais dos materiais apontam para páginas existentes', () => {
   for (const { data } of pages) {
     const html = fs.readFileSync(path.join(ROOT, data.path, 'index.html'), 'utf8');
     for (const [, target] of html.matchAll(/href="(\/[^"#]*)(?:#[^"]*)?"/g)) {
+      // As páginas de imóveis são geradas no build (test/catalog.test.js).
+      if (target.startsWith('/imoveis/caixa/')) continue;
       const resolved = path.join(ROOT, target);
       assert.ok(fs.existsSync(resolved) || fs.existsSync(path.join(resolved, 'index.html')), `${data.path}: ${target}`);
     }
@@ -82,7 +86,7 @@ test('gerador usa domínio configurado e rejeita rotas fora do escopo', () => {
     fs.mkdirSync(path.join(root, 'content'), { recursive: true });
     fs.cpSync(path.join(ROOT, 'content/pages'), path.join(root, 'content/pages'), { recursive: true });
     const result = buildPublicPages({ root, siteUrl: 'https://example.test' });
-    assert.equal(result.length, 3);
+    assert.equal(result.length, 7);
     const html = fs.readFileSync(path.join(root, 'editorial/index.html'), 'utf8');
     assert.match(html, /href="https:\/\/example.test\/editorial\/"/);
     assert.doesNotMatch(html, /www.argosleiloes.com.br/);
@@ -91,4 +95,30 @@ test('gerador usa domínio configurado e rejeita rotas fora do escopo', () => {
   } finally {
     fs.rmSync(root, { recursive: true, force: true });
   }
+});
+
+test('como funciona publica FAQ visível e o mesmo FAQPage, sem promessas', () => {
+  const html = fs.readFileSync(path.join(ROOT, 'como-funciona/index.html'), 'utf8');
+  const { data } = pages.find(page => page.data.path === '/como-funciona/');
+  const blocks = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)].map(m => JSON.parse(m[1]));
+  const faq = blocks.find(block => block['@type'] === 'FAQPage');
+  assert.ok(faq);
+  assert.equal(faq.mainEntity.length, data.faq.length);
+  for (const item of data.faq) {
+    assert.ok(html.includes(`<summary>${item.q.replace(/"/g, '&quot;')}</summary>`), item.q);
+    assert.ok(faq.mainEntity.some(q => q.name === item.q));
+  }
+  for (const anchor of ['modalidades', 'assistencia', 'custos']) assert.match(html, new RegExp(`<h2 id="${anchor}">`));
+  assert.match(html, /não tem vínculo com a Caixa/);
+  assert.doesNotMatch(html, /garantimos|garantido|rentabilidade garantida|recomendamos|vale a pena|você deve/i);
+});
+
+test('institucionais deixam claro que o Argos não é a Caixa', () => {
+  for (const page of ['sobre', 'contato', 'metodologia', 'como-funciona']) {
+    const html = fs.readFileSync(path.join(ROOT, page, 'index.html'), 'utf8');
+    assert.match(html, /O Argos é independente e não tem vínculo com a Caixa Econômica Federal\./, page);
+  }
+  const contato = fs.readFileSync(path.join(ROOT, 'contato/index.html'), 'utf8');
+  assert.match(contato, /"@type":"ContactPage"/);
+  assert.match(contato, /mailto:argosleiloes@gmail\.com/);
 });
