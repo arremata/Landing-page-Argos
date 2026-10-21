@@ -206,6 +206,13 @@
   box-shadow: var(--shadow-sm);
 }
 
+/* Bloco de destaque não clicável (ex.: contato do FAQ). */
+.card.is-brand {
+  background-color: var(--violet-bg);
+  border-color: var(--violet-border);
+  box-shadow: none;
+}
+
 .card.is-hoverable {
   cursor: pointer;
   transition: border-color 200ms ease, box-shadow 200ms ease;
