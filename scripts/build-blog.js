@@ -429,6 +429,7 @@ ${buildRelated(post.relacionadosPosts || [])}
       <a href="/sobre/">Sobre</a>
       <a href="/contato/">Contato</a>
       <a href="/privacidade/#preferencias">Privacidade e preferências</a>
+      <a href="/termos/">Termos de uso</a>
     </nav>
     <p class="footer-copy">&copy; 2026 Argos. Todos os direitos reservados.</p>
   </div>
@@ -552,6 +553,7 @@ ${cards ||'<div class="blog-empty"><p>Nenhum artigo publicado por enquanto.</p><
       <a href="/sobre/">Sobre</a>
       <a href="/contato/">Contato</a>
       <a href="/privacidade/#preferencias">Privacidade e preferências</a>
+      <a href="/termos/">Termos de uso</a>
     </nav>
     <p class="footer-copy">&copy; 2026 Argos. Todos os direitos reservados.</p>
   </div>
