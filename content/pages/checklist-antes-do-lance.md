@@ -2,7 +2,7 @@
 title: "Checklist antes do lance em imóvel de leilão"
 description: "Roteiro público para conferir edital, matrícula, leiloeiro, ocupação, dívidas e orçamento antes do lance. Salve ou imprima sem cadastro."
 path: /recursos/checklist-antes-do-lance/
-updatedAt: "2026-10-19"
+updatedAt: "2026-10-21"
 type: WebPage
 ---
 
@@ -31,7 +31,7 @@ No **judicial**, confira também o processo, a decisão que autoriza a venda e a
 
 No **extrajudicial por alienação fiduciária**, confira a consolidação, os atos do procedimento e o edital, à luz da [Lei 9.514/1997, arts. 26 e 27](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm#art26).
 
-Nas **vendas da Caixa**, confirme a modalidade e os documentos da unidade no [portal oficial de imóveis](https://venda-imoveis.caixa.gov.br/sistema/busca-imovel.asp). A ficha de outro imóvel não confirma condições da sua oferta.
+Nas **vendas da Caixa**, confirme a modalidade e os documentos da unidade nas condições oficiais publicadas para aquele imóvel. No Argos, cada [imóvel da Caixa](/imoveis/caixa/) mostra a modalidade e leva à análise com edital e matrícula, quando publicados. A ficha de outro imóvel não confirma condições da sua oferta.
 
 ## Registro das pendências
 
