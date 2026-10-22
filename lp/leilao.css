@@ -1,5 +1,5 @@
 /* ===== Argos — "Leilão em 1 minuto" =====
-   Carrossel didático logo depois do hero (section_leilao). Usa os tokens de
+   Carrossel didático (section_leilao), depois da seção do que é gratuito. Usa os tokens de
    styles.css e os globais de client-first.css (button, card, tag, heading-*).
    As classes lm-* ficam com o nome antigo porque leilao.js depende delas.
    Sem JS, os slides aparecem empilhados.

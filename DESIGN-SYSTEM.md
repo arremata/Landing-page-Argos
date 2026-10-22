@@ -40,11 +40,12 @@ global, utilitários globais e componentes com nome da seção.
 | Ordem | Seção | Fundo |
 | --- | --- | --- |
 | 1 | hero | `background-color-primary` (branco) |
-| 2 | leilão em 1 minuto | `background-color-secondary` (cinza) |
-| 3 | vídeo | branco |
-| 4 | atendimento | cinza |
-| 5 | dúvidas | branco |
-| 6 | chamada final | cinza |
+| 2 | o que é gratuito | `background-color-secondary` (cinza) |
+| 3 | leilão em 1 minuto | branco |
+| 4 | vídeo | cinza |
+| 5 | atendimento | branco |
+| 6 | dúvidas | cinza |
+| 7 | chamada final | branco |
 
 Seção nova entra mantendo a alternância.
 
@@ -78,7 +79,7 @@ Nada de 4/6/8/10/14/28px soltos.
 | Classe | Largura | Uso |
 | --- | --- | --- |
 | `container-small` | 800px | hero, dúvidas |
-| `container-medium` | 960px | carrossel, vídeo, atendimento |
+| `container-medium` | 960px | o que é gratuito, carrossel, vídeo, atendimento |
 | `container-large` | 1120px | chamada final, menu |
 | `max-width-small` | 640px | títulos e textos de seção centralizados |
 
@@ -140,7 +141,9 @@ Regras:
 - Textos de ação: "Quero ser avisado", "Quero me inscrever", "Falar com a equipe",
   "Entrar em contato", "Entender o leilão em 1 minuto", "Buscar imóveis da Caixa",
   "Conhecer a assistência opcional" (os dois últimos pedidos pelo dono em
-  21/10/2026 para a primeira dobra de SEO).
+  21/10/2026 para a primeira dobra de SEO), "Quero ser avisado do lançamento"
+  e "Ver o que é gratuito" (pedidos em 22/10/2026 para destacar a gratuidade;
+  enquanto o Argos não for lançado, nenhum botão da home leva ao catálogo).
 
 ## 5. Cards, selos e campos
 

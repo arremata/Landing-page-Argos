@@ -193,6 +193,6 @@ if (videoBtn) {
     });
     updateFabSpace();
   });
-  document.querySelectorAll('.lm, .ajuda_component, .faq_contact, .section_cadastro, .footer').forEach((el) => actionObserver.observe(el));
+  document.querySelectorAll('.gratuito_cta, .lm, .ajuda_component, .faq_contact, .section_cadastro, .footer').forEach((el) => actionObserver.observe(el));
   mobileMq.addEventListener('change', updateFabSpace);
 })();

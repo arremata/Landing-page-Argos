@@ -1,4 +1,4 @@
-// "Leilão em 1 minuto" — carrossel didático logo depois do hero.
+// "Leilão em 1 minuto" — carrossel didático, depois da seção do que é gratuito.
 // Sem dependências. Tudo dentro de um bloco para não colidir com os
 // nomes globais de script.js e morar.js.
 (() => {
