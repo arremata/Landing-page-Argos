@@ -19,7 +19,7 @@ test('indice do blog segue a comunicacao publica da landing page', () => {
 });
 
 test('todos os artigos estao publicados com autoria, revisao e fontes', () => {
-  assert.equal(files.length, 12);
+  assert.equal(files.length, 14);
 
   for (const file of files) {
     const raw = fs.readFileSync(path.join(POSTS_DIR, file), 'utf8');
