@@ -1,132 +1,118 @@
 ---
-title: "Quanto custa comprar imóvel em leilão: todos os custos além do lance"
+title: "Quanto custa comprar imóvel em leilão: os custos além do lance"
 slug: "quanto-custa-comprar-imovel-em-leilao"
-description: "Comissão do leiloeiro, ITBI, cartório, dívidas e desocupação. Veja a conta completa do que se paga além do lance em um leilão de imóvel."
-keywordPrincipal: "custos leilão de imóveis"
+description: "Quanto custa comprar imóvel em leilão da Caixa além do lance: comissão, ITBI, cartório, dívidas e desocupação, com quem paga e quando cada um sai do bolso."
+keywordPrincipal: "quanto custa comprar imóvel em leilão"
 publishedAt: "2026-08-26"
-updatedAt: "2026-10-19"
+updatedAt: "2026-11-06"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
-reviewedAt: "2026-08-26"
+reviewedAt: "2026-11-06"
 reviewType: "Revisão editorial e checagem de fontes"
 sources:
-  - title: "Código de Processo Civil — Lei 13.105/2015"
-    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm"
-  - title: "Código Tributário Nacional — Lei 5.172/1966"
-    url: "https://www.planalto.gov.br/ccivil_03/leis/l5172compilado.htm"
-  - title: "Profissão de leiloeiro — Decreto 21.981/1932"
-    url: "https://www.planalto.gov.br/ccivil_03/decreto/1930-1949/d21981.htm"
-  - title: "STJ — Tema Repetitivo 1.113"
-    url: "https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?novaConsulta=true&tipo_pesquisa=T&cod_tema_inicial=1113&cod_tema_final=1113"
+  - title: "Caixa: Edital de Leilão Público nº 0048/0226 (outubro de 2026)"
+    url: "https://venda-imoveis.caixa.gov.br/editais/EL00480226CPARE.PDF"
+  - title: "Caixa: Regras da Venda Online (agosto de 2026)"
+    url: "https://www.caixa.gov.br/Downloads/habitacao-documentos-gerais/regras-da-venda-online-imoveis-caixa.pdf"
+  - title: "Caixa: Cartilha do Arrematante para Leilão e Licitação Aberta (abril de 2026)"
+    url: "https://www.caixa.gov.br/Downloads/habitacao-documentos-gerais/cartilha-arrematante-leila-la.pdf"
+  - title: "Caixa: Perguntas frequentes sobre Imóveis à venda"
+    url: "https://www.caixa.gov.br/voce/habitacao/imoveis-venda/perguntas-frequentes/Paginas/default.aspx"
+  - title: "Caixa: Manual FGTS, Utilização na Moradia Própria (versão de dezembro de 2025)"
+    url: "https://www.caixa.gov.br/Downloads/fgts-moradia/MANUAL_DA_MORADIA_PROPRIA_02_12_2025_V_035.pdf"
 cluster: "fundamentos e apoio"
-modalidade: ambos
+modalidade: extrajudicial
 relacionados:
-  - dividas-do-imovel-arrematado
+  - comprar-imovel-de-leilao-para-morar
+  - leilao-de-imoveis-da-caixa-como-funciona
   - como-financiar-imovel-de-leilao
-  - como-ler-edital-de-leilao-e-matricula
 status: published
-tags: ["custos", "ITBI", "comissão do leiloeiro"]
+tags: ["custos", "ITBI", "comissão do leiloeiro", "imóveis da Caixa"]
+faq:
+  - q: "Quais são os custos de leilão de imóveis além do lance?"
+    a: "Nos imóveis da Caixa, os principais são: comissão de 5% do leiloeiro no leilão e na licitação aberta, ITBI, escritura, registro e certidões no cartório, dívidas de condomínio e IPTU quando ficam com você, desocupação, reforma e regularização dos documentos, quando for o caso."
+  - q: "Posso pagar o ITBI com o FGTS?"
+    a: "Não. As regras do FGTS não deixam usar o fundo para pagar taxas, impostos e outras despesas da compra. Esse dinheiro precisa sair do seu bolso."
+  - q: "Preciso pagar alguma coisa ao corretor da Caixa?"
+    a: "Não. O corretor ou a imobiliária credenciada é pago pela Caixa e ajuda antes e depois da compra. O único pagamento extra a um intermediário é a comissão do leiloeiro, no leilão e na licitação aberta."
+  - q: "Posso parcelar o ITBI de um imóvel da Caixa?"
+    a: "Na venda online e na compra direta, não: as regras da Caixa pedem o ITBI inteiro e à vista, mesmo que a prefeitura aceite parcelar. No leilão, confira no edital do imóvel."
 ---
 
-## Quanto custa além do lance?
+Quanto custa comprar imóvel em leilão da Caixa? O lance mais uma lista de gastos que vêm junto: a comissão do leiloeiro, o ITBI, a escritura, o registro e as certidões do cartório, as dívidas de condomínio e IPTU quando o anúncio deixa com você, a desocupação e a reforma. Abaixo, cada um com quem paga e quando sai do bolso.
 
-**Resposta direta.** Além do lance, considere a [comissão do leiloeiro](/dicionario/comissao-leiloeiro), quando aplicável, o [ITBI](/dicionario/itbi), as despesas de transmissão e registro, os débitos atribuídos ao comprador, a desocupação e a [reforma](/dicionario/reforma). Não há um percentual único para todos os imóveis: confira edital, município, cartório e estado de conservação.
+As regras abaixo foram conferidas nos documentos oficiais da Caixa em 25 de outubro de 2026.
 
-Use o [exemplo ilustrativo de custo total](/recursos/custo-total-imovel-leilao/) para organizar a soma e separar despesas de reservas.
+## Quanto custa comprar imóvel em leilão além do lance?
 
-**O detalhe — a estrutura da conta:**
+**Resposta direta.** Além do lance, você paga ITBI, escritura, registro e certidões (numa campanha da Caixa, ITBI, escritura e registro saem por conta dela), a comissão de 5% do leiloeiro só no leilão e na licitação aberta, e, conforme o imóvel, dívidas de condomínio e IPTU, desocupação e reforma.
 
-```
-Lance
-+ comissão do leiloeiro (mín. 5%)
-+ ITBI (alíquota do município)
-+ custas de cartório e registro
-+ débitos assumidos
-+ custo estimado de desocupação
-+ reforma
-= CUSTO TOTAL DE AQUISIÇÃO
-```
+| Custo | Em que forma de venda | Quem paga | Quando sai do bolso | Onde descobrir o valor |
+| --- | --- | --- | --- | --- |
+| [Comissão do leiloeiro](/dicionario/comissao-leiloeiro), 5% do lance | Leilão e [licitação aberta](/dicionario/licitacao-aberta) | Você | No dia do leilão | É 5% do seu lance |
+| [ITBI](/dicionario/itbi), imposto da prefeitura | Todas | Você (fora a campanha da Caixa, mais abaixo) | Na transferência para o seu nome | Prefeitura da cidade |
+| Escritura e [registro no cartório](/dicionario/registro-cartorio) | Todas | Você (fora a campanha da Caixa, mais abaixo) | Na transferência para o seu nome | Cartório da cidade |
+| Certidões, como a [matrícula](/dicionario/matricula) atualizada | Todas | Você | Antes da proposta e depois do registro | Cartório da cidade |
+| Dívidas de [condomínio](/dicionario/condominio) e [IPTU](/dicionario/iptu) | Todas, se ficarem com você | Leilão: você, em regra. Venda online e compra direta: o anúncio diz | Descubra o valor antes da proposta; na venda online, dívida pendente pode atrasar o registro | Condomínio e prefeitura |
+| [Desocupação](/dicionario/desocupacao) | Imóvel ocupado | Você | Depois da compra | Varia caso a caso |
+| [Reforma](/dicionario/reforma) e regularização dos documentos | Quando o imóvel pedir | Você | Depois da compra | Orçamento e cartório |
 
-Os dois itens mais imprevisíveis dessa conta têm artigo próprio: [dívidas do imóvel arrematado](/blog/dividas-do-imovel-arrematado/) e [imóvel de leilão ocupado](/blog/imovel-de-leilao-ocupado-desocupacao/).
+A entrada de pelo menos 5% da proposta, paga num boleto em até 2 dias úteis depois da [homologação](/dicionario/homologacao), que é a confirmação do resultado pela Caixa, não entra nessa lista porque é parte do preço, não um custo a mais. Como ela se encaixa no financiamento está em [como financiar imóvel de leilão](/blog/como-financiar-imovel-de-leilao/).
 
-## Quem paga a comissão do leiloeiro e quanto é?
+O corretor ou a imobiliária credenciada que ajuda na compra também não entra: quem paga é a Caixa.
 
-**Resposta direta.** No leilão judicial, o [CPC, art. 884, parágrafo único](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm#art884), prevê comissão paga pelo arrematante, fixada em lei ou arbitrada pelo juiz. O [Decreto 21.981/1932, art. 24](https://www.planalto.gov.br/ccivil_03/decreto/1930-1949/d21981.htm#art24), prevê 5% para os compradores. Confira o percentual no edital e não presuma essa cobrança em toda modalidade de venda de banco.
+## Quando cada custo sai do bolso?
 
-**O detalhe.** A comissão não está embutida no lance — é acréscimo. **Exemplo ilustrativo:** com lance de R$ 300 mil e comissão de 5%, a comissão soma R$ 15 mil. Confira o prazo de pagamento no edital; não presuma que ele seja o mesmo do preço do imóvel.
+**Resposta direta.** A comissão sai no dia do leilão, a entrada em até 2 dias úteis depois do resultado, o ITBI e o cartório na transferência para o seu nome, e a desocupação e a reforma depois da compra.
 
-**Base legal.** [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm), art. 884, parágrafo único; [Decreto 21.981/1932](https://www.planalto.gov.br/ccivil_03/decreto/1930-1949/d21981.htm), art. 24, parágrafo único; [Resolução CNJ nº 236/2016](https://atos.cnj.jus.br/atos/detalhar/2313), art. 7º; STJ, 4ª Turma, jul/2023.
+**No dia do leilão.** Quem vence paga ao leiloeiro a comissão de 5%, por fora do lance. Na venda online e na compra direta, feitas no próprio site da Caixa, não há comissão.
 
-## Preciso ter o valor todo à vista? {judicial}
+**Na transferência.** Para passar o imóvel para o seu nome, você paga o ITBI e as despesas da escritura e do registro no cartório. Na venda online e na compra direta, a Caixa pede o ITBI inteiro, à vista, mesmo que a prefeitura aceite parcelar. No leilão, o edital põe por sua conta todas as despesas da escritura e do registro, as guias da prefeitura e a certidão da matrícula atualizada com o registro feito.
 
-**Resposta direta.** No leilão judicial, a regra é o pagamento imediato, por depósito judicial ou meio eletrônico, salvo pronunciamento judicial em sentido diverso. O próprio CPC prevê a possibilidade de o pagamento ser feito em até 15 dias mediante caução. E existe a via do parcelamento, com requisitos próprios.
+**Depois da compra.** O imóvel é vendido como está. Se tiver alguém morando, a desocupação fica por sua conta, e o corretor da Caixa ajuda nela. Reforma e regularização dos documentos, como registrar uma área construída que não está na matrícula, também ficam com você. Não existe um prazo médio oficial para a desocupação, então deixe folga na conta, como seguir pagando o aluguel atual por mais tempo do que o planejado.
 
-**Base legal.** [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm), art. 892.
+Um ponto pesa em todas essas datas: o [FGTS](/dicionario/fgts) não pode pagar taxas, impostos e outras despesas da compra. ITBI, cartório e comissão saem do seu dinheiro, então separe esse valor antes da proposta.
 
-## Dá para parcelar a arrematação? {judicial}
+## Condomínio e IPTU atrasados entram na conta?
 
-**Resposta direta.** No leilão judicial, sim. O interessado apresenta proposta **por escrito** oferecendo pelo menos 25% do valor do lance à vista, e o restante parcelado em até 30 meses, garantido por caução idônea, hipoteca sobre o próprio bem ou outra modalidade de garantia. Mas atenção: a proposta de pagamento à vista **sempre prevalece** sobre a parcelada, independentemente do valor oferecido.
+**Resposta direta.** Condomínio e IPTU atrasados entram na conta sempre que a dívida ficar com você: no leilão da Caixa, em regra, ela é de quem compra; na venda online e na compra direta, o anúncio diz quem paga. Quem paga em cada forma de venda está explicado em [como funciona o leilão de imóveis da Caixa](/blog/leilao-de-imoveis-da-caixa-como-funciona/).
 
-**O detalhe.** Três consequências práticas dessa regra:
+Na venda online e na compra direta, quando o anúncio e a proposta não falam do condomínio, as regras dizem que a Caixa paga essa dívida inteira, desde que se cumpram as condições das próprias regras. Uma delas: você ou o corretor precisa mandar a comprovação dos débitos em até 60 dias depois da proposta. Essa regra vale só para o condomínio; para o IPTU, vale o que o anúncio disser.
 
-- Você pode fazer a melhor proposta parcelada e perder para uma proposta à vista menor.
-- A proposta parcelada precisa ser escrita e formalizada nos autos. Lance eletrônico sem a proposta escrita já levou a arrematação a ser anulada.
-- Se você atrasar as parcelas, o juiz pode determinar a resolução da arrematação, com perda dos valores pagos e retorno do bem à execução.
+Nessas duas formas de venda, mais dois pontos pedem atenção. Dívida que ficar pendurada pode atrasar o registro no cartório. E, se quem compra é quem mora no imóvel, o antigo dono ou um parente direto dele (pais, filhos, avós, netos, bisavós ou bisnetos), as dívidas de IPTU, condomínio, água e outras taxas ficam com essa pessoa.
 
-**Base legal.** [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm), art. 895, *caput* e §§ 1º, 4º, 5º e 7º.
+Em qualquer forma de venda, peça os valores ao condomínio e à prefeitura antes da proposta e coloque na conta.
 
-## E se eu der o lance e desistir? Perco o dinheiro? {judicial}
+## Dá para não pagar ITBI e cartório?
 
-**Resposta direta.** Em regra, sim — a arrematação judicial é perfeita, acabada e irretratável a partir da assinatura do auto, e o não pagamento leva à resolução com perda da caução. Mas o CPC prevê hipóteses expressas em que o arrematante **pode desistir e receber de volta o depósito**.
+**Resposta direta.** Dá, em alguns imóveis da venda online da Caixa que entram na campanha "Comprou, Registrou", que paga o ITBI, a escritura (quando houver) e o registro. O imóvel da campanha aparece identificado na descrição do anúncio.
 
-**As hipóteses de desistência sem perda:**
+Ela tem limites. A compra precisa ser à vista, só com dinheiro próprio, sem FGTS e sem financiamento. Certidões e outras taxas continuam com você. E a campanha vale enquanto estiver em vigor e enquanto houver imóveis dentro do limite que a Caixa definiu.
 
-1. Se provar, nos dez dias seguintes, a existência de **ônus real ou gravame não mencionado no edital**;
-2. Se, antes de expedida a carta de arrematação ou a ordem de entrega, o executado alegar alguma das situações que permitem invalidar, tornar ineficaz ou resolver a arrematação;
-3. Uma vez citado para responder à ação autônoma de invalidação, desde que apresente a desistência no prazo de que dispõe para responder.
+Fora da campanha, o ITBI e o cartório são seus. A alíquota do ITBI muda de cidade para cidade, e o valor da escritura e do registro muda de estado para estado, então a conta certa sai da prefeitura e do cartório da cidade do imóvel.
 
-E há uma proteção adicional: quem suscitar vício infundado com o objetivo de provocar a desistência do arrematante comete ato atentatório à dignidade da justiça, sujeito a multa de até 20% do valor atualizado do bem, além de perdas e danos.
+## Leilão ou venda online: quanto muda no mesmo preço?
 
-**Base legal.** [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm), art. 903, *caput*, § 1º, III, § 5º, I a III, e § 6º.
+**Resposta direta.** No leilão, a comissão de 5% e as dívidas que o edital deixa com você entram na conta. Na venda online, sem comissão e com o anúncio sem falar do condomínio, a mesma compra pode sair mais barata.
 
-**Na prática.** A hipótese 1 é a mais relevante e a menos conhecida. Por isso, a matrícula atualizada também precisa ser consultada logo após a arrematação, e não só antes — o prazo é de dez dias e não se recupera.
+**Exemplo ilustrativo.** Imagine o mesmo imóvel por R$ 200.000, numa cidade em que o ITBI fosse de 2%, com R$ 5.000 de condomínio atrasado:
 
-## Quem paga o ITBI e sobre qual valor?
+| Custo | No leilão | Na venda online, anúncio sem falar do condomínio |
+| --- | --- | --- |
+| Preço | R$ 200.000 | R$ 200.000 |
+| Comissão do leiloeiro (5%) | R$ 10.000 | Não tem |
+| ITBI (2%, alíquota hipotética) | R$ 4.000 | R$ 4.000 |
+| Escritura e registro (valor hipotético) | R$ 4.000 | R$ 4.000 |
+| Condomínio atrasado (valor hipotético) | R$ 5.000, com você | A Caixa paga, com a comprovação no prazo |
+| Reforma (valor hipotético) | R$ 8.000 | R$ 8.000 |
+| **Total** | **R$ 231.000** | **R$ 216.000** |
 
-**Resposta direta.** O ITBI é do comprador — no caso, do arrematante. Quanto à base de cálculo, o STJ firmou no Tema 1113 que a base do ITBI é o valor do imóvel transmitido em condições normais de mercado, presumindo-se que o valor da transação declarado pelo contribuinte é condizente com o valor de mercado, presunção que só pode ser afastada pelo fisco mediante regular processo administrativo. Aplicando essa lógica, a jurisprudência dos tribunais estaduais tem reconhecido que, na arrematação, a base é o **valor da arrematação** — não a planta genérica nem o valor venal do IPTU.
+No mesmo preço, o leilão saiu R$ 15.000 mais caro. Na vida real, o preço também muda de uma forma de venda para outra, e cada anúncio tem a própria regra para as dívidas. A comparação só vale com os números do imóvel que você está olhando.
 
-**O detalhe.** Isso resolve um problema caro e frequente: o imóvel é arrematado por R$ 400 mil e a prefeitura emite a guia sobre um valor de referência de R$ 700 mil. Segundo o Tema 1113, a base do ITBI não está vinculada à base do IPTU, que não pode sequer ser usada como piso.
+## Por onde começar?
 
-Vale registrar o alcance exato dessa tese: o Tema 1113 não trata especificamente de arrematação — foi firmado sobre compra e venda em geral. A aplicação ao leilão vem da jurisprudência dos tribunais estaduais e de precedentes anteriores do STJ.
+**Resposta direta.** Para saber quanto custa comprar imóvel em leilão de verdade, comece pelo anúncio do imóvel no [site de venda de imóveis da Caixa](https://venda-imoveis.caixa.gov.br): ele diz a forma de venda, as formas de pagamento e quem paga as dívidas. Com isso, monte a conta item por item antes de qualquer proposta.
 
-Quem já pagou a mais pode pedir restituição, na via administrativa ou judicial, no prazo de cinco anos contados do recolhimento.
+Antes da proposta, peça também no cartório, por sua conta, a matrícula atualizada e a certidão de ônus do imóvel (o documento que mostra penhoras e outras restrições sobre ele). A Caixa avisa que pode existir ação na Justiça, penhora ou outro registro sobre o imóvel mesmo sem estar no anúncio ou no edital, e, no leilão, cancelar um registro desses fica por sua conta e custo. Se o plano é morar, a ordem completa dos passos está em [comprar imóvel de leilão para morar](/blog/comprar-imovel-de-leilao-para-morar/).
 
-**Base legal.** STJ, [Tema 1113](https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?novaConsulta=true&tipo_pesquisa=T&cod_tema_inicial=1113&cod_tema_final=1113) (REsp 1.937.821); [CTN](https://www.planalto.gov.br/ccivil_03/leis/l5172compilado.htm), arts. 148, 165 e 168, I.
-
-## Quando o ITBI é devido: na arrematação ou no registro?
-
-**Resposta direta.** O fato gerador jurídico do ITBI ocorre com o **registro** do título no cartório de registro de imóveis — não com o lance, nem com o auto, nem com a expedição da carta de arrematação. Mas isso não significa que você só pague depois de registrar: o próprio CPC exige prova do recolhimento para expedir a carta, e leis municipais podem fixar vencimento anterior ao registro.
-
-**O detalhe.** A formulação correta, e que quase ninguém publica com essa clareza, é esta:
-
-> O fato gerador ocorre no registro, mas o recolhimento pode ser exigido antecipadamente pelo procedimento judicial e pela legislação municipal.
-
-Em Curitiba, por exemplo, a Lei Complementar municipal nº 108/2017, no art. 12, III, exige o pagamento em até 30 dias da arrematação judicial e antes da assinatura da carta.
-
-**Consequência prática relevante:** se a transmissão não chegar a ser registrada, há fundamento para pedir a restituição do imposto recolhido antecipadamente.
-
-**Base.** [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm), art. 901, § 2º (prova do recolhimento para expedição da carta). STJ, AgInt no REsp 2.008.029/SP. Lei Complementar municipal de Curitiba nº 108/2017, art. 12, III.
-
-## No leilão extrajudicial o ITBI é cobrado duas vezes? {extrajudicial}
-
-**Resposta direta.** Há dois recolhimentos, mas não é bitributação: são duas transmissões sucessivas e distintas. O primeiro incide quando o credor fiduciário consolida a propriedade em seu nome. O segundo, quando ele vende o imóvel ao arrematante.
-
-**O detalhe.** A Lei 9.514 exige a comprovação do pagamento do ITBI para registrar a consolidação — é o credor que paga esse primeiro, e ele costuma incorporar o valor às despesas da excussão. A venda posterior ao arrematante é nova transmissão onerosa, gerando ITBI próprio, normalmente suportado pelo adquirente conforme a lei municipal e o edital.
-
-O STJ entende que a simples constituição da garantia fiduciária não gera ITBI, mas a consolidação plena no patrimônio do credor, sim.
-
-**Base.** [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), art. 26, § 7º. STJ, REsp 1.844.279/DF e AgInt no AREsp 1.886.290/SP.
-
-**Na prática.** Isso importa porque o primeiro ITBI entra nas despesas que compõem o lance mínimo do segundo leilão e o valor do direito de preferência do devedor. E vale conferir campanhas do vendedor: existem programas em que a Caixa assume ou reembolsa ITBI e registro — o que muda o ônus econômico, não necessariamente quem é o contribuinte na lei municipal.
-
-O passo a passo geral está em [como funciona um leilão de imóveis](/blog/como-funciona-leilao-de-imoveis/).
+Juntar comissão, ITBI, cartório e dívidas de cada imóvel dá trabalho. Quando for lançado, o Argos vai mostrar o total até a chave do imóvel que você escolheu e se ele está ocupado, e vai trazer a consulta das dívidas de condomínio e IPTU. A alíquota do ITBI e o valor do cartório, quem confirma são a prefeitura e o cartório da cidade.
