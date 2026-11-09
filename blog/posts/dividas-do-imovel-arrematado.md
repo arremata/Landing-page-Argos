@@ -1,112 +1,120 @@
 ---
-title: "Arrematei o imóvel: eu pago as dívidas de IPTU e condomínio?"
+title: "Imóvel da Caixa com dívida de condomínio: quem paga?"
 slug: "dividas-do-imovel-arrematado"
-description: "O que o STJ decidiu sobre IPTU e dívidas de condomínio do imóvel arrematado, o que muda conforme o edital e como calcular o risco antes do lance."
-keywordPrincipal: "dívida de condomínio imóvel arrematado"
+description: "Imóvel da Caixa com dívida de condomínio ou IPTU: veja quem paga no leilão e na venda online, e como fazer a Caixa pagar a parte dela no prazo."
+keywordPrincipal: "imóvel da Caixa com dívida de condomínio"
 publishedAt: "2026-09-17"
-updatedAt: "2026-10-19"
+updatedAt: "2026-11-09"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
-reviewedAt: "2026-09-17"
+reviewedAt: "2026-11-09"
 reviewType: "Revisão editorial e checagem de fontes"
 sources:
-  - title: "Código Tributário Nacional — Lei 5.172/1966"
-    url: "https://www.planalto.gov.br/ccivil_03/leis/l5172compilado.htm"
-  - title: "Código de Processo Civil — Lei 13.105/2015"
-    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm"
-  - title: "STJ — Tema Repetitivo 1.134"
-    url: "https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?novaConsulta=true&tipo_pesquisa=T&cod_tema_inicial=1134&cod_tema_final=1134"
+  - title: "Caixa: Regras da Venda Online de Imóveis"
+    url: "https://www.caixa.gov.br/Downloads/habitacao-documentos-gerais/regras-da-venda-online-imoveis-caixa.pdf"
+  - title: "Caixa: Perguntas frequentes sobre Imóveis à venda"
+    url: "https://www.caixa.gov.br/voce/habitacao/imoveis-venda/perguntas-frequentes/Paginas/default.aspx"
+  - title: "Caixa: Edital de Leilão Público nº 0048/0226 (outubro de 2026)"
+    url: "https://venda-imoveis.caixa.gov.br/editais/EL00480226CPARE.PDF"
+  - title: "Caixa: Cartilha do Arrematante para Leilão e Licitação Aberta (abril de 2026)"
+    url: "https://www.caixa.gov.br/Downloads/habitacao-documentos-gerais/cartilha-arrematante-leila-la.pdf"
 cluster: "maior dor"
-modalidade: ambos
+modalidade: extrajudicial
 relacionados:
   - quanto-custa-comprar-imovel-em-leilao
+  - leilao-de-imoveis-da-caixa-como-funciona
   - como-ler-edital-de-leilao-e-matricula
-  - leilao-extrajudicial-de-imoveis
 status: published
-tags: ["IPTU", "condomínio", "dívidas", "Tema 1134"]
+tags: ["condomínio", "IPTU", "dívidas", "imóveis da Caixa"]
+faq:
+  - q: "Quem paga a dívida de condomínio de imóvel arrematado em leilão da Caixa?"
+    a: "No leilão da Caixa, quem compra. As dívidas de condomínio e IPTU ficam com você, a não ser que o edital e o anúncio digam expressamente que a Caixa paga tudo ou uma parte."
+  - q: "Posso pagar o condomínio atrasado e pedir o dinheiro de volta para a Caixa?"
+    a: "Na venda online e na compra direta, só com autorização prévia e formal da Caixa. Sem ela, a Caixa não devolve dívida paga por quem comprou ou por outra pessoa. Quando a dívida é da Caixa, o caminho é mandar a comprovação pelo Atender Habitação em até 60 dias da proposta; depois da aprovação, o corretor manda o boleto."
+  - q: "A Caixa paga condomínio que venceu depois que eu comprei?"
+    a: "Na venda online e na compra direta, não. As dívidas que surgem depois da assinatura do contrato de financiamento, ou depois de você quitar a compra à vista, ficam fora da conta da Caixa, e ela também não entra nas dívidas prescritas."
+  - q: "Eu moro no imóvel que a Caixa retomou. As dívidas são minhas se eu comprar?"
+    a: "Na venda online e na compra direta, sim. Se quem compra é quem mora no imóvel, o antigo dono ou um parente direto dele, as dívidas de IPTU, condomínio, água, esgoto e outras taxas, vencidas e a vencer, ficam com essa pessoa."
 ---
 
-## Arrematei um imóvel: preciso pagar o IPTU atrasado?
+Achou um imóvel da Caixa com dívida de condomínio e travou? É normal travar aqui. A resposta muda com a forma de venda, e a Caixa escreveu a regra de cada uma: no leilão, a dívida fica com você; na venda online e na compra direta, o anúncio diz, e quando o anúncio e a proposta não falam do condomínio, quem paga é a Caixa, com prazo e exceções explicados abaixo.
 
-**Resposta direta.** No leilão judicial, os débitos tributários anteriores sub-rogam-se no preço da arrematação. O [Tema 1134 do STJ](https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?novaConsulta=true&tipo_pesquisa=T&cod_tema_inicial=1134&cod_tema_final=1134) invalida a cláusula que os transfere ao arrematante, observada a modulação explicada abaixo. Não estenda automaticamente essa resposta ao leilão extrajudicial de imóveis retomados por bancos.
+As regras abaixo foram conferidas em 25 de outubro de 2026 nas regras da venda online, no edital de leilão e nas perguntas frequentes da Caixa. Confira sempre o anúncio e o edital do seu imóvel.
 
-**O detalhe.** O raciocínio do STJ: o art. 130 do CTN distingue dois modos de aquisição. Na venda comum, a aquisição é derivada e o adquirente recebe o bem com os ônus que o acompanham. Na arrematação em hasta pública, a aquisição é **originária** — o bem chega ao arrematante livre dos vínculos anteriores, e o crédito tributário se transfere para o dinheiro pago no leilão. Como a responsabilidade tributária de terceiros é matéria reservada a lei complementar, um edital não pode dispor em sentido contrário.
+## Imóvel da Caixa com dívida de condomínio: a dívida fica com você?
 
-**Dados do precedente.** Tema 1134 do STJ. Leading cases: REsp 1.914.902/SP, REsp 1.944.757/SP e REsp 1.961.835/SP. Primeira Seção. Mérito julgado em 09/10/2024, acórdão publicado em 24/10/2024, trânsito em julgado em 12/12/2024. Tese aprovada por unanimidade.
+**Resposta direta.** Fica com você no leilão e na licitação aberta da Caixa, a não ser que o edital e o anúncio digam expressamente que a Caixa paga tudo ou uma parte. Na venda online e na compra direta, vale o que está no anúncio daquele imóvel e nas regras da venda online, e a Caixa pode pagar tudo, uma parte ou nada.
 
-**A modulação — e ela importa.** O STJ modulou os efeitos: a tese deve ser observada pelos **editais de leilão publicizados após a publicação da ata de julgamento** do recurso, ressalvadas as ações judiciais e os pedidos administrativos pendentes de apreciação, para os quais a tese se aplica de imediato. Ou seja: para editais antigos, a discussão é mais complexa.
+Quando se fala em dívida do imóvel, são duas: o [condomínio](/dicionario/condominio) atrasado e o [IPTU](/dicionario/iptu) atrasado. O edital de leilão da Caixa de outubro de 2026 avisa quem compra, morando ou não no imóvel, que pode haver dívida de IPTU e de condomínio, inclusive de cotas extras do condomínio.
 
-**Na prática.** Se o edital diz que o IPTU atrasado é seu, e o edital foi publicado depois da modulação, essa cláusula é inválida segundo o precedente vinculante. Isso não significa que a prefeitura não vá cobrar — significa que existe um fundamento sólido e vinculante para não pagar.
+| Forma de venda | Quem paga condomínio e IPTU atrasados | Onde conferir |
+| --- | --- | --- |
+| Leilão | Você, a não ser que o edital e o anúncio digam expressamente que a Caixa paga tudo ou uma parte | Edital e anúncio |
+| Licitação aberta | Você, a não ser que o edital e o anúncio digam expressamente que a Caixa paga tudo ou uma parte | Edital e anúncio |
+| Venda online e compra direta | O que o anúncio disser; condomínio sem menção no anúncio e na proposta fica com a Caixa | Anúncio e regras da venda online |
 
-Atenção a um limite importante: os recursos julgados no Tema 1134 tratam de alienação judicial em hasta pública. A extensão dessa tese ao [leilão extrajudicial](/blog/leilao-extrajudicial-de-imoveis/) da Lei 9.514/1997 ainda não foi decidida pelo STJ, e por isso o caminho seguro nesse caso é considerar o débito no cálculo do lance.
+Se você ainda não sabe em qual forma de venda o imóvel está, veja [como funciona cada modalidade da Caixa](/blog/leilao-de-imoveis-da-caixa-como-funciona/). E, para achar onde o edital fala das dívidas, há um guia de [como ler o edital e a matrícula](/blog/como-ler-edital-de-leilao-e-matricula/).
 
-## E a dívida de condomínio anterior? Também não é minha? {judicial}
+## Quando o anúncio não fala do condomínio, quem paga?
 
-**Resposta direta.** Aqui a resposta é diferente, e é preciso honestidade. A dívida de condomínio **não é tributo**, e o Tema 1134 não a alcança. O entendimento predominante no STJ é que, **havendo previsão expressa no edital**, o arrematante responde pelos débitos condominiais anteriores, porque teve ciência inequívoca antes de dar o lance.
+**Resposta direta.** Na venda online e na compra direta, a Caixa paga a dívida de condomínio inteira quando o anúncio e a proposta não falam dela, desde que se cumpram as condições das regras da venda online.
 
-**O detalhe.** Quando o edital é **omisso** sobre os débitos condominiais, existe fundamento relevante para sustentar a sub-rogação no preço: o art. 908, § 1º, do CPC/2015 determina que os créditos que recaem sobre o bem, inclusive os de natureza *propter rem*, sub-rogam-se sobre o respectivo preço, observada a ordem de preferência.
+Repare que essa garantia é só para o condomínio. Para o IPTU, as regras não trazem a mesma frase: se o anúncio não diz quem paga o imposto atrasado, pergunte ao corretor antes da proposta. O corretor credenciado pela Caixa não cobra de você; quem paga a comissão dele é a Caixa.
 
-**As duas correntes, porque a questão não está pacificada:**
+Quando o anúncio diz que as dívidas são suas, no todo ou em parte, descobrir o valor e pagar é tarefa só sua.
 
-- A **1ª corrente**, hoje predominante no STJ, responsabiliza o arrematante quando há previsão no edital ou ciência inequívoca. Referências: REsp 2.042.756/SP, 3ª Turma, decidido por três votos a dois; e REsp 2.158.500/SP, 3ª Turma, dezembro de 2025, este por unanimidade.
-- A **2ª corrente**, sustentada nos votos vencidos e por parte relevante da doutrina, aplica o art. 908, § 1º, do CPC e sustenta que a cláusula editalícia não pode contrariar norma cogente de sub-rogação.
+## Como fazer a Caixa pagar a dívida na venda online e na compra direta?
 
-Uma circunstância processual limita o alcance do precedente predominante e merece ser mencionada: em julgados centrais dessa linha, o art. 908, § 1º — dispositivo decisivo para a matéria — **não foi analisado no mérito por ausência de prequestionamento**.
+**Resposta direta.** A Caixa paga a parte dela depois que você ou o corretor manda a comprovação da dívida pelo Atender Habitação, o canal da Caixa para isso, em até 60 dias depois da proposta.
 
-**O que aconteceu em 2026.** Em 13 de maio de 2026, a **2ª Seção do STJ julgou o AgInt nos EREsp 2.042.756/SP** (acórdão publicado em 18/05/2026). Era a oportunidade natural de uniformizar. Mas a Seção apenas manteve o indeferimento dos embargos por ausência de similitude fática e de divergência atual. Não julgou quem deve pagar, não resolveu o conflito com o art. 908, § 1º e não fixou tese vinculante.
+O caminho, na ordem das regras:
 
-Ou seja: **a esperada uniformização de 2026 não veio.** A orientação contra o arrematante ficou mais firme quando o débito consta do edital, mas permanece jurisprudência de Turma, sem solução de mérito para o art. 908, § 1º. No levantamento encerrado em agosto de 2026, não havia afetação repetitiva nem IAC sobre o tema, e a Corte Especial não havia se manifestado.
+1. **Junte a comprovação da dívida.** Quem levanta os documentos é você ou o corretor, com o condomínio ou a prefeitura.
+2. **Mande pelo Atender Habitação** (atenderhabitacao.caixa.gov.br) em até 60 dias depois da data da proposta.
+3. **Espere a Caixa analisar.** Aprovada a documentação, o corretor manda o boleto da dívida, com vencimento de 20 dias contados do envio.
+4. **A Caixa paga** em até 120 dias, contados de quando recebe toda a documentação.
 
-**Regra prática atual:**
+Na conta da Caixa entra o valor que de fato se cobra na data da análise, já com descontos, anistias, programas de renegociação de impostos ou acordos que o condomínio ou a prefeitura tenham dado. E, quando a dívida de condomínio é dela, a Caixa pode negociar ou ir à Justiça para evitar cobrança abusiva.
 
-| Cenário | Risco |
-|---|---|
-| Dívida informada no edital, ou ciência inequívoca do arrematante | **Alto** risco de responsabilização |
-| Edital silencioso | O art. 908, § 1º oferece fundamento forte para a sub-rogação no preço — mas a relação dessa norma com a jurisprudência recente segue sem precedente qualificado |
+## O que a Caixa não paga, mesmo quando a dívida é dela?
 
-**Na prática, e este é o conselho útil:** trate a dívida condominial prevista no edital como custo seu ao calcular o lance. Se depois for possível discutir, é ganho. O contrário é prejuízo — e é o erro mais caro do mercado.
+**Resposta direta.** Na venda online e na compra direta, a Caixa não paga dívida prescrita, dívida que surgiu depois da sua compra nem dívida que você quitou por conta própria sem autorização prévia e formal dela.
 
-## O que significa "sub-rogação no preço"? {judicial}
+Os limites das regras da venda online, um por um:
 
-**Resposta direta.** Significa que a dívida deixa de perseguir o imóvel e passa a perseguir o dinheiro pago no leilão. O valor arrecadado é usado para pagar os credores, na ordem de preferência da lei. O imóvel chega ao arrematante limpo daquele débito.
+- **Depois da compra:** o que surge depois da assinatura do contrato de financiamento, ou depois de você quitar a compra à vista, não entra na conta da Caixa.
+- **Prescrita ou muito antiga:** a dívida prescrita (antiga demais para ser cobrada) não entra na conta da Caixa, e pedir a baixa das dívidas de condomínio prescritas e das vencidas há mais de 5 anos é tarefa sua, junto com o corretor.
+- **Pagou antes da autorização:** a Caixa não devolve. Por isso, antes de pagar o condomínio para ficar em paz com os vizinhos, peça ao corretor o caminho para ter a autorização da Caixa por escrito.
+- **Você mora no imóvel ou é da família do antigo dono:** se quem compra é o ocupante, o antigo dono ou um parente direto dele (pais, filhos, avós, netos, bisavós ou bisnetos), as dívidas de IPTU, condomínio, água, esgoto e outras taxas, vencidas e a vencer, ficam com essa pessoa.
+- **Loteamento com associação:** em condomínio administrado por associação, a Caixa só paga o que venceu depois que a associação foi registrada na [matrícula](/dicionario/matricula) do imóvel.
 
-**Base legal.** [CTN](https://www.planalto.gov.br/ccivil_03/leis/l5172compilado.htm), art. 130, parágrafo único (tributos, na arrematação em hasta pública). [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm), art. 908, § 1º (créditos que recaem sobre o bem, inclusive *propter rem*).
+## E se a dívida ficar pendurada?
 
-## E se o valor da arrematação não for suficiente para pagar as dívidas? {judicial}
+**Resposta direta.** As regras da venda online avisam que dívida de condomínio ou IPTU sem pagar pode atrasar o registro do imóvel no seu nome, impedir por um tempo que você participe das assembleias do condomínio e levar a prefeitura a cobrar o imposto na Justiça.
 
-**Resposta direta.** Na lógica da sub-rogação, o arrematante não responde pelo saldo que sobrar. A sub-rogação transfere a dívida para o preço; se o preço não cobre tudo, o crédito remanescente continua sendo do credor contra o devedor original, não contra quem arrematou.
+Enquanto o registro não sai, você já pode estar pagando as prestações do financiamento, e a Caixa não devolve prestações nem juros pagos até o registro sair.
 
-## Como descubro as dívidas antes de dar o lance?
+Para o que o edital e o anúncio não resolvem, ainda não existe uma regra única sobre condomínio e IPTU atrasados em leilão extrajudicial. O tratamento varia de edital para edital, e o seguro é colocar esse valor na conta antes de decidir.
 
-**Resposta direta.** Quatro documentos resolvem a maior parte: a certidão atualizada da [matrícula](/dicionario/matricula) no cartório de registro de imóveis, a certidão de débitos do imóvel na prefeitura, a declaração de débitos junto ao [condomínio](/dicionario/condominio) ou administradora, e o próprio [edital](/dicionario/edital), que deve informar os ônus incidentes sobre o bem.
+## Quanto pesa a dívida na conta?
 
-**Base legal.** O [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm) determina que constem do edital os ônus incidentes sobre o imóvel — art. 886, VI.
+**Resposta direta.** Pesa o valor inteiro quando a dívida é sua. Quando a Caixa paga e você manda a comprovação no prazo, aquela parte sai da sua conta.
 
-**Na prática.** O edital é ponto de partida, não ponto final. Edital incompleto não te protege sozinho; a matrícula, sim, é onde estão os ônus reais registrados. E se aparecer ônus não mencionado no edital, você tem dez dias para desistir e recuperar o depósito no leilão judicial. Como ler os dois documentos está em [como ler o edital e a matrícula](/blog/como-ler-edital-de-leilao-e-matricula/).
+**Exemplo ilustrativo.** Imagine um imóvel de R$ 180.000 com R$ 4.800 de condomínio atrasado e R$ 1.200 de IPTU atrasado (valores hipotéticos):
 
-## E as dívidas de água, luz e gás do antigo morador?
+| Situação | Dívidas que ficam com você | Imóvel mais dívidas |
+| --- | --- | --- |
+| No leilão | R$ 4.800 de condomínio e R$ 1.200 de IPTU | R$ 186.000 |
+| Na venda online, anúncio e proposta sem falar do condomínio e com o IPTU por conta de quem compra | R$ 1.200 de IPTU; os R$ 4.800 a Caixa paga, com a comprovação no prazo | R$ 181.200 |
 
-**Resposta direta.** Em regra, não são suas. Débitos de água e de energia elétrica são **obrigações pessoais do consumidor anterior**, não obrigações *propter rem* que acompanham o imóvel. A concessionária não pode cobrá-los do novo adquirente nem condicionar a nova ligação ou a alteração de titularidade ao pagamento dessa dívida.
+Se a proposta dessa venda online fosse feita em 10 de março, a comprovação do condomínio teria que ser enviada até 9 de maio.
 
-**Base.** Entendimento reiterado do STJ, entre outros no AREsp 1.557.116.
+Esses números ainda não incluem ITBI, cartório e, no leilão, a comissão do leiloeiro. A lista completa está em [quanto custa comprar imóvel em leilão](/blog/quanto-custa-comprar-imovel-em-leilao/).
 
-**O detalhe — as exceções que importam:**
+## Como colocar a dívida na conta antes da proposta?
 
-- Quem pede a religação é o próprio consumidor devedor.
-- Há fraude ou mera alteração formal de titularidade para escapar da dívida.
-- O proprietário permaneceu como contratante do serviço durante o período.
-- **Água coletiva cobrada do condomínio** e incorporada às cotas condominiais. Nesse caso o problema muda de natureza: deixa de ser dívida de concessionária e vira dívida condominial, com todas as regras da pergunta anterior.
+**Resposta direta.** Leia no anúncio e no edital quem paga, peça os valores ao condomínio e à prefeitura e some ao preço antes de fazer a proposta.
 
-**Sobre o gás canalizado, uma ressalva.** Não há precedente do STJ enfrentando especificamente a situação do novo proprietário diante de débito de gás do antigo ocupante. A tendência jurídica é aplicar a mesma natureza pessoal e contratual reconhecida para água e energia, mas isso é uma inferência — sujeita à regulamentação e ao contrato da distribuidora local, e não um entendimento consolidado.
+Para procurar o imóvel e ler o anúncio, use o [site de venda de imóveis da Caixa](https://venda-imoveis.caixa.gov.br). A informação de [quem paga as despesas](/dicionario/quem-paga-despesas) fica na página do anúncio e é o primeiro lugar para olhar.
 
-**Na prática.** Se a concessionária se recusar a religar, o caminho é administrativo primeiro: registre o pedido por escrito, apresente o título de aquisição e invoque a natureza pessoal do débito anterior. É um problema que costuma se resolver sem litígio.
-
-## As hipotecas e penhoras anteriores continuam valendo? {judicial}
-
-**Resposta direta.** Em regra, não — a arrematação judicial é forma originária de aquisição e os gravames anteriores são cancelados, desde que os respectivos credores tenham sido regularmente cientificados da alienação. É justamente por isso que a lei exige a intimação prévia do credor hipotecário e dos titulares de outros direitos sobre o bem.
-
-**O detalhe.** O CPC determina que sejam cientificados da alienação judicial, com pelo menos cinco dias de antecedência, o executado e um rol de terceiros com relação jurídica sobre o bem — entre eles o credor com garantia real ou penhora averbada. A falta dessa intimação é causa de **ineficácia** da arrematação em relação ao credor não intimado.
-
-**Base legal.** [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm), art. 889 e incisos; art. 903, § 1º, II, combinado com o art. 804.
-
-**Na prática.** Verificar se todos os credores foram intimados é uma das checagens mais rentáveis antes do lance. Falha aqui é o vício mais comum em [anulação de arrematação](/blog/anulacao-de-arrematacao-riscos/). Se o imóvel estiver ocupado, o custo e o prazo dessa outra frente estão em [imóvel de leilão ocupado](/blog/imovel-de-leilao-ocupado-desocupacao/). E o panorama geral do processo está em [como funciona um leilão de imóveis](/blog/como-funciona-leilao-de-imoveis/).
+Descobrir o valor de cada dívida, imóvel por imóvel, dá trabalho. Quando for lançado, o Argos vai mostrar o total até a chave do imóvel que você escolheu e se ele está ocupado, e vai trazer a consulta das dívidas de condomínio e IPTU. Quem confirma o valor final são o condomínio e a prefeitura.
