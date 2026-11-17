@@ -1,108 +1,106 @@
 ---
-title: "Imóvel de leilão ocupado: como funciona a desocupação, prazos e custos"
+title: "Imóvel de leilão ocupado: como funciona a desocupação"
 slug: "imovel-de-leilao-ocupado-desocupacao"
-description: "O que fazer quando o imóvel arrematado está ocupado: imissão na posse, reintegração, prazos legais, negociação amigável e custos reais."
+description: "Imóvel de leilão ocupado: como quem mora lá sai, o prazo de 60 dias, a regra do inquilino, quem responde pelas contas e a taxa de ocupação."
 keywordPrincipal: "imóvel de leilão ocupado"
 publishedAt: "2026-09-23"
-updatedAt: "2026-10-19"
+updatedAt: "2026-11-17"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
-reviewedAt: "2026-09-23"
+reviewedAt: "2026-11-17"
 reviewType: "Revisão editorial e checagem de fontes"
 sources:
-  - title: "Código de Processo Civil — Lei 13.105/2015"
-    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm"
-  - title: "Alienação fiduciária de imóveis — Lei 9.514/1997"
-    url: "https://www.planalto.gov.br/ccivil_03/leis/l9514.htm"
-  - title: "CNJ — Resolução 236/2016"
-    url: "https://atos.cnj.jus.br/atos/detalhar/2313"
+  - title: "Lei 9.514/1997, com as mudanças da Lei 14.711/2023 (texto compilado no portal de legislação do Senado)"
+    url: "https://legis.senado.leg.br/norma/551390/publicacao/34619692"
+  - title: "Lei 14.711/2023 (portal de legislação do Senado)"
+    url: "https://legis.senado.leg.br/norma/37756699"
 cluster: "maior dor"
-modalidade: ambos
+modalidade: extrajudicial
 relacionados:
-  - leilao-extrajudicial-de-imoveis
-  - quanto-custa-comprar-imovel-em-leilao
+  - comprar-imovel-de-leilao-para-morar
+  - imoveis-retomados-da-caixa
   - dividas-do-imovel-arrematado
 status: published
-tags: ["imóvel ocupado", "imissão na posse", "desocupação"]
+tags: ["imóvel ocupado", "desocupação", "imóveis da Caixa"]
+faq:
+  - q: "Posso comprar imóvel da Caixa ocupado?"
+    a: "Pode. A regra dá a quem compra no leilão o direito de pedir na Justiça a reintegração na posse quando há alguém morando lá. Mas muda a conta: entre o lance e a chave entra o tempo da saída de quem mora lá, que varia de caso para caso e não tem média oficial."
+  - q: "Quanto tempo a pessoa tem para sair depois da ordem do juiz?"
+    a: "Na reintegração na posse de um imóvel que veio de financiamento com alienação fiduciária, a ordem dá 60 dias para desocupar. Antes dela vem o tempo do pedido na Justiça."
+  - q: "O inquilino tem direito de ficar até o fim do contrato?"
+    a: "Nem sempre. A regra permite encerrar o aluguel com 30 dias para sair, se o banco não concordou por escrito com ele, com aviso feito em até 90 dias do registro do imóvel no nome do banco e com essa condição numa cláusula própria, destacada, no contrato. E aluguel de mais de 1 ano feito sem a concordância escrita do banco não vale contra ele nem contra quem o suceder."
+  - q: "Quem compra o imóvel pode cobrar a taxa de ocupação?"
+    a: "A regra diz que o antigo dono paga a taxa ao banco ou a quem o suceder, sem dizer com todas as letras se isso inclui quem compra no leilão. Não conte com esse dinheiro na sua conta."
 ---
 
-## O que significa comprar um imóvel de leilão ocupado?
+Um imóvel de leilão ocupado pode ser comprado, mas a chave não vem junto com o lance. Se quem mora lá não sai por conta própria, a saída passa pela Justiça: no imóvel que veio de financiamento com [alienação fiduciária](/dicionario/alienacao-fiduciaria), a ordem pode sair logo no começo do pedido, com 60 dias para desocupar. O tempo total varia, e é ele que entra na sua conta.
 
-**Resposta direta.** É uma situação comum e não impede a compra — mas muda completamente o cálculo. A [desocupação](/dicionario/desocupacao) tem prazo e custo. O caminho muda conforme o tipo de leilão: no judicial, o mandado de imissão na posse; no extrajudicial de alienação fiduciária, a reintegração de posse com liminar prevista em lei.
+*Regras conferidas em 17 de novembro de 2026 no portal de legislação do Senado.*
 
-O status [ocupado](/dicionario/ocupado) informa a situação descrita pelo vendedor. Antes do lance, a ficha e o [edital](/dicionario/edital) ajudam a identificar quem responde pela entrega da posse, se há visita interna e quais despesas entram no planejamento.
+## O que muda num imóvel de leilão ocupado?
 
-## Comprar o imóvel garante receber as chaves imediatamente?
+**Resposta direta.** Num imóvel de leilão [ocupado](/dicionario/ocupado), muda o prazo até a chave e muda a conta. A compra pode acontecer, mas entre o lance e a mudança entra a saída de quem mora lá, que pode ser o [antigo dono](/dicionario/antigo-dono) ou um inquilino dele.
 
-**Resposta direta.** Não. O lance vencedor, o pagamento, o [registro no cartório](/dicionario/registro-cartorio) e a posse efetiva são etapas distintas. Se a desocupação ficar com você, considere o procedimento de entrega, o tempo de espera e eventuais gastos com moradia provisória.
+É normal travar quando o anúncio diz "ocupado". A pergunta que vem é "e se a pessoa não quiser sair?", e ela tem resposta: existe um caminho com regras próprias para esse caso.
 
-## Como funciona a imissão na posse no leilão judicial? {judicial}
+Tudo o que vem a seguir vale para o imóvel que o banco retomou de um financiamento com alienação fiduciária. Nesse financiamento, o imóvel fica no nome do banco até a dívida acabar. Se a dívida não é paga, a propriedade passa de vez para o banco, com registro na [matrícula](/dicionario/matricula), e o imóvel vai a leilão. Esse caminho está explicado em [imóveis retomados da Caixa](/blog/imoveis-retomados-da-caixa/).
 
-**Resposta direta.** Passado o prazo de dez dias sem alegação de vício, é expedida a carta de arrematação e, conforme o caso, a ordem de entrega ou o **mandado de imissão na posse**. Com ele, o oficial de justiça é quem executa a entrega do imóvel.
+## Como funciona a desocupação de imóvel de leilão?
 
-**Base legal.** [CPC](https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm), art. 903, § 3º; art. 901, § 1º.
+**Resposta direta.** Quando quem mora lá não sai por conta própria, a desocupação de imóvel de leilão que veio de financiamento com alienação fiduciária pode passar pela reintegração na posse: o pedido à Justiça para o imóvel ser entregue a quem tem direito a ele. Quem compra no leilão tem esse direito. Quem leva o imóvel a leilão é o banco; o que pode precisar de um pedido na Justiça é a saída de quem não quer sair.
 
-## Como funciona a desocupação no leilão extrajudicial? {extrajudicial}
+1. **Quem pode pedir.** A regra dá a reintegração ao banco, a quem recebeu o crédito dele, a quem o suceder e também a quem compra o imóvel no leilão.
+2. **O que precisa mostrar.** Que a propriedade passou para o nome do banco, com o registro na matrícula.
+3. **A ordem.** A reintegração é concedida logo no começo do pedido, sem esperar o fim do processo.
+4. **O prazo para sair.** A ordem dá 60 dias para a [desocupação](/dicionario/desocupacao).
 
-**Resposta direta.** A lei é bem mais objetiva aqui. É assegurada ao credor fiduciário, ao seu cessionário, aos seus sucessores e **também ao adquirente do imóvel por força do leilão público** a reintegração na posse do imóvel, que **será concedida liminarmente**, para desocupação no prazo de 60 dias, desde que comprovada a consolidação da propriedade.
+E se o antigo dono estiver brigando na Justiça com o banco? Depois do leilão, as ações dele sobre as cláusulas do contrato ou sobre como foram feitos a cobrança e o leilão não impedem a reintegração e se resolvem em indenização. A exceção é a falta de notificação do antigo dono, que era quem devia ao banco: nesse caso, a regra não diz o que acontece, e não há resposta fechada.
 
-**O detalhe — e este é o ponto forte para o arrematante.** A lei acrescenta que, arrematado o imóvel, as ações judiciais que discutam as estipulações contratuais ou os requisitos procedimentais de cobrança e leilão — **excetuada a exigência de notificação do devedor** — não obstam a reintegração de posse, e serão resolvidas em perdas e danos.
+## Quanto tempo leva para o imóvel ficar livre?
 
-Traduzindo: o ex-proprietário pode processar o banco discutindo cláusulas ou o procedimento, e isso, em regra, não segura a sua reintegração. A exceção expressa é a notificação do devedor — o que confirma por que verificar as intimações antes do lance é tão importante.
+**Resposta direta.** O tempo até o imóvel ficar livre varia de caso para caso, e não existe uma média oficial. Na reintegração, o único prazo escrito na regra são os 60 dias que a ordem dá para desocupar.
 
-**Base legal.** [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), art. 30, *caput* e parágrafo único, com redação da [Lei 14.711/2023](https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm).
+Antes desses 60 dias vem o tempo de entrar com o pedido e de a ordem sair.
 
-## Quanto tempo leva para desocupar na prática? {extrajudicial}
+Para quem vai morar, cada mês sem a chave é mais um mês de aluguel, ou mais um mês na casa dos pais. Por isso a folga de tempo e de dinheiro entra na conta antes do lance.
 
-**Resposta direta.** A lei fixa 60 dias para a desocupação na reintegração do leilão extrajudicial, contados da decisão liminar. Mas o prazo real vai além disso: é preciso somar o tempo até a propositura da ação, a análise do pedido liminar pelo juízo, a expedição e o cumprimento do mandado pelo oficial de justiça — e eventuais incidentes.
+## E se quem mora lá é inquilino?
 
-**O detalhe — e aqui vale ser direto sobre o que não se sabe.** Não existe estatística pública consolidada de prazo médio de desocupação por tribunal. Qualquer número apresentado por aí como "média nacional" não tem fonte verificável atrás dele.
+**Resposta direta.** Se quem mora no imóvel de leilão é inquilino do antigo dono, existe uma regra própria: o aluguel pode ser encerrado com 30 dias para sair, a não ser que o banco tenha concordado por escrito com ele.
 
-O que se pode afirmar com segurança: o prazo legal é de 60 dias, enquanto o prazo real varia conforme o tribunal e a resistência do ocupante. Um planejamento financeiro conservador considera meses, não semanas.
+Essa regra tem condições. O aviso para encerrar o aluguel precisa ser feito em até 90 dias contados do registro do imóvel no nome do banco, e a condição precisa estar escrita numa cláusula própria, destacada, no contrato.
 
-## Posso negociar a saída amigavelmente?
+E aluguel contratado ou prorrogado por mais de 1 ano sem a concordância por escrito do banco não vale contra o banco nem contra quem o suceder.
 
-**Resposta direta.** Pode, e na prática é o caminho que resolve boa parte dos casos com mais rapidez e menos custo do que a via judicial. A negociação normalmente envolve um prazo razoável para a saída e, com frequência, um valor para auxílio de mudança.
+## Quem paga condomínio e IPTU enquanto o imóvel está ocupado?
 
-**O detalhe.** A conta é simples: se a via judicial custa tempo mais honorários mais custas mais diligências, e a negociação resolve por uma fração disso, a negociação é economicamente superior na maioria dos cenários. Ela também reduz o risco de o imóvel ser entregue danificado.
+**Resposta direta.** A regra diz que o antigo dono responde pelo [IPTU](/dicionario/iptu), pelo [condomínio](/dicionario/condominio), pelas taxas e pelos demais encargos do imóvel até a data em que o banco recebe a posse. Ela não fala do período depois disso nem de quem compra.
 
-**Na prática.** Vale registrar o acordo por escrito, com prazo, condições de entrega do imóvel e quitação recíproca.
+Mesmo com essa regra, no leilão extrajudicial ainda não existe uma regra única sobre quem acaba pagando o condomínio e o IPTU atrasados. O seguro é colocar esse valor na conta antes de decidir. Quando for lançado, o Argos vai trazer a consulta das dívidas de condomínio e IPTU de cada imóvel. Como descobrir as dívidas e o que muda em cada forma de venda da Caixa está em [imóvel da Caixa com dívida de condomínio](/blog/dividas-do-imovel-arrematado/).
 
-## E se houver inquilino com contrato de locação? {extrajudicial}
+## O que é a taxa de ocupação?
 
-**Resposta direta.** No regime da alienação fiduciária, se o imóvel estiver locado, a locação pode ser denunciada com prazo de 30 dias para desocupação, salvo se tiver havido concordância por escrito do credor fiduciário. A denúncia deve ser feita no prazo de 90 dias contados da consolidação da propriedade.
+**Resposta direta.** A taxa de ocupação é o valor que o antigo dono paga ao banco, ou a quem o suceder, por continuar no imóvel: 1% por mês sobre o valor do imóvel indicado no contrato para o leilão.
 
-**O detalhe.** Há uma regra adicional relevante: é ineficaz perante o credor fiduciário ou seus sucessores a contratação ou prorrogação de locação de imóvel alienado fiduciariamente por prazo superior a um ano sem concordância escrita do credor.
+Se o valor que a prefeitura usou para o [ITBI](/dicionario/itbi) quando o imóvel passou para o banco for maior que o do contrato, a taxa usa esse valor maior. Ela conta desde o registro do imóvel no nome do banco até a data em que o banco, ou quem o suceder, recebe a posse. Mês incompleto conta como mês.
 
-**Base legal.** [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), art. 27, § 7º; art. 37-B.
+**Exemplo ilustrativo.** Números hipotéticos, só para ver a conta:
 
-## Quem paga o condomínio e o IPTU enquanto o imóvel ainda está ocupado? {extrajudicial}
+| Item | Valor |
+| --- | --- |
+| Valor do imóvel no contrato, para o leilão | R$ 200.000 |
+| Taxa de ocupação por mês (1%) | R$ 2.000 |
+| Quatro meses entre o registro no nome do banco e a posse | R$ 8.000 |
 
-**Resposta direta.** No regime da alienação fiduciária, a lei é expressa: responde o **fiduciante** — o devedor — pelo pagamento dos impostos, taxas, contribuições condominiais e quaisquer outros encargos que recaiam ou venham a recair sobre o imóvel cuja posse tenha sido transferida ao fiduciário, **até a data em que o fiduciário vier a ser imitido na posse**.
+Quem compra pode cobrar essa taxa? A regra fala em quem suceder o banco, sem dizer com todas as letras se isso inclui quem compra no leilão. Por isso não conte com esse dinheiro na sua conta.
 
-**Base legal.** [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), art. 27, § 8º.
+## O que pôr na conta antes do lance?
 
-O regime dos débitos anteriores à arrematação é outro, e está em [dívidas do imóvel arrematado](/blog/dividas-do-imovel-arrematado/).
+**Resposta direta.** Antes do lance em imóvel de leilão ocupado, ponha na conta o tempo até a chave, o custo de morar em outro lugar enquanto isso e as dívidas que podem ficar com você.
 
-## O que é taxa de ocupação? {extrajudicial}
+1. **Crédito primeiro.** Se vai financiar, faça a análise de crédito antes de escolher o imóvel e antes de qualquer lance.
+2. **Procure o imóvel.** Procure o imóvel no [site de venda de imóveis da Caixa](https://venda-imoveis.caixa.gov.br). O que a Caixa diz sobre ocupação e sobre quem cuida da saída de quem mora lá está em [comprar imóvel de leilão para morar](/blog/comprar-imovel-de-leilao-para-morar/).
+3. **Some a folga.** Reserve dinheiro para mais alguns meses de aluguel e não marque a mudança para uma data fixa.
+4. **Levante as dívidas.** Pergunte o valor do condomínio atrasado ao condomínio e o do IPTU à prefeitura.
 
-**Resposta direta.** É o valor que o devedor fiduciante deve pagar ao credor fiduciário, ou a quem o suceder, pelo período em que continua ocupando o imóvel após a consolidação da propriedade. Corresponde a **1% ao mês, ou fração**, sobre o valor do imóvel estipulado no contrato para efeito de leilão, contado da consolidação da propriedade até a data da imissão na posse.
-
-**Base legal.** [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), art. 37-A, com redação da [Lei 14.711/2023](https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm).
-
-## Eu, como arrematante, posso cobrar a taxa de ocupação? {extrajudicial}
-
-**Resposta direta.** Sim. O art. 37-A dirige a obrigação ao credor fiduciário "ou a quem vier a sucedê-lo", e o STJ já reconheceu expressamente que o comprador do imóvel em leilão tem legitimidade para cobrar a taxa de ocupação.
-
-**Base.** STJ, 4ª Turma, REsp 1.622.102/SP, registrado no Informativo 592. No mesmo sentido, AgInt no REsp 1.819.415.
-
-**O detalhe — quatro cuidados que evitam cobrança indevida:**
-
-1. A cobrança do art. 37-A dirige-se ao **fiduciante** que permanece no imóvel — não a qualquer ocupante.
-2. O **locatário comum** não responde automaticamente pela taxa (STJ, REsp 1.966.030/SP).
-3. É preciso verificar a **divisão temporal** entre o período do credor e o período do comprador, além de eventual cessão do crédito, para não cobrar em duplicidade o mesmo intervalo.
-4. Contra terceiro ocupante que não seja o fiduciante, pode caber indenização ou aluguel por outro fundamento — mas não a taxa legal de 1%.
-
-**Na prática.** Isso muda o cálculo do investidor: o período de ocupação após a arrematação não é puro prejuízo. Existe um valor legalmente devido — 1% ao mês sobre o valor de referência do contrato — cuja cobrança tem respaldo jurisprudencial. O valor efetivamente recuperável varia conforme quem está no imóvel e a estrutura do caso.
-
-Os riscos de o próprio negócio ser questionado estão em [anulação da arrematação e riscos do arrematante](/blog/anulacao-de-arrematacao-riscos/), e o desenho geral do processo em [como funciona um leilão de imóveis](/blog/como-funciona-leilao-de-imoveis/).
+Quando for lançado, o Argos vai mostrar quanto aquele imóvel custa até a chave e se ele está ocupado. Quanto tempo a saída de quem mora lá vai levar no seu caso, o Argos não diz, porque esse tempo varia de caso para caso. Para montar o resto da conta item por item, veja [quanto custa comprar imóvel em leilão](/blog/quanto-custa-comprar-imovel-em-leilao/).
