@@ -1,99 +1,101 @@
 ---
-title: "Leilão extrajudicial de imóveis: como funciona, prazos e o que você assume"
+title: "Leilão extrajudicial de imóveis: como funciona e os prazos"
 slug: "leilao-extrajudicial-de-imoveis"
-description: "O leilão extrajudicial segue a Lei 9.514/97 e tem regras próprias de prazo, lance mínimo e desocupação. Guia completo com a base legal atualizada pela Lei 14.711/2023."
-keywordPrincipal: "leilões de imóveis extrajudiciais"
+description: "Leilão extrajudicial de imóveis: as etapas no cartório, os prazos do 1º e do 2º leilão e até quando o antigo dono pode recomprar a casa."
+keywordPrincipal: "leilão extrajudicial de imóveis"
 publishedAt: "2026-09-14"
-updatedAt: "2026-10-19"
+updatedAt: "2026-11-18"
 author: "Equipe Argos"
 reviewedBy: "Equipe editorial Argos"
-reviewedAt: "2026-09-14"
+reviewedAt: "2026-11-18"
 reviewType: "Revisão editorial e checagem de fontes"
 sources:
-  - title: "Alienação fiduciária de imóveis — Lei 9.514/1997"
-    url: "https://www.planalto.gov.br/ccivil_03/leis/l9514.htm"
-  - title: "Marco Legal das Garantias — Lei 14.711/2023"
-    url: "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm"
-  - title: "Código de Processo Civil — Lei 13.105/2015"
-    url: "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm"
+  - title: "Senado Federal: Lei 9.514/1997, alienação fiduciária de imóveis (texto compilado)"
+    url: "https://legis.senado.leg.br/norma/551390/publicacao/34619692"
+  - title: "Senado Federal: Lei 14.711/2023, Marco Legal das Garantias"
+    url: "https://legis.senado.leg.br/norma/37756699"
 cluster: "maior volume"
 modalidade: extrajudicial
 relacionados:
-  - leilao-de-imoveis-da-caixa-como-funciona
+  - imoveis-retomados-da-caixa
   - imovel-de-leilao-ocupado-desocupacao
-  - leilao-judicial-e-extrajudicial-diferencas
+  - leilao-de-imoveis-da-caixa-como-funciona
 status: published
-tags: ["leilão extrajudicial", "Lei 9.514", "alienação fiduciária"]
+tags: ["leilão extrajudicial", "alienação fiduciária", "imóveis da Caixa"]
+faq:
+  - q: "Leilão extrajudicial é só da Caixa?"
+    a: "Não. Qualquer financiamento com alienação fiduciária pode terminar num leilão extrajudicial, e essa garantia pode ser contratada por outros bancos, empresas e até pessoas. As regras são as mesmas qualquer que seja o credor; o que muda alguns prazos e mínimos é o financiamento ter sido para comprar ou construir a moradia de quem financiou."
+  - q: "O leilão extrajudicial pode ser pela internet?"
+    a: "Pode. As regras permitem que os leilões e os editais sejam feitos por meio eletrônico. Como participar de cada um, confira no edital."
+  - q: "O antigo dono recebe alguma coisa quando o imóvel é vendido?"
+    a: "Recebe o que sobrar. Se o imóvel é vendido por mais do que a dívida, as despesas e os encargos, o banco entrega a diferença ao antigo dono em até 5 dias depois da venda."
+  - q: "Se o leilão não cobrir a dívida, o antigo dono continua devendo?"
+    a: "Na regra geral, sim: o que faltar continua sendo dívida dele. Na casa financiada para comprar ou construir a moradia de quem financiou, se ninguém chega ao mínimo do 2º leilão, a dívida acaba e os dois lados ficam quites."
 ---
 
-## O que é um leilão extrajudicial de imóveis?
+O leilão extrajudicial de imóveis é a venda que o banco faz quando quem financiou a casa para de pagar, sem precisar de processo na Justiça para chegar ao leilão. As etapas passam pelo cartório de registro de imóveis, e a regra fixa prazos para pagar o atrasado, para os dois leilões e para a entrega da sobra.
 
-**Resposta direta.** É a venda pública de um imóvel promovida diretamente pelo credor, sem processo judicial, quando o devedor deixa de pagar um financiamento garantido por [alienação fiduciária](/dicionario/alienacao-fiduciaria). O credor consolida a propriedade em seu nome no cartório de registro de imóveis e, a partir daí, é obrigado por lei a levar o imóvel a leilão.
+## O que é leilão extrajudicial de imóveis?
 
-**O detalhe.** O ponto que quase ninguém explica: na alienação fiduciária, o banco **já é** o proprietário resolúvel do imóvel desde a assinatura do contrato. O comprador tem a posse direta e o direito de se tornar dono ao terminar de pagar. Quando ele não paga, o banco consolida a propriedade plena — e a lei o obriga a vender em leilão, não a ficar com o bem.
+**Resposta direta.** É o leilão de um imóvel que garantia um financiamento com [alienação fiduciária](/dicionario/alienacao-fiduciaria), feito pelo próprio credor depois que a dívida venceu e não foi paga. "Extrajudicial" quer dizer que as etapas até o leilão correm no cartório, e não num processo com juiz.
 
-**Base legal.** [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), arts. 22 a 27-A.
+Funciona assim porque, nesse tipo de financiamento, a casa fica no nome do banco como garantia até a última parcela. Quando a dívida acaba, essa propriedade do banco se desfaz e o imóvel fica de vez com quem pagou. Quando a dívida para no meio, o banco segue um caminho que a regra já deixa pronto.
 
-## Qual é o passo a passo e os prazos do leilão extrajudicial?
+Não é coisa só da Caixa: a regra deixa outros bancos, empresas e até pessoas usarem essa garantia. Se você quer entender de onde vêm os imóveis que a Caixa põe à venda, o post sobre [imóveis retomados da Caixa](/blog/imoveis-retomados-da-caixa/) conta essa história desde o começo.
 
-**Resposta direta.** Intimação do devedor para purgar a mora em 15 dias → não purgada, averbação da consolidação da propriedade em nome do credor → primeiro leilão em até 60 dias contados do registro da consolidação → se não houver lance suficiente, segundo leilão nos 15 dias seguintes.
+## Quais são os prazos do leilão extrajudicial?
 
-**O detalhe.** Prazo a prazo:
+**Resposta direta.** Os prazos do leilão extrajudicial são: 15 dias para quem financiou pagar depois de intimado, 30 dias até o imóvel passar para o nome do banco (na casa financiada para morar), até 60 dias para o 1º leilão e mais 15 dias para o 2º.
 
-| Etapa | Prazo | Norma |
+| Etapa | O que acontece | Prazo da regra |
 |---|---|---|
-| Prazo de carência contratual antes da intimação | O do contrato; se o contrato não estabelecer, 15 dias | art. 26, §§ 2º e 2º-A |
-| Purgação da mora após a intimação | 15 dias | art. 26, § 1º |
-| Averbação da consolidação (financiamento de imóvel residencial do devedor) | 30 dias após expirar o prazo de purgação | art. 26-A, § 1º |
-| Primeiro leilão | até 60 dias do registro da consolidação | art. 27, *caput* |
-| Segundo leilão | nos 15 dias seguintes ao primeiro | art. 27, § 1º |
-| Entrega do saldo que sobejar ao devedor | 5 dias da venda | art. 27, § 4º |
+| Carência | Tempo de atraso antes do aviso oficial | O que está no contrato; se ele não diz, 15 dias |
+| Intimação | O cartório, a pedido do banco, avisa quem financiou para pagar o atrasado, os juros, as multas, os tributos e o condomínio | 15 dias para pagar |
+| Consolidação | O cartório registra na [matrícula](/dicionario/matricula) que o imóvel passou a ser do banco | Na casa financiada para comprar ou construir a moradia: 30 dias depois do fim do prazo para pagar. Nos outros casos: depois do fim do prazo para pagar, quando o banco paga o ITBI, o imposto da prefeitura na troca de dono |
+| 1º leilão | O banco põe o imóvel à venda | Até 60 dias depois do registro da consolidação |
+| 2º leilão | Acontece se ninguém deu lance suficiente no 1º | Nos 15 dias seguintes ao 1º |
+| Sobra | O que passar da dívida e dos custos vai para o [antigo dono](/dicionario/antigo-dono) | Até 5 dias depois da venda |
 
-**Base legal.** [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), arts. 26, 26-A e 27, com as alterações da [Lei 14.711/2023](https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm).
+Se quem financiou não é encontrado nem no imóvel nem no último endereço que deu, o aviso pode sair em jornal, e o prazo para pagar começa a contar da última publicação.
 
-**Na prática.** O prazo do primeiro leilão passou de 30 para 60 dias com a Lei 14.711/2023. Textos publicados antes de outubro de 2023 ainda repetem o prazo antigo — inclusive artigos que aparecem bem posicionados hoje.
+**Exemplo ilustrativo.** Imagine uma casa financiada para morar, em que a intimação foi entregue num dia que vamos chamar de dia 0. Somando os números da regra, e supondo que cada etapa use o prazo inteiro e que o cartório registre no dia: o prazo para pagar termina no dia 15, a consolidação é registrada no dia 45, o 1º leilão acontece até o dia 105 e o 2º, até o dia 120. Na vida real, o tempo pode ser outro: o leilão pode vir antes do fim do prazo, e a intimação ou o registro podem demorar mais.
 
-## O ex-dono ainda pode recuperar o imóvel depois da consolidação?
+## Até quando o antigo dono pode pagar ou recomprar?
 
-**Resposta direta.** Depois da averbação da consolidação da propriedade, não cabe mais purgação da mora. O que resta ao devedor é o **[direito de preferência](/dicionario/direito-preferencia)**: até a data da realização do segundo leilão, ele pode adquirir o imóvel pelo preço correspondente ao valor da dívida somado às despesas, prêmios de seguro, encargos legais, contribuições condominiais e tributos — inclusive o ITBI e o laudêmio pagos para a consolidação —, arcando ainda com os encargos e despesas da nova aquisição.
+**Resposta direta.** Na casa financiada para morar, o antigo dono pode pagar as parcelas atrasadas e as despesas e manter o contrato até a consolidação ser registrada. Depois disso, ele ainda tem preferência para comprar o imóvel de volta até a data do 2º leilão.
 
-**O detalhe.** Essa é uma das mudanças mais relevantes da Lei 14.711/2023 e ainda não chegou a boa parte do conteúdo publicado. Antes, discutia-se amplamente a possibilidade de purgar a mora até a arrematação. Hoje o marco é claro: averbou a consolidação, acabou a purgação.
+Para recomprar, ele precisa pagar a dívida, as despesas, o seguro, os tributos (inclusive o [ITBI](/dicionario/itbi) que o banco pagou para passar o imóvel para o nome dele), o condomínio e os custos da cobrança e do leilão, além dos custos da nova compra. Esse é o [direito de preferência](/dicionario/direito-preferencia).
 
-**Base legal.** [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), art. 27, § 2º-B, com redação da [Lei 14.711/2023](https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm); art. 26-A, § 2º.
+Para quem quer comprar, o recado é de calendário: até a data do 2º leilão, o imóvel ainda pode voltar para o antigo dono. A regra também manda avisá-lo das datas, dos horários e dos locais dos leilões, por correspondência nos endereços do contrato, inclusive o e-mail que estiver nele.
 
-**Na prática, para você que quer arrematar:** existe uma janela real em que o negócio pode não se concretizar. Entre a consolidação e o segundo leilão, o ex-proprietário pode exercer a preferência e o imóvel sai do leilão. Não conte com o imóvel antes da arrematação estar formalizada.
+## O que muda entre o 1º e o 2º leilão?
 
-## Sou obrigado a ser comunicado das datas do leilão? E o devedor?
+**Resposta direta.** No 1º leilão, o lance precisa chegar ao valor do imóvel escrito no contrato do financiamento, ou ao valor que a prefeitura usou para cobrar o ITBI, se esse for maior. No 2º, o mínimo é a dívida inteira mais as despesas, o seguro, os tributos e o condomínio.
 
-**Resposta direta.** O devedor precisa ser comunicado. A lei determina que as datas, horários e locais dos leilões sejam comunicados ao devedor e, se for o caso, ao terceiro fiduciante, por correspondência dirigida aos endereços constantes do contrato, inclusive o endereço eletrônico.
+As despesas do 2º leilão incluem o cartório, os anúncios e a [comissão do leiloeiro](/dicionario/comissao-leiloeiro). Na regra geral, se ninguém chega a esse valor, o banco pode aceitar, se quiser, um lance de pelo menos metade da avaliação do imóvel. Para a casa financiada para comprar ou construir a moradia, a regra especial não fala nesse lance de metade. Como a dívida pode ser menor que o valor do contrato, o mínimo do 2º leilão pode sair mais baixo. A conta com números, com o mínimo de cada leilão e o que sobra para o antigo dono, está no post sobre [imóveis retomados da Caixa](/blog/imoveis-retomados-da-caixa/).
 
-**O detalhe.** Isso importa diretamente para você, arrematante: falha nessa comunicação é um dos fundamentos mais comuns de ação anulatória de leilão extrajudicial. É um item que merece verificação antes do lance.
+Os dois leilões podem ser pela internet, com o edital publicado também por meio eletrônico.
 
-Sobre as consequências dessa falha, porém, os tribunais divergem — e é importante não simplificar. Não é correto dizer que a falta de intimação anula o leilão automaticamente: há decisões que exigem, para anular, a prova de que o devedor teve efetivamente frustrado o direito de purgar a mora ou o de preferência. Trate o item como risco a verificar e dimensionar, não como nulidade certa nem como formalidade irrelevante.
+## E se ninguém comprar no 2º leilão?
 
-**Base legal.** [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), art. 27, § 2º-A.
+**Resposta direta.** Se ninguém chega ao mínimo do 2º leilão (e, na regra geral, o banco não aceita um lance menor), o banco fica livre para vender o imóvel do jeito que quiser. Na casa financiada para comprar ou construir a moradia de quem financiou, a dívida acaba ali, com os dois lados quites.
 
-## Quem paga o IPTU e o condomínio se o imóvel for arrematado na primeira praça?
+Assim, um imóvel que não vendeu nos leilões pode voltar depois em outra forma de venda. As formas que a Caixa usa estão explicadas em [como funcionam os leilões de imóveis da Caixa](/blog/leilao-de-imoveis-da-caixa-como-funciona/).
 
-**Resposta direta.** É a pergunta mais mal resolvida do leilão extrajudicial, e merece ser respondida com honestidade: a Lei 9.514 organiza a dedução dos encargos internamente, mas não fecha a questão do lance mínimo da primeira praça nem do saldo que sobrar.
+Fora da casa financiada para comprar ou construir a moradia, a regra é outra: se o banco aceita um lance menor que a dívida, o antigo dono continua devendo o resto.
 
-**O detalhe — o que a lei efetivamente diz:**
+## E as dívidas de condomínio e IPTU?
 
-- O **§ 1º do art. 27** fixa como mínimo da primeira praça o valor do imóvel estipulado no contrato — **sem somar IPTU e condomínio**.
-- O **§ 2º** inclui dívida, despesas, prêmios de seguro, encargos legais, tributos e contribuições condominiais no mínimo do **segundo** leilão.
-- Os **§§ 3º e 4º** permitem que, realizada a venda, o credor deduza dívida, despesas e encargos antes de entregar ao fiduciante o que sobejar.
-- O **§ 8º** atribui ao fiduciante os tributos e as despesas condominiais até a imissão do fiduciário na posse.
+**Resposta direta.** No leilão extrajudicial de imóveis, ainda não existe uma regra única sobre quem paga [condomínio](/dicionario/condominio) e [IPTU](/dicionario/iptu) atrasados. O mais seguro é colocar esse valor na conta antes de decidir.
 
-**O que fica sem resposta clara:** como esses encargos interferem no lance mínimo da primeira praça, e quem suporta o saldo anterior perante o município e o condomínio quando o preço não é suficiente.
+A regra diz que quem financiou responde pelo IPTU e pelo condomínio, e, depois da consolidação, pelos impostos, taxas e condomínio até o banco receber a posse do imóvel. Ela não diz o que acontece com o atrasado para quem compra. Leia o edital de cada leilão, porque o tratamento das dívidas muda de um para outro, e veja [o que conferir nas dívidas do imóvel arrematado](/blog/dividas-do-imovel-arrematado/).
 
-Essa lacuna é real. No levantamento jurisprudencial encerrado em agosto de 2026, não foi localizado precedente publicado do STJ decidindo diretamente a combinação de venda efetiva em primeira praça extrajudicial, passivo anterior e preço insuficiente. O REsp 1.654.112/SP descreve a mecânica das duas praças, mas não resolve a responsabilidade perante o município e o condomínio. Instituições como a Caixa transferem os débitos ao comprador nos editais — o que é alocação contratual de risco, e não solução dada pelos tribunais.
+Se o imóvel estiver ocupado, entra mais um prazo na conta: o da saída de quem mora lá. Quanto tempo isso leva varia de caso para caso, e [o post sobre imóvel ocupado](/blog/imovel-de-leilao-ocupado-desocupacao/) mostra o que a regra garante a quem compra.
 
-**Na prática.** Em primeira praça, levante IPTU e condomínio antes do lance e considere o passivo integral no cálculo, salvo comprovação escrita de quitação ou retenção suficiente do preço.
+## Por onde começar?
 
-## Se o imóvel for vendido por menos que a dívida, o ex-dono ainda deve?
+**Resposta direta.** Comece pela análise de crédito, antes de escolher o imóvel e antes de qualquer lance. Com ela aprovada, você sabe até quanto pode ir.
 
-**Resposta direta.** A consequência muda conforme o tipo de operação. Na regra geral, se o produto do leilão não for suficiente para pagar a dívida, as despesas e os encargos, o devedor continua obrigado pelo saldo remanescente. Nos financiamentos para aquisição ou construção de imóvel residencial do devedor, se no segundo leilão não houver lance que atinja o mínimo legal, a dívida é considerada extinta, com recíproca quitação.
+Depois, procure os imóveis no [site de venda de imóveis da Caixa](https://venda-imoveis.caixa.gov.br) ou no edital do leilão que você encontrou. Na matrícula, veja se a consolidação já foi registrada; no edital, as datas dos dois leilões e o que ele diz sobre dívidas e ocupação. Para essa leitura, veja [como ler o edital e a matrícula](/blog/como-ler-edital-de-leilao-e-matricula/).
 
-**Base legal.** [Lei 9.514/1997](https://www.planalto.gov.br/ccivil_03/leis/l9514.htm), art. 27, § 5º-A e art. 26-A, §§ 3º e 4º, incluídos pela [Lei 14.711/2023](https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14711.htm).
-
-Para entender onde essa modalidade se encaixa no desenho geral, veja [como funciona um leilão de imóveis](/blog/como-funciona-leilao-de-imoveis/).
+Quando for lançado, o Argos vai mostrar o total até a chave dos imóveis da Caixa e se o imóvel está ocupado, e vai trazer a consulta das dívidas de condomínio e IPTU, para você comparar a conta inteira e não só o lance. A parcela do financiamento, quem calcula é o simulador do banco.
